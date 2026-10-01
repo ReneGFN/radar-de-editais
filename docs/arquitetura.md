@@ -8,7 +8,7 @@ Atualização: 2026-10-01. Laboratório de avaliação de RAG para pequenos forn
 |---|---|
 | Coleta PNCP, manifesto, extração, embeddings e carga | Implementados |
 | Busca híbrida, filtros e citações de trechos | Implementados; não há resposta gerada |
-| Ampliação de 10 para 30 editais em vários estados | Evidências em reports/amostra-30.json após conclusão |
+| Ampliação de 10 para 30 editais em vários estados | Preparação, carga e restauração verificadas; evidências em reports/ |
 | Perguntas de referência e avaliação de qualidade | Planejadas, exigem revisão humana |
 | Geração Groq e validação de citações | Planejadas; modelo específico a definir |
 | API FastAPI e interface React/TypeScript | Planejadas |

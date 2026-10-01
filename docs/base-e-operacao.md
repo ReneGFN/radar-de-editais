@@ -23,7 +23,9 @@ requirements-lock.txt  versões instaladas
 
 ## Como funciona
 
-Execução verificada: snapshot `b1ee54ef84e97078`, 10 editais, 14 PDFs, 682 páginas e 4.664 trechos/vetores. Dezesseis páginas requerem revisão por pouco texto. Carga repetida sem duplicação, filtros e offsets conferidos no banco; backup restaurado em banco separado com os mesmos 4.664 trechos. Banco saudável; medição após verificação de 93,79 MiB dentro do limite de 768 MiB. Medições pontuais não são benchmark de latência ou garantia de consumo máximo.
+Execução ampliada de 2026-10-01: snapshot `4f8ddffaa01b6a20`, 30 editais de 11 estados/cinco regiões, 49 PDFs, 2.525 páginas e 15.773 vetores carregados. Setenta e uma páginas sinalizadas por pouco texto. Carga idempotente, filtros e offsets verificados; backup restaurado com mesmos 15.773 trechos. A base anterior também permanece no banco. Reaproveitados 4.664 vetores compatíveis. Medição pontual após carga/restauração: banco próximo de 184 MiB dentro do limite de 768 MiB, sem benchmark de desempenho. [Verificação atual](../reports/verificacao-local.json).
+
+Execução inicial histórica de 2026-09-30: snapshot `b1ee54ef84e97078`, 10 editais, 14 PDFs, 682 páginas e 4.664 trechos/vetores. Dezesseis páginas para revisão. Carga repetida sem duplicação, filtros, offsets e restauração verificados. Evidências em `reports/snapshots/b1ee54ef84e97078/`; não confundir contagens desta base com as da ampliação.
 
 1. Consulta pregões eletrônicos por estado no PNCP. A base ampliada preserva dez de SP e acrescenta dois de PR, RS, MG, RJ, BA, PE, GO, MT, PA e AM. Cotas geográficas e ordem da API formam amostra de conveniência, sem representatividade. A API e fontes podem mudar; manifesto fixa URLs e hashes da captura.
 2. Exige um edital PDF e limita anexos, bytes, páginas e origem de downloads. Apenas documentos de contratação tipificados são coletados. Propostas e documentos de participantes não entram. PDFs mistos podem incluir itens além de informática: o conjunto de avaliação deve escolher explicitamente os itens de informática.

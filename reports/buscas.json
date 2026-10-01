@@ -1,0 +1,22 @@
+{
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "status": "smoke_test_not_quality_metric",
+  "results": [
+    {
+      "pncp_id": "02291730000114-1-000117/2026",
+      "retrieved": 5,
+      "edital_filter": true,
+      "keyword_hits": 10
+    },
+    {
+      "pncp_id": "00394452000103-1-020757/2026",
+      "retrieved": 5,
+      "edital_filter": true,
+      "keyword_hits": 3
+    }
+  ],
+  "snapshots_preserved": {
+    "4f8ddffaa01b6a20": 15773,
+    "b1ee54ef84e97078": 4664
+  }
+}

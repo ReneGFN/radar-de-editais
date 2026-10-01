@@ -7,7 +7,7 @@ O projeto investiga se pequenos fornecedores conseguem encontrar prazos, especif
 ## Estado em 2026-10-01
 
 - **Base ampliada preparada:** 30 editais/contratações, 11 estados, cinco regiões; 49 PDFs, 2.525 páginas e 15.773 trechos.
-- **Carga ampliada:** em execução local; não confundir preparação com carga verificada.
+- **Carga ampliada verificada:** 15.773 vetores no PostgreSQL; repetição sem duplicação, filtros e offsets conferidos. Backup restaurado em banco separado com os mesmos 15.773 trechos. Reaproveitados 4.664 vetores compatíveis da base inicial.
 - **Base inicial verificada:** 10 editais, 14 PDFs e 4.664 vetores; carga idempotente, filtros, offsets e backup/restauração conferidos. Evidências históricas em `reports/snapshots/b1ee54ef84e97078/`.
 - **Implementados:** coleta, extração, embeddings locais, PostgreSQL/pgvector e busca híbrida coordenada por LangChain.
 - **Planejados:** geração com Groq, perguntas de referência revisadas, avaliação, API/interface e explorador 2D/3D.
@@ -33,6 +33,8 @@ API FastAPI e interface React/TypeScript estão planejadas. O mesmo núcleo serv
 Setor: computadores, monitores e acessórios. Mantidos dez editais de SP, com dois adicionais de PR, RS, MG, RJ, BA, PE, GO, MT, PA e AM. Amostra de conveniência por cotas, **sem representatividade estatística**. Há editais mistos; a avaliação deve identificar os itens de informática.
 
 [Manifesto final](datasets/manifests/4f8ddffaa01b6a20.json) · [Distribuição da amostra](reports/amostra-30.json) · [Preparação](reports/preparacao.json) · [Qualidade por documento](reports/qualidade-30.json)
+
+[Carga](reports/carga.json) · [Verificação e restauração](reports/verificacao-local.json) · [Busca em outros estados](reports/buscas.json). O relatório de preparação registra essa etapa; a carga e verificação registram o estado posterior. Nenhum desses testes mede acerto das respostas.
 
 Metadados registram fonte oficial, data e hash do PDF. Consulta da API não comprova vigência ou oportunidade aberta; datas e condições exigem conferência no documento. Anexos/retificações são preservados sem presumir substituição automática.
 
