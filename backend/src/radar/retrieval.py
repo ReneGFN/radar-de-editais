@@ -48,7 +48,7 @@ def branch(inputs, semantic):
                             params+(inputs['query'],inputs['query'])).fetchall()
 
 
-def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY, query_profile=DEFAULT_QUERY_PROFILE, selection_profile='rrf'):
+def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY, query_profile=DEFAULT_QUERY_PROFILE, selection_profile='rrf', context_profile='chunk'):
     """Mesmo núcleo da busca, com rankings para diagnóstico e comparação."""
     if not isinstance(query,str) or not query.strip() or len(query)>1000:
         raise ValueError("Consulta inválida")
@@ -60,6 +60,8 @@ def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy
         raise ValueError('Perfil de consulta inválido')
     if selection_profile not in ('rrf','coverage'):
         raise ValueError('Perfil de seleção inválido')
+    if context_profile not in ('chunk','page_window'):
+        raise ValueError('Perfil de contexto inválido')
     started = perf_counter()
     inputs = {"query":query,"snapshot":snapshot,"edital":edital,'lexical_strategy':lexical_strategy}
     if query_profile != 'original':
@@ -83,8 +85,11 @@ def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy
     documents = [Document(page_content=row[1], metadata={"id":row[0],"pncp_id":row[2],
         "document_sequence":row[3],"page":row[4],"start":row[5],"end":row[6],"url":row[7],"score":score})
         for row,score in selected]
+    if context_profile == 'page_window':
+        from .context import expand_documents
+        documents = expand_documents(documents,snapshot)
     return documents, {'mode': mode, 'lexical_strategy':lexical_strategy,'query_profile':query_profile,
-                       'selection_profile':selection_profile,'effective_query':inputs['query'],'filters':inputs.get('filters',{}), 'latency_ms': (perf_counter()-started)*1000,
+                       'context_profile':context_profile,'context_characters':sum(len(d.page_content) for d in documents),'selection_profile':selection_profile,'effective_query':inputs['query'],'filters':inputs.get('filters',{}), 'latency_ms': (perf_counter()-started)*1000,
                        'candidate_ids': {name:[row[0] for row in rows] for name,rows in rankings.items()}}
 
 

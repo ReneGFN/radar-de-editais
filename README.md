@@ -136,3 +136,9 @@ Mediana da geração das sete saídas aceitas: 1.022,92 ms. Tokens das saídas a
 Respostas completas/ficha de revisão privadas, sem sobrescrever a ficha do piloto: nome contém hash da referência. [Resumo operacional](reports/generation-reserve-summary-v1.json) · [Achados por caso](reports/generation-reserve-review-v1.json) · [Configuração/autorização](reports/generation-reserve-protocol-v1.json).
 
 Prioridade seguinte: preservar cabeçalhos/identidade de item ao montar contexto e testar seleção de passagens literais sem abreviação. Não relaxar validador para aceitar citações alteradas. Qualquer ajuste exige regressão e outra reserva independente; extração de tabelas e essa mudança de citação ainda não foram implementadas.
+
+## Contexto ampliado e fonte literal — experimental
+
+Implementadas opções de janela da página original e evidência selecionada por ID, com passagem literal inserida pelo servidor. Mesmo corpus e ranking: cobertura completa híbrida 29/30 →30/30 nas antigas e 8/10 →9/10 no desenvolvimento; Hit@5 igual. Nova geração dos mesmos dez casos: nove respostas aceitas e uma fonte inválida bloqueada, antes seis respostas/uma insuficiência/três rejeições. **Não equivale a 90% de acerto humano.**
+
+Tokens de entrada nos sete casos aceitos comuns: 10.273 →18.994. Revisão humana/independência pendentes, padrão anterior preservado. 85 testes passaram; pip-audit sem avisos conhecidos auditáveis. [Método, custos operacionais e limitações](docs/contexto-e-citacoes.md) · [Segurança desta atualização](reports/seguranca-janelas-2026-10-01.md).

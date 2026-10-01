@@ -1,0 +1,28 @@
+{
+  "variant": "source_window",
+  "authorization": "same_ten_cases_explicitly_authorized_in_chat_followed_by_user_instruction_to_continue",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63",
+  "context_profile": "page_window",
+  "citation_mode": "source_id",
+  "model": "openai/gpt-oss-120b",
+  "max_documents": 5,
+  "context_window_max_chars": 2000,
+  "reference_answers_sent": false,
+  "request_code_hashes_recorded": false,
+  "code_sha256_captured_during_running_batch": {
+    "backend/src/radar/context.py": "e3a8744d7ab4f8bcabf519cc5a612eb21b3528ae3e2539e7dab404812c397236",
+    "backend/src/radar/citations.py": "b0f7f90597b1b2e8f1262a996ead1daaf109ce7a01ebb4d17cd8fa6197a2752f",
+    "backend/src/radar/generation.py": "52afeed88aea0ca92126aa4920770623c1ca8bd4436502e1f1da30269cbeab13",
+    "backend/src/radar/retrieval.py": "a627170f277b664ebde1db5addb1143230a52298c15a271156aff019cc58a555",
+    "ops/evaluate-generation.py": "7f8b3ecf3ab30e337fd675874bd727eef972bf02e4557883add1b05443097de9"
+  },
+  "checkpoint_preserves_baseline": true,
+  "changes_two_factors_in_generation": true,
+  "post_batch_changes": {
+    "long_anchor_padding_fix": "preserves anchor up to 2000 characters; evaluated anchors max 638 unchanged",
+    "validation_diagnostic_filename": "new variants and unique suffix prevent overwrite; baseline diagnostic of reserve-10 had been overwritten by this batch",
+    "final_context_sha256": "3c54fa37eedd630d0818abbe7b54a36f92c3f4668721ba31643f7c0e742b54a6",
+    "final_generation_sha256": "52c48170882e75187303aae5062e3d03726ab241d956970ac7a1cf8b1a833e89"
+  }
+}

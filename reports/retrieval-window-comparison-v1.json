@@ -1,0 +1,165 @@
+{
+  "experiment": "same_ranking_page_window",
+  "new_api_calls_in_retrieval": 0,
+  "groups": {
+    "pilot": {
+      "before_report": "retrieval-structured-v4.json",
+      "after_report": "retrieval-window-pilot-v1.json",
+      "before": {
+        "keyword": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.788888888888889,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 59.891449999895485,
+          "latency_p95_ms": 80.26639999980034
+        },
+        "semantic": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 28,
+          "known_chunk_hit_at_5": 0.9333333333333333,
+          "known_chunk_mrr_at_5": 0.6911111111111111,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 63.2084000001214,
+          "latency_p95_ms": 80.24519999980839
+        },
+        "hybrid": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.7938888888888889,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 63.432199999851946,
+          "latency_p95_ms": 77.84599999968123
+        }
+      },
+      "after": {
+        "keyword": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.788888888888889,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 89.00230000108422,
+          "latency_p95_ms": 117.54730000029667
+        },
+        "semantic": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 28,
+          "known_chunk_hit_at_5": 0.9333333333333333,
+          "known_chunk_mrr_at_5": 0.6911111111111111,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 85.35875000052329,
+          "latency_p95_ms": 134.13220000074944
+        },
+        "hybrid": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.7938888888888889,
+          "all_known_quotes_supported_at_5": 1.0,
+          "latency_median_ms": 89.1116000002512,
+          "latency_p95_ms": 117.72910000217962
+        }
+      },
+      "changes_in_quote_coverage": {
+        "keyword": {
+          "gains": [],
+          "regressions": []
+        },
+        "semantic": {
+          "gains": [],
+          "regressions": []
+        },
+        "hybrid": {
+          "gains": [
+            "pilot-11"
+          ],
+          "regressions": []
+        }
+      }
+    },
+    "development": {
+      "before_report": "retrieval-reserve-v1.json",
+      "after_report": "retrieval-window-reserve-v1.json",
+      "before": {
+        "keyword": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 8,
+          "known_chunk_hit_at_5": 0.8,
+          "known_chunk_mrr_at_5": 0.65,
+          "all_known_quotes_supported_at_5": 0.7,
+          "latency_median_ms": 71.33324999995239,
+          "latency_p95_ms": 116.96020000090357
+        },
+        "semantic": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 7,
+          "known_chunk_hit_at_5": 0.7,
+          "known_chunk_mrr_at_5": 0.575,
+          "all_known_quotes_supported_at_5": 0.7,
+          "latency_median_ms": 71.33394999982556,
+          "latency_p95_ms": 102.08520000014687
+        },
+        "hybrid": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 9,
+          "known_chunk_hit_at_5": 0.9,
+          "known_chunk_mrr_at_5": 0.6733333333333333,
+          "all_known_quotes_supported_at_5": 0.8,
+          "latency_median_ms": 82.37469999949099,
+          "latency_p95_ms": 111.10120000012103
+        }
+      },
+      "after": {
+        "keyword": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 8,
+          "known_chunk_hit_at_5": 0.8,
+          "known_chunk_mrr_at_5": 0.65,
+          "all_known_quotes_supported_at_5": 0.9,
+          "latency_median_ms": 76.63439999851107,
+          "latency_p95_ms": 111.95489999954589
+        },
+        "semantic": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 7,
+          "known_chunk_hit_at_5": 0.7,
+          "known_chunk_mrr_at_5": 0.575,
+          "all_known_quotes_supported_at_5": 0.7,
+          "latency_median_ms": 97.7766000014526,
+          "latency_p95_ms": 109.96089999753167
+        },
+        "hybrid": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 9,
+          "known_chunk_hit_at_5": 0.9,
+          "known_chunk_mrr_at_5": 0.6733333333333333,
+          "all_known_quotes_supported_at_5": 0.9,
+          "latency_median_ms": 100.02190000159317,
+          "latency_p95_ms": 130.2639999994426
+        }
+      },
+      "changes_in_quote_coverage": {
+        "keyword": {
+          "gains": [
+            "reserve-06",
+            "reserve-07"
+          ],
+          "regressions": []
+        },
+        "semantic": {
+          "gains": [],
+          "regressions": []
+        },
+        "hybrid": {
+          "gains": [
+            "reserve-06"
+          ],
+          "regressions": []
+        }
+      }
+    }
+  }
+}

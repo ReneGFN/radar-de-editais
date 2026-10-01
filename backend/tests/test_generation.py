@@ -77,7 +77,8 @@ def test_invalid_key_format_rejected(monkeypatch):
 
 
 @pytest.mark.parametrize('provider_error',[False,True])
-def test_sdk_origin_and_private_context_boundary(monkeypatch,provider_error):
+@pytest.mark.parametrize('citation_mode',['model_quote','source_id'])
+def test_sdk_origin_and_private_context_boundary(monkeypatch,provider_error,citation_mode):
     import langchain_groq
     import radar.generation as generation
     from types import SimpleNamespace
@@ -90,7 +91,9 @@ def test_sdk_origin_and_private_context_boundary(monkeypatch,provider_error):
                     status_code=400
                     body={'error':{'code':'json_validate_failed','message':'PRIVATE_SDK_BODY'}}
                 raise ProviderError('PRIVATE_SDK_BODY')
-            return {'parsed':payload(),'parsing_error':None,
+            value=payload()
+            if citation_mode=='source_id':value['claims'][0]['evidence'][0].pop('quote')
+            return {'parsed':value,'parsing_error':None,
                     'raw':SimpleNamespace(usage_metadata={'input_tokens':10,'output_tokens':5})}
     class Model:
         def with_structured_output(self,*args,**kwargs):return Flow()
@@ -102,12 +105,12 @@ def test_sdk_origin_and_private_context_boundary(monkeypatch,provider_error):
     monkeypatch.setenv('GROQ_API_KEY','gsk_'+'a'*24)
     if provider_error:
         with pytest.raises(generation.GenerationFailure) as error:
-            generation.answer('Qual garantia?','snapshot','edital',free_plan_confirmed=True)
+            generation.answer('Qual garantia?','snapshot','edital',free_plan_confirmed=True,citation_mode=citation_mode)
         assert error.value.kind=='ProviderError: json_validate_failed'
         assert error.value.status_code==400
         assert 'PRIVATE_SDK_BODY' not in str(error.value)
         return
-    result=generation.answer('Qual garantia?','snapshot','edital',free_plan_confirmed=True)
+    result=generation.answer('Qual garantia?','snapshot','edital',free_plan_confirmed=True,citation_mode=citation_mode)
     assert captured['base_url']=='https://api.groq.com'
     assert captured['max_retries']==0
     assert captured['model_kwargs']['include_reasoning'] is False
@@ -116,9 +119,10 @@ def test_sdk_origin_and_private_context_boundary(monkeypatch,provider_error):
     assert result['generation_calls']==1
 
 
-def test_missing_evidence_does_not_contact_model(monkeypatch):
+@pytest.mark.parametrize('citation_mode',['model_quote','source_id'])
+def test_missing_evidence_does_not_contact_model(monkeypatch,citation_mode):
     import radar.generation as generation
     monkeypatch.setattr(generation,'retrieve_with_trace',lambda *a,**k:([],{}))
     monkeypatch.setattr(generation,'key',lambda:pytest.fail('Credential read without context'))
-    result=generation.answer('Qual garantia?','snapshot','edital',free_plan_confirmed=True)
+    result=generation.answer('Qual garantia?','snapshot','edital',free_plan_confirmed=True,citation_mode=citation_mode)
     assert result['status']=='insufficient_evidence' and result['generation_calls']==0

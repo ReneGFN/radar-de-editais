@@ -24,7 +24,7 @@ def summarize(checkpoint):
     accepted={c['case_id'] for c in cases}
     rejected={e['case_id'] for e in checkpoint['errors'] if (e.get('cause_type') or '').startswith('ValueError: ')}
     tested=accepted | rejected
-    return {'model':checkpoint['model'],'snapshot_id':checkpoint['snapshot_id'],
+    return {'variant':checkpoint.get('variant','baseline'),'model':checkpoint['model'],'snapshot_id':checkpoint['snapshot_id'],
         'reference_sha256':checkpoint['reference_sha256'],
         'free_plan':'user_confirmed_not_independently_audited',
         'completed':len(cases),'tested_cases':len(tested),
@@ -44,9 +44,10 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference',type=Path)
     parser.add_argument('--report',type=Path,required=True)
+    parser.add_argument('--variant',choices=('baseline','source_window'),default='baseline')
     args=parser.parse_args()
     digest=hashlib.sha256(args.reference.read_bytes()).hexdigest()
-    path=private_root()/'generation'/f'evaluation-{digest[:16]}.json'
+    path=private_root()/'generation'/f"evaluation-{digest[:16]}{'-source_window' if args.variant=='source_window' else ''}.json"
     checkpoint=json.loads(path.read_text(encoding='utf-8'))
     if checkpoint['reference_sha256']!=digest or checkpoint['model']!=MODEL:
         raise ValueError('Checkpoint incompatível')

@@ -145,3 +145,7 @@ Como os erros da reserva agora orientaram a criação do experimento, as dez per
 ```powershell
 .\.venv\Scripts\python.exe ops/evaluate-retrieval.py datasets/evaluation/reserve-candidates-v1.json datasets/manifests/4f8ddffaa01b6a20.json --query-profile structured --lexical-strategy any --selection-profile coverage --report reports/retrieval-coverage-reserve-repeat.json
 ```
+
+## Ampliação de contexto na página original
+
+120 consultas locais: híbrida preservou Hit@5 29/30 e 9/10; cobertura de todas as passagens passou 29/30 →30/30 e 8/10 →9/10, sem regressões nessa medida. Sem novo vetor/corpus/ranking. Janela acrescenta texto vizinho na mesma página e mantém offsets originais. Não reconstrói tabela e não prova ligação correta entre todos os itens. [Implementação, reprodução e limites](contexto-e-citacoes.md) · [Comparação](../reports/retrieval-window-comparison-v1.json).

@@ -90,10 +90,12 @@ def key():
     return value
 
 
-def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='structured'):
+def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='structured',context_profile='chunk',citation_mode='model_quote'):
     if not free_plan_confirmed:
         raise ValueError('Confirme o plano gratuito antes de chamar Groq')
-    docs,trace=retrieve_with_trace(query,snapshot,edital,query_profile=query_profile)
+    if citation_mode not in ('model_quote','source_id'):
+        raise ValueError('Modo de citação inválido')
+    docs,trace=retrieve_with_trace(query,snapshot,edital,query_profile=query_profile,context_profile=context_profile)
     if not docs:
         return {'status':'insufficient_evidence','answer':'Não encontrei evidência no escopo informado.',
                 'claims':[],'citations':[],'generation_calls':0,'retrieval':trace,'semantic_support':'requires_review'}
@@ -108,13 +110,22 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
     model=ChatGroq(model=MODEL,api_key=key(),base_url='https://api.groq.com',temperature=0,max_tokens=1600,
                    reasoning_effort='low',model_kwargs={'include_reasoning':False},
                    timeout=40,max_retries=0,verbose=False)
-    flow=model.with_structured_output(SCHEMA,method='json_schema',strict=True,include_raw=True)
+    schema=SCHEMA;system=SYSTEM
+    if citation_mode=='source_id':
+        from .citations import source_schema
+        schema=source_schema(SCHEMA)
+        system += '\nNeste modo evidence contém somente chunk_id, sem quote. Selecione somente fontes que sustentem cada afirmação; o servidor exibirá a passagem original completa. Não reproduza nem abrevie citações no JSON.'
+    flow=model.with_structured_output(schema,method='json_schema',strict=True,include_raw=True)
     started=perf_counter()
     try:
-        result=flow.invoke([SystemMessage(content=SYSTEM),HumanMessage(content=user)])
+        result=flow.invoke([SystemMessage(content=system),HumanMessage(content=user)])
         if result.get('parsing_error') or result.get('parsed') is None:
             raise ValueError('Resposta estruturada inválida')
-        validated=validate_answer(result['parsed'],docs)
+        parsed=result['parsed']
+        if citation_mode=='source_id':
+            from .citations import attach_literal_sources
+            parsed=attach_literal_sources(parsed,docs)
+        validated=validate_answer(parsed,docs)
     except Exception as exc:
         # Mensagens de erro do SDK podem conter requisição/resposta: não exportá-las.
         known={'Formato de resposta inválido','Estado de resposta inválido','Afirmações inválidas','Afirmação inválida','Afirmação sem evidência','Fonte não recuperada','Citação inventada','Estado incompatível com afirmações','Resposta vazia, longa ou com padrão de segredo','Resposta estruturada inválida'}
@@ -129,12 +140,13 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
             if 'result' in locals() and result.get('parsed') is not None:
                 from .config import emit_json
                 import hashlib
-                emit_json(private_root()/'generation'/('validation-'+hashlib.sha256(query.encode()).hexdigest()[:16]+'.json'),
+                from uuid import uuid4
+                emit_json(private_root()/'generation'/('validation-'+hashlib.sha256(query.encode()).hexdigest()[:16]+'-'+context_profile+'-'+citation_mode+'-'+uuid4().hex+'.json'),
                           {'parsed':result['parsed'],'usage':getattr(result.get('raw'),'usage_metadata',None),
                            'error':str(exc)})
         raise GenerationFailure(kind,getattr(exc,'status_code',None)) from None
     raw=result['raw']
-    validated.update(model=MODEL,generation_calls=1,retrieval=trace,
+    validated.update(citation_mode=citation_mode,context_profile=context_profile,model=MODEL,generation_calls=1,retrieval=trace,
                      generation_latency_ms=(perf_counter()-started)*1000,
                      usage=raw.usage_metadata or {},free_plan_confirmed=True,
                      billing='free_plan_user_confirmed_not_independently_verified')

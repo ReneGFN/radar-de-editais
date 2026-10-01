@@ -15,6 +15,7 @@ def main():
     parser.add_argument('--confirm-free-plan',action='store_true')
     parser.add_argument('--limit',type=int,default=40)
     parser.add_argument('--interval',type=float,default=35)
+    parser.add_argument('--variant',choices=('baseline','source_window'),default='baseline')
     args=parser.parse_args()
     if not args.confirm_free_plan or not 1<=args.limit<=40 or args.interval<30:
         raise ValueError('Confirme plano gratuito, até 40 casos e intervalo mínimo de 30 segundos')
@@ -22,9 +23,9 @@ def main():
     if any(c['review_status']!='approved' for c in ref['cases']):
         raise ValueError('Conjunto não aprovado')
     digest=hashlib.sha256(raw).hexdigest()
-    path=private_root()/'generation'/f'evaluation-{digest[:16]}.json'
+    path=private_root()/'generation'/f"evaluation-{digest[:16]}{'-source_window' if args.variant=='source_window' else ''}.json"
     result=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {
-        'model':MODEL,'reference_sha256':digest,'snapshot_id':ref['snapshot_id'],
+        'variant':args.variant,'model':MODEL,'reference_sha256':digest,'snapshot_id':ref['snapshot_id'],
         'free_plan_user_confirmed':True,'answers':[],'errors':[],'semantic_review':'pending'}
     if result['reference_sha256']!=digest or result['model']!=MODEL:
         raise ValueError('Checkpoint incompatível')
@@ -37,7 +38,9 @@ def main():
         if i:time.sleep(args.interval)
         perf_start=time.perf_counter()
         try:
-            value=answer(case['question'],ref['snapshot_id'],case['pncp_id'],free_plan_confirmed=True)
+            value=answer(case['question'],ref['snapshot_id'],case['pncp_id'],free_plan_confirmed=True,
+                         context_profile='page_window' if args.variant=='source_window' else 'chunk',
+                         citation_mode='source_id' if args.variant=='source_window' else 'model_quote')
         except Exception as exc:
             result['errors'].append({'case_id':case['id'],'error_type':type(exc).__name__,
                                      'cause_type':getattr(exc,'kind',None),'http_status':getattr(exc,'status_code',None),

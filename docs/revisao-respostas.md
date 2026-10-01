@@ -53,3 +53,21 @@ Mediana da geração das sete saídas aceitas: 1.022,92 ms. Tokens das saídas a
 Respostas completas/ficha de revisão privadas, sem sobrescrever a ficha do piloto: nome contém hash da referência. [Resumo operacional](../reports/generation-reserve-summary-v1.json) · [Achados por caso](../reports/generation-reserve-review-v1.json) · [Configuração/autorização](../reports/generation-reserve-protocol-v1.json).
 
 Prioridade seguinte: preservar cabeçalhos/identidade de item ao montar contexto e testar seleção de passagens literais sem abreviação. Não relaxar validador para aceitar citações alteradas. Qualquer ajuste exige regressão e outra reserva independente; extração de tabelas e essa mudança de citação ainda não foram implementadas.
+
+## Resultado da geração com janela e fonte literal — 2026-10-01
+
+Nos mesmos dez casos autorizados: nove answered aceitos e um bloqueado por identificadores de fonte abreviados/inválidos (reserve-10). Antes: seis answered, uma insufficient_evidence e três bloqueios. Sem tentativas extras para esconder falha. Não houve bloqueio por quote abreviada na nova variante; passage original é inserida pelo servidor. Isso não certifica sustentação semântica.
+
+Revisão do assistente observou referência e condições alinhadas em reserve-01–07/09, incluindo condições completas da garantia em reserve-05 e citações na página do lote 3 em reserve-06/07. reserve-08 responde os valores esperados mas cita páginas repetidas; identidade do item exige conferência. Nenhuma nota humana atribuída. Nove saídas aceitas não comprovam 90% de precisão de respostas.
+
+Nas sete saídas aceitas comuns às duas execuções, tokens de entrada passaram de 10.273 para 18.994 (+84,9%). São medições de uma execução, sem repetições; quantidade exata de fontes escolhidas varia. Totais da variante (nove aceitas): 24.911 entrada e 2.987 saída; mediana modelo 1.314,38 ms. Consumo da rejeição/faturamento não confirmado. Plano gratuito informado pelo usuário. Não chamar volume de tokens de custo monetário comprovado.
+
+A geração mudou contexto e modo de evidência conjuntamente. O experimento de recuperação isolou a janela; a geração não separa causalmente o efeito das duas mudanças. Referências, corpus e checkpoint antigo preservados, sem crescimento real da base. Novas opções permanecem experimentais; padrão anterior mantido até avaliação humana e outro conjunto independente.
+
+Após o lote, corrigido caso limite: o preenchimento anterior da janela podia cortar âncoras maiores que 1.650 caracteres. Padding agora prioriza conservar a âncora inteira dentro de 2.000. Âncoras avaliadas tinham no máximo 638 caracteres, portanto as janelas medidas não mudam com essa correção. 85 testes passaram. Protocolo registra hashes usados durante lote e hashes finais.
+
+Diagnóstico privado de rejeição era nomeado só pela pergunta e o candidato de reserve-10 do primeiro lote foi sobrescrito pelo segundo. Checkpoints/métricas antigos permaneceram íntegros. Corrigida nomeação futura com contexto, modo de citação e sufixo único; não afirmar preservação retroativa daquele diagnóstico.
+
+Próximo experimento: rótulos curtos de fonte mapeados pelo servidor, mantendo IDs reais na rastreabilidade; vínculo explícito de itens/cabeçalhos e teste independente de tabelas em nova reserva. Ainda não implementados.
+
+[Resumo operacional](../reports/generation-window-summary-v1.json) · [Revisão e comparação](../reports/generation-window-review-v1.json) · [Protocolo](../reports/generation-window-protocol-v1.json).

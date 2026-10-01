@@ -1,0 +1,125 @@
+{
+  "variant": "source_window",
+  "human_correctness_rate": null,
+  "review_method": "assistant_comparison_with_approved_reference_and_private_citations",
+  "rows": [
+    {
+      "case_id": "reserve-01",
+      "state": "answered",
+      "assistant_review": "no_apparent_divergence",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-02",
+      "state": "answered",
+      "assistant_review": "no_apparent_divergence",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-03",
+      "state": "answered",
+      "assistant_review": "no_apparent_divergence",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-04",
+      "state": "answered",
+      "assistant_review": "no_apparent_divergence",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-05",
+      "state": "answered",
+      "assistant_review": "no_apparent_divergence",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-06",
+      "state": "answered",
+      "assistant_review": "no_apparent_divergence",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-07",
+      "state": "answered",
+      "assistant_review": "no_apparent_divergence",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-08",
+      "state": "answered",
+      "assistant_review": "source_item_identity_review",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-09",
+      "state": "answered",
+      "assistant_review": "no_apparent_divergence",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-10",
+      "state": "rejected_source_identifier",
+      "assistant_review": "rejected",
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    }
+  ],
+  "improvements_observed": [
+    "reserve-05 warranty conditions now included",
+    "reserve-06 storage quote from same requested lot page",
+    "reserve-07 answered instead of insufficient",
+    "reserve-08 and reserve-09 passed literal validation"
+  ],
+  "remaining": [
+    "reserve-08 uses repeated pages; confirm identity of requested item",
+    "reserve-10 shortened or invalid source identifiers rejected"
+  ],
+  "baseline_accepted_cases": 7,
+  "variant_accepted_cases": 9,
+  "baseline_answered": 6,
+  "variant_answered": 9,
+  "baseline_rejected": 3,
+  "variant_rejected": 1,
+  "shared_accepted_case_ids": [
+    "reserve-01",
+    "reserve-02",
+    "reserve-03",
+    "reserve-04",
+    "reserve-05",
+    "reserve-06",
+    "reserve-07"
+  ],
+  "paired_input_tokens_baseline": 10273,
+  "paired_input_tokens_variant": 18994,
+  "promotion": "not_performed_human_review_and_independent_test_pending"
+}

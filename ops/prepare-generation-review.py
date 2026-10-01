@@ -9,11 +9,12 @@ from radar.config import private_root
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference',type=Path)
+    parser.add_argument('--variant',choices=('baseline','source_window'),default='baseline')
     args=parser.parse_args()
     raw=args.reference.read_bytes();reference=json.loads(raw)
     digest=hashlib.sha256(raw).hexdigest()
     root=private_root()/'generation'
-    checkpoint=json.loads((root/f'evaluation-{digest[:16]}.json').read_text(encoding='utf-8'))
+    checkpoint=json.loads((root/f"evaluation-{digest[:16]}{'-source_window' if args.variant=='source_window' else ''}.json").read_text(encoding='utf-8'))
     completed={a['case_id']:a for a in checkpoint['answers']}
     errors={}
     for error in checkpoint['errors']:errors.setdefault(error['case_id'],[]).append(error)
@@ -34,7 +35,7 @@ def main():
         for error in errors.get(case['id'],[]):
             lines.append('- Tentativa com erro: '+str(error.get('cause_type') or error['error_type']))
         lines.extend(['','**Conferência de Renê:** pendente.',''])
-    path=root/f'revisao-respostas-{digest[:16]}.md'
+    path=root/f"revisao-respostas-{digest[:16]}{'-source_window' if args.variant=='source_window' else ''}.md"
     path.write_text('\n'.join(lines),encoding='utf-8')
     print(json.dumps({'private_review':str(path),'accepted':len(completed)}))
 

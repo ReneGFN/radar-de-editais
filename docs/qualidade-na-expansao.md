@@ -70,3 +70,7 @@ A amostra é pequena e concentrada em três estados. Hit@5 de 90% não é 90% de
 ## Seleção experimental avaliada
 
 O bônus de cobertura lexical não melhorou cobertura completa da híbrida nem do conjunto novo. RRF continua padrão. Ganho semântico reserve-08 veio com regressão de completude reserve-06. As dez perguntas agora são desenvolvimento, pois os erros orientaram o experimento; reservar novos editais para avaliar a próxima mudança. [Comparação e reprodução](resultados-recuperacao.md#experimento-cobertura-de-termos-na-seleção--2026-10-01).
+
+## Janela e evidência literal avaliadas
+
+Ganho de cobertura híbrida medido, com nove respostas aceitas e uma fonte bloqueada nos dez casos de desenvolvimento. A janela não reconstrói células e fonte verdadeira não comprova cada afirmação. Consumo aumentou; humanos e nova reserva precisam confirmar ganho de correção. Nenhuma promoção automática ocorreu. [Comparação e limites](contexto-e-citacoes.md).
