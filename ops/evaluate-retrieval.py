@@ -23,7 +23,7 @@ def main():
     parser.add_argument('--lexical-strategy', choices=('all','any'), default='all')
     parser.add_argument('--query-profile',choices=('original','focused','structured'),default='original')
     parser.add_argument('--selection-profile',choices=('rrf','coverage'),default='rrf')
-    parser.add_argument('--context-profile',choices=('chunk','page_window'),default='chunk')
+    parser.add_argument('--context-profile',choices=('chunk','page_window','item_structure'),default='chunk')
     args = parser.parse_args()
     ref_raw = args.reference.read_bytes()
     manifest_raw = args.manifest.read_bytes()
@@ -83,7 +83,7 @@ def main():
             rows[mode][-1].update(effective_query=trace['effective_query'],filters=trace['filters'])
         print(json.dumps({'cases_done':i+1,'total':len(cases)}),flush=True)
     code_paths = ['backend/src/radar/retrieval.py','backend/src/radar/evaluation.py','backend/src/radar/query.py',
-                  'ops/evaluate-retrieval.py','ops/validate-reference.py','backend/src/radar/reranking.py','backend/src/radar/context.py']
+                  'ops/evaluate-retrieval.py','ops/validate-reference.py','backend/src/radar/reranking.py','backend/src/radar/context.py','backend/src/radar/item_structure.py']
     report = {'executed_at_utc':datetime.now(timezone.utc).isoformat(),
         'snapshot_id':snapshot,'reference_sha256':hashlib.sha256(ref_raw).hexdigest(),
         'manifest_sha256':hashlib.sha256(manifest_raw).hexdigest(),

@@ -1,0 +1,33 @@
+{
+  "state": "frozen_before_execution",
+  "scope": "stage2_retrieval_comparison",
+  "profiles": [
+    "page_window",
+    "item_structure"
+  ],
+  "snapshot_id": "1446c44aca18011a",
+  "modes": [
+    "keyword",
+    "semantic",
+    "hybrid"
+  ],
+  "queries": 240,
+  "answerable_cases": 40,
+  "refusal_cases_excluded_from_retrieval_accuracy": 10,
+  "repetitions": 1,
+  "source_scope": "selected_pncp_not_global",
+  "code_sha256": {
+    "backend/src/radar/retrieval.py": "54c0127703a969ee0999229f2fc4cde73dddaf3bb57f4abb4c9209383a53d702",
+    "backend/src/radar/item_structure.py": "7e0c3de49329ca27e75cfa6179d9fa590eeef92c51f639aa7ffb834efdf381f7",
+    "backend/src/radar/generation.py": "8177b0be6c3fd2170951919f63aca98c4dc98b1dfacf7ce324639216edfd36cf",
+    "backend/src/radar/evaluation.py": "83fcb416845040f860a7e96f23f7319b2fb3518d6ceea8ff8a0fad76d779b4ea",
+    "ops/evaluate-retrieval.py": "112d18a5cc27fa11bdb16c9b785f925107de02ae5045f63b69fc93c61273ba24"
+  },
+  "reference_sha256": {
+    "datasets/evaluation/pilot-candidate-v1.json": "9b9a5bb89a9a3511c5a5e334227495b56b4985c0e8fe8f23e64ae5e9f54f535a",
+    "datasets/evaluation/independent-bound-v1.json": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f"
+  },
+  "human_accuracy": null,
+  "known_source_anchor": "original_chunk_id_for_derived_passages_not_exhaustive",
+  "new_reference_role": "development_after_previous_failure_inspection_not_held_out"
+}

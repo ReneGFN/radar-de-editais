@@ -9,7 +9,7 @@ from radar.config import private_root
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference',type=Path)
-    parser.add_argument('--variant',choices=('baseline','source_window','alias_window'),default='baseline')
+    parser.add_argument('--variant',choices=('baseline','source_window','alias_window','alias_items'),default='baseline')
     args=parser.parse_args()
     raw=args.reference.read_bytes();reference=json.loads(raw)
     digest=hashlib.sha256(raw).hexdigest()

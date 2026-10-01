@@ -7,15 +7,17 @@ from .storage import connect
 
 EXPLICIT = re.compile(r"(?im)^\s*(?:\d+(?:\.\d+)+\s+)?item\s+(\d{1,4})(?![\d.])\b[^\n]*")
 ROW = re.compile(r"(?m)^\s*(\d{1,4})[ \t]*(?:[-–|][ \t]*)?(?:\n|[ \t]+[A-ZÀ-Ý])")
-UNIT = re.compile(r"\b(?:unid(?:ade)?s?\.?|und\.?|p[eç]ças?|kits?)\b\s*\d+",re.I)
+UNIT = re.compile(r"\b(?:unid(?:ade)?s?\.?|und\.?|un\.?|p[eç]ças?|kits?)\b\s*\d+",re.I)
 RESET = re.compile(r"(?im)^\s*(?:ANEXO\s+[IVX\d]+|LOTE\s+\d+|TERMO DE REFER[EÊ]NCIA)\b")
 
 
 def markers(text):
     found=[(m.start(),m.end(),str(int(m.group(1))),'explicit') for m in EXPLICIT.finditer(text)]
-    for m in ROW.finditer(text):
-        # Só interpreta número isolado como linha se houver unidade próxima.
-        if UNIT.search(text[m.end():m.end()+900]) and not any(abs(m.start()-a)<10 for a,_,_,_ in found):
+    rows=list(ROW.finditer(text))
+    for i,m in enumerate(rows):
+        boundary=rows[i+1].start() if i+1<len(rows) else len(text)
+        # Quantidade deve pertencer ao bloco da linha, nunca ao item seguinte.
+        if UNIT.search(text[m.end():boundary]) and not any(abs(m.start()-a)<10 for a,_,_,_ in found):
             found.append((m.start(),m.end(),str(int(m.group(1))),'table_row'))
     return sorted(found)
 
@@ -52,8 +54,25 @@ def diverse(documents,limit=5):
             if m.get('item_number') and (m['pncp_id'],m['document_sequence'],m['item_number'])==(n['pncp_id'],n['document_sequence'],n.get('item_number')) and ' '.join(doc.page_content.split())==' '.join(old.page_content.split()):
                 duplicate=True;break
             if (m['pncp_id'],m['document_sequence'],m['page'])!=(n['pncp_id'],n['document_sequence'],n['page']):continue
+            if m.get('item_number')!=n.get('item_number'):continue
             overlap=max(0,min(m['end'],n['end'])-max(m['start'],n['start']))
-            if overlap/max(1,min(m['end']-m['start'],n['end']-n['start']))>=.6:duplicate=True;break
+            if overlap/max(1,min(m['end']-m['start'],n['end']-n['start']))>=.6:
+                left=min(m['start'],n['start']);right=max(m['end'],n['end'])
+                if right-left<=2000:
+                    start=max(m['start'],n['start']);end=min(m['end'],n['end'])
+                    if doc.page_content[start-m['start']:end-m['start']]!=old.page_content[start-n['start']:end-n['start']]:
+                        raise ValueError('Sobreposicao literal divergente')
+                    content=old.page_content
+                    if m['start']<n['start']:content=doc.page_content[:n['start']-m['start']]+content
+                    if m['end']>n['end']:content+=doc.page_content[n['end']-m['start']:]
+                    origins=set(n.get('source_chunk_ids',[n.get('source_chunk_id',n['id'])]))|set(m.get('source_chunk_ids',[m.get('source_chunk_id',m['id'])]))
+                    meta=dict(n,start=left,end=right,source_chunk_ids=sorted(origins))
+                    meta['id']=hashlib.sha256(f"{sorted(origins)}:{left}:{right}".encode()).hexdigest()
+                    if 'quantity_candidates' in meta:meta['quantity_candidates']=[{'quote':q.group(0),'start':left+q.start(),'end':left+q.end()} for q in UNIT.finditer(content)]
+                    selected[selected.index(old)]=Document(page_content=content,metadata=meta)
+                    duplicate=True;break
+                # Se a união excede o teto, conserva ambas quando trazem extremidades novas.
+                if m['start']>=n['start'] and m['end']<=n['end']:duplicate=True;break
         if not duplicate:selected.append(doc)
         if len(selected)>=limit:break
     return selected

@@ -1,0 +1,7 @@
+{
+  "snapshot_id": "1446c44aca18011a",
+  "malicious_scope": "no_sources",
+  "inexistent_scope": "no_sources",
+  "writes": 0,
+  "limitation": "local_SQL_scope_check_not_PDF_prompt_injection_test"
+}

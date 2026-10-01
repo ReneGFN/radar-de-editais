@@ -1,0 +1,2971 @@
+{
+  "executed_at_utc": "2026-10-01T22:26:06.524952+00:00",
+  "snapshot_id": "1446c44aca18011a",
+  "reference_sha256": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f",
+  "manifest_sha256": "8c050e30a83508bb4292ebb9d14735ecb087e8c5e982fbfe8526c886f7c4cb55",
+  "code_sha256": {
+    "backend/src/radar/retrieval.py": "54c0127703a969ee0999229f2fc4cde73dddaf3bb57f4abb4c9209383a53d702",
+    "backend/src/radar/evaluation.py": "83fcb416845040f860a7e96f23f7319b2fb3518d6ceea8ff8a0fad76d779b4ea",
+    "backend/src/radar/query.py": "c69ecc9fc52bcee9e9d85e76c042286f4e7a1565c78537a1bff051d7f6d38a2f",
+    "ops/evaluate-retrieval.py": "112d18a5cc27fa11bdb16c9b785f925107de02ae5045f63b69fc93c61273ba24",
+    "ops/validate-reference.py": "f425a0948435504b0c254ef30ca65ef26d275cf01cd7f70a7ca774e2829dc232",
+    "backend/src/radar/reranking.py": "9df7e4038376c612614c618416a0cc2b9ffd302dfaec5e92ab11ac565283be17",
+    "backend/src/radar/context.py": "3c54fa37eedd630d0818abbe7b54a36f92c3f4668721ba31643f7c0e742b54a6",
+    "backend/src/radar/item_structure.py": "7e0c3de49329ca27e75cfa6179d9fa590eeef92c51f639aa7ffb834efdf381f7"
+  },
+  "database_chunks": 18554,
+  "postgresql": "PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+  "python": "3.12.14",
+  "dependencies": {
+    "langchain-core": "1.6.6",
+    "fastembed": "0.8.1",
+    "psycopg": "3.3.6",
+    "pgvector": "0.5.0"
+  },
+  "embedding": {
+    "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "dimensions": 384,
+    "max_tokens": 128,
+    "files": {
+      "config.json": "c8ec081fdad2df991bf5abbf18418fec7a5cdaa421f60ffb060a30040b8c376f",
+      "model_optimized.onnx": "634d0f66c29dc934c8fa72b8a4fe91dd4d420a22f1d82a241058d4316e659a99",
+      "special_tokens_map.json": "8c785abebea9ae3257b61681b4e6fd8365ceafde980c21970d001e834cf10835",
+      "tokenizer.json": "fa685fc160bbdbab64058d4fc91b60e62d207e8dc60b9af5c002c5ab946ded00",
+      "tokenizer_config.json": "0666eebf692422757e1dddf3c9fb1ded73ba3dc726c5828671fc89e45bf3609f"
+    }
+  },
+  "model_startup_and_warmup_ms": 2194.1255000019737,
+  "protocol": {
+    "top_k": 5,
+    "candidates_per_branch": 10,
+    "rrf_constant": 60,
+    "context_profile": "item_structure",
+    "window_before_chars": 350,
+    "window_after_chars": 650,
+    "window_max_chars": 2000,
+    "selection_profile": "rrf",
+    "coverage_bonus": 0,
+    "query_rewrite": true,
+    "query_profile": "structured",
+    "lexical_strategy": "any",
+    "model_warmup_excluded_from_query_latencies": true,
+    "mode_order": "rotating_per_case",
+    "repetitions": 1,
+    "latency_percentile": "nearest_rank",
+    "labels": "known_chunks_and_same_source_page_quotes_not_exhaustive",
+    "dataset_role": "first_independent_document_growth_reference",
+    "reference_format": "page_offsets_v1",
+    "quote_coverage": "union_of_literal_offsets_on_same_page",
+    "known_chunk_note": "representative_overlap_anchor_not_full_quote",
+    "scope": "selected_pncp_id_not_global_edital_discovery"
+  },
+  "generation_calls": 0,
+  "provider_api_cost": 0,
+  "local_compute_cost": "not_estimated",
+  "refusal_cases_not_executed": 0,
+  "generation_quality": "not_evaluated",
+  "summary": {
+    "keyword": {
+      "cases": 10,
+      "known_chunk_hits_at_5": 6,
+      "known_chunk_hit_at_5": 0.6,
+      "known_chunk_mrr_at_5": 0.36666666666666664,
+      "all_known_quotes_supported_at_5": 0.4,
+      "latency_median_ms": 118.6135000007198,
+      "latency_p95_ms": 173.63839999961783
+    },
+    "semantic": {
+      "cases": 10,
+      "known_chunk_hits_at_5": 4,
+      "known_chunk_hit_at_5": 0.4,
+      "known_chunk_mrr_at_5": 0.2833333333333333,
+      "all_known_quotes_supported_at_5": 0.4,
+      "latency_median_ms": 142.0729500005109,
+      "latency_p95_ms": 168.72240000157035
+    },
+    "hybrid": {
+      "cases": 10,
+      "known_chunk_hits_at_5": 5,
+      "known_chunk_hit_at_5": 0.5,
+      "known_chunk_mrr_at_5": 0.37,
+      "all_known_quotes_supported_at_5": 0.5,
+      "latency_median_ms": 127.69864999972924,
+      "latency_p95_ms": 167.13189999791211
+    }
+  },
+  "results": {
+    "keyword": [
+      {
+        "case_id": "independent-01",
+        "pncp_id": "32512501000143-1-000385/2026",
+        "expected_chunk_ids": [
+          "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c"
+        ],
+        "retrieved": [
+          {
+            "id": "80853270bfb64e5b5d716dbbae6e6552e8cdb43947cac8d066e3bcf2a3cbdaf5",
+            "source_chunk_id": "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 894,
+            "end": 910,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0,
+            "anchor_start": 735,
+            "anchor_end": 1100,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 53,
+            "item_header_start": 894,
+            "item_recognition": "table_row",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "6d5d9bc6bba42532cf62342b5ba2a300e60f64bda2a6505f74ad0f0443c3ac80",
+            "source_chunk_id": "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 1065,
+            "end": 1077,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0,
+            "anchor_start": 735,
+            "anchor_end": 1100,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 53,
+            "item_header_start": 1065,
+            "item_recognition": "table_row",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "e22eeb6c7b72d042ff407387b39094d89809ca449bca156657459168643f91fc",
+            "49e410ef4e70fb81366eef78d24e560e7761edd0cf18febc7b31714fb5c55228",
+            "54043037a2d9349a07614f18b253fe2aa6cb060b75907a4216bb8c7e53eb03f4",
+            "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c",
+            "6672efd24102792fb53dfc0b72cac485461a7096384a75a9d67ae9b412af84c4",
+            "1fb7c287c69ef3b862df8243e873e6ccca0d9d68c1c6dfd812d727a31a31536a",
+            "42b7fd8c5962198e149e95e6a21872965bb43c258001e7333735c1920cbcd951",
+            "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "0ea4bc06be196fc4a25e35eb35e6b503cb87a89828f24abc724b3813be3d85f2",
+            "3b6cb24ea87c31ec7c702b1f983378c589da51553470c652f141997fcbb53768"
+          ]
+        },
+        "latency_ms": 147.75139999983367,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "tipo tamanho mínimo monitor computador desktop 1 material eletrônico",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-02",
+        "pncp_id": "32512501000143-1-000385/2026",
+        "expected_chunk_ids": [
+          "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+          "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+          "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e",
+          "5e76f599387e53cfe8333e62576909612fb6bb6e2663c45f714c99a2c2ee3449"
+        ],
+        "retrieved": [
+          {
+            "id": "699235b68ca3d4e4deef5a83c0ea62904196df7814190dc2c1f83a368003b3f2",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 17,
+            "start": 0,
+            "end": 1439,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 318,
+            "anchor_end": 789,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "0ea4bc06be196fc4a25e35eb35e6b503cb87a89828f24abc724b3813be3d85f2",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 2,
+            "start": 0,
+            "end": 994,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 12,
+            "anchor_end": 344,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 45,
+            "start": 0,
+            "end": 847,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 346,
+            "anchor_end": 688,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "5e76f599387e53cfe8333e62576909612fb6bb6e2663c45f714c99a2c2ee3449",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 46,
+            "start": 6,
+            "end": 580,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 356,
+            "anchor_end": 570,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "bf2ad4da0bcfdb2718712198f28f0437f9d9357b663ccf9b797648ae62dce306",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 4,
+            "start": 530,
+            "end": 1893,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 880,
+            "anchor_end": 1275,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "699235b68ca3d4e4deef5a83c0ea62904196df7814190dc2c1f83a368003b3f2",
+            "0ea4bc06be196fc4a25e35eb35e6b503cb87a89828f24abc724b3813be3d85f2",
+            "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+            "5e76f599387e53cfe8333e62576909612fb6bb6e2663c45f714c99a2c2ee3449",
+            "bf2ad4da0bcfdb2718712198f28f0437f9d9357b663ccf9b797648ae62dce306",
+            "6e73575459cc8789bf08fd2bc915b14e21776fdb5f0ef790faea6efe8f3f748b",
+            "7dc5424cf5ebab5b2c3cb18dc9191de867dc846c25ef1ebafde9647f2b3e5773",
+            "83d8f156a2ab8c099a15bd5de4272c7248779cf50d3cadae0d96520a699bd9e2",
+            "0df65c377224690b24f2e93ef6b0dd1a9eb67bd96c2dba4b2a52f853bb2c9762",
+            "3636628ea07a4998720a7e318733895dbfe86f7b8b90810625f1a133e06d1dba"
+          ]
+        },
+        "latency_ms": 120.89860000196495,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 3,
+        "reciprocal_rank_at_k": 0.3333333333333333,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "notebooks estão ampla concorrência cota MEI ME EPP",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-03",
+        "pncp_id": "76279975000162-1-000083/2026",
+        "expected_chunk_ids": [
+          "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908"
+        ],
+        "retrieved": [
+          {
+            "id": "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 24,
+            "start": 294,
+            "end": 1589,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 644,
+            "anchor_end": 939,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "f2aab83690f7261ce730c2ce7d90139967d09b828fd25932ca27526a7198b045",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 23,
+            "start": 760,
+            "end": 2107,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 1110,
+            "anchor_end": 1480,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "3ef7aba0a2a61dcfd0462ce7453a76a410593c11b08b884427353cd5fa198084",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 35,
+            "start": 0,
+            "end": 1160,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 4,
+            "anchor_end": 510,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "bfa77a7cc7f66924dd9865e1e5fae6c06bf3dbe3a0ada9c854c3f97fb3f7fecf",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 32,
+            "start": 0,
+            "end": 1147,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 4,
+            "anchor_end": 497,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "01219e219f5dae4ebd1a49a0ad6053ca26905fec7c5ce922b02f6cc0bd292d8a",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 17,
+            "start": 0,
+            "end": 1065,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 4,
+            "anchor_end": 415,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "f2aab83690f7261ce730c2ce7d90139967d09b828fd25932ca27526a7198b045",
+            "f339a2fb3d959e57921bc24b854f597f57edf4aac6e600143f6240d80b5e5415",
+            "3ef7aba0a2a61dcfd0462ce7453a76a410593c11b08b884427353cd5fa198084",
+            "bfa77a7cc7f66924dd9865e1e5fae6c06bf3dbe3a0ada9c854c3f97fb3f7fecf",
+            "01219e219f5dae4ebd1a49a0ad6053ca26905fec7c5ce922b02f6cc0bd292d8a",
+            "0218d0850693706ba4d7ccf46f0384acb50beac131c1bdaf95212bbc2204066c",
+            "06381994d11149d4c3f48fb41908abc8446a5e2a1616b32cf12252b3420e1da5",
+            "0884801198ce79af7655720e42769f8fc637f2ac44a9e40b3d95411f0a60496b",
+            "1428ed407fc270295cd5038507125a31f91dcbb251126445bd072e47741d9f63"
+          ]
+        },
+        "latency_ms": 92.19710000252235,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "desktops 04 Prefeitura pretende adquirir mínimos memória RAM armazenamento SSD",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-04",
+        "pncp_id": "76279975000162-1-000083/2026",
+        "expected_chunk_ids": [
+          "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908"
+        ],
+        "retrieved": [
+          {
+            "id": "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 24,
+            "start": 294,
+            "end": 1589,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 644,
+            "anchor_end": 939,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 24,
+            "start": 861,
+            "end": 2197,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 1211,
+            "anchor_end": 1547,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "05275a01915420e1e80fb865a0e2922489d14e412e3a1a9a550ddd01e32e29fe",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 25,
+            "start": 901,
+            "end": 1953,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 1251,
+            "anchor_end": 1541,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "21472b64d9055806b9b95a986a724975304ef2b8a0b66a6e2f971e45b6a02b94",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 23,
+            "start": 1072,
+            "end": 2107,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 1422,
+            "anchor_end": 1780,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "3562a7242f350a45aa5a56a8f8512ecaae6ae8ba33ec843d1f5512efc9e4bf13",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 26,
+            "start": 1533,
+            "end": 2193,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 1883,
+            "anchor_end": 2181,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908",
+            "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "05275a01915420e1e80fb865a0e2922489d14e412e3a1a9a550ddd01e32e29fe",
+            "21472b64d9055806b9b95a986a724975304ef2b8a0b66a6e2f971e45b6a02b94",
+            "3562a7242f350a45aa5a56a8f8512ecaae6ae8ba33ec843d1f5512efc9e4bf13",
+            "465471beed7686aae95e874bf1956975d5dea968120e9287ee4b031cdbb589f0",
+            "5efee318a962e429d0a06fee1718a151d85329081f2d162c605abbdcfedb3d99",
+            "a1e6ff6de6388e29f5fc7dbabf33df47e14e98ce0c6461f9ad54282dd92e94eb",
+            "f2aab83690f7261ce730c2ce7d90139967d09b828fd25932ca27526a7198b045"
+          ]
+        },
+        "latency_ms": 95.98370000094292,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "tamanho mínimo resolução monitor desktop 04",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-05",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "80c57a57d43055f305eaf225d75a0d89793b9fa270f627031bcc704cc55e2f38"
+        ],
+        "retrieved": [
+          {
+            "id": "2f2f04df97d223c1303e8b3dcb573d049d59befd9256f1e78ddf14ca015b306e",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 82,
+            "start": 304,
+            "end": 1641,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 654,
+            "anchor_end": 991,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "3ae957583e908026c10dcb770937ec19629ca655da3857f1593fce143feefe5c",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 71,
+            "start": 178,
+            "end": 1449,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 528,
+            "anchor_end": 799,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 23,
+            "start": 189,
+            "end": 1489,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 539,
+            "anchor_end": 839,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "a3ccd027176db7a7c3fc4ffcd21c396a9b41e16c9199c376dd2b1fdf21c85fa0",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 47,
+            "start": 1104,
+            "end": 2441,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1454,
+            "anchor_end": 1791,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "bcbcd5bb025a2bbd31848d790b6dd1b8a59f1160af502995c362ed27e5fe8c0e",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 75,
+            "start": 2142,
+            "end": 3014,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 2492,
+            "anchor_end": 2793,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "2f2f04df97d223c1303e8b3dcb573d049d59befd9256f1e78ddf14ca015b306e",
+            "0dc463176a3d51e76fa6852ad14a7a8a7ff49d649afc38c973aaa284ad5c7b9b",
+            "3ae957583e908026c10dcb770937ec19629ca655da3857f1593fce143feefe5c",
+            "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "751da1053d92be3bb20d702369ddcda49c1ec730a26c17dcf1d91559371d5477",
+            "a3ccd027176db7a7c3fc4ffcd21c396a9b41e16c9199c376dd2b1fdf21c85fa0",
+            "bcbcd5bb025a2bbd31848d790b6dd1b8a59f1160af502995c362ed27e5fe8c0e",
+            "edacb315e821d82e246c1a12760ff7aa67f92aa4cee5e601f3c1f9fe2e53b88f",
+            "0cd94281287c46d9c1cc62afd673309c53cf1d014bc51a73dd4e5670017abf48",
+            "12633296da54e5162e113ccc8ae15ad12c1c0b084907541e9dd96f8ecf83c3dc"
+          ]
+        },
+        "latency_ms": 173.63839999961783,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "quantidade SSD 120 GB 20 garantia mínima fabricante",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-06",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+          "b96b71f3f3d51845647722183e5ad02016a75fb87c1d0816636e50d34f5665ed"
+        ],
+        "retrieved": [
+          {
+            "id": "cf836c4cd14fdfd2906e2078d7c331da4052d15220dc275998354cb85e444906",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 60,
+            "start": 1050,
+            "end": 2345,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1400,
+            "anchor_end": 1695,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "2dde8b8a34668c8b22d4bb7d69da76cf185edc0abdb2b00eb14b74b8a2187e6e",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 80,
+            "start": 1259,
+            "end": 2587,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1609,
+            "anchor_end": 1937,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 21,
+            "start": 817,
+            "end": 2134,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1167,
+            "anchor_end": 1484,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "9f495d492caf25c82d3bf67d8c70e3e25eb2b5e2dcf8c9d112a24010d4085e64",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 71,
+            "start": 0,
+            "end": 1218,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 304,
+            "anchor_end": 568,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "afbcda487d4170a80640e52d8cb368b9e68813a51aba0fa4291909cd962f7779",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 34,
+            "start": 0,
+            "end": 1262,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 330,
+            "anchor_end": 612,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "cf836c4cd14fdfd2906e2078d7c331da4052d15220dc275998354cb85e444906",
+            "2dde8b8a34668c8b22d4bb7d69da76cf185edc0abdb2b00eb14b74b8a2187e6e",
+            "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+            "9f495d492caf25c82d3bf67d8c70e3e25eb2b5e2dcf8c9d112a24010d4085e64",
+            "afbcda487d4170a80640e52d8cb368b9e68813a51aba0fa4291909cd962f7779",
+            "cb73c085ce19ae1cdf60d297222d7c6cfc137ec433ac4e493423f26d9d2203f0",
+            "08c5f58b3466439b412b15833f4a19747726aeecb36c5ebebc1558366873b385",
+            "170aca9e9163acf4d0f21747395f1ee86357c3bcdcc50e8d7ee9cc90d041a488",
+            "29956501fccc3988d7bc5ad0e05194126941e5e2ef9502ab95effb4266c1a7a8",
+            "58ca327103e3e032491a4b8707916914da2ba5ab3ba4db0e12e1faad3efb54a3"
+          ]
+        },
+        "latency_ms": 141.00260000122944,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 3,
+        "reciprocal_rank_at_k": 0.3333333333333333,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "capacidade padrão latência taxa mínima transferência RAM desktop 21",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-07",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+          "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29"
+        ],
+        "retrieved": [
+          {
+            "id": "ad94aec7f7b8c113c852fd7fc86ea1744eb98298a676ff9444f7c62061d2a0ba",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 62,
+            "start": 0,
+            "end": 1312,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 331,
+            "anchor_end": 662,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "b4c9aac8ab6f45909c45ddc0f2391a24fef7764b56b96bd451c6d5aa766bcae1",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 98,
+            "start": 1772,
+            "end": 3300,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 2122,
+            "anchor_end": 2650,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "97c5f068321b75bcc7d4f63add2437ee57b4144846ad94cc9b594778b23d007e",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 90,
+            "start": 603,
+            "end": 1826,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 953,
+            "anchor_end": 1382,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "0a7e48321ce385464fa86d09f5b2101c69e438ae6bf12aa3758fe3b98e2ea491",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 81,
+            "start": 1185,
+            "end": 2511,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1535,
+            "anchor_end": 1861,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "0db70fcc4c998bdadc17e814cf287c66c8f4175b17a42f912b073e5ee7d70c15",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 728,
+            "end": 2269,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1078,
+            "anchor_end": 1619,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "ad94aec7f7b8c113c852fd7fc86ea1744eb98298a676ff9444f7c62061d2a0ba",
+            "b4c9aac8ab6f45909c45ddc0f2391a24fef7764b56b96bd451c6d5aa766bcae1",
+            "97c5f068321b75bcc7d4f63add2437ee57b4144846ad94cc9b594778b23d007e",
+            "0a7e48321ce385464fa86d09f5b2101c69e438ae6bf12aa3758fe3b98e2ea491",
+            "0db70fcc4c998bdadc17e814cf287c66c8f4175b17a42f912b073e5ee7d70c15",
+            "3e0c86a7957e054379a14692407e4a6cbe60fada8ca09ad4b9256caaf3aff0c3",
+            "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "83c67c05110e8092d78dce75d4f811c134088a69b9a46f26a8ab7bfbdd3d9dff",
+            "8c3b96881c3f62a3179022957eee50d988e5ecaa89001bf3af9d87c00fff435d",
+            "8d41d90db9f9e28b89106c1617cb22401072fc02eaebd30e8dcfb4556d109edf"
+          ]
+        },
+        "latency_ms": 110.91250000026776,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "desktop 21 garantia atendimento local deve ocorrer atendimento prazo máximo solução",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-08",
+        "pncp_id": "00348003000110-1-001037/2026",
+        "expected_chunk_ids": [
+          "b1ec15f507d33c8a24a4fe078439d8665f6c5048b89d2041ca86eba0c02cf414",
+          "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08"
+        ],
+        "retrieved": [
+          {
+            "id": "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 2,
+            "start": 1493,
+            "end": 2899,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 1843,
+            "anchor_end": 2249,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "b1ec15f507d33c8a24a4fe078439d8665f6c5048b89d2041ca86eba0c02cf414",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 1,
+            "start": 0,
+            "end": 1326,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 249,
+            "anchor_end": 676,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "a2740848e0b0d4aa5083c507163dc5c30ab7d06cec7c52da432ad68225d266a6",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 5,
+            "start": 5376,
+            "end": 6856,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 5726,
+            "anchor_end": 6206,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "e23f2f575efa51df64c9fd70b67f8b7c790a745496f5d0435f492a97a313417d",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 5,
+            "start": 3082,
+            "end": 4553,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 3432,
+            "anchor_end": 3903,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "3f88798b950207331cd7a774bca03018a605fe7a944d1d52c0310834043419a1",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 16,
+            "start": 2016,
+            "end": 3449,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 2366,
+            "anchor_end": 2799,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08",
+            "b1ec15f507d33c8a24a4fe078439d8665f6c5048b89d2041ca86eba0c02cf414",
+            "9822a30007f77d7fd414ccc1e6e6dcbbcbadafa783a7a8dbcac5066c21f5758f",
+            "a2740848e0b0d4aa5083c507163dc5c30ab7d06cec7c52da432ad68225d266a6",
+            "e23f2f575efa51df64c9fd70b67f8b7c790a745496f5d0435f492a97a313417d",
+            "3f88798b950207331cd7a774bca03018a605fe7a944d1d52c0310834043419a1",
+            "6dad562d6cd235ba2094e41cf3d41d1b3f4e38791533dac3a89dbf2cc1c2c467",
+            "fb938d3f2db91048f38f2067bac6b5ed40e6b9ca6ac1bef41295a5c2969dfb4d",
+            "1b12f06a0204b7f0e155c019bbc8d1aae76fe0d50e48793a274c35501102ab1f",
+            "31a6c0a6ac91f1f4b4f26716632d31defbabe9f2a46b1eb39c877ad873e471b3"
+          ]
+        },
+        "latency_ms": 98.91430000061519,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "critério julgamento modo disputa pregão 90012 2026 Embrapa Caprinos Ovinos",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-09",
+        "pncp_id": "10936853000193-1-000094/2026",
+        "expected_chunk_ids": [
+          "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3"
+        ],
+        "retrieved": [
+          {
+            "id": "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3",
+            "pncp_id": "10936853000193-1-000094/2026",
+            "document_sequence": 1,
+            "page": 1,
+            "start": 0,
+            "end": 847,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10936853000193/compras/2026/94/arquivos/1",
+            "score": null,
+            "anchor_start": 0,
+            "anchor_end": 438,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3",
+            "c2a632e397ec7d3b2e34448c108599ff3f541fea1ae0aa69870185e7c86fd722",
+            "6b6ab172144e6c6b68c915d8b4c81a78524bc653a4d5a69babced4322d284536"
+          ]
+        },
+        "latency_ms": 116.32839999947464,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "Segundo certidão publicação adesão 8 2026 Novo Gama quantidade objeto aquisição informados",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-10",
+        "pncp_id": "33683111000107-1-000073/2026",
+        "expected_chunk_ids": [
+          "c5b2497af17115c04bb4c425245315416d3135c264ecd485a129b55d35aed365",
+          "9380eb73ea311aba956717ca53bfe83e5dec5e0766b4aff9117de3f1f11ae41d"
+        ],
+        "retrieved": [
+          {
+            "id": "6cc71b3142dfad3e4bf0134e616bc18838ed3f121cf309744c1f94a467e1b376",
+            "source_chunk_id": "f9df3474b6933bbf99d38947dbe54306f62afa4cce871934eabd22510f1d6579",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 62,
+            "start": 395,
+            "end": 1445,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 7,
+            "anchor_start": 397,
+            "anchor_end": 795,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 62,
+            "item_header_start": 395,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "5d4a5a338e3421fc220123e5414c9e4d08a7de6964452692870840b54a3928da",
+            "source_chunk_id": "c5b2497af17115c04bb4c425245315416d3135c264ecd485a129b55d35aed365",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 39,
+            "start": 1538,
+            "end": 2277,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 4,
+            "anchor_start": 1212,
+            "anchor_end": 1627,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 39,
+            "item_header_start": 1538,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "5063a823e0994f958d8d7000f7bc8f1ec8f7cab38ec6c5c2040280fb8f1fb887",
+            "source_chunk_id": "1b3c59294cbbf77887a409486efcaf26338319b46480bae9a55f99df89e04fa6",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 37,
+            "start": 542,
+            "end": 1531,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 2,
+            "anchor_start": 443,
+            "anchor_end": 881,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 37,
+            "item_header_start": 542,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "10bbbaac93e0bd8332fae49ee38f9c5d4eeb610ff9649dbfc01564f1aa80c90d",
+            "source_chunk_id": "b4cb8a7797c829af113b03e8be3d7f52e2866e9f5729a8722a32f6ccbb46b86d",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 59,
+            "start": 1287,
+            "end": 1824,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 2,
+            "anchor_start": 1098,
+            "anchor_end": 1520,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 59,
+            "item_header_start": 1287,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "f6ad65d02b432af1ead3a5856b0278990a66610745b4a5b30479410f32337dc4",
+            "source_chunk_id": "a030367867ded2ee807d9b903c6b812801f00330b21295c9438b01927fb48e08",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 40,
+            "start": 0,
+            "end": 1072,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 5,
+            "anchor_start": 2,
+            "anchor_end": 422,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 39,
+            "item_header_start": 1538,
+            "item_recognition": "explicit",
+            "item_continuation": "inferred_requires_review",
+            "quantity_candidates": []
+          }
+        ],
+        "candidate_ids": {
+          "keyword": [
+            "67d99f80da5e2cbd96f754169ff49af509aa4955991a469d86609fd390726cdb",
+            "58940a072e181d2a2db6116d07410541d0c48670ce3c0591931665b3cef2d254",
+            "a92c52102322576039b33abd9f0089901d5796b966ef02084c39fea94a8dbcbb",
+            "34104e7b3368ee633a70485bb62d6a59381110b5aaf8247febf42a177a81d629",
+            "9c20582753a68fce294135bc59b714721326edf0f575a45d33d1770e55c2bd9f",
+            "a030367867ded2ee807d9b903c6b812801f00330b21295c9438b01927fb48e08",
+            "b2c270bebb935cca1708ce7bc5e9d9eab19dfb3ea59a7372934419eefd8ead60",
+            "f9df3474b6933bbf99d38947dbe54306f62afa4cce871934eabd22510f1d6579",
+            "0c4eb42033f830c9680cdc07d9a1f3a9dc1cf0e5e703257fe1c7fce04b0eb0a2",
+            "0e845bdfd308afb38e43a7302bff2618773eddcd3c3c23d0b429355ba35a2a5c"
+          ]
+        },
+        "latency_ms": 140.90710000164108,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "memória RAM mínima padrão roteador 1 Cloud Connect pregão 31 2026",
+        "filters": {}
+      }
+    ],
+    "semantic": [
+      {
+        "case_id": "independent-01",
+        "pncp_id": "32512501000143-1-000385/2026",
+        "expected_chunk_ids": [
+          "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c"
+        ],
+        "retrieved": [
+          {
+            "id": "80853270bfb64e5b5d716dbbae6e6552e8cdb43947cac8d066e3bcf2a3cbdaf5",
+            "source_chunk_id": "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 894,
+            "end": 910,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0,
+            "anchor_start": 735,
+            "anchor_end": 1100,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 53,
+            "item_header_start": 894,
+            "item_recognition": "table_row",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "6d5d9bc6bba42532cf62342b5ba2a300e60f64bda2a6505f74ad0f0443c3ac80",
+            "source_chunk_id": "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 1065,
+            "end": 1077,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0,
+            "anchor_start": 735,
+            "anchor_end": 1100,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 53,
+            "item_header_start": 1065,
+            "item_recognition": "table_row",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c",
+            "54043037a2d9349a07614f18b253fe2aa6cb060b75907a4216bb8c7e53eb03f4",
+            "49e410ef4e70fb81366eef78d24e560e7761edd0cf18febc7b31714fb5c55228",
+            "d2a0f87ab2bc2baad8a3f50fad8795a7dc937ca7b76f50c68051045c1d7d8b0d",
+            "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e",
+            "717de6c9f598567349fd081091f7f923786b9be8b0c3094817714222aef59d34",
+            "e850d06d589a052914537fa30dace6a805c1b276711bdb217be36b225d73c955",
+            "ee18ed2d11901c35f6ddb2052510ff025ab07bb8c6d778c41fa3a57e4d0eb0e9",
+            "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0"
+          ]
+        },
+        "latency_ms": 147.53729999938514,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "tipo tamanho mínimo monitor computador desktop 1 material eletrônico",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-02",
+        "pncp_id": "32512501000143-1-000385/2026",
+        "expected_chunk_ids": [
+          "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+          "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+          "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e",
+          "5e76f599387e53cfe8333e62576909612fb6bb6e2663c45f714c99a2c2ee3449"
+        ],
+        "retrieved": [
+          {
+            "id": "d2a0f87ab2bc2baad8a3f50fad8795a7dc937ca7b76f50c68051045c1d7d8b0d",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 45,
+            "start": 265,
+            "end": 847,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 615,
+            "anchor_end": 845,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "e850d06d589a052914537fa30dace6a805c1b276711bdb217be36b225d73c955",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 715,
+            "end": 1217,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 1065,
+            "anchor_end": 1216,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 46,
+            "start": 0,
+            "end": 580,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 12,
+            "anchor_end": 435,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 44,
+            "start": 515,
+            "end": 1416,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 865,
+            "anchor_end": 1327,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "6672efd24102792fb53dfc0b72cac485461a7096384a75a9d67ae9b412af84c4",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 70,
+            "start": 1250,
+            "end": 2050,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": null,
+            "anchor_start": 1600,
+            "anchor_end": 2044,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "d2a0f87ab2bc2baad8a3f50fad8795a7dc937ca7b76f50c68051045c1d7d8b0d",
+            "e850d06d589a052914537fa30dace6a805c1b276711bdb217be36b225d73c955",
+            "49e410ef4e70fb81366eef78d24e560e7761edd0cf18febc7b31714fb5c55228",
+            "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e",
+            "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c",
+            "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+            "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "6672efd24102792fb53dfc0b72cac485461a7096384a75a9d67ae9b412af84c4",
+            "2d6276e2b66e5ea13698a4a1b722ddffb0486cdbf722a3575e52d65538eddc61",
+            "54043037a2d9349a07614f18b253fe2aa6cb060b75907a4216bb8c7e53eb03f4"
+          ]
+        },
+        "latency_ms": 131.74230000004172,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 3,
+        "reciprocal_rank_at_k": 0.3333333333333333,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "notebooks estão ampla concorrência cota MEI ME EPP",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-03",
+        "pncp_id": "76279975000162-1-000083/2026",
+        "expected_chunk_ids": [
+          "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908"
+        ],
+        "retrieved": [
+          {
+            "id": "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 24,
+            "start": 591,
+            "end": 1860,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 941,
+            "anchor_end": 1210,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "204cfa59ae2576f4942598ec80910cc84f8a8d70c136cfd7358b6e501b969fa8",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 28,
+            "start": 526,
+            "end": 1724,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 876,
+            "anchor_end": 1205,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "4be2bb618f8b8a3ae3ca033422c34c974873ba68533c7f5d1c5758afcfe09f58",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 31,
+            "start": 3059,
+            "end": 3816,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 3409,
+            "anchor_end": 3815,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "a2afa5cdc630371ab227b42672b58f5249459f62ba804505fbc57703a2312cff",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 33,
+            "start": 1397,
+            "end": 2814,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 1747,
+            "anchor_end": 2164,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "61c5d68c46b988ccd32240864ee6bf8f7dc2484e54d3154d0dad518b03be2292",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 23,
+            "start": 5,
+            "end": 1485,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 355,
+            "anchor_end": 835,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "204cfa59ae2576f4942598ec80910cc84f8a8d70c136cfd7358b6e501b969fa8",
+            "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908",
+            "4be2bb618f8b8a3ae3ca033422c34c974873ba68533c7f5d1c5758afcfe09f58",
+            "a2afa5cdc630371ab227b42672b58f5249459f62ba804505fbc57703a2312cff",
+            "66e3bcaf10e0c36309637b9a3591b108b4a6e461a610d84bda07261ec94a977e",
+            "e1dfa2b1c4b4193a21162025b39b6795d6cc19681bde39fbe042c7bcac305651",
+            "61c5d68c46b988ccd32240864ee6bf8f7dc2484e54d3154d0dad518b03be2292",
+            "2158d2c40b7b0385fd3dff5b6568602723031b9b6d64049ae73c5e8093ab8f6c"
+          ]
+        },
+        "latency_ms": 116.81749999843305,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "desktops 04 Prefeitura pretende adquirir mínimos memória RAM armazenamento SSD",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-04",
+        "pncp_id": "76279975000162-1-000083/2026",
+        "expected_chunk_ids": [
+          "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908"
+        ],
+        "retrieved": [
+          {
+            "id": "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 24,
+            "start": 591,
+            "end": 1860,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 941,
+            "anchor_end": 1210,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "204cfa59ae2576f4942598ec80910cc84f8a8d70c136cfd7358b6e501b969fa8",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 28,
+            "start": 526,
+            "end": 1724,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 876,
+            "anchor_end": 1205,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "564409deb7832194407f9b728668c3f8357deb261f1731d4ebb5865d1c6018d9",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 25,
+            "start": 338,
+            "end": 1604,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 688,
+            "anchor_end": 954,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "e106952236c4ac28c467e9f0f4637f9bd98f3835a47acdc9ef0aad72dc94a8f8",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 35,
+            "start": 2406,
+            "end": 3219,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 2756,
+            "anchor_end": 3218,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "01ef3a5997219db4d125e3f5b661b1d3c8b957d9b48fab275d4ff6c22e967b55",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 29,
+            "start": 533,
+            "end": 1868,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": null,
+            "anchor_start": 883,
+            "anchor_end": 1218,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908",
+            "204cfa59ae2576f4942598ec80910cc84f8a8d70c136cfd7358b6e501b969fa8",
+            "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "564409deb7832194407f9b728668c3f8357deb261f1731d4ebb5865d1c6018d9",
+            "e106952236c4ac28c467e9f0f4637f9bd98f3835a47acdc9ef0aad72dc94a8f8",
+            "01ef3a5997219db4d125e3f5b661b1d3c8b957d9b48fab275d4ff6c22e967b55",
+            "e1dfa2b1c4b4193a21162025b39b6795d6cc19681bde39fbe042c7bcac305651",
+            "66e3bcaf10e0c36309637b9a3591b108b4a6e461a610d84bda07261ec94a977e",
+            "76c1cdaee511281837a0429bf7072448693a1a463500238b5da5f06d5eb3dc07"
+          ]
+        },
+        "latency_ms": 137.39500000156113,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "tamanho mínimo resolução monitor desktop 04",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-05",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "80c57a57d43055f305eaf225d75a0d89793b9fa270f627031bcc704cc55e2f38"
+        ],
+        "retrieved": [
+          {
+            "id": "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 23,
+            "start": 189,
+            "end": 1489,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 539,
+            "anchor_end": 839,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "ec22c1e969580b41b15c90640967967b407cf7dd7d3452ca1ab199106e2fe88f",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 80,
+            "start": 517,
+            "end": 1814,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 867,
+            "anchor_end": 1164,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "39d97f0608a087d997d680db446d4ece257d100fccced5634fcae8b4d57229c7",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 44,
+            "start": 1734,
+            "end": 2516,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 2084,
+            "anchor_end": 2392,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "5756af7cc08536358f1d31f4275aa786b799f2192bd6cbfad9918ec1dc724ba6",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 45,
+            "start": 0,
+            "end": 1322,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 338,
+            "anchor_end": 672,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "6f5df2bed9fca573cb01f5a82b779481978b960dcb80caf9c5ef719c0f320170",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 65,
+            "start": 6,
+            "end": 1301,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 356,
+            "anchor_end": 651,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "ec22c1e969580b41b15c90640967967b407cf7dd7d3452ca1ab199106e2fe88f",
+            "39d97f0608a087d997d680db446d4ece257d100fccced5634fcae8b4d57229c7",
+            "5756af7cc08536358f1d31f4275aa786b799f2192bd6cbfad9918ec1dc724ba6",
+            "6f5df2bed9fca573cb01f5a82b779481978b960dcb80caf9c5ef719c0f320170",
+            "93245db3ce57650e492c30f423771450be1aae0e3118073c44687f34282c111e",
+            "a44a710bfc611e2844ed6455dca2407c7dadf0deb4de2505e192f857e627be35",
+            "6e55fee4ee5911b47083b2d1315c603fac9baddde3f2f3bdf6544d0f034ca2a3",
+            "294c658340a55312fb8c85f3e56f7c3edfd2fe3353e11214fcb9c64867bd6fff",
+            "fb4d07c1f53e1baba15658ff2c8c9d9e0fc52ca0bcf263c64f474ccc29c909c9"
+          ]
+        },
+        "latency_ms": 165.47519999949145,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "quantidade SSD 120 GB 20 garantia mínima fabricante",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-06",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+          "b96b71f3f3d51845647722183e5ad02016a75fb87c1d0816636e50d34f5665ed"
+        ],
+        "retrieved": [
+          {
+            "id": "9f495d492caf25c82d3bf67d8c70e3e25eb2b5e2dcf8c9d112a24010d4085e64",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 71,
+            "start": 0,
+            "end": 1218,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 304,
+            "anchor_end": 568,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "6e55fee4ee5911b47083b2d1315c603fac9baddde3f2f3bdf6544d0f034ca2a3",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 82,
+            "start": 2394,
+            "end": 2907,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 2744,
+            "anchor_end": 2905,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "1322be26cc927bd26146d7a31157e51a95a9fdf606c0ad21a33b95f3b4b51566",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 52,
+            "start": 1088,
+            "end": 2365,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1438,
+            "anchor_end": 1719,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "2e6e45d3338f4c7d68da3c42a83efd5b2d943fca29844dfbab4bc2b9f38d282e",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 48,
+            "start": 946,
+            "end": 2238,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1296,
+            "anchor_end": 1588,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "afbcda487d4170a80640e52d8cb368b9e68813a51aba0fa4291909cd962f7779",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 34,
+            "start": 0,
+            "end": 1262,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 330,
+            "anchor_end": 612,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "9f495d492caf25c82d3bf67d8c70e3e25eb2b5e2dcf8c9d112a24010d4085e64",
+            "6e55fee4ee5911b47083b2d1315c603fac9baddde3f2f3bdf6544d0f034ca2a3",
+            "1322be26cc927bd26146d7a31157e51a95a9fdf606c0ad21a33b95f3b4b51566",
+            "2e6e45d3338f4c7d68da3c42a83efd5b2d943fca29844dfbab4bc2b9f38d282e",
+            "afbcda487d4170a80640e52d8cb368b9e68813a51aba0fa4291909cd962f7779",
+            "d2a7b6f0ba9b25ed88c047bf314179a5254b68a775aa48678680b28ad35f8cc3",
+            "b96b71f3f3d51845647722183e5ad02016a75fb87c1d0816636e50d34f5665ed",
+            "967e683935cffa8d74d7df8589f55ff9b0c755edd24a735f2e1c0bf2f73eca00",
+            "c4739ef1dacda914f2fd01bf2b75b77b989f5fecb3c3d2436cfc65a11ed60b10",
+            "c12540f2789eeee37e832d62b2d26193914b8a82dc5107e63362e7b448a3635a"
+          ]
+        },
+        "latency_ms": 136.61570000112988,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "capacidade padrão latência taxa mínima transferência RAM desktop 21",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-07",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+          "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29"
+        ],
+        "retrieved": [
+          {
+            "id": "ecd36fd1bfd724e268c0c0302b9244ef20bc99cd8cea780804ee57951749e698",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 55,
+            "start": 441,
+            "end": 1972,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 791,
+            "anchor_end": 1322,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "0db70fcc4c998bdadc17e814cf287c66c8f4175b17a42f912b073e5ee7d70c15",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 728,
+            "end": 2269,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1078,
+            "anchor_end": 1619,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "724500f048bc5b4a01ddd18c599a9d28fd9422335337e19ea628c068281e68dc",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 7,
+            "start": 3128,
+            "end": 3929,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 3478,
+            "anchor_end": 3927,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "c75e9c4b87da443dd76797f52fc253c7626627738d4d08880e8998502e89d704",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 88,
+            "start": 866,
+            "end": 2474,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 1216,
+            "anchor_end": 1874,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "b4c9aac8ab6f45909c45ddc0f2391a24fef7764b56b96bd451c6d5aa766bcae1",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 98,
+            "start": 1772,
+            "end": 3300,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": null,
+            "anchor_start": 2122,
+            "anchor_end": 2650,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "ecd36fd1bfd724e268c0c0302b9244ef20bc99cd8cea780804ee57951749e698",
+            "0db70fcc4c998bdadc17e814cf287c66c8f4175b17a42f912b073e5ee7d70c15",
+            "724500f048bc5b4a01ddd18c599a9d28fd9422335337e19ea628c068281e68dc",
+            "c75e9c4b87da443dd76797f52fc253c7626627738d4d08880e8998502e89d704",
+            "b4c9aac8ab6f45909c45ddc0f2391a24fef7764b56b96bd451c6d5aa766bcae1",
+            "64b09185633e8ece524994ab4fbdaf77668875bc40489c991824bd2ff6059502",
+            "b95c84dd04d0c3eb19f7b714735910c46df1b39777e79a94e933e13c826cff42",
+            "1aba1f2ddf7b51771458fdca38e6b50b35c255310d5c59158b6db57c911c457a",
+            "ad94aec7f7b8c113c852fd7fc86ea1744eb98298a676ff9444f7c62061d2a0ba",
+            "036422dd9dc730de4fe382e35bc23e7a5b3671eabac48df0853b03b5514be948"
+          ]
+        },
+        "latency_ms": 152.3084000000381,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "desktop 21 garantia atendimento local deve ocorrer atendimento prazo máximo solução",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-08",
+        "pncp_id": "00348003000110-1-001037/2026",
+        "expected_chunk_ids": [
+          "b1ec15f507d33c8a24a4fe078439d8665f6c5048b89d2041ca86eba0c02cf414",
+          "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08"
+        ],
+        "retrieved": [
+          {
+            "id": "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 2,
+            "start": 1493,
+            "end": 2899,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 1843,
+            "anchor_end": 2249,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "bf5ae3c74b00cc8d7e497b51a13be287e894c2e623052901fdc7305af6473a2d",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 14,
+            "start": 24,
+            "end": 1405,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 374,
+            "anchor_end": 755,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "425f6d7af0e76993e1b5b12ac4e8f316bc8ecd5c8fb6f46199c548f2c3b97c61",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 19,
+            "start": 729,
+            "end": 2097,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 1079,
+            "anchor_end": 1447,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "995fc18112c612a35c169e915dee69fa17017b31cb2af7df7b039889efab8660",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 12,
+            "start": 4931,
+            "end": 6371,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 5281,
+            "anchor_end": 5721,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "91a5c632333aafda4eab9cfb6e159bcca810a7fbba3a50abba70d922c3c87b62",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 27,
+            "start": 3038,
+            "end": 4350,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": null,
+            "anchor_start": 3388,
+            "anchor_end": 3865,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08",
+            "bf5ae3c74b00cc8d7e497b51a13be287e894c2e623052901fdc7305af6473a2d",
+            "425f6d7af0e76993e1b5b12ac4e8f316bc8ecd5c8fb6f46199c548f2c3b97c61",
+            "995fc18112c612a35c169e915dee69fa17017b31cb2af7df7b039889efab8660",
+            "91a5c632333aafda4eab9cfb6e159bcca810a7fbba3a50abba70d922c3c87b62",
+            "258b3e34e7b8142664038e215bccaccb464a1d630caeda5c2fc18a7673c5c64a",
+            "69fde6fccf1481ec6ff2da7e0e4b35ef5ceedb15bcf5c5d4ce2a847ddb900ba5",
+            "792f0ce689b118e24d27dbedec9ef9a33852b8ec00028c09fe427d806ee442ee",
+            "4ee272b4e9ce059150a122febe34f5f18e691278555efeb9f967611b7786ba34",
+            "47eb48e40ca6b233568d0b9a34aea8790ab64ecbc66fd00f0e7feaf288c5be8a"
+          ]
+        },
+        "latency_ms": 145.97860000139917,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "critério julgamento modo disputa pregão 90012 2026 Embrapa Caprinos Ovinos",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-09",
+        "pncp_id": "10936853000193-1-000094/2026",
+        "expected_chunk_ids": [
+          "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3"
+        ],
+        "retrieved": [
+          {
+            "id": "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3",
+            "pncp_id": "10936853000193-1-000094/2026",
+            "document_sequence": 1,
+            "page": 1,
+            "start": 0,
+            "end": 847,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10936853000193/compras/2026/94/arquivos/1",
+            "score": null,
+            "anchor_start": 0,
+            "anchor_end": 438,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3",
+            "c2a632e397ec7d3b2e34448c108599ff3f541fea1ae0aa69870185e7c86fd722",
+            "6b6ab172144e6c6b68c915d8b4c81a78524bc653a4d5a69babced4322d284536"
+          ]
+        },
+        "latency_ms": 138.16729999962263,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "Segundo certidão publicação adesão 8 2026 Novo Gama quantidade objeto aquisição informados",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-10",
+        "pncp_id": "33683111000107-1-000073/2026",
+        "expected_chunk_ids": [
+          "c5b2497af17115c04bb4c425245315416d3135c264ecd485a129b55d35aed365",
+          "9380eb73ea311aba956717ca53bfe83e5dec5e0766b4aff9117de3f1f11ae41d"
+        ],
+        "retrieved": [
+          {
+            "id": "6cc71b3142dfad3e4bf0134e616bc18838ed3f121cf309744c1f94a467e1b376",
+            "source_chunk_id": "f9df3474b6933bbf99d38947dbe54306f62afa4cce871934eabd22510f1d6579",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 62,
+            "start": 395,
+            "end": 1445,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 7,
+            "anchor_start": 397,
+            "anchor_end": 795,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 62,
+            "item_header_start": 395,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "5d4a5a338e3421fc220123e5414c9e4d08a7de6964452692870840b54a3928da",
+            "source_chunk_id": "c5b2497af17115c04bb4c425245315416d3135c264ecd485a129b55d35aed365",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 39,
+            "start": 1538,
+            "end": 2277,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 4,
+            "anchor_start": 1212,
+            "anchor_end": 1627,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 39,
+            "item_header_start": 1538,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "5063a823e0994f958d8d7000f7bc8f1ec8f7cab38ec6c5c2040280fb8f1fb887",
+            "source_chunk_id": "1b3c59294cbbf77887a409486efcaf26338319b46480bae9a55f99df89e04fa6",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 37,
+            "start": 542,
+            "end": 1531,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 2,
+            "anchor_start": 443,
+            "anchor_end": 881,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 37,
+            "item_header_start": 542,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "10bbbaac93e0bd8332fae49ee38f9c5d4eeb610ff9649dbfc01564f1aa80c90d",
+            "source_chunk_id": "b4cb8a7797c829af113b03e8be3d7f52e2866e9f5729a8722a32f6ccbb46b86d",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 59,
+            "start": 1287,
+            "end": 1824,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 2,
+            "anchor_start": 1098,
+            "anchor_end": 1520,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 59,
+            "item_header_start": 1287,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "f6ad65d02b432af1ead3a5856b0278990a66610745b4a5b30479410f32337dc4",
+            "source_chunk_id": "a030367867ded2ee807d9b903c6b812801f00330b21295c9438b01927fb48e08",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 40,
+            "start": 0,
+            "end": 1072,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 5,
+            "anchor_start": 2,
+            "anchor_end": 422,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 39,
+            "item_header_start": 1538,
+            "item_recognition": "explicit",
+            "item_continuation": "inferred_requires_review",
+            "quantity_candidates": []
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "a030367867ded2ee807d9b903c6b812801f00330b21295c9438b01927fb48e08",
+            "a92c52102322576039b33abd9f0089901d5796b966ef02084c39fea94a8dbcbb",
+            "983b61c15175442d2ad6dbba7ce38d68edfbeb70be1920d4ddcd29ec6b6fe04c",
+            "20150f26e629d49d4b8bdc67542c59a89da7a89f3272c7f26d1d2129832cf438",
+            "34104e7b3368ee633a70485bb62d6a59381110b5aaf8247febf42a177a81d629",
+            "9380eb73ea311aba956717ca53bfe83e5dec5e0766b4aff9117de3f1f11ae41d",
+            "33a09180002721f0612c124ca9d5f6580bf2cb92ceea7d8fe4d79248b17f98ca",
+            "79724d660da093a402d906525be5a02abd47a7e7d158e83c34e9df3cfda11da6",
+            "28aaeddc9d5b752f6f68dfe0c448ad49c788d3df2c2d449347033acd8d946d26",
+            "f7cf48a1d814a7ea2d9cc9977ef01b8951da82dcad6836dcbb52b0277d3d9b45"
+          ]
+        },
+        "latency_ms": 168.72240000157035,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "memória RAM mínima padrão roteador 1 Cloud Connect pregão 31 2026",
+        "filters": {}
+      }
+    ],
+    "hybrid": [
+      {
+        "case_id": "independent-01",
+        "pncp_id": "32512501000143-1-000385/2026",
+        "expected_chunk_ids": [
+          "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c"
+        ],
+        "retrieved": [
+          {
+            "id": "80853270bfb64e5b5d716dbbae6e6552e8cdb43947cac8d066e3bcf2a3cbdaf5",
+            "source_chunk_id": "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 894,
+            "end": 910,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0,
+            "anchor_start": 735,
+            "anchor_end": 1100,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 53,
+            "item_header_start": 894,
+            "item_recognition": "table_row",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "6d5d9bc6bba42532cf62342b5ba2a300e60f64bda2a6505f74ad0f0443c3ac80",
+            "source_chunk_id": "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 1065,
+            "end": 1077,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0,
+            "anchor_start": 735,
+            "anchor_end": 1100,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 53,
+            "item_header_start": 1065,
+            "item_recognition": "table_row",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c",
+            "54043037a2d9349a07614f18b253fe2aa6cb060b75907a4216bb8c7e53eb03f4",
+            "49e410ef4e70fb81366eef78d24e560e7761edd0cf18febc7b31714fb5c55228",
+            "d2a0f87ab2bc2baad8a3f50fad8795a7dc937ca7b76f50c68051045c1d7d8b0d",
+            "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e",
+            "717de6c9f598567349fd081091f7f923786b9be8b0c3094817714222aef59d34",
+            "e850d06d589a052914537fa30dace6a805c1b276711bdb217be36b225d73c955",
+            "ee18ed2d11901c35f6ddb2052510ff025ab07bb8c6d778c41fa3a57e4d0eb0e9",
+            "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0"
+          ],
+          "keyword": [
+            "e22eeb6c7b72d042ff407387b39094d89809ca449bca156657459168643f91fc",
+            "49e410ef4e70fb81366eef78d24e560e7761edd0cf18febc7b31714fb5c55228",
+            "54043037a2d9349a07614f18b253fe2aa6cb060b75907a4216bb8c7e53eb03f4",
+            "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c",
+            "6672efd24102792fb53dfc0b72cac485461a7096384a75a9d67ae9b412af84c4",
+            "1fb7c287c69ef3b862df8243e873e6ccca0d9d68c1c6dfd812d727a31a31536a",
+            "42b7fd8c5962198e149e95e6a21872965bb43c258001e7333735c1920cbcd951",
+            "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "0ea4bc06be196fc4a25e35eb35e6b503cb87a89828f24abc724b3813be3d85f2",
+            "3b6cb24ea87c31ec7c702b1f983378c589da51553470c652f141997fcbb53768"
+          ]
+        },
+        "latency_ms": 131.05730000097537,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "tipo tamanho mínimo monitor computador desktop 1 material eletrônico",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-02",
+        "pncp_id": "32512501000143-1-000385/2026",
+        "expected_chunk_ids": [
+          "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+          "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+          "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e",
+          "5e76f599387e53cfe8333e62576909612fb6bb6e2663c45f714c99a2c2ee3449"
+        ],
+        "retrieved": [
+          {
+            "id": "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 45,
+            "start": 0,
+            "end": 847,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0.031024531024531024,
+            "anchor_start": 346,
+            "anchor_end": 688,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "699235b68ca3d4e4deef5a83c0ea62904196df7814190dc2c1f83a368003b3f2",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 17,
+            "start": 0,
+            "end": 1439,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0.01639344262295082,
+            "anchor_start": 318,
+            "anchor_end": 789,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "0ea4bc06be196fc4a25e35eb35e6b503cb87a89828f24abc724b3813be3d85f2",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 2,
+            "start": 0,
+            "end": 994,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0.016129032258064516,
+            "anchor_start": 12,
+            "anchor_end": 344,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "e850d06d589a052914537fa30dace6a805c1b276711bdb217be36b225d73c955",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 715,
+            "end": 1217,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0.016129032258064516,
+            "anchor_start": 1065,
+            "anchor_end": 1216,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "5e76f599387e53cfe8333e62576909612fb6bb6e2663c45f714c99a2c2ee3449",
+            "pncp_id": "32512501000143-1-000385/2026",
+            "document_sequence": 1,
+            "page": 46,
+            "start": 6,
+            "end": 580,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+            "score": 0.015625,
+            "anchor_start": 356,
+            "anchor_end": 570,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "d2a0f87ab2bc2baad8a3f50fad8795a7dc937ca7b76f50c68051045c1d7d8b0d",
+            "e850d06d589a052914537fa30dace6a805c1b276711bdb217be36b225d73c955",
+            "49e410ef4e70fb81366eef78d24e560e7761edd0cf18febc7b31714fb5c55228",
+            "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e",
+            "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c",
+            "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+            "b667fc429570dd16727412ebc8b41b1c010302c894cbfd30691a15b944e96565",
+            "6672efd24102792fb53dfc0b72cac485461a7096384a75a9d67ae9b412af84c4",
+            "2d6276e2b66e5ea13698a4a1b722ddffb0486cdbf722a3575e52d65538eddc61",
+            "54043037a2d9349a07614f18b253fe2aa6cb060b75907a4216bb8c7e53eb03f4"
+          ],
+          "keyword": [
+            "699235b68ca3d4e4deef5a83c0ea62904196df7814190dc2c1f83a368003b3f2",
+            "0ea4bc06be196fc4a25e35eb35e6b503cb87a89828f24abc724b3813be3d85f2",
+            "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0",
+            "5e76f599387e53cfe8333e62576909612fb6bb6e2663c45f714c99a2c2ee3449",
+            "bf2ad4da0bcfdb2718712198f28f0437f9d9357b663ccf9b797648ae62dce306",
+            "6e73575459cc8789bf08fd2bc915b14e21776fdb5f0ef790faea6efe8f3f748b",
+            "7dc5424cf5ebab5b2c3cb18dc9191de867dc846c25ef1ebafde9647f2b3e5773",
+            "83d8f156a2ab8c099a15bd5de4272c7248779cf50d3cadae0d96520a699bd9e2",
+            "0df65c377224690b24f2e93ef6b0dd1a9eb67bd96c2dba4b2a52f853bb2c9762",
+            "3636628ea07a4998720a7e318733895dbfe86f7b8b90810625f1a133e06d1dba"
+          ]
+        },
+        "latency_ms": 105.39239999707206,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "notebooks estão ampla concorrência cota MEI ME EPP",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-03",
+        "pncp_id": "76279975000162-1-000083/2026",
+        "expected_chunk_ids": [
+          "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908"
+        ],
+        "retrieved": [
+          {
+            "id": "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 24,
+            "start": 294,
+            "end": 1589,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.03252247488101534,
+            "anchor_start": 644,
+            "anchor_end": 939,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "f2aab83690f7261ce730c2ce7d90139967d09b828fd25932ca27526a7198b045",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 23,
+            "start": 760,
+            "end": 2107,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.016129032258064516,
+            "anchor_start": 1110,
+            "anchor_end": 1480,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "204cfa59ae2576f4942598ec80910cc84f8a8d70c136cfd7358b6e501b969fa8",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 28,
+            "start": 526,
+            "end": 1724,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.015873015873015872,
+            "anchor_start": 876,
+            "anchor_end": 1205,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "3ef7aba0a2a61dcfd0462ce7453a76a410593c11b08b884427353cd5fa198084",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 35,
+            "start": 0,
+            "end": 1160,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.015625,
+            "anchor_start": 4,
+            "anchor_end": 510,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 24,
+            "start": 861,
+            "end": 2197,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.015625,
+            "anchor_start": 1211,
+            "anchor_end": 1547,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "204cfa59ae2576f4942598ec80910cc84f8a8d70c136cfd7358b6e501b969fa8",
+            "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908",
+            "4be2bb618f8b8a3ae3ca033422c34c974873ba68533c7f5d1c5758afcfe09f58",
+            "a2afa5cdc630371ab227b42672b58f5249459f62ba804505fbc57703a2312cff",
+            "66e3bcaf10e0c36309637b9a3591b108b4a6e461a610d84bda07261ec94a977e",
+            "e1dfa2b1c4b4193a21162025b39b6795d6cc19681bde39fbe042c7bcac305651",
+            "61c5d68c46b988ccd32240864ee6bf8f7dc2484e54d3154d0dad518b03be2292",
+            "2158d2c40b7b0385fd3dff5b6568602723031b9b6d64049ae73c5e8093ab8f6c"
+          ],
+          "keyword": [
+            "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "f2aab83690f7261ce730c2ce7d90139967d09b828fd25932ca27526a7198b045",
+            "f339a2fb3d959e57921bc24b854f597f57edf4aac6e600143f6240d80b5e5415",
+            "3ef7aba0a2a61dcfd0462ce7453a76a410593c11b08b884427353cd5fa198084",
+            "bfa77a7cc7f66924dd9865e1e5fae6c06bf3dbe3a0ada9c854c3f97fb3f7fecf",
+            "01219e219f5dae4ebd1a49a0ad6053ca26905fec7c5ce922b02f6cc0bd292d8a",
+            "0218d0850693706ba4d7ccf46f0384acb50beac131c1bdaf95212bbc2204066c",
+            "06381994d11149d4c3f48fb41908abc8446a5e2a1616b32cf12252b3420e1da5",
+            "0884801198ce79af7655720e42769f8fc637f2ac44a9e40b3d95411f0a60496b",
+            "1428ed407fc270295cd5038507125a31f91dcbb251126445bd072e47741d9f63"
+          ]
+        },
+        "latency_ms": 127.19550000110758,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 5,
+        "reciprocal_rank_at_k": 0.2,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "desktops 04 Prefeitura pretende adquirir mínimos memória RAM armazenamento SSD",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-04",
+        "pncp_id": "76279975000162-1-000083/2026",
+        "expected_chunk_ids": [
+          "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908"
+        ],
+        "retrieved": [
+          {
+            "id": "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 24,
+            "start": 591,
+            "end": 1860,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.032266458495966696,
+            "anchor_start": 941,
+            "anchor_end": 1210,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "204cfa59ae2576f4942598ec80910cc84f8a8d70c136cfd7358b6e501b969fa8",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 28,
+            "start": 526,
+            "end": 1724,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.015873015873015872,
+            "anchor_start": 876,
+            "anchor_end": 1205,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "05275a01915420e1e80fb865a0e2922489d14e412e3a1a9a550ddd01e32e29fe",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 25,
+            "start": 901,
+            "end": 1953,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.015625,
+            "anchor_start": 1251,
+            "anchor_end": 1541,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "21472b64d9055806b9b95a986a724975304ef2b8a0b66a6e2f971e45b6a02b94",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 23,
+            "start": 1072,
+            "end": 2107,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.015384615384615385,
+            "anchor_start": 1422,
+            "anchor_end": 1780,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "3562a7242f350a45aa5a56a8f8512ecaae6ae8ba33ec843d1f5512efc9e4bf13",
+            "pncp_id": "76279975000162-1-000083/2026",
+            "document_sequence": 1,
+            "page": 26,
+            "start": 1533,
+            "end": 2193,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+            "score": 0.015151515151515152,
+            "anchor_start": 1883,
+            "anchor_end": 2181,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908",
+            "204cfa59ae2576f4942598ec80910cc84f8a8d70c136cfd7358b6e501b969fa8",
+            "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "564409deb7832194407f9b728668c3f8357deb261f1731d4ebb5865d1c6018d9",
+            "e106952236c4ac28c467e9f0f4637f9bd98f3835a47acdc9ef0aad72dc94a8f8",
+            "01ef3a5997219db4d125e3f5b661b1d3c8b957d9b48fab275d4ff6c22e967b55",
+            "e1dfa2b1c4b4193a21162025b39b6795d6cc19681bde39fbe042c7bcac305651",
+            "66e3bcaf10e0c36309637b9a3591b108b4a6e461a610d84bda07261ec94a977e",
+            "76c1cdaee511281837a0429bf7072448693a1a463500238b5da5f06d5eb3dc07"
+          ],
+          "keyword": [
+            "952f68294f72b80c07dfc7a50971c3e646aec7d72f2e4863834b2574b31e8c5c",
+            "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908",
+            "cbbfa8cbb29e6a2b33631917158a6e2060795a5b45145f53977a18ad4f2df055",
+            "05275a01915420e1e80fb865a0e2922489d14e412e3a1a9a550ddd01e32e29fe",
+            "21472b64d9055806b9b95a986a724975304ef2b8a0b66a6e2f971e45b6a02b94",
+            "3562a7242f350a45aa5a56a8f8512ecaae6ae8ba33ec843d1f5512efc9e4bf13",
+            "465471beed7686aae95e874bf1956975d5dea968120e9287ee4b031cdbb589f0",
+            "5efee318a962e429d0a06fee1718a151d85329081f2d162c605abbdcfedb3d99",
+            "a1e6ff6de6388e29f5fc7dbabf33df47e14e98ce0c6461f9ad54282dd92e94eb",
+            "f2aab83690f7261ce730c2ce7d90139967d09b828fd25932ca27526a7198b045"
+          ]
+        },
+        "latency_ms": 118.1150999982492,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "tamanho mínimo resolução monitor desktop 04",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-05",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "80c57a57d43055f305eaf225d75a0d89793b9fa270f627031bcc704cc55e2f38"
+        ],
+        "retrieved": [
+          {
+            "id": "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 23,
+            "start": 189,
+            "end": 1489,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.032018442622950824,
+            "anchor_start": 539,
+            "anchor_end": 839,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "2f2f04df97d223c1303e8b3dcb573d049d59befd9256f1e78ddf14ca015b306e",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 82,
+            "start": 304,
+            "end": 1641,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.01639344262295082,
+            "anchor_start": 654,
+            "anchor_end": 991,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "ec22c1e969580b41b15c90640967967b407cf7dd7d3452ca1ab199106e2fe88f",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 80,
+            "start": 517,
+            "end": 1814,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.016129032258064516,
+            "anchor_start": 867,
+            "anchor_end": 1164,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "39d97f0608a087d997d680db446d4ece257d100fccced5634fcae8b4d57229c7",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 44,
+            "start": 1734,
+            "end": 2516,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.015873015873015872,
+            "anchor_start": 2084,
+            "anchor_end": 2392,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "3ae957583e908026c10dcb770937ec19629ca655da3857f1593fce143feefe5c",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 71,
+            "start": 178,
+            "end": 1449,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.015873015873015872,
+            "anchor_start": 528,
+            "anchor_end": 799,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "ec22c1e969580b41b15c90640967967b407cf7dd7d3452ca1ab199106e2fe88f",
+            "39d97f0608a087d997d680db446d4ece257d100fccced5634fcae8b4d57229c7",
+            "5756af7cc08536358f1d31f4275aa786b799f2192bd6cbfad9918ec1dc724ba6",
+            "6f5df2bed9fca573cb01f5a82b779481978b960dcb80caf9c5ef719c0f320170",
+            "93245db3ce57650e492c30f423771450be1aae0e3118073c44687f34282c111e",
+            "a44a710bfc611e2844ed6455dca2407c7dadf0deb4de2505e192f857e627be35",
+            "6e55fee4ee5911b47083b2d1315c603fac9baddde3f2f3bdf6544d0f034ca2a3",
+            "294c658340a55312fb8c85f3e56f7c3edfd2fe3353e11214fcb9c64867bd6fff",
+            "fb4d07c1f53e1baba15658ff2c8c9d9e0fc52ca0bcf263c64f474ccc29c909c9"
+          ],
+          "keyword": [
+            "2f2f04df97d223c1303e8b3dcb573d049d59befd9256f1e78ddf14ca015b306e",
+            "0dc463176a3d51e76fa6852ad14a7a8a7ff49d649afc38c973aaa284ad5c7b9b",
+            "3ae957583e908026c10dcb770937ec19629ca655da3857f1593fce143feefe5c",
+            "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "751da1053d92be3bb20d702369ddcda49c1ec730a26c17dcf1d91559371d5477",
+            "a3ccd027176db7a7c3fc4ffcd21c396a9b41e16c9199c376dd2b1fdf21c85fa0",
+            "bcbcd5bb025a2bbd31848d790b6dd1b8a59f1160af502995c362ed27e5fe8c0e",
+            "edacb315e821d82e246c1a12760ff7aa67f92aa4cee5e601f3c1f9fe2e53b88f",
+            "0cd94281287c46d9c1cc62afd673309c53cf1d014bc51a73dd4e5670017abf48",
+            "12633296da54e5162e113ccc8ae15ad12c1c0b084907541e9dd96f8ecf83c3dc"
+          ]
+        },
+        "latency_ms": 153.63609999985783,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "quantidade SSD 120 GB 20 garantia mínima fabricante",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-06",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+          "b96b71f3f3d51845647722183e5ad02016a75fb87c1d0816636e50d34f5665ed"
+        ],
+        "retrieved": [
+          {
+            "id": "9f495d492caf25c82d3bf67d8c70e3e25eb2b5e2dcf8c9d112a24010d4085e64",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 71,
+            "start": 0,
+            "end": 1218,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.032018442622950824,
+            "anchor_start": 304,
+            "anchor_end": 568,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "afbcda487d4170a80640e52d8cb368b9e68813a51aba0fa4291909cd962f7779",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 34,
+            "start": 0,
+            "end": 1262,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.03076923076923077,
+            "anchor_start": 330,
+            "anchor_end": 612,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "cf836c4cd14fdfd2906e2078d7c331da4052d15220dc275998354cb85e444906",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 60,
+            "start": 1050,
+            "end": 2345,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.01639344262295082,
+            "anchor_start": 1400,
+            "anchor_end": 1695,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "2dde8b8a34668c8b22d4bb7d69da76cf185edc0abdb2b00eb14b74b8a2187e6e",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 80,
+            "start": 1259,
+            "end": 2587,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.016129032258064516,
+            "anchor_start": 1609,
+            "anchor_end": 1937,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "6e55fee4ee5911b47083b2d1315c603fac9baddde3f2f3bdf6544d0f034ca2a3",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 82,
+            "start": 2394,
+            "end": 2907,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.016129032258064516,
+            "anchor_start": 2744,
+            "anchor_end": 2905,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "9f495d492caf25c82d3bf67d8c70e3e25eb2b5e2dcf8c9d112a24010d4085e64",
+            "6e55fee4ee5911b47083b2d1315c603fac9baddde3f2f3bdf6544d0f034ca2a3",
+            "1322be26cc927bd26146d7a31157e51a95a9fdf606c0ad21a33b95f3b4b51566",
+            "2e6e45d3338f4c7d68da3c42a83efd5b2d943fca29844dfbab4bc2b9f38d282e",
+            "afbcda487d4170a80640e52d8cb368b9e68813a51aba0fa4291909cd962f7779",
+            "d2a7b6f0ba9b25ed88c047bf314179a5254b68a775aa48678680b28ad35f8cc3",
+            "b96b71f3f3d51845647722183e5ad02016a75fb87c1d0816636e50d34f5665ed",
+            "967e683935cffa8d74d7df8589f55ff9b0c755edd24a735f2e1c0bf2f73eca00",
+            "c4739ef1dacda914f2fd01bf2b75b77b989f5fecb3c3d2436cfc65a11ed60b10",
+            "c12540f2789eeee37e832d62b2d26193914b8a82dc5107e63362e7b448a3635a"
+          ],
+          "keyword": [
+            "cf836c4cd14fdfd2906e2078d7c331da4052d15220dc275998354cb85e444906",
+            "2dde8b8a34668c8b22d4bb7d69da76cf185edc0abdb2b00eb14b74b8a2187e6e",
+            "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+            "9f495d492caf25c82d3bf67d8c70e3e25eb2b5e2dcf8c9d112a24010d4085e64",
+            "afbcda487d4170a80640e52d8cb368b9e68813a51aba0fa4291909cd962f7779",
+            "cb73c085ce19ae1cdf60d297222d7c6cfc137ec433ac4e493423f26d9d2203f0",
+            "08c5f58b3466439b412b15833f4a19747726aeecb36c5ebebc1558366873b385",
+            "170aca9e9163acf4d0f21747395f1ee86357c3bcdcc50e8d7ee9cc90d041a488",
+            "29956501fccc3988d7bc5ad0e05194126941e5e2ef9502ab95effb4266c1a7a8",
+            "58ca327103e3e032491a4b8707916914da2ba5ab3ba4db0e12e1faad3efb54a3"
+          ]
+        },
+        "latency_ms": 167.13189999791211,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "capacidade padrão latência taxa mínima transferência RAM desktop 21",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-07",
+        "pncp_id": "82575812000120-1-000428/2026",
+        "expected_chunk_ids": [
+          "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22",
+          "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29"
+        ],
+        "retrieved": [
+          {
+            "id": "0db70fcc4c998bdadc17e814cf287c66c8f4175b17a42f912b073e5ee7d70c15",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 53,
+            "start": 728,
+            "end": 2269,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.0315136476426799,
+            "anchor_start": 1078,
+            "anchor_end": 1619,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "b4c9aac8ab6f45909c45ddc0f2391a24fef7764b56b96bd451c6d5aa766bcae1",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 98,
+            "start": 1772,
+            "end": 3300,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.0315136476426799,
+            "anchor_start": 2122,
+            "anchor_end": 2650,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "ad94aec7f7b8c113c852fd7fc86ea1744eb98298a676ff9444f7c62061d2a0ba",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 62,
+            "start": 0,
+            "end": 1312,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.030886196246139225,
+            "anchor_start": 331,
+            "anchor_end": 662,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "ecd36fd1bfd724e268c0c0302b9244ef20bc99cd8cea780804ee57951749e698",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 55,
+            "start": 441,
+            "end": 1972,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.01639344262295082,
+            "anchor_start": 791,
+            "anchor_end": 1322,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "724500f048bc5b4a01ddd18c599a9d28fd9422335337e19ea628c068281e68dc",
+            "pncp_id": "82575812000120-1-000428/2026",
+            "document_sequence": 1,
+            "page": 7,
+            "start": 3128,
+            "end": 3929,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+            "score": 0.015873015873015872,
+            "anchor_start": 3478,
+            "anchor_end": 3927,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "ecd36fd1bfd724e268c0c0302b9244ef20bc99cd8cea780804ee57951749e698",
+            "0db70fcc4c998bdadc17e814cf287c66c8f4175b17a42f912b073e5ee7d70c15",
+            "724500f048bc5b4a01ddd18c599a9d28fd9422335337e19ea628c068281e68dc",
+            "c75e9c4b87da443dd76797f52fc253c7626627738d4d08880e8998502e89d704",
+            "b4c9aac8ab6f45909c45ddc0f2391a24fef7764b56b96bd451c6d5aa766bcae1",
+            "64b09185633e8ece524994ab4fbdaf77668875bc40489c991824bd2ff6059502",
+            "b95c84dd04d0c3eb19f7b714735910c46df1b39777e79a94e933e13c826cff42",
+            "1aba1f2ddf7b51771458fdca38e6b50b35c255310d5c59158b6db57c911c457a",
+            "ad94aec7f7b8c113c852fd7fc86ea1744eb98298a676ff9444f7c62061d2a0ba",
+            "036422dd9dc730de4fe382e35bc23e7a5b3671eabac48df0853b03b5514be948"
+          ],
+          "keyword": [
+            "ad94aec7f7b8c113c852fd7fc86ea1744eb98298a676ff9444f7c62061d2a0ba",
+            "b4c9aac8ab6f45909c45ddc0f2391a24fef7764b56b96bd451c6d5aa766bcae1",
+            "97c5f068321b75bcc7d4f63add2437ee57b4144846ad94cc9b594778b23d007e",
+            "0a7e48321ce385464fa86d09f5b2101c69e438ae6bf12aa3758fe3b98e2ea491",
+            "0db70fcc4c998bdadc17e814cf287c66c8f4175b17a42f912b073e5ee7d70c15",
+            "3e0c86a7957e054379a14692407e4a6cbe60fada8ca09ad4b9256caaf3aff0c3",
+            "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29",
+            "83c67c05110e8092d78dce75d4f811c134088a69b9a46f26a8ab7bfbdd3d9dff",
+            "8c3b96881c3f62a3179022957eee50d988e5ecaa89001bf3af9d87c00fff435d",
+            "8d41d90db9f9e28b89106c1617cb22401072fc02eaebd30e8dcfb4556d109edf"
+          ]
+        },
+        "latency_ms": 128.2017999983509,
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false,
+        "effective_query": "desktop 21 garantia atendimento local deve ocorrer atendimento prazo máximo solução",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-08",
+        "pncp_id": "00348003000110-1-001037/2026",
+        "expected_chunk_ids": [
+          "b1ec15f507d33c8a24a4fe078439d8665f6c5048b89d2041ca86eba0c02cf414",
+          "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08"
+        ],
+        "retrieved": [
+          {
+            "id": "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 2,
+            "start": 1493,
+            "end": 2899,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": 0.03278688524590164,
+            "anchor_start": 1843,
+            "anchor_end": 2249,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "b1ec15f507d33c8a24a4fe078439d8665f6c5048b89d2041ca86eba0c02cf414",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 1,
+            "start": 0,
+            "end": 1326,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": 0.016129032258064516,
+            "anchor_start": 249,
+            "anchor_end": 676,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "bf5ae3c74b00cc8d7e497b51a13be287e894c2e623052901fdc7305af6473a2d",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 14,
+            "start": 24,
+            "end": 1405,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": 0.016129032258064516,
+            "anchor_start": 374,
+            "anchor_end": 755,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "425f6d7af0e76993e1b5b12ac4e8f316bc8ecd5c8fb6f46199c548f2c3b97c61",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 19,
+            "start": 729,
+            "end": 2097,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": 0.015873015873015872,
+            "anchor_start": 1079,
+            "anchor_end": 1447,
+            "context_profile": "page_window"
+          },
+          {
+            "id": "995fc18112c612a35c169e915dee69fa17017b31cb2af7df7b039889efab8660",
+            "pncp_id": "00348003000110-1-001037/2026",
+            "document_sequence": 2,
+            "page": 12,
+            "start": 4931,
+            "end": 6371,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+            "score": 0.015625,
+            "anchor_start": 5281,
+            "anchor_end": 5721,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08",
+            "bf5ae3c74b00cc8d7e497b51a13be287e894c2e623052901fdc7305af6473a2d",
+            "425f6d7af0e76993e1b5b12ac4e8f316bc8ecd5c8fb6f46199c548f2c3b97c61",
+            "995fc18112c612a35c169e915dee69fa17017b31cb2af7df7b039889efab8660",
+            "91a5c632333aafda4eab9cfb6e159bcca810a7fbba3a50abba70d922c3c87b62",
+            "258b3e34e7b8142664038e215bccaccb464a1d630caeda5c2fc18a7673c5c64a",
+            "69fde6fccf1481ec6ff2da7e0e4b35ef5ceedb15bcf5c5d4ce2a847ddb900ba5",
+            "792f0ce689b118e24d27dbedec9ef9a33852b8ec00028c09fe427d806ee442ee",
+            "4ee272b4e9ce059150a122febe34f5f18e691278555efeb9f967611b7786ba34",
+            "47eb48e40ca6b233568d0b9a34aea8790ab64ecbc66fd00f0e7feaf288c5be8a"
+          ],
+          "keyword": [
+            "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08",
+            "b1ec15f507d33c8a24a4fe078439d8665f6c5048b89d2041ca86eba0c02cf414",
+            "9822a30007f77d7fd414ccc1e6e6dcbbcbadafa783a7a8dbcac5066c21f5758f",
+            "a2740848e0b0d4aa5083c507163dc5c30ab7d06cec7c52da432ad68225d266a6",
+            "e23f2f575efa51df64c9fd70b67f8b7c790a745496f5d0435f492a97a313417d",
+            "3f88798b950207331cd7a774bca03018a605fe7a944d1d52c0310834043419a1",
+            "6dad562d6cd235ba2094e41cf3d41d1b3f4e38791533dac3a89dbf2cc1c2c467",
+            "fb938d3f2db91048f38f2067bac6b5ed40e6b9ca6ac1bef41295a5c2969dfb4d",
+            "1b12f06a0204b7f0e155c019bbc8d1aae76fe0d50e48793a274c35501102ab1f",
+            "31a6c0a6ac91f1f4b4f26716632d31defbabe9f2a46b1eb39c877ad873e471b3"
+          ]
+        },
+        "latency_ms": 154.22179999950458,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "critério julgamento modo disputa pregão 90012 2026 Embrapa Caprinos Ovinos",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-09",
+        "pncp_id": "10936853000193-1-000094/2026",
+        "expected_chunk_ids": [
+          "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3"
+        ],
+        "retrieved": [
+          {
+            "id": "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3",
+            "pncp_id": "10936853000193-1-000094/2026",
+            "document_sequence": 1,
+            "page": 1,
+            "start": 0,
+            "end": 847,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10936853000193/compras/2026/94/arquivos/1",
+            "score": 0.03278688524590164,
+            "anchor_start": 0,
+            "anchor_end": 438,
+            "context_profile": "page_window"
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3",
+            "c2a632e397ec7d3b2e34448c108599ff3f541fea1ae0aa69870185e7c86fd722",
+            "6b6ab172144e6c6b68c915d8b4c81a78524bc653a4d5a69babced4322d284536"
+          ],
+          "keyword": [
+            "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3",
+            "c2a632e397ec7d3b2e34448c108599ff3f541fea1ae0aa69870185e7c86fd722",
+            "6b6ab172144e6c6b68c915d8b4c81a78524bc653a4d5a69babced4322d284536"
+          ]
+        },
+        "latency_ms": 101.21869999784394,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "Segundo certidão publicação adesão 8 2026 Novo Gama quantidade objeto aquisição informados",
+        "filters": {}
+      },
+      {
+        "case_id": "independent-10",
+        "pncp_id": "33683111000107-1-000073/2026",
+        "expected_chunk_ids": [
+          "c5b2497af17115c04bb4c425245315416d3135c264ecd485a129b55d35aed365",
+          "9380eb73ea311aba956717ca53bfe83e5dec5e0766b4aff9117de3f1f11ae41d"
+        ],
+        "retrieved": [
+          {
+            "id": "6cc71b3142dfad3e4bf0134e616bc18838ed3f121cf309744c1f94a467e1b376",
+            "source_chunk_id": "f9df3474b6933bbf99d38947dbe54306f62afa4cce871934eabd22510f1d6579",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 62,
+            "start": 395,
+            "end": 1445,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 7,
+            "anchor_start": 397,
+            "anchor_end": 795,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 62,
+            "item_header_start": 395,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "5d4a5a338e3421fc220123e5414c9e4d08a7de6964452692870840b54a3928da",
+            "source_chunk_id": "c5b2497af17115c04bb4c425245315416d3135c264ecd485a129b55d35aed365",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 39,
+            "start": 1538,
+            "end": 2277,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 4,
+            "anchor_start": 1212,
+            "anchor_end": 1627,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 39,
+            "item_header_start": 1538,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "5063a823e0994f958d8d7000f7bc8f1ec8f7cab38ec6c5c2040280fb8f1fb887",
+            "source_chunk_id": "1b3c59294cbbf77887a409486efcaf26338319b46480bae9a55f99df89e04fa6",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 37,
+            "start": 542,
+            "end": 1531,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 2,
+            "anchor_start": 443,
+            "anchor_end": 881,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 37,
+            "item_header_start": 542,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "10bbbaac93e0bd8332fae49ee38f9c5d4eeb610ff9649dbfc01564f1aa80c90d",
+            "source_chunk_id": "b4cb8a7797c829af113b03e8be3d7f52e2866e9f5729a8722a32f6ccbb46b86d",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 59,
+            "start": 1287,
+            "end": 1824,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 2,
+            "anchor_start": 1098,
+            "anchor_end": 1520,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 59,
+            "item_header_start": 1287,
+            "item_recognition": "explicit",
+            "item_continuation": "header_page",
+            "quantity_candidates": []
+          },
+          {
+            "id": "f6ad65d02b432af1ead3a5856b0278990a66610745b4a5b30479410f32337dc4",
+            "source_chunk_id": "a030367867ded2ee807d9b903c6b812801f00330b21295c9438b01927fb48e08",
+            "pncp_id": "33683111000107-1-000073/2026",
+            "document_sequence": 1,
+            "page": 40,
+            "start": 0,
+            "end": 1072,
+            "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+            "score": 5,
+            "anchor_start": 2,
+            "anchor_end": 422,
+            "context_profile": "item_structure",
+            "item_number": "1",
+            "item_header_page": 39,
+            "item_header_start": 1538,
+            "item_recognition": "explicit",
+            "item_continuation": "inferred_requires_review",
+            "quantity_candidates": []
+          }
+        ],
+        "candidate_ids": {
+          "semantic": [
+            "a030367867ded2ee807d9b903c6b812801f00330b21295c9438b01927fb48e08",
+            "a92c52102322576039b33abd9f0089901d5796b966ef02084c39fea94a8dbcbb",
+            "983b61c15175442d2ad6dbba7ce38d68edfbeb70be1920d4ddcd29ec6b6fe04c",
+            "20150f26e629d49d4b8bdc67542c59a89da7a89f3272c7f26d1d2129832cf438",
+            "34104e7b3368ee633a70485bb62d6a59381110b5aaf8247febf42a177a81d629",
+            "9380eb73ea311aba956717ca53bfe83e5dec5e0766b4aff9117de3f1f11ae41d",
+            "33a09180002721f0612c124ca9d5f6580bf2cb92ceea7d8fe4d79248b17f98ca",
+            "79724d660da093a402d906525be5a02abd47a7e7d158e83c34e9df3cfda11da6",
+            "28aaeddc9d5b752f6f68dfe0c448ad49c788d3df2c2d449347033acd8d946d26",
+            "f7cf48a1d814a7ea2d9cc9977ef01b8951da82dcad6836dcbb52b0277d3d9b45"
+          ],
+          "keyword": [
+            "67d99f80da5e2cbd96f754169ff49af509aa4955991a469d86609fd390726cdb",
+            "58940a072e181d2a2db6116d07410541d0c48670ce3c0591931665b3cef2d254",
+            "a92c52102322576039b33abd9f0089901d5796b966ef02084c39fea94a8dbcbb",
+            "34104e7b3368ee633a70485bb62d6a59381110b5aaf8247febf42a177a81d629",
+            "9c20582753a68fce294135bc59b714721326edf0f575a45d33d1770e55c2bd9f",
+            "a030367867ded2ee807d9b903c6b812801f00330b21295c9438b01927fb48e08",
+            "b2c270bebb935cca1708ce7bc5e9d9eab19dfb3ea59a7372934419eefd8ead60",
+            "f9df3474b6933bbf99d38947dbe54306f62afa4cce871934eabd22510f1d6579",
+            "0c4eb42033f830c9680cdc07d9a1f3a9dc1cf0e5e703257fe1c7fce04b0eb0a2",
+            "0e845bdfd308afb38e43a7302bff2618773eddcd3c3c23d0b429355ba35a2a5c"
+          ]
+        },
+        "latency_ms": 127.09540000287234,
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": true,
+        "effective_query": "memória RAM mínima padrão roteador 1 Cloud Connect pregão 31 2026",
+        "filters": {}
+      }
+    ]
+  }
+}

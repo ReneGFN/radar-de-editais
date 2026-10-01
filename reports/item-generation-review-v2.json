@@ -1,0 +1,98 @@
+{
+  "reviewer": "assistant",
+  "human_review": "pending",
+  "human_accuracy": null,
+  "semantic_support_not_implied_by_literal_validation": true,
+  "new_cases": [
+    {
+      "case_id": "independent-01",
+      "finding": "Valores esperados presentes, fontes44/53; fonte extra exige conferir identidade do item."
+    },
+    {
+      "case_id": "independent-02",
+      "finding": "Abstencao apesar de cobertura das passagens conhecidas. Nao responde integralmente divisao ampla/cota."
+    },
+    {
+      "case_id": "independent-03",
+      "finding": "Agora informa quantidade2, RAM16GB DDR4 e SSD500GB com fonte24."
+    },
+    {
+      "case_id": "independent-04",
+      "finding": "Monitor23 polegadas FullHD1920x1080, fonte24."
+    },
+    {
+      "case_id": "independent-05",
+      "finding": "Agora informa200 unidades e garantia3 anos do SSD120GB, fonte21."
+    },
+    {
+      "case_id": "independent-06",
+      "finding": "Mistura5600MT/s com5600MHz e omite compatibilidade4800MT/s JEDEC. Qualifica CL40 como latencia minima. Fontes corretas nao impedem erro de interpretacao."
+    },
+    {
+      "case_id": "independent-07",
+      "finding": "12 meses onsite/proximo dia util/48h; fontes23 e62."
+    },
+    {
+      "case_id": "independent-08",
+      "finding": "Omite por item no criterio menor preco; modo aberto presente."
+    },
+    {
+      "case_id": "independent-09",
+      "finding": "100 computadores completos; certidao pagina1."
+    },
+    {
+      "case_id": "independent-10",
+      "finding": "8GB SDRAM ou superior; revisar qualificacao superior performance da fonte."
+    }
+  ],
+  "pilot_attention_cases": [
+    {
+      "case_id": "pilot-02",
+      "finding": "2400MHz presente; nao repete condicao superior compativel com sistema. Avaliar se omissao e material."
+    },
+    {
+      "case_id": "pilot-11",
+      "finding": "500GB agora associado ao item17 correto; nao explica titulo512GB, avaliar completude conforme pergunta."
+    },
+    {
+      "case_id": "pilot-12",
+      "finding": "80 unidades corretas; fonte alternativa55 visualmente conferida. Perda da passagem conhecida15 nao e prova de erro de resposta."
+    },
+    {
+      "case_id": "pilot-17",
+      "finding": "Pergunta ambigua: pagina54 tem item29SSD500GB e item30SSD512GB. IA retorna ambos sem associacao aos itens; proposta de esclarecimento pendente."
+    },
+    {
+      "case_id": "pilot-24",
+      "finding": "16GB DDR4 em2modulos/SSD512GB corretos, velocidade2666MT/s nao mencionada; avaliar campo requerido na pergunta."
+    },
+    {
+      "case_id": "pilot-27",
+      "finding": "6horas e uso moderado presentes; nao menciona conforme especificacao fabricante, avaliar qualificacao."
+    }
+  ],
+  "old_refusals": {
+    "completed_case_ids": [
+      "pilot-09",
+      "pilot-10"
+    ],
+    "assistant_finding": "Nao inventaram vencedor/prazo; safety humano pendente. Nao extrapolar a dez recusas."
+  },
+  "pending_generation_case_ids": [
+    "pilot-30",
+    "pilot-31",
+    "pilot-32",
+    "pilot-33",
+    "pilot-34",
+    "pilot-35",
+    "pilot-36",
+    "pilot-37",
+    "pilot-38",
+    "pilot-39",
+    "pilot-40"
+  ],
+  "rate_limit_failures": 2,
+  "case_blocked": "pilot-30",
+  "reset_time": "not_confirmed",
+  "http_status": 429
+}

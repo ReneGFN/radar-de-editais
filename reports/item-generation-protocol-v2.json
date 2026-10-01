@@ -1,0 +1,25 @@
+{
+  "state": "prepared_before_execution",
+  "model": "openai/gpt-oss-120b",
+  "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+  "variant": "alias_items",
+  "cases": 50,
+  "max_passages": 5,
+  "reference_sha256": {
+    "pilot-candidate-v1.json": "9b9a5bb89a9a3511c5a5e334227495b56b4985c0e8fe8f23e64ae5e9f54f535a",
+    "independent-bound-v1.json": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f"
+  },
+  "preview_sha256": "188782e2a03db378069ea7dd45d9c5017d2ffe9e53bfec2ab19bc828c4321ae7",
+  "code_sha256": {
+    "backend/src/radar/generation.py": "8177b0be6c3fd2170951919f63aca98c4dc98b1dfacf7ce324639216edfd36cf",
+    "backend/src/radar/retrieval.py": "54c0127703a969ee0999229f2fc4cde73dddaf3bb57f4abb4c9209383a53d702",
+    "backend/src/radar/item_structure.py": "4eefa9e5d25a27963741849e1b20deef10c264fdc86fcf53628e401039e89f0b",
+    "backend/src/radar/citations.py": "67c7234adc236bbef29a7df7b8b72817205bede16886c6f12202e9852b7fc165",
+    "ops/evaluate-generation.py": "be5105f2a4eaaabd980b11f2a939d748e18758bdcbfa2ed129e483c664eb6a7d"
+  },
+  "authorization_basis": "prior_explicit_40_pilot_and_10_new_cases_Groq_authorizations_plus_user_approved_stage2_retesting_same_questions_public_sources",
+  "free_plan": "previously_user_confirmed",
+  "key_in_prompt": false,
+  "gold_in_prompt": false,
+  "human_accuracy": null
+}

@@ -33,3 +33,7 @@ Layouts com quantidade antes da unidade, tabelas muito longas, item sem cabeçal
 Executar etapa2: integração real, comparar regressão/recusas/completude e novas fontes com configurações versionadas; conferir respostas humanas e planejar reserva independente após ajuste. Respeitar autorizações específicas de envio à Groq; nenhum novo lote foi enviado nesta etapa.
 
 [Segurança](../reports/seguranca-itens-2026-10-01.md) · [Evidência dos testes e hashes](../reports/item-structure-implementation-v1.json).
+
+## Etapa2 posteriormente aprovada
+
+A integração real encontrou regressão na primeira versão. Foram corrigidos reconhecimento de UN, quantidade dentro do bloco da linha e união literal de passagens sobrepostas. [Resultados completos e limites](avaliacao-da-estrutura.md). Os119 testes e ausência de integração citados acima descrevem a entrega da etapa1, não a situação posterior.

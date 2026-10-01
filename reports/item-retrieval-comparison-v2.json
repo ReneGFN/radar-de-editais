@@ -1,0 +1,202 @@
+{
+  "profiles": {
+    "pilot": {
+      "window-v1": {
+        "keyword": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.788888888888889,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 85.48039999914181,
+          "latency_p95_ms": 114.38600000110455
+        },
+        "semantic": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 28,
+          "known_chunk_hit_at_5": 0.9333333333333333,
+          "known_chunk_mrr_at_5": 0.6911111111111111,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 85.20875000067463,
+          "latency_p95_ms": 121.62390000230516
+        },
+        "hybrid": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.7938888888888889,
+          "all_known_quotes_supported_at_5": 1.0,
+          "latency_median_ms": 88.99010000095586,
+          "latency_p95_ms": 107.69859999709297
+        }
+      },
+      "structure-v1": {
+        "keyword": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 24,
+          "known_chunk_hit_at_5": 0.8,
+          "known_chunk_mrr_at_5": 0.7277777777777777,
+          "all_known_quotes_supported_at_5": 0.8666666666666667,
+          "latency_median_ms": 99.75130000020727,
+          "latency_p95_ms": 144.36429999841494
+        },
+        "semantic": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 21,
+          "known_chunk_hit_at_5": 0.7,
+          "known_chunk_mrr_at_5": 0.5733333333333334,
+          "all_known_quotes_supported_at_5": 0.8666666666666667,
+          "latency_median_ms": 112.21194999961881,
+          "latency_p95_ms": 145.7018999972206
+        },
+        "hybrid": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 24,
+          "known_chunk_hit_at_5": 0.8,
+          "known_chunk_mrr_at_5": 0.725,
+          "all_known_quotes_supported_at_5": 0.9,
+          "latency_median_ms": 119.27215000105207,
+          "latency_p95_ms": 163.60849999909988
+        }
+      },
+      "structure-v2": {
+        "keyword": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 28,
+          "known_chunk_hit_at_5": 0.9333333333333333,
+          "known_chunk_mrr_at_5": 0.8111111111111111,
+          "all_known_quotes_supported_at_5": 0.9333333333333333,
+          "latency_median_ms": 117.4840999992739,
+          "latency_p95_ms": 156.8029000009119
+        },
+        "semantic": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 27,
+          "known_chunk_hit_at_5": 0.9,
+          "known_chunk_mrr_at_5": 0.7788888888888889,
+          "all_known_quotes_supported_at_5": 0.9333333333333333,
+          "latency_median_ms": 120.48604999836243,
+          "latency_p95_ms": 150.95799999835435
+        },
+        "hybrid": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 28,
+          "known_chunk_hit_at_5": 0.9333333333333333,
+          "known_chunk_mrr_at_5": 0.8416666666666667,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 140.63900000110152,
+          "latency_p95_ms": 176.26630000086152
+        }
+      }
+    },
+    "new": {
+      "window-v1": {
+        "keyword": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 6,
+          "known_chunk_hit_at_5": 0.6,
+          "known_chunk_mrr_at_5": 0.3416666666666667,
+          "all_known_quotes_supported_at_5": 0.5,
+          "latency_median_ms": 88.60244999959832,
+          "latency_p95_ms": 97.93189999982133
+        },
+        "semantic": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 6,
+          "known_chunk_hit_at_5": 0.6,
+          "known_chunk_mrr_at_5": 0.4,
+          "all_known_quotes_supported_at_5": 0.5,
+          "latency_median_ms": 84.93525000085356,
+          "latency_p95_ms": 125.64090000159922
+        },
+        "hybrid": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 5,
+          "known_chunk_hit_at_5": 0.5,
+          "known_chunk_mrr_at_5": 0.45,
+          "all_known_quotes_supported_at_5": 0.5,
+          "latency_median_ms": 93.2858500018483,
+          "latency_p95_ms": 109.6047000028193
+        }
+      },
+      "structure-v1": {
+        "keyword": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 6,
+          "known_chunk_hit_at_5": 0.6,
+          "known_chunk_mrr_at_5": 0.36666666666666664,
+          "all_known_quotes_supported_at_5": 0.4,
+          "latency_median_ms": 118.6135000007198,
+          "latency_p95_ms": 173.63839999961783
+        },
+        "semantic": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 4,
+          "known_chunk_hit_at_5": 0.4,
+          "known_chunk_mrr_at_5": 0.2833333333333333,
+          "all_known_quotes_supported_at_5": 0.4,
+          "latency_median_ms": 142.0729500005109,
+          "latency_p95_ms": 168.72240000157035
+        },
+        "hybrid": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 5,
+          "known_chunk_hit_at_5": 0.5,
+          "known_chunk_mrr_at_5": 0.37,
+          "all_known_quotes_supported_at_5": 0.5,
+          "latency_median_ms": 127.69864999972924,
+          "latency_p95_ms": 167.13189999791211
+        }
+      },
+      "structure-v2": {
+        "keyword": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 9,
+          "known_chunk_hit_at_5": 0.9,
+          "known_chunk_mrr_at_5": 0.7833333333333333,
+          "all_known_quotes_supported_at_5": 0.9,
+          "latency_median_ms": 151.09819999997853,
+          "latency_p95_ms": 200.37260000026436
+        },
+        "semantic": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 9,
+          "known_chunk_hit_at_5": 0.9,
+          "known_chunk_mrr_at_5": 0.85,
+          "all_known_quotes_supported_at_5": 0.8,
+          "latency_median_ms": 128.23244999890449,
+          "latency_p95_ms": 191.6620999982115
+        },
+        "hybrid": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 9,
+          "known_chunk_hit_at_5": 0.9,
+          "known_chunk_mrr_at_5": 0.85,
+          "all_known_quotes_supported_at_5": 0.9,
+          "latency_median_ms": 161.19139999864274,
+          "latency_p95_ms": 207.28220000091824
+        }
+      }
+    }
+  },
+  "changes": {
+    "pilot": {
+      "gained_known_quote_cases": [],
+      "lost_known_quote_cases": [
+        "pilot-12"
+      ]
+    },
+    "new": {
+      "gained_known_quote_cases": [
+        "independent-02",
+        "independent-05",
+        "independent-07",
+        "independent-10"
+      ],
+      "lost_known_quote_cases": []
+    }
+  },
+  "human_accuracy": null,
+  "promoted": false,
+  "generation_not_used_for_retrieval_measure": true
+}

@@ -29,7 +29,7 @@ def score_case(case, documents, k=5):
     if any(d.metadata['pncp_id'] != case['pncp_id'] for d in selected):
         raise ValueError('Resultado fora do edital')
     expected = {ev['chunk_id'] for ev in case['evidence']}
-    ranks = [i for i,d in enumerate(selected,1) if d.metadata['id'] in expected]
+    ranks = [i for i,d in enumerate(selected,1) if expected & set(d.metadata.get('source_chunk_ids',[d.metadata.get('source_chunk_id',d.metadata['id'])]))]
     # Outro trecho sobreposto pode conter a mesma evidência na mesma fonte/página.
     quote_hits = [offset_quote_supported(ev,selected) if case.get('evidence_format')=='page_offsets_v1' else any(d.metadata['document_sequence'] == ev['document_sequence']
                       and d.metadata['page'] == ev['page']

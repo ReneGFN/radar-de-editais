@@ -1,0 +1,29 @@
+{
+  "state": "generation_partial_rate_limited",
+  "planned_cases": 50,
+  "completed_cases": 39,
+  "pending_cases": 11,
+  "pending_answerable": 3,
+  "pending_refusals": 8,
+  "accepted_generation_calls": 39,
+  "rate_limit_attempts": 2,
+  "failed_attempt_usage": "not_confirmed",
+  "code_and_reference_hashes_unchanged_during_generation": true,
+  "human_accuracy": null,
+  "promotion": false,
+  "pending_case_ids": [
+    "pilot-30",
+    "pilot-31",
+    "pilot-32",
+    "pilot-33",
+    "pilot-34",
+    "pilot-35",
+    "pilot-36",
+    "pilot-37",
+    "pilot-38",
+    "pilot-39",
+    "pilot-40"
+  ],
+  "tests_passed": 123,
+  "pip_audit": "no_known_vulnerabilities_in_auditable_packages"
+}

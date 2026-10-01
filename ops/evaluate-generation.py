@@ -15,7 +15,7 @@ def main():
     parser.add_argument('--confirm-free-plan',action='store_true')
     parser.add_argument('--limit',type=int,default=40)
     parser.add_argument('--interval',type=float,default=35)
-    parser.add_argument('--variant',choices=('baseline','source_window','alias_window'),default='baseline')
+    parser.add_argument('--variant',choices=('baseline','source_window','alias_window','alias_items'),default='baseline')
     args=parser.parse_args()
     if not args.confirm_free_plan or not 1<=args.limit<=40 or args.interval<30:
         raise ValueError('Confirme plano gratuito, até 40 casos e intervalo mínimo de 30 segundos')
@@ -39,8 +39,8 @@ def main():
         perf_start=time.perf_counter()
         try:
             value=answer(case['question'],ref['snapshot_id'],case['pncp_id'],free_plan_confirmed=True,
-                         context_profile='page_window' if args.variant!='baseline' else 'chunk',
-                         citation_mode='source_alias' if args.variant=='alias_window' else 'source_id' if args.variant=='source_window' else 'model_quote')
+                         context_profile='item_structure' if args.variant=='alias_items' else 'page_window' if args.variant!='baseline' else 'chunk',
+                         citation_mode='source_alias' if args.variant in ('alias_window','alias_items') else 'source_id' if args.variant=='source_window' else 'model_quote')
         except Exception as exc:
             result['errors'].append({'case_id':case['id'],'error_type':type(exc).__name__,
                                      'cause_type':getattr(exc,'kind',None),'http_status':getattr(exc,'status_code',None),

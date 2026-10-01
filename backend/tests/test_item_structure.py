@@ -30,7 +30,7 @@ def test_table_row_recognition_requires_unit_not_arbitrary_number():
 
 
 def test_overlap_dedup_keeps_other_pages_and_files():
-    def doc(seq,page,a,b):return Document(page_content='x'*(b-a),metadata={'pncp_id':'a','document_sequence':seq,'page':page,'start':a,'end':b})
+    def doc(seq,page,a,b):return Document(page_content='x'*(b-a),metadata={'id':f'{seq}-{page}-{a}','pncp_id':'a','document_sequence':seq,'page':page,'start':a,'end':b})
     assert len(diverse([doc(1,1,0,100),doc(1,1,10,110),doc(1,2,0,100),doc(2,1,0,100)]))==3
 
 
@@ -72,3 +72,34 @@ def test_literal_sources_validate_with_derived_passage_ids():
 def test_repeated_identical_item_passage_dedup_but_not_another_item():
     def d(page,item):return Document(page_content='Garantia 12 meses.',metadata={'pncp_id':'a','document_sequence':1,'page':page,'start':0,'end':18,'item_number':item})
     assert len(diverse([d(1,'4'),d(2,'4'),d(3,'5')]))==2
+
+
+def test_long_table_row_unit_un_and_no_borrowing_from_next_item():
+    text='04 DESKTOP\n'+'especificacao '*100+'\nUN 02\n05 MONITOR\nUN 10'
+    blocks=index_items({(1,1):text})
+    assert [b['item'] for b in blocks]==['4','5']
+    assert index_items({(1,1):'04 SEM QUANTIDADE\n05 MONITOR\nUN 10'})[0]['item']=='5'
+
+
+def test_overlap_merge_keeps_both_ends_without_fabricating_text():
+    text='a'*60+'b'*40+'c'*40
+    def d(a,b,i):return Document(page_content=text[a:b],metadata={'id':i,'pncp_id':'p','document_sequence':1,'page':1,'start':a,'end':b})
+    docs=diverse([d(0,100,'a'),d(40,140,'b')])
+    assert len(docs)==1 and docs[0].page_content==text
+    assert docs[0].metadata['source_chunk_ids']==['a','b']
+
+
+def test_overlap_disagreement_is_rejected_instead_of_fabricating_source():
+    import pytest
+    def d(t,a,b,i):return Document(page_content=t,metadata={'id':i,'pncp_id':'p','document_sequence':1,'page':1,'start':a,'end':b})
+    with pytest.raises(ValueError,match='Sobreposicao'):
+        diverse([d('a'*100,0,100,'a'),d('b'*100,40,140,'b')])
+
+
+def test_original_anchor_hit_is_separate_from_full_quote_coverage():
+    from radar.evaluation import score_case
+    case={'kind':'answerable','review_status':'approved','pncp_id':'p','evidence':[{'chunk_id':'origin','document_sequence':1,'page':1,'quote':'quantity 2 units'}]}
+    doc=Document(page_content='units',metadata={'id':'derived','source_chunk_ids':['origin'],'pncp_id':'p','document_sequence':1,'page':1,'start':11,'end':16})
+    score=score_case(case,[doc])
+    assert score['known_chunk_hit_at_k'] is True
+    assert score['all_known_quotes_supported_at_k'] is False

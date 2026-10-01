@@ -1,0 +1,18 @@
+{
+  "snapshot_id": "1446c44aca18011a",
+  "requests": 50,
+  "sources_verified": 198,
+  "literal_offsets": "passed",
+  "quantities": "passed",
+  "aliases": "passed",
+  "loader_privilege_flags": [
+    false,
+    false,
+    false
+  ],
+  "transaction": "read_only",
+  "preview_sha256": "188782e2a03db378069ea7dd45d9c5017d2ffe9e53bfec2ab19bc828c4321ae7",
+  "database_writes": 0,
+  "groq_calls": 0,
+  "semantic_identity": "not_certified_by_literal_check"
+}

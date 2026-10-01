@@ -1,0 +1,31 @@
+--- a/backend/src/radar/evaluation.py
++++ b/backend/src/radar/evaluation.py
+@@ -29,7 +29,7 @@
+     if any(d.metadata['pncp_id'] != case['pncp_id'] for d in selected):
+         raise ValueError('Resultado fora do edital')
+     expected = {ev['chunk_id'] for ev in case['evidence']}
+-    ranks = [i for i,d in enumerate(selected,1) if d.metadata['id'] in expected]
++    ranks = [i for i,d in enumerate(selected,1) if d.metadata.get('source_chunk_id',d.metadata['id']) in expected]
+     # Outro trecho sobreposto pode conter a mesma evidência na mesma fonte/página.
+     quote_hits = [offset_quote_supported(ev,selected) if case.get('evidence_format')=='page_offsets_v1' else any(d.metadata['document_sequence'] == ev['document_sequence']
+                       and d.metadata['page'] == ev['page']
+--- a/ops/evaluate-retrieval.py
++++ b/ops/evaluate-retrieval.py
+@@ -23,7 +23,7 @@
+     parser.add_argument('--lexical-strategy', choices=('all','any'), default='all')
+     parser.add_argument('--query-profile',choices=('original','focused','structured'),default='original')
+     parser.add_argument('--selection-profile',choices=('rrf','coverage'),default='rrf')
+-    parser.add_argument('--context-profile',choices=('chunk','page_window'),default='chunk')
++    parser.add_argument('--context-profile',choices=('chunk','page_window','item_structure'),default='chunk')
+     args = parser.parse_args()
+     ref_raw = args.reference.read_bytes()
+     manifest_raw = args.manifest.read_bytes()
+@@ -83,7 +83,7 @@
+             rows[mode][-1].update(effective_query=trace['effective_query'],filters=trace['filters'])
+         print(json.dumps({'cases_done':i+1,'total':len(cases)}),flush=True)
+     code_paths = ['backend/src/radar/retrieval.py','backend/src/radar/evaluation.py','backend/src/radar/query.py',
+-                  'ops/evaluate-retrieval.py','ops/validate-reference.py','backend/src/radar/reranking.py','backend/src/radar/context.py']
++                  'ops/evaluate-retrieval.py','ops/validate-reference.py','backend/src/radar/reranking.py','backend/src/radar/context.py','backend/src/radar/item_structure.py']
+     report = {'executed_at_utc':datetime.now(timezone.utc).isoformat(),
+         'snapshot_id':snapshot,'reference_sha256':hashlib.sha256(ref_raw).hexdigest(),
+         'manifest_sha256':hashlib.sha256(manifest_raw).hexdigest(),

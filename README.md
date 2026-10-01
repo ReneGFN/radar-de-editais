@@ -1,5 +1,8 @@
 # Radar de Editais
 
+**Estado atual (2026-10-01): etapa2 parcialmente executada;39/50 casos Groq concluídos,11 pendentes por HTTP429. Revisão humana pendente, sem comprovação de90%. [Resultados atuais](docs/avaliacao-da-estrutura.md).
+
+
 **Laboratório de avaliação de RAG para leitura de editais públicos de informática.**
 
 O projeto investiga se pequenos fornecedores conseguem encontrar prazos, especificações e condições com referência verificável ao documento original. O objetivo é publicar metodologia, resultados medidos e erros encontrados ao comparar versões do sistema.
@@ -176,3 +179,9 @@ Dez novos casos autorizados e executados na Groq: seis respostas/quatro abstenç
 ## Etapa1 implementada — aguardando aprovação para etapa2
 
 Perfil opcional item_structure vincula itens/continuações, destaca quantidade literal e reduz repetição de fontes.119 testes passaram; pip-audit atual sem avisos conhecidos auditáveis. Sem Groq, avaliação de acerto ou escrita no banco nesta etapa; integração real e avaliação quantitativa aguardam aprovação explícita conforme pedido de Renê. [Funcionamento, limites e evidências](docs/estrutura-dos-itens.md).
+
+## Etapa2 aprovada — avaliação parcial por limite Groq
+
+Integração PostgreSQL e360 buscas locais concluídas. Estrutura inicial regrediu; correções gerais preservam essa falha e elevaram cobertura híbrida nova5/10→9/10; antiga30/30→29/30 (fonte alternativa do caso12 conferida).123 testes passaram e auditoria atual sem avisos conhecidos auditáveis.
+
+Geração:39/50 casos concluídos, duas falhas429 no piloto30;11 casos pendentes (três factuais/oito recusas). Novos:9 respostas/1 abstenção, erros de unidades/completude ainda presentes. Acerto humano não pontuado; pergunta17 ambígua com proposta de esclarecimento. Gate bloqueado e nenhuma promoção. [Método, resultados, limitações e retomada](docs/avaliacao-da-estrutura.md). Próximo passo: concluir piloto30–40 quando a quota estiver disponível e conferir fichas privadas; outra reserva independente necessária após ajustes.
