@@ -1,0 +1,132 @@
+{
+  "variant": "alias_window",
+  "model": "openai/gpt-oss-120b",
+  "snapshot_id": "1446c44aca18011a",
+  "reference_sha256": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f",
+  "free_plan": "user_confirmed_not_independently_audited",
+  "completed": 10,
+  "tested_cases": 10,
+  "rejected_case_ids": [],
+  "generation_calls": 10,
+  "input_tokens_successful_cases": 27913,
+  "output_tokens_successful_cases": 1835,
+  "median_generation_latency_ms": 907.18,
+  "failed_attempts": 0,
+  "failed_attempt_usage": "not_confirmed",
+  "actual_billing": "not_independently_verified",
+  "correctness": "not_scored_pending_human_review",
+  "refusal_safety": "not_scored_pending_human_review",
+  "cases": [
+    {
+      "case_id": "independent-01",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2607,
+      "output_tokens": 232,
+      "total_latency_ms": 3987.31,
+      "generation_latency_ms": 990.51
+    },
+    {
+      "case_id": "independent-02",
+      "kind": "answerable",
+      "response_status": "insufficient_evidence",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2402,
+      "output_tokens": 188,
+      "total_latency_ms": 888.95,
+      "generation_latency_ms": 778.49
+    },
+    {
+      "case_id": "independent-03",
+      "kind": "answerable",
+      "response_status": "insufficient_evidence",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 3338,
+      "output_tokens": 201,
+      "total_latency_ms": 1056.15,
+      "generation_latency_ms": 945.38
+    },
+    {
+      "case_id": "independent-04",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 3311,
+      "output_tokens": 169,
+      "total_latency_ms": 932.79,
+      "generation_latency_ms": 842.92
+    },
+    {
+      "case_id": "independent-05",
+      "kind": "answerable",
+      "response_status": "insufficient_evidence",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 3477,
+      "output_tokens": 154,
+      "total_latency_ms": 2523.92,
+      "generation_latency_ms": 2431.22
+    },
+    {
+      "case_id": "independent-06",
+      "kind": "answerable",
+      "response_status": "insufficient_evidence",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 3267,
+      "output_tokens": 197,
+      "total_latency_ms": 1061.15,
+      "generation_latency_ms": 954.52
+    },
+    {
+      "case_id": "independent-07",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2676,
+      "output_tokens": 212,
+      "total_latency_ms": 989.18,
+      "generation_latency_ms": 852.69
+    },
+    {
+      "case_id": "independent-08",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2671,
+      "output_tokens": 202,
+      "total_latency_ms": 1121.77,
+      "generation_latency_ms": 1015.72
+    },
+    {
+      "case_id": "independent-09",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1413,
+      "output_tokens": 124,
+      "total_latency_ms": 718.11,
+      "generation_latency_ms": 605.37
+    },
+    {
+      "case_id": "independent-10",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2751,
+      "output_tokens": 156,
+      "total_latency_ms": 1005.4,
+      "generation_latency_ms": 868.99
+    }
+  ],
+  "errors": []
+}

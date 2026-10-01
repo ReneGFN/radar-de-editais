@@ -1,0 +1,55 @@
+{
+  "snapshot_id": "1446c44aca18011a",
+  "variant": "alias_window",
+  "reviewer": "assistant",
+  "human_accuracy": null,
+  "human_review": "pending",
+  "first_run_preserved": true,
+  "cases": [
+    {
+      "case_id": "independent-01",
+      "finding": "Valores esperados presentes; pagina44 da referencia e fonte adicional53. Conferencia humana pendente."
+    },
+    {
+      "case_id": "independent-02",
+      "finding": "Abstencao: contexto nao cobre a divisao completa entre ampla concorrencia e cota."
+    },
+    {
+      "case_id": "independent-03",
+      "finding": "Abstencao apesar de UNID 02 presente na previa congelada; problema de interpretacao de tabela."
+    },
+    {
+      "case_id": "independent-04",
+      "finding": "Valores esperados presentes; fonte pagina24."
+    },
+    {
+      "case_id": "independent-05",
+      "finding": "Abstencao: item20/SSD120 e garantia nao recuperados integralmente."
+    },
+    {
+      "case_id": "independent-06",
+      "finding": "Abstencao: capacidade, latencia e taxa da RAM instalada nao recuperadas integralmente."
+    },
+    {
+      "case_id": "independent-07",
+      "finding": "Valores esperados presentes. Fonte alternativa pagina62 visualmente conferida como continuacao do mesmo item21 nas paginas60-62."
+    },
+    {
+      "case_id": "independent-08",
+      "finding": "Resposta incompleta: menor preco e aberto presentes, mas omitiu por item do gabarito."
+    },
+    {
+      "case_id": "independent-09",
+      "finding": "Objeto e quantidade esperados presentes; fonte pagina1 da certidao."
+    },
+    {
+      "case_id": "independent-10",
+      "finding": "Valores esperados presentes. Pagina62 visualmente confirma Item1 Cloud Connect e RAM8GB SDRAM ou superior performance."
+    }
+  ],
+  "limitations": [
+    "Integridade literal nao prova apoio semantico ou completude.",
+    "Paginas de referencia nao enumeram todas as repeticoes legitimas.",
+    "Novos dez casos nao satisfazem protocolo de100 perguntas/10 novas contratacoes."
+  ]
+}

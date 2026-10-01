@@ -149,7 +149,7 @@ Fonte enviada à IA como S1–S5, schema com lista fechada, restaurada ao ID rea
 
 Lista candidata independente: nove contratações distintas das 30 atuais, obtidas por consultas nas cinco regiões; dez arquivos listados. A seleção de metadados foi parcial por erros/HTTP429. Na preparação posterior, sete PDFs foram extraídos e um foi excluído por hash repetido na base antiga. [Implementação e comparação](docs/fontes-curtas-e-benchmark.md).
 
-## Dez novas referências — aprovadas, avaliação pendente
+## Preparação inicial das dez referências — histórico
 
 [Perguntas, respostas esperadas e páginas oficiais](docs/perguntas-independentes-para-revisao.md): dez perguntas em seis contratações/seis PDFs novos, RJ/PR/SC/CE/GO/DF, quatro regiões. Cinco PDFs de editais com anexos e uma certidão de publicação de GO. Caso Serpro inclui roteador, ampliando a amostra de informática para equipamento de rede.
 
@@ -163,8 +163,12 @@ A amostra ainda não satisfaz o protocolo de 100 perguntas/10 novas contrataçõ
 
 Candidata `1446c44aca18011a`: 36 contratações, 55 PDFs, 2.895 páginas e 18.554 trechos. Reutilizados 15.773 vetores e calculados localmente 2.781 novos. Carga idempotente, offsets e igualdade dos textos/vetores antigos verificados; backup restaurado em outro banco com 18.554 trechos. A base anterior permanece disponível; nenhum relatório histórico de preparação/carga foi substituído.
 
-Configuração congelada antes das 210 buscas: resultados/rankings antigos preservados; nas dez perguntas novas, cobertura integral das passagens conhecidas em 5/10 em cada um dos três modos. **Não equivale a50% de acerto de respostas.** Geração e revisão humana desse lote ainda pendentes. Regra de promoção bloqueada; candidata não promovida. 110 testes passaram; pip-audit atual sem avisos conhecidos auditáveis.
+Configuração congelada antes das 210 buscas: resultados/rankings antigos preservados; nas dez perguntas novas, cobertura integral das passagens conhecidas em 5/10 em cada um dos três modos. **Não equivale a50% de acerto de respostas.** À data desta comparação, geração e revisão humana estavam pendentes; a geração posterior está registrada abaixo. Regra de promoção bloqueada; candidata não promovida. 110 testes passaram; pip-audit atual sem avisos conhecidos auditáveis.
 
 As falhas envolvem item errado, tabela entre páginas e repetição de passagens. Próxima melhoria proposta: identidade do item persistida nos trechos e continuações entre páginas; qualquer ajuste baseado nestes erros exige outra reserva. [Método, resultados e falhas](docs/avaliacao-de-crescimento.md) · [Gate](reports/quality-growth-v1.json) · [Segurança](reports/seguranca-candidata-2026-10-01.md).
 
-O plano acima descreve a etapa anterior; a carga/conferência agora está concluída. A próxima etapa de geração tem prévia privada e autorização específica solicitada, sem envio até esta atualização.
+O plano acima descreve a etapa anterior; a carga/conferência agora está concluída. À data do plano, a geração tinha prévia privada e aguardava autorização. A execução posterior está registrada abaixo.
+
+## Geração candidata executada — 2026-10-01
+
+Dez novos casos autorizados e executados na Groq: seis respostas/quatro abstenções, integridade10/10; correção humana pendente. Quantidade presente mas não interpretada no03; omissão de por item no08; fontes alternativas legítimas07/10. Gate permanece bloqueado, sem promoção ou garantia de90%. [Resultados, método e próximo passo](docs/geracao-na-base-candidata.md). 110 testes passaram e auditoria atual sem avisos conhecidos auditáveis.

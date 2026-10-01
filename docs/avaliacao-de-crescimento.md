@@ -62,3 +62,7 @@ Depois de ajustar o sistema com estes erros, este conjunto passa a ser desenvolv
 Operações novas: build-independent-snapshot.py --stage prepare/load/verify; evaluate-retrieval.py com lexical-strategy any, query-profile structured, selection-profile rrf e context-profile page_window; summarize-independent-retrieval.py confere os hashes congelados. PDFs, extração, modelos, vetores e backups são privados. Relatórios históricos de preparação/carga não foram sobrescritos.
 
 Geração deste novo lote na Groq: prévia privada pronta, autorização específica solicitada; nenhuma chamada realizada ao preparar esta comparação. A aprovação das perguntas não é aprovação de respostas ainda não produzidas.
+
+## Geração posteriormente autorizada e executada
+
+[Resultados do novo lote](geracao-na-base-candidata.md): seis respostas/quatro abstenções; integridade10/10, acerto humano pendente. Fontes alternativas legítimas foram verificadas nos casos07 e10; páginas conhecidas não são uma lista exaustiva. Os resultados congelados acima não foram recalculados.

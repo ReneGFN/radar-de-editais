@@ -1,6 +1,6 @@
 # Dez perguntas independentes para revisão
 
-**Referência aprovada por Renê em 2026-10-01: “Aprovo as dez perguntas e referências”.** A recuperação local foi executada posteriormente na candidata; [resultados e falhas](avaliacao-de-crescimento.md). A geração deste lote na Groq permanece pendente de autorização específica.
+**Referência aprovada por Renê em 2026-10-01: “Aprovo as dez perguntas e referências”.** A recuperação local foi executada posteriormente na candidata; [resultados e falhas](avaliacao-de-crescimento.md). A geração foi posteriormente autorizada e executada: [seis respostas/quatro abstenções, revisão humana pendente](geracao-na-base-candidata.md).
 
 Fontes novas em relação à base atual: RJ, PR, SC, CE, GO e DF, em quatro regiões. São cinco PDFs de editais com anexos e uma certidão de publicação. O PDF do PA foi excluído porque seu SHA-256 já aparece na base antiga. SP, BA e outro arquivo de GO não foram preparados: três ValueError com causa específica não registrada.
 

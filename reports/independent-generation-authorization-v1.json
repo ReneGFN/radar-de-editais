@@ -1,0 +1,12 @@
+{
+  "recorded_at_utc": "2026-10-01T21:22:12.134622+00:00",
+  "basis": "explicit_user_reply_pode_prosseguir_to_specific_pending_batch_request",
+  "scope": "ten_approved_independent_cases_up_to_five_public_passages_each",
+  "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+  "model": "openai/gpt-oss-120b",
+  "reference_sha256": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f",
+  "preview_sha256": "f5c2d3cb7b1b3873891dd9e76fd49c781bee356af90f7ac4baeebf0897627c7c",
+  "code_hashes_checked_before_execution": true,
+  "free_plan": "previously_confirmed_by_user",
+  "key_in_prompt": false
+}
