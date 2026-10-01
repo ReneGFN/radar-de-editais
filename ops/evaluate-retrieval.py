@@ -54,7 +54,12 @@ def main():
                     FROM radar.chunks c JOIN radar.documents d ON d.snapshot_id=c.snapshot_id
                     AND d.pncp_id=c.pncp_id AND d.sequence=c.document_sequence
                     WHERE c.snapshot_id=%s AND c.id=%s''',(snapshot,ev['chunk_id'])).fetchone()
-                if not row or row[:3] != (case['pncp_id'],ev['document_sequence'],ev['page']) or ev['quote'] not in row[3] or row[4]!=ev['document_sha256']:
+                if ref.get('evidence_format')=='page_offsets_v1':
+                    page=conn.execute('SELECT text FROM radar.pages WHERE snapshot_id=%s AND pncp_id=%s AND document_sequence=%s AND page=%s',
+                                      (snapshot,case['pncp_id'],ev['document_sequence'],ev['page'])).fetchone()
+                    quote_valid=bool(page and page[0][ev['start']:ev['end']]==ev['quote'])
+                else:quote_valid=bool(row and ev['quote'] in row[3])
+                if not row or row[:3] != (case['pncp_id'],ev['document_sequence'],ev['page']) or not quote_valid or row[4]!=ev['document_sha256']:
                     raise ValueError('Evidência do banco divergente')
         db_version = conn.execute('SELECT version()').fetchone()[0]
     model_started = perf_counter()
@@ -92,7 +97,11 @@ def main():
             'query_rewrite':args.query_profile!='original','query_profile':args.query_profile,'lexical_strategy':args.lexical_strategy,'model_warmup_excluded_from_query_latencies':True,
             'mode_order':'rotating_per_case','repetitions':1,'latency_percentile':'nearest_rank',
             'labels':'known_chunks_and_same_source_page_quotes_not_exhaustive',
-            'dataset_role':'development_pilot_not_held_out_test'},
+            'dataset_role':ref.get('dataset_role','development_pilot_not_held_out_test'),
+            'reference_format':ref.get('evidence_format','chunk_quote'),
+            'quote_coverage':'union_of_literal_offsets_on_same_page' if ref.get('evidence_format')=='page_offsets_v1' else 'whole_quote_in_single_passage',
+            'known_chunk_note':'representative_overlap_anchor_not_full_quote' if ref.get('evidence_format')=='page_offsets_v1' else 'original_reference_chunk',
+            'scope':'selected_pncp_id_not_global_edital_discovery'},
         'generation_calls':0,'provider_api_cost':0,'local_compute_cost':'not_estimated',
         'refusal_cases_not_executed':sum(c['kind']=='out_of_scope' for c in ref['cases']),
         'generation_quality':'not_evaluated',

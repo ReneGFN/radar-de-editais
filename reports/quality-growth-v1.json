@@ -1,0 +1,37 @@
+{
+  "decision": "blocked",
+  "target": 0.9,
+  "groups": {
+    "regression": {
+      "answerable_cases": 30,
+      "human_reviewed": 0,
+      "correct_complete_supported": null,
+      "end_to_end_success": null,
+      "answer_coverage": 0.0,
+      "precision_among_answers": null,
+      "distinct_editais": 24
+    },
+    "new": {
+      "answerable_cases": 10,
+      "human_reviewed": 0,
+      "correct_complete_supported": null,
+      "end_to_end_success": null,
+      "answer_coverage": 0.0,
+      "precision_among_answers": null,
+      "distinct_editais": 6
+    }
+  },
+  "reasons": [
+    "references_or_human_reviews_pending",
+    "regression_below_target_or_unscored",
+    "new_sample_too_small",
+    "new_below_target_or_unscored",
+    "new_editais_too_few",
+    "refusal_review_pending_or_unsafe"
+  ],
+  "guarantee": "none; benchmark result does not guarantee future accuracy",
+  "promotion_performed": false,
+  "snapshot_id": "1446c44aca18011a",
+  "scope": "candidate_generation_not_yet_executed",
+  "retrieval_coverage_not_used_as_answer_accuracy": true
+}

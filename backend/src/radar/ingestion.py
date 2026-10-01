@@ -209,7 +209,7 @@ def hydrate(manifest: Path):
     return {"snapshot_id":selection["snapshot_id"],"downloaded":downloaded,"hashes_verified":True}
 
 
-def prepare(manifest: Path) -> dict:
+def prepare(manifest: Path, report_path: Path | None = None) -> dict:
     from .embeddings import local_embeddings
     embeddings = local_embeddings()
     selection = json.loads(manifest.read_text(encoding="utf-8"))
@@ -263,5 +263,5 @@ def prepare(manifest: Path) -> dict:
     report = {"snapshot_id": selection["snapshot_id"], "editais": len(selection["editais"]),
         "documents": len(documents), "pages": len(pages), "pages_needing_review": sum(p["quality"] != "text" for p in pages),
         "chunks": len(chunks), "documents_reused":reused_documents,"status": "prepared_not_loaded", "pdf_text_quality": "automatic_check_only_visual_review_pending"}
-    emit_json(PROJECT / "reports/preparacao.json", report)
+    emit_json(report_path or PROJECT / "reports/preparacao.json", report)
     return report

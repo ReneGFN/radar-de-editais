@@ -11,6 +11,9 @@ def validate(reference, prepared, manifest):
     if reference['snapshot_id'] != prepared['snapshot_id'] or reference['snapshot_id'] != manifest['snapshot_id']:
         raise ValueError('Snapshot divergente')
     chunks = {c['id']: c for c in prepared['chunks']}
+    page_offsets=reference.get('evidence_format')=='page_offsets_v1'
+    pages={(d['pncp_id'],d['document_sequence'],p['page']):p['text']
+           for d in prepared.get('documents',[]) for p in d['pages']}
     sources = {(e['pncp_id'], d['sequence']): d for e in manifest['editais'] for d in e['documents']}
     seen = set()
     counts = Counter()
@@ -37,7 +40,13 @@ def validate(reference, prepared, manifest):
             source = sources[(case['pncp_id'], ev['document_sequence'])]
             if c['pncp_id'] != case['pncp_id'] or c['document_sequence'] != ev['document_sequence'] or c['page'] != ev['page']:
                 raise ValueError('Escopo de citação divergente')
-            if ev['quote'] not in c['text'] or not ev['quote'].strip():
+            if page_offsets:
+                page=pages[(case['pncp_id'],ev['document_sequence'],ev['page'])]
+                if any(type(ev[k]) is not int for k in ('start','end')) or not 0<=ev['start']<ev['end']<=len(page):
+                    raise ValueError('Offsets inválidos')
+                if page[ev['start']:ev['end']]!=ev['quote'] or max(c['start'],ev['start'])>=min(c['end'],ev['end']):
+                    raise ValueError('Citação ou âncora não encontrada na página')
+            elif ev['quote'] not in c['text'] or not ev['quote'].strip():
                 raise ValueError('Citação não encontrada')
             if ev['document_sha256'] != c['document_sha'] or ev['document_sha256'] != source['sha256'] or ev['url'] != source['url']:
                 raise ValueError('Origem divergente')

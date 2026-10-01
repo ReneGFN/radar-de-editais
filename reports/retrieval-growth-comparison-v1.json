@@ -1,0 +1,104 @@
+{
+  "parent_snapshot": "4f8ddffaa01b6a20",
+  "candidate_snapshot": "1446c44aca18011a",
+  "first_run_frozen_hashes_verified": true,
+  "evaluation_queries": 210,
+  "historical_rank_changes": {
+    "keyword": [],
+    "semantic": [],
+    "hybrid": []
+  },
+  "historical_summary": {
+    "keyword": {
+      "cases": 30,
+      "known_chunk_hits_at_5": 29,
+      "known_chunk_hit_at_5": 0.9666666666666667,
+      "known_chunk_mrr_at_5": 0.788888888888889,
+      "all_known_quotes_supported_at_5": 0.9666666666666667,
+      "latency_median_ms": 79.16884999940521,
+      "latency_p95_ms": 109.4556999996712
+    },
+    "semantic": {
+      "cases": 30,
+      "known_chunk_hits_at_5": 28,
+      "known_chunk_hit_at_5": 0.9333333333333333,
+      "known_chunk_mrr_at_5": 0.6911111111111111,
+      "all_known_quotes_supported_at_5": 0.9666666666666667,
+      "latency_median_ms": 84.05305000087537,
+      "latency_p95_ms": 110.5974000020069
+    },
+    "hybrid": {
+      "cases": 30,
+      "known_chunk_hits_at_5": 29,
+      "known_chunk_hit_at_5": 0.9666666666666667,
+      "known_chunk_mrr_at_5": 0.7938888888888889,
+      "all_known_quotes_supported_at_5": 1.0,
+      "latency_median_ms": 87.47794999908365,
+      "latency_p95_ms": 117.32330000086222
+    }
+  },
+  "independent_summary": {
+    "keyword": {
+      "cases": 10,
+      "known_chunk_hits_at_5": 6,
+      "known_chunk_hit_at_5": 0.6,
+      "known_chunk_mrr_at_5": 0.3416666666666667,
+      "all_known_quotes_supported_at_5": 0.5,
+      "latency_median_ms": 83.56959999946412,
+      "latency_p95_ms": 111.93979999734438
+    },
+    "semantic": {
+      "cases": 10,
+      "known_chunk_hits_at_5": 6,
+      "known_chunk_hit_at_5": 0.6,
+      "known_chunk_mrr_at_5": 0.4,
+      "all_known_quotes_supported_at_5": 0.5,
+      "latency_median_ms": 86.89415000117151,
+      "latency_p95_ms": 125.78510000093956
+    },
+    "hybrid": {
+      "cases": 10,
+      "known_chunk_hits_at_5": 5,
+      "known_chunk_hit_at_5": 0.5,
+      "known_chunk_mrr_at_5": 0.45,
+      "all_known_quotes_supported_at_5": 0.5,
+      "latency_median_ms": 92.96995000113384,
+      "latency_p95_ms": 106.47130000143079
+    }
+  },
+  "independent_fully_covered_cases": {
+    "keyword": [
+      "independent-01",
+      "independent-02",
+      "independent-04",
+      "independent-08",
+      "independent-09"
+    ],
+    "semantic": [
+      "independent-01",
+      "independent-02",
+      "independent-03",
+      "independent-04",
+      "independent-09"
+    ],
+    "hybrid": [
+      "independent-01",
+      "independent-03",
+      "independent-04",
+      "independent-08",
+      "independent-09"
+    ]
+  },
+  "primary_metric": "known_literal_quote_coverage_not_generated_answer_accuracy",
+  "limitations": [
+    "selected_edital_scope_not_global_discovery",
+    "10_new_cases_6_new_documents",
+    "representative_chunk_anchor_hit_not_exhaustive_recall",
+    "one_run_no_latency_causal_claim",
+    "generation_and_refusals_not_evaluated",
+    "larger_sample_and_human_answer_review_pending"
+  ],
+  "release_decision": "candidate_not_promoted",
+  "human_answer_accuracy": null,
+  "groq_calls": 0
+}

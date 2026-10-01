@@ -157,4 +157,14 @@ Verificados os hashes de seis arquivos e 17 passagens literais; 11 páginas conf
 
 A amostra ainda não satisfaz o protocolo de 100 perguntas/10 novas contratações nem demonstra 90% de acerto. [Preparação](reports/independent-documents-v1.json) · [Integridade da referência](reports/independent-reference-v1.json) · [Segurança e limites](reports/seguranca-independente-2026-10-01.md).
 
-[Plano do snapshot separado](reports/independent-index-plan-v1.json): seis PDFs novos/370 páginas, vetores novos ainda não criados. As referências serão vinculadas aos trechos após preparação. A avaliação atual seleciona a contratação por PNCP; não mede descoberta global do edital entre toda a base.
+[Plano inicial do snapshot separado](reports/independent-index-plan-v1.json): seis PDFs novos/370 páginas. Preparação, vínculo e carga foram concluídos posteriormente, conforme a seção abaixo. A avaliação atual seleciona a contratação por PNCP; não mede descoberta global do edital entre toda a base.
+
+## Snapshot candidato carregado e primeira comparação
+
+Candidata `1446c44aca18011a`: 36 contratações, 55 PDFs, 2.895 páginas e 18.554 trechos. Reutilizados 15.773 vetores e calculados localmente 2.781 novos. Carga idempotente, offsets e igualdade dos textos/vetores antigos verificados; backup restaurado em outro banco com 18.554 trechos. A base anterior permanece disponível; nenhum relatório histórico de preparação/carga foi substituído.
+
+Configuração congelada antes das 210 buscas: resultados/rankings antigos preservados; nas dez perguntas novas, cobertura integral das passagens conhecidas em 5/10 em cada um dos três modos. **Não equivale a50% de acerto de respostas.** Geração e revisão humana desse lote ainda pendentes. Regra de promoção bloqueada; candidata não promovida. 110 testes passaram; pip-audit atual sem avisos conhecidos auditáveis.
+
+As falhas envolvem item errado, tabela entre páginas e repetição de passagens. Próxima melhoria proposta: identidade do item persistida nos trechos e continuações entre páginas; qualquer ajuste baseado nestes erros exige outra reserva. [Método, resultados e falhas](docs/avaliacao-de-crescimento.md) · [Gate](reports/quality-growth-v1.json) · [Segurança](reports/seguranca-candidata-2026-10-01.md).
+
+O plano acima descreve a etapa anterior; a carga/conferência agora está concluída. A próxima etapa de geração tem prévia privada e autorização específica solicitada, sem envio até esta atualização.

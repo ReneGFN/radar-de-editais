@@ -62,3 +62,32 @@ def test_snapshot_mismatch_rejected(inputs):
     prepared['snapshot_id'] = 'd' * 16
     with pytest.raises(ValueError, match='Snapshot'):
         validation.validate(ref, prepared, manifest)
+
+
+def offset_inputs(inputs):
+    ref,prepared,manifest=copy.deepcopy(inputs)
+    chunk=prepared['chunks'][0];chunk.update(start=0,end=len(chunk['text']))
+    page=chunk['text']+' Atendimento no local após o chamado.'
+    prepared['documents']=[{'pncp_id':'edital','document_sequence':1,'pages':[{'page':2,'text':page}]}]
+    ref['evidence_format']='page_offsets_v1'
+    ref['cases'][0]['evidence'][0].update(start=0,end=len(page),quote=page)
+    return ref,prepared,manifest
+
+
+def test_page_quote_can_span_multiple_chunks_without_changing_gold(inputs):
+    ref,prepared,manifest=offset_inputs(inputs)
+    assert ref['cases'][0]['evidence'][0]['quote'] not in prepared['chunks'][0]['text']
+    assert validation.validate(ref,prepared,manifest)['evidence_integrity']=='passed'
+
+
+@pytest.mark.parametrize('field,value',[('quote','Invented'),('start',True),('end',9999),('start',-1)])
+def test_offset_gold_tampering_rejected(inputs,field,value):
+    ref,prepared,manifest=offset_inputs(inputs)
+    ref['cases'][0]['evidence'][0][field]=value
+    with pytest.raises(ValueError):validation.validate(ref,prepared,manifest)
+
+
+def test_anchor_outside_reference_span_rejected(inputs):
+    ref,prepared,manifest=offset_inputs(inputs)
+    prepared['chunks'][0].update(start=100,end=120)
+    with pytest.raises(ValueError):validation.validate(ref,prepared,manifest)

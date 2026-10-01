@@ -2,6 +2,24 @@
 from statistics import median
 
 
+def offset_quote_supported(ev,documents):
+    """União de passagens literais da mesma página, sem preencher lacunas."""
+    spans=[]
+    for d in documents:
+        m=d.metadata
+        if m['document_sequence']!=ev['document_sequence'] or m['page']!=ev['page']:
+            continue
+        a=max(m['start'],ev['start']);b=min(m['end'],ev['end'])
+        if a<b and d.page_content[a-m['start']:b-m['start']]==ev['quote'][a-ev['start']:b-ev['start']]:
+            spans.append((a,b))
+    covered=ev['start']
+    for a,b in sorted(spans):
+        if a>covered:return False
+        covered=max(covered,b)
+        if covered>=ev['end']:return True
+    return False
+
+
 def score_case(case, documents, k=5):
     if case['kind'] != 'answerable' or case['review_status'] != 'approved' or not case['evidence']:
         raise ValueError('Somente perguntas factuais aprovadas podem ser pontuadas')
@@ -13,7 +31,7 @@ def score_case(case, documents, k=5):
     expected = {ev['chunk_id'] for ev in case['evidence']}
     ranks = [i for i,d in enumerate(selected,1) if d.metadata['id'] in expected]
     # Outro trecho sobreposto pode conter a mesma evidência na mesma fonte/página.
-    quote_hits = [any(d.metadata['document_sequence'] == ev['document_sequence']
+    quote_hits = [offset_quote_supported(ev,selected) if case.get('evidence_format')=='page_offsets_v1' else any(d.metadata['document_sequence'] == ev['document_sequence']
                       and d.metadata['page'] == ev['page']
                       and ev['quote'] in d.page_content for d in selected)
                   for ev in case['evidence']]

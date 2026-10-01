@@ -1,0 +1,494 @@
+{
+  "status": "approved_bound_reference",
+  "purpose": "first_independent_source_reference_proposal_not_executed",
+  "existing_snapshot": "4f8ddffaa01b6a20",
+  "candidate_sha256": "3f89942c013c3124ea8ae63a7489e89b71190a99459c983a17224dc00c48832a",
+  "snapshot_id": "1446c44aca18011a",
+  "cases": [
+    {
+      "id": "independent-01",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "32512501000143-1-000385/2026",
+      "uf": "RJ",
+      "region": "Sudeste",
+      "agency": "MUNICIPIO DE VOLTA REDONDA",
+      "source_kind": "edital_with_annexes",
+      "question": "Qual é o tipo e o tamanho mínimo do monitor do computador desktop do item 1 da contratação de material eletrônico de Volta Redonda?",
+      "expected_answer": "Monitor de LED com, no mínimo, 23 polegadas.",
+      "required_facts": [
+        "LED",
+        "mínimo 23 polegadas"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+          "page": 44,
+          "start": 832,
+          "end": 1358,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+          "quote": "1 1 UND \nComputador: Computador \nDesktop; Processador Intel I5 \nda 13ª geração ou superior, \narquitetura x86 corporativa, \n64bits, processador gráfico \nintegrado, com frequência \nmínima de operação de \n3,1GHz ou superior e 12Mb de \ncache ou superior; 8Gb de \nMemória RAM tipo DDR4, \nfrequência mínima de \n2666MHz; disco Rígido (HD) \nde 1TB (5400 RPM) e unidade \nde armazenamento SSD, com \ntecnologia MLC ou TCL ou \nHDD, com capacidade mínima \nde 256Gb; Fonte ATX 500W \nou superior; Monito de LED \ncom, no mínimo, 23 polegadas;",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "8c29a3725cfdc253e6503cb22f27a625f0b610bd1f913e7f82de3db30b59498c"
+        }
+      ],
+      "notes": "O item 1 é computador; não usar a tela de 15,6 polegadas dos notebooks.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-02",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "32512501000143-1-000385/2026",
+      "uf": "RJ",
+      "region": "Sudeste",
+      "agency": "MUNICIPIO DE VOLTA REDONDA",
+      "source_kind": "edital_with_annexes",
+      "question": "Quantos notebooks estão previstos em ampla concorrência e quantos na cota para MEI/ME/EPP na contratação de Volta Redonda?",
+      "expected_answer": "28 notebooks no item 3, de ampla concorrência, e 7 no item 4, da cota de 25% para MEI/ME/EPP.",
+      "required_facts": [
+        "item 3: 28 unidades, ampla concorrência",
+        "item 4: 7 unidades, cota 25% MEI/ME/EPP"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+          "page": 45,
+          "start": 655,
+          "end": 659,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+          "quote": "3 28",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0"
+        },
+        {
+          "document_sequence": 1,
+          "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+          "page": 45,
+          "start": 556,
+          "end": 574,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+          "quote": "AMPLA CONCORRÊNCIA",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "4610a130697d3541d7804e16a27f763c1f869a42c054fc330895d5a1a430a5a0"
+        },
+        {
+          "document_sequence": 1,
+          "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+          "page": 46,
+          "start": 216,
+          "end": 219,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+          "quote": "4 7",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "7a19c6f5f60b02de5477c14295802ecdc20dc7397cf0012f39b3be95822ae08e"
+        },
+        {
+          "document_sequence": 1,
+          "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+          "page": 46,
+          "start": 448,
+          "end": 468,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+          "quote": "COTA 25% \nMEI/ME/EPP",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "5e76f599387e53cfe8333e62576909612fb6bb6e2663c45f714c99a2c2ee3449"
+        }
+      ],
+      "notes": "Colunas e associação de linhas conferidas visualmente. Não confundir número do item, quantidade e percentual.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-03",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "76279975000162-1-000083/2026",
+      "uf": "PR",
+      "region": "Sul",
+      "agency": "MUNICIPIO DE UNIFLOR",
+      "source_kind": "edital_with_annexes",
+      "question": "Quantos desktops do item 04 a Prefeitura de Uniflor pretende adquirir e quais são os mínimos de memória RAM e armazenamento SSD?",
+      "expected_answer": "2 unidades; no mínimo 16 GB de RAM DDR4 e SSD de, no mínimo, 500 GB.",
+      "required_facts": [
+        "2 unidades",
+        "RAM mínima 16 GB DDR4",
+        "SSD mínimo 500 GB"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "d551dbbbd2a444feb6281371fdfec83453e9e77c07ac560576c33425dd09457a",
+          "page": 24,
+          "start": 668,
+          "end": 1748,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+          "quote": "04 \nEQUIPAMENTO DO TIPO DESKTOP, COM PROCESSADOR INTEL® CORE ™ I5 DE 8ª \nGERAÇÃO OU SUPERIOR, COM NO MÍNIMO 6 (SEIS) NÚCLEOS, ADMITINDO -SE \nPROCESSADORES DE OUTRAS MARCAS DESDE QUE POSSUAM DESEMPENHO E \nESPECIFICAÇÕES TÉCNICAS EQUIVALENTES OU SUPERIORES; MEMÓRIA RAM DE, \nNO MÍNIMO, 16 GB DDR4; UNIDADE DE ARMAZENAMENTO SS D DE, NO MÍNIMO, 500 \nGB; GABINETE NO PADRÃO SMALL FORM FACTOR (SFF) OU COMPACTO; \nCONTROLADORA GRÁFICA INTEGRADA COM SUPORTE À RESOLUÇÃO 4K; \nINTERFACE DE REDE ETHERNET GIGABIT (10/100/1000 MBPS) E CON ECTIVIDADE WI -\nFI INTEGRADA OU FORNECIDA POR ADAPTADOR COMPATÍVEL; MONITOR LED DE, \nNO MÍNIMO, 23 (VINTE E TRÊS) POLEGADAS, RESOLUÇÃO FULL HD (1920 × 1080), \nCOM ENTRADA HDMI E/OU DISPLAYPORT; ACOMPANHADO DE TECLADO USB \nPADRÃO ABNT2 E MOUSE ÓPTICO USB; SISTEM A OPERACIONAL MICROSOFT \nWINDOWS 11 PRO 64 BITS, DEVIDAMENTE LICENCIADO NA MODALIDADE OEM.  \n \nMODELO DE REFERÊNCIA:  DELL OPTIPLEX 3060 OU EQUIVALENTE EM \nDESEMPENHO E CARACTERÍSTICAS TÉCNICAS , ATENDENDO INTEGRALMENTE ÀS \nESPECIFICAÇÕES DESCRITAS NESTE TERMO DE REFERÊNCIA.  \n \n \n \nUNID 02",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908"
+        }
+      ],
+      "notes": "Quantidade 02 da mesma linha; 04 é número do item, não quantidade.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-04",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "76279975000162-1-000083/2026",
+      "uf": "PR",
+      "region": "Sul",
+      "agency": "MUNICIPIO DE UNIFLOR",
+      "source_kind": "edital_with_annexes",
+      "question": "Qual tamanho mínimo e resolução são exigidos para o monitor do desktop do item 04 de Uniflor?",
+      "expected_answer": "Monitor LED de, no mínimo, 23 polegadas, com resolução Full HD (1920 × 1080).",
+      "required_facts": [
+        "monitor LED",
+        "mínimo 23 polegadas",
+        "Full HD 1920 × 1080"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "d551dbbbd2a444feb6281371fdfec83453e9e77c07ac560576c33425dd09457a",
+          "page": 24,
+          "start": 1263,
+          "end": 1352,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+          "quote": "MONITOR LED DE, \nNO MÍNIMO, 23 (VINTE E TRÊS) POLEGADAS, RESOLUÇÃO FULL HD (1920 × 1080),",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "55011b17d460fe0e261af1da701f96167b2ff343e454ead65e1ef827420ad908"
+        }
+      ],
+      "notes": "Suporte a 4K pertence à controladora gráfica; não é resolução exigida do monitor.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-05",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "82575812000120-1-000428/2026",
+      "uf": "SC",
+      "region": "Sul",
+      "agency": "MUNICIPIO DE PORTO BELO",
+      "source_kind": "edital_with_annexes",
+      "question": "Qual é a quantidade do SSD de 120 GB do item 20 de Porto Belo e qual garantia mínima do fabricante é exigida?",
+      "expected_answer": "200 unidades e garantia mínima de 3 anos com o fabricante.",
+      "required_facts": [
+        "item 20 SSD 120 GB: 200 unidades",
+        "garantia mínima 3 anos com fabricante"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+          "page": 21,
+          "start": 782,
+          "end": 1202,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+          "quote": "20 SSD 120GB FORMATO 2,5 POLEGADAS; INTERFACE \nSATA III 6GB/S; VELOCIDADE DE LEITURA \nSEQUENCIAL DE ATÉ 550MB/S E GRAVAÇÃO \nSEQUENCIAL DE ATÉ 500MB/S; TECNOLOGIA DE \nCORREÇÃO DE ERROS LDPC; MTBF DE NO MÍNIMO \n1.500.000 HORAS; RESISTÊNCIA A CHOQUE DE \n1500G/0,5MS; COMPATÍVEL COM FABRICANTES DE \nPRIMEIRA LINHA DO MERCADO; CERTIFICAÇÕES \nROHS, CE, FCC, BSMI, VCCI, KC; GARANTIA MÍNIMA \nDE 3 ANOS COM O FABRICANTE. \nUN 200",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "80c57a57d43055f305eaf225d75a0d89793b9fa270f627031bcc704cc55e2f38"
+        }
+      ],
+      "notes": "Não confundir item 20 com 20 unidades nem com o SSD do desktop item 21.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-06",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "82575812000120-1-000428/2026",
+      "uf": "SC",
+      "region": "Sul",
+      "agency": "MUNICIPIO DE PORTO BELO",
+      "source_kind": "edital_with_annexes",
+      "question": "Qual capacidade, padrão, latência e taxa mínima de transferência são exigidos para a RAM do desktop do item 21 de Porto Belo?",
+      "expected_answer": "16 GB DDR5 CL40; mínimo de 5600 MT/s, compatível com 4800 MT/s JEDEC.",
+      "required_facts": [
+        "16 GB",
+        "DDR5",
+        "CL40",
+        "mínimo 5600 MT/s",
+        "compatibilidade 4800 MT/s JEDEC"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+          "page": 21,
+          "start": 1229,
+          "end": 1281,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+          "quote": "21 COMPUTADOR DESKTOP COM OS SEGUINTES \nREQUISITOS -",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22"
+        },
+        {
+          "document_sequence": 1,
+          "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+          "page": 22,
+          "start": 1339,
+          "end": 1426,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+          "quote": "MEMÓRIA: 16GB DDR5 CL40 \nFREQUÊNCIA MÍNIMA DE 5600MT/S (COMPATÍVEL \nCOM 4800MT/S JEDEC)",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "b96b71f3f3d51845647722183e5ad02016a75fb87c1d0816636e50d34f5665ed"
+        }
+      ],
+      "notes": "Linha do item continua da página 21 para 22. Preservar MT/s da memória instalada; não substituir por MHz do suporte da placa-mãe.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-07",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "82575812000120-1-000428/2026",
+      "uf": "SC",
+      "region": "Sul",
+      "agency": "MUNICIPIO DE PORTO BELO",
+      "source_kind": "edital_with_annexes",
+      "question": "Para o desktop do item 21 de Porto Belo, qual é a garantia de atendimento no local, quando deve ocorrer o atendimento e qual o prazo máximo de solução?",
+      "expected_answer": "Garantia on-site de 12 meses; atendimento no local no próximo dia útil após abertura do chamado; solução em, no máximo, 48 horas.",
+      "required_facts": [
+        "garantia on-site 12 meses",
+        "atendimento próximo dia útil após abertura do chamado",
+        "solução máxima 48 horas"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+          "page": 21,
+          "start": 1229,
+          "end": 1281,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+          "quote": "21 COMPUTADOR DESKTOP COM OS SEGUINTES \nREQUISITOS -",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "68ff4db45b1b62a5817073a8018ac8e91941eed68b07b869abbaa6ac27bd6d22"
+        },
+        {
+          "document_sequence": 1,
+          "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+          "page": 23,
+          "start": 720,
+          "end": 884,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+          "quote": "GARANTIA: GARANTIA ON-SITE DE 12 (DOZE) MESES, \nCOM ATENDIMENTO NO LOCAL NO \nPRÓXIMO DIA ÚTIL APÓS ABERTURA DO CHAMADO, \nCOM TEMPO DE SOLUÇÃO, NO \nMÁXIMO, 48 HORAS.",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "5118a9b8230f223d68c8d34630a9eb38c44a2ac0c6278efa9ccc336632812d29"
+        }
+      ],
+      "notes": "Linha do item continua pelas páginas 21–23. Não usar garantia de 5 anos de componentes como garantia on-site do conjunto.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-08",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "00348003000110-1-001037/2026",
+      "uf": "CE",
+      "region": "Nordeste",
+      "agency": "EMPRESA BRASILEIRA DE PESQUISA AGROPECUARIA",
+      "source_kind": "edital_with_annexes",
+      "question": "Qual é o critério de julgamento e o modo de disputa do pregão 90012/2026 da Embrapa Caprinos e Ovinos?",
+      "expected_answer": "Menor preço por item, com modo de disputa aberto.",
+      "required_facts": [
+        "menor preço por item",
+        "modo aberto"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 2,
+          "document_sha256": "159e6ecf7908b2932ce805c85ad4ddec01f598c83c25fb7122902528b371ac0b",
+          "page": 1,
+          "start": 508,
+          "end": 639,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+          "quote": "CRITÉRIO DE JULGAMENTO\n(\nX\n) Menor Preço\n(\n__\n) Maior Percentual de Desconto\n \nMODO DE DISPUTA\n(\nX\n) ABERTO\n(\n__\n) ABERTO E FECHADO",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "b1ec15f507d33c8a24a4fe078439d8665f6c5048b89d2041ca86eba0c02cf414"
+        },
+        {
+          "document_sequence": 2,
+          "document_sha256": "159e6ecf7908b2932ce805c85ad4ddec01f598c83c25fb7122902528b371ac0b",
+          "page": 2,
+          "start": 2228,
+          "end": 2248,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+          "quote": "menor preço por item",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "8987dd736d9607043747e398ffa2aabcc1518013b4f135a96b232c7959328b08"
+        }
+      ],
+      "notes": "Alternativas selecionadas com X conferidas no PDF. Pergunta sobre o texto desta versão; não é orientação jurídica nem confirmação de vigência.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-09",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "10936853000193-1-000094/2026",
+      "uf": "GO",
+      "region": "Centro-Oeste",
+      "agency": "FUNDO MUNICIPAL DE SAUDE",
+      "source_kind": "publication_certificate",
+      "question": "Segundo a certidão de publicação da adesão 8/2026 do Fundo Municipal de Saúde de Novo Gama, qual quantidade e objeto da aquisição são informados?",
+      "expected_answer": "Aquisição de 100 computadores completos.",
+      "required_facts": [
+        "100 computadores completos"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "830cbbcd16100865c4860fc0e086c1779e2166244b89cb821bdae795b0bec39e",
+          "page": 1,
+          "start": 262,
+          "end": 297,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10936853000193/compras/2026/94/arquivos/1",
+          "quote": "100  (cem)  computadores  completos",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "b8a83d02683c5524a8b5367175802506de0ecbd26859702d6c6db3ba837064f3"
+        }
+      ],
+      "notes": "Fonte é certidão de publicação, não edital técnico; ela não comprova configurações, componentes ou fornecimento efetivo.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    },
+    {
+      "id": "independent-10",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "33683111000107-1-000073/2026",
+      "uf": "DF",
+      "region": "Centro-Oeste",
+      "agency": "SERVICO FEDERAL DE PROCESSAMENTO DE DADOS (SERPRO)",
+      "source_kind": "edital_with_annexes",
+      "question": "Qual é a memória RAM mínima e o padrão exigidos para o roteador do item 1 Cloud Connect no pregão 31/2026 do Serpro?",
+      "expected_answer": "Pelo menos 8 GB de RAM total, no padrão SDRAM ou de desempenho superior.",
+      "required_facts": [
+        "mínimo 8 GB RAM total",
+        "SDRAM ou desempenho superior"
+      ],
+      "evidence": [
+        {
+          "document_sequence": 1,
+          "document_sha256": "782686f99e480d454e05c9a8aa5d221b44f69102f75da7931fca9c79712e2e2d",
+          "page": 39,
+          "start": 1546,
+          "end": 1568,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+          "quote": "Item 1 (Cloud Connect)",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "c5b2497af17115c04bb4c425245315416d3135c264ecd485a129b55d35aed365"
+        },
+        {
+          "document_sequence": 1,
+          "document_sha256": "782686f99e480d454e05c9a8aa5d221b44f69102f75da7931fca9c79712e2e2d",
+          "page": 39,
+          "start": 2271,
+          "end": 2372,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+          "quote": "2.2.9.5 Ter pelo menos 8 (oito) GB de memória RAM total no padrão SDRAM ou de superior per-\nformance.",
+          "assistant_visual_review": "completed_2026-10-01",
+          "human_review": "pending",
+          "chunk_id": "9380eb73ea311aba956717ca53bfe83e5dec5e0766b4aff9117de3f1f11ae41d"
+        }
+      ],
+      "notes": "Identificar Cloud Connect; não transferir a especificação de outro bloco de roteadores. Caso amplia a informática para equipamento de rede.",
+      "evidence_format": "page_offsets_v1",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "ten_questions_expected_answers_and_references",
+        "generation_answer_review": "not_executed"
+      }
+    }
+  ],
+  "limitations": [
+    "10 perguntas, 6 contratações, 6 PDFs novos, 6 UFs e 4 regiões; sem fonte nova da região Norte.",
+    "Inclui uma certidão de publicação; cinco PDFs de editais com anexos.",
+    "Revisão visual pelo assistente; perguntas/gabarito/fontes aprovados explicitamente; respostas da IA ainda não produzidas nem avaliadas.",
+    "Não cumpre ainda o protocolo ampliado de 100 perguntas/10 novas contratações."
+  ],
+  "review_record": {
+    "date": "2026-10-01",
+    "basis": "explicit_user_approval_in_chat",
+    "scope": "ten_questions_expected_answers_and_references",
+    "generation_answer_review": "not_executed"
+  },
+  "evidence_format": "page_offsets_v1",
+  "dataset_role": "first_independent_document_growth_reference",
+  "approved_source_reference_sha256": "b9544411224d8dba0bc8508a990767dc4bc53c34d52f36f513eb5d0deffd5f69",
+  "binding_note": "original approved quotes unchanged; chunk IDs are representative overlapping anchors"
+}

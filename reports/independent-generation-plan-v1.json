@@ -1,0 +1,25 @@
+{
+  "prepared_at_utc": "2026-10-01T21:09:50.433703+00:00",
+  "state": "pending_specific_batch_authorization",
+  "snapshot_id": "1446c44aca18011a",
+  "reference_sha256": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f",
+  "code_sha256": {
+    "backend/src/radar/generation.py": "53f7144c8b86b70c1edf23444f76240fd05e4928ebe032c5f98c38057d0907b0",
+    "backend/src/radar/citations.py": "67c7234adc236bbef29a7df7b8b72817205bede16886c6f12202e9852b7fc165",
+    "ops/evaluate-generation.py": "9c84d1c84526c62c230dc80baacf3c1534b88bafd86c4a7387f631eaca63ab59",
+    "backend/src/radar/retrieval.py": "a627170f277b664ebde1db5addb1143230a52298c15a271156aff019cc58a555",
+    "backend/src/radar/query.py": "c69ecc9fc52bcee9e9d85e76c042286f4e7a1565c78537a1bff051d7f6d38a2f",
+    "backend/src/radar/context.py": "3c54fa37eedd630d0818abbe7b54a36f92c3f4668721ba31643f7c0e742b54a6"
+  },
+  "preview_sha256": "f5c2d3cb7b1b3873891dd9e76fd49c781bee356af90f7ac4baeebf0897627c7c",
+  "cases": 10,
+  "max_public_passages_per_case": 5,
+  "model": "openai/gpt-oss-120b",
+  "variant": "alias_window",
+  "groq_calls": 0,
+  "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+  "key_in_prompt": false,
+  "gold_answer_in_prompt": false,
+  "private_preview": "generation/independent-request-preview-v1.json",
+  "scope": "ten_approved_independent_cases_not_the_previous_reserve_batch"
+}

@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-01T21:09:16.793782+00:00",
+  "snapshot_id": "1446c44aca18011a",
+  "counts": {
+    "documents": 55,
+    "pages": 2895,
+    "chunks": 18554
+  },
+  "offset_errors": 0,
+  "idempotence": true,
+  "edital_filter": true,
+  "snapshot_filter": true,
+  "sql_injection_scope_test": true,
+  "backup_restore_chunks": 18554,
+  "restore_database": "radar_restore_1446c44aca18011a",
+  "restore_executed_this_run": true,
+  "retrieval_smoke_test": "passed_not_a_quality_evaluation",
+  "sample_citations": [
+    {
+      "id": "443520b182c5de9983d318c56ec7f1c662b6b88ab7d2897ad80cd52f29bfaaf9",
+      "pncp_id": "45374469000129-1-000030/2026",
+      "document_sequence": 1,
+      "page": 14,
+      "start": 311,
+      "end": 802,
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45374469000129/compras/2026/30/arquivos/1",
+      "score": 0.02919863597612958
+    },
+    {
+      "id": "883f64c5cc72a3766c107b34422cbca2d02f1ac989fa34c8e6fc5600dc33387e",
+      "pncp_id": "45374469000129-1-000030/2026",
+      "document_sequence": 1,
+      "page": 66,
+      "start": 376,
+      "end": 853,
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45374469000129/compras/2026/30/arquivos/1",
+      "score": 0.01639344262295082
+    },
+    {
+      "id": "c2ea3f204d6c6edec7ea4363e7995791c89863923be57596aafffd130652b1e9",
+      "pncp_id": "45374469000129-1-000030/2026",
+      "document_sequence": 1,
+      "page": 34,
+      "start": 850,
+      "end": 1414,
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45374469000129/compras/2026/30/arquivos/1",
+      "score": 0.01639344262295082
+    },
+    {
+      "id": "0c74d12591f3511a3501439ce6b2c705669859659fa01900e77f8263fef02b7d",
+      "pncp_id": "45374469000129-1-000030/2026",
+      "document_sequence": 1,
+      "page": 24,
+      "start": 1241,
+      "end": 1778,
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45374469000129/compras/2026/30/arquivos/1",
+      "score": 0.016129032258064516
+    },
+    {
+      "id": "ddc3b76e77f4d537f140a69bd475003c98f93c03e5d5095bd401bdb9914d5df3",
+      "pncp_id": "45374469000129-1-000030/2026",
+      "document_sequence": 1,
+      "page": 43,
+      "start": 1932,
+      "end": 2095,
+      "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45374469000129/compras/2026/30/arquivos/1",
+      "score": 0.016129032258064516
+    }
+  ]
+}

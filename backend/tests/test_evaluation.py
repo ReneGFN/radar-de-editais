@@ -62,3 +62,27 @@ def test_keyword_does_not_initialize_embedding(monkeypatch):
 @pytest.mark.parametrize('query,mode,strategy', [('','hybrid','all'),('SSD','invalid','all'),('SSD','hybrid','invalid')])
 def test_invalid_search_request_rejected(query,mode,strategy):
     with pytest.raises(ValueError):retrieval.retrieve_with_trace(query,'snapshot','edital',mode,strategy)
+
+
+def offset_case():
+    c=case();c['evidence_format']='page_offsets_v1'
+    c['evidence'][0].update(quote='abcdef',start=10,end=16)
+    return c
+
+
+def offset_doc(value,start,page=2):
+    d=doc('overlap',text=value,page=page);d.metadata.update(start=start,end=start+len(value))
+    return d
+
+
+def test_adjacent_literal_passages_can_jointly_cover_quote():
+    assert score_case(offset_case(),[offset_doc('abc',10),offset_doc('def',13)])['all_known_quotes_supported_at_k']
+
+
+@pytest.mark.parametrize('docs',[
+    [offset_doc('ab',10),offset_doc('def',13)],
+    [offset_doc('abc',10),offset_doc('def',13,page=3)],
+    [offset_doc('abc',10),offset_doc('XYZ',13)],
+])
+def test_gaps_other_pages_and_modified_fragments_do_not_cover_quote(docs):
+    assert not score_case(offset_case(),docs)['all_known_quotes_supported_at_k']

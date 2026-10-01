@@ -1,6 +1,6 @@
 # Dez perguntas independentes para revisão
 
-**Referência aprovada por Renê em 2026-10-01: “Aprovo as dez perguntas e referências”. Nenhuma pergunta foi executada no RAG ou na Groq.**
+**Referência aprovada por Renê em 2026-10-01: “Aprovo as dez perguntas e referências”.** A recuperação local foi executada posteriormente na candidata; [resultados e falhas](avaliacao-de-crescimento.md). A geração deste lote na Groq permanece pendente de autorização específica.
 
 Fontes novas em relação à base atual: RJ, PR, SC, CE, GO e DF, em quatro regiões. São cinco PDFs de editais com anexos e uma certidão de publicação. O PDF do PA foi excluído porque seu SHA-256 já aparece na base antiga. SP, BA e outro arquivo de GO não foram preparados: três ValueError com causa específica não registrada.
 
@@ -136,6 +136,6 @@ Conferi visualmente as páginas relevantes, sobretudo as colunas e a continuidad
 
 A separação compara identificadores PNCP e hashes completos dos PDFs com os da base antiga. Um mesmo PDF vinculado a outro edital continua sendo conteúdo já conhecido. Esse bloqueio evitou contar o arquivo do PA como uma fonte nova.
 
-Com as perguntas e referências aprovadas, o próximo passo é planejar a indexação de um snapshot candidato separado e congelar a configuração de avaliação. O teste precisa comparar os casos antigos e novos, sem ajustar o sistema a cada erro do lote independente. Se houver ajustes após olhar os resultados, esse lote passa a ser desenvolvimento e será preciso outra reserva.
+Com as perguntas e referências aprovadas, foi preparado/carregado um snapshot candidato separado e congelada a configuração antes da avaliação local. Casos antigos e novos foram comparados sem ajustar a busca aos erros deste lote. Se houver ajustes após olhar os resultados, esse lote passa a ser desenvolvimento e será preciso outra reserva.
 
 Este conjunto pequeno não demonstra desempenho de 90%. A regra de qualidade continua exigindo amostra maior e revisão humana de correção, completude e apoio nas fontes, além de avaliar recusas.

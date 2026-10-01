@@ -10,7 +10,8 @@ from radar.retrieval import retrieve
 
 parser=argparse.ArgumentParser()
 parser.add_argument('manifest',type=Path)
-manifest=parser.parse_args().manifest
+parser.add_argument('--report',type=Path,default=PROJECT/'reports/verificacao-local.json')
+args=parser.parse_args();manifest=args.manifest
 selection=json.loads(manifest.read_text(encoding='utf-8'))
 snapshot=selection['snapshot_id']
 edital=selection['editais'][0]['pncp_id']
@@ -46,7 +47,7 @@ if created:
 with connect(admin=True,database=restore) as conn:
     restored=conn.execute('SELECT count(*) FROM radar.chunks WHERE snapshot_id=%s',(snapshot,)).fetchone()[0]
 assert restored==counts['chunks']
-emit_json(PROJECT/'reports/verificacao-local.json',{'date':datetime.now(timezone.utc).isoformat(),
+emit_json(args.report,{'date':datetime.now(timezone.utc).isoformat(),
     'snapshot_id':snapshot,'counts':counts,'offset_errors':invalid,'idempotence':True,
     'edital_filter':True,'snapshot_filter':True,'sql_injection_scope_test':True,
     'backup_restore_chunks':int(restored),'restore_database':restore,

@@ -84,7 +84,7 @@ def reusable_vectors(root, configuration):
     return reused
 
 
-def load_corpus(manifest: Path):
+def load_corpus(manifest: Path, report_path: Path | None = None):
     from .embeddings import local_embeddings
     selection = json.loads(manifest.read_text(encoding="utf-8"))
     snapshot = selection["snapshot_id"]
@@ -146,7 +146,7 @@ def load_corpus(manifest: Path):
     report = {"snapshot_id":snapshot,"status":"loaded","chunks":len(vectors),"dimensions":384,
               "transaction":"atomic", "cost_groq":0,"vectors_reused":reused_count,
               "embedding_model":configuration["embedding"]["model"]}
-    emit_json(PROJECT / "reports/carga.json",report)
+    emit_json(report_path or PROJECT / "reports/carga.json",report)
     return report
 
 

@@ -1,0 +1,16 @@
+{
+  "verified_at_utc": "2026-10-01T21:05:59.879899+00:00",
+  "snapshot_id": "1446c44aca18011a",
+  "parent_snapshot": "4f8ddffaa01b6a20",
+  "candidate_chunks": 18554,
+  "parent_chunks_preserved": 15773,
+  "historical_chunk_or_vector_mismatches": 0,
+  "invalid_offsets": 0,
+  "same_configuration": true,
+  "idempotent_load": "already_loaded",
+  "loader_role": "no_superuser_no_createdb_no_createrole",
+  "new_chunks": 2781,
+  "candidate_not_promoted": true,
+  "generation_calls": 0,
+  "new_backup_restore": "not_executed"
+}

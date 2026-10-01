@@ -1,0 +1,26 @@
+{
+  "cases": 10,
+  "approved": 10,
+  "counts_by_kind": {
+    "answerable": 10
+  },
+  "draft": 0,
+  "answerable_editais": 6,
+  "evidence_documents": 6,
+  "answerable_states": [
+    "CE",
+    "DF",
+    "GO",
+    "PR",
+    "RJ",
+    "SC"
+  ],
+  "coverage_note": "known_evidence_not_exhaustive_relevance_labels",
+  "evidence_integrity": "passed",
+  "human_review": "not_performed_by_validator",
+  "quality_metrics": "not_computed",
+  "snapshot_id": "1446c44aca18011a",
+  "source_reference_unchanged": true,
+  "binding": "representative_chunk_anchor_for_original_page_offsets",
+  "generation_calls": 0
+}
