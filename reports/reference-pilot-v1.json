@@ -1,0 +1,9 @@
+{
+  "cases": 10,
+  "approved": 0,
+  "evidence_integrity": "passed",
+  "human_review": "not_performed_by_validator",
+  "quality_metrics": "not_computed",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "cdb264039a2a11705d52f96a9bc097508b9d54f3a23a4f9e574419a81b692278"
+}

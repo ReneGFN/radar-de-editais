@@ -1,0 +1,30 @@
+{
+  "cases": 40,
+  "approved": 40,
+  "counts_by_kind": {
+    "answerable": 30,
+    "out_of_scope": 10
+  },
+  "draft": 0,
+  "answerable_editais": 24,
+  "evidence_documents": 24,
+  "answerable_states": [
+    "AM",
+    "BA",
+    "GO",
+    "MG",
+    "MT",
+    "PA",
+    "PE",
+    "PR",
+    "RJ",
+    "RS",
+    "SP"
+  ],
+  "coverage_note": "known_evidence_not_exhaustive_relevance_labels",
+  "evidence_integrity": "passed",
+  "human_review": "not_performed_by_validator",
+  "quality_metrics": "not_computed",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "4b0f577f1f1cb902c058960a905570b58b9018deba42592f2acbb52947d69fb1"
+}

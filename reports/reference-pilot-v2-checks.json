@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-01",
+  "scope": "evaluation_pilot_v2_only",
+  "unit_tests_passed": 23,
+  "new_unit_tests": 9,
+  "pytest_warning": "optional_cache_access_denied_tests_passed",
+  "files_reviewed": [
+    "ops/validate-reference.py",
+    "backend/tests/test_reference.py",
+    "datasets/evaluation/pilot-v2.json",
+    "docs/perguntas-para-revisao.md",
+    "docs/avaliacao.md",
+    "reports/reference-pilot-v2.json",
+    "README.md",
+    "plano.md"
+  ],
+  "credential_pattern_findings": 0,
+  "database_modified": false,
+  "generation_calls": 0,
+  "metrics_computed": false,
+  "pdf_independent_review": "pending",
+  "public_push_this_step": false
+}

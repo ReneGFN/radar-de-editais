@@ -10,8 +10,10 @@ O projeto investiga se pequenos fornecedores conseguem encontrar prazos, especif
 - **Carga ampliada verificada:** 15.773 vetores no PostgreSQL; repetição sem duplicação, filtros e offsets conferidos. Backup restaurado em banco separado com os mesmos 15.773 trechos. Reaproveitados 4.664 vetores compatíveis da base inicial.
 - **Base inicial verificada:** 10 editais, 14 PDFs e 4.664 vetores; carga idempotente, filtros, offsets e backup/restauração conferidos. Evidências históricas em `reports/snapshots/b1ee54ef84e97078/`.
 - **Implementados:** coleta, extração, embeddings locais, PostgreSQL/pgvector e busca híbrida coordenada por LangChain.
-- **Planejados:** geração com Groq, perguntas de referência revisadas, avaliação, API/interface e explorador 2D/3D.
-- **Nenhuma métrica de qualidade do RAG foi medida.** Testes funcionais não são resultados de precisão.
+- **Avaliação em revisão:** 30 perguntas com respostas e 10 recusas; 40 casos aprovados pelo usuário. Evidências em 24 editais/24 PDFs, 11 estados; integridade conferida, 32 testes passaram. [Perguntas para revisão](docs/perguntas-para-revisao.md).
+- **Recuperação avaliada:** 180 buscas em 30 perguntas aprovadas. Híbrida: trecho de referência no top 5 em 17/30 na linha de base e 20/30 após mudança lexical (+10 pontos percentuais), com cinco ganhos e duas regressões. [Método, resultados e erros](docs/resultados-recuperacao.md).
+- **Planejados:** geração com Groq, avaliação de respostas/recusas, API/interface e explorador 2D/3D.
+- **Qualidade das respostas ainda não medida.** Recuperar uma evidência não comprova resposta correta ou recusa segura.
 
 ## Arquitetura
 
@@ -79,15 +81,15 @@ Banco apenas em `127.0.0.1:55432`, rede e volume exclusivos. Dados privados em `
 
 - 71 páginas com pouco texto exigem revisão/OCR; nenhuma afirmação de extração integral.
 - Tipo de anexo da API pode divergir do conteúdo.
-- Perguntas longas podem tornar a busca lexical restritiva; recuperação semântica não comprova resposta correta.
+- Linha de base lexical exigia todos os termos e retornou zero candidatos nas 30 perguntas. Consulta OR passou a ser padrão de desenvolvimento; melhorou o Hit@5 híbrido, mas perdeu dois casos sobre RAM. Dez erros de ID conhecido permanecem; relevâncias equivalentes não estão totalmente rotuladas.
 - PDFs com tabelas podem perder relações; revisão visual é amostral.
 - Ainda sem geração, autenticação de aplicação, API pública ou implantação.
-- Docker Desktop exigiu recuperação de sockets temporários no ambiente local; dados do banco inicial preservados. Estabilidade em futuras reinicializações não comprovada.
+- Docker Desktop exigiu recuperação de sockets temporários anteriormente; nesta etapa estava fechado, iniciou normalmente e os dois snapshots foram preservados. Funcionamento nesta reinicialização não comprova estabilidade permanente.
 
 [Revisão inicial dos PDFs](reports/revisao-pdf.md) · [Revisão da ampliação](reports/revisao-pdf-2026-10-01.md) · [Segurança dos dez grupos](reports/seguranca-2026-10-01.md).
 
 ## Próximo passo
 
-Criar e revisar perguntas de referência antes de integrar Groq, medir qualidade e construir o painel. O assistente será ferramenta de conferência humana; não determina elegibilidade nem substitui leitura do edital vigente.
+Definir modelo/orçamento Groq, integrar resposta com fontes e recusa e avaliar os 40 casos. Manter as falhas de recuperação registradas para separar falta de contexto de erro de interpretação. A aprovação das perguntas/respostas não equivale à conferência independente de PDFs/retificações. O assistente será ferramenta de conferência humana; não determina elegibilidade nem substitui leitura do edital vigente. [Método de avaliação](docs/avaliacao.md) · [Primeiros resultados reproduzíveis](docs/resultados-recuperacao.md).
 
 Fontes: [PNCP](https://www.gov.br/pncp/), [API de consulta](https://pncp.gov.br/api/consulta/swagger-ui/index.html).

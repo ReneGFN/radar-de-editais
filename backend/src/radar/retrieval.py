@@ -1,9 +1,12 @@
 """LangChain coordena busca semântica e lexical e combina os rankings."""
+from time import perf_counter
 from langchain_core.documents import Document
 from langchain_core.runnables import RunnableLambda, RunnableParallel
 from pgvector.psycopg import register_vector
 from .storage import connect
 from .embeddings import local_embeddings
+
+DEFAULT_LEXICAL_STRATEGY = 'any'
 
 
 def combine(rankings, limit=5):
@@ -24,15 +27,42 @@ def branch(inputs, semantic):
         params = (inputs["snapshot"],inputs["edital"])
         if semantic:
             return conn.execute("SELECT "+columns+scope+" ORDER BY c.embedding <=> %s::vector,c.id LIMIT 10", params+(inputs["vector"],)).fetchall()
-        return conn.execute("SELECT "+columns+scope+" AND c.terms @@ websearch_to_tsquery('portuguese',%s) ORDER BY ts_rank_cd(c.terms,websearch_to_tsquery('portuguese',%s)) DESC,c.id LIMIT 10",params+(inputs["query"],inputs["query"])).fetchall()
+        strategy = inputs.get('lexical_strategy', DEFAULT_LEXICAL_STRATEGY)
+        if strategy not in ('all', 'any'):
+            raise ValueError('Estratégia lexical inválida')
+        # Expressão SQL fixa; o texto do usuário continua sendo parâmetro.
+        tsquery = ("websearch_to_tsquery('portuguese',%s)" if strategy == 'all' else
+                   "replace(plainto_tsquery('portuguese',%s)::text, ' & ', ' | ')::tsquery")
+        return conn.execute("SELECT "+columns+scope+" AND c.terms @@ "+tsquery+
+                            " ORDER BY ts_rank_cd(c.terms,"+tsquery+") DESC,c.id LIMIT 10",
+                            params+(inputs['query'],inputs['query'])).fetchall()
+
+
+def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY):
+    """Mesmo núcleo da busca, com rankings para diagnóstico e comparação."""
+    if not isinstance(query,str) or not query.strip() or len(query)>1000:
+        raise ValueError("Consulta inválida")
+    if mode not in ('keyword', 'semantic', 'hybrid'):
+        raise ValueError('Modo de busca inválido')
+    if lexical_strategy not in ('all', 'any'):
+        raise ValueError('Estratégia lexical inválida')
+    started = perf_counter()
+    inputs = {"query":query,"snapshot":snapshot,"edital":edital,'lexical_strategy':lexical_strategy}
+    if mode != 'keyword':
+        inputs['vector'] = local_embeddings().embed_query(query)
+    branches = {}
+    if mode != 'keyword':
+        branches['semantic'] = RunnableLambda(lambda x:branch(x,True))
+    if mode != 'semantic':
+        branches['keyword'] = RunnableLambda(lambda x:branch(x,False))
+    rankings = RunnableParallel(**branches).invoke(inputs)
+    selected = combine(rankings) if mode == 'hybrid' else [(row,None) for row in rankings[mode][:5]]
+    documents = [Document(page_content=row[1], metadata={"id":row[0],"pncp_id":row[2],
+        "document_sequence":row[3],"page":row[4],"start":row[5],"end":row[6],"url":row[7],"score":score})
+        for row,score in selected]
+    return documents, {'mode': mode, 'lexical_strategy':lexical_strategy, 'latency_ms': (perf_counter()-started)*1000,
+                       'candidate_ids': {name:[row[0] for row in rows] for name,rows in rankings.items()}}
 
 
 def retrieve(query, snapshot, edital):
-    if not isinstance(query,str) or not query.strip() or len(query)>1000:
-        raise ValueError("Consulta inválida")
-    inputs = {"query":query,"snapshot":snapshot,"edital":edital,"vector":local_embeddings().embed_query(query)}
-    flow = RunnableParallel(semantic=RunnableLambda(lambda x:branch(x,True)),
-                            keyword=RunnableLambda(lambda x:branch(x,False))) | RunnableLambda(combine)
-    return [Document(page_content=row[1], metadata={"id":row[0],"pncp_id":row[2],
-        "document_sequence":row[3],"page":row[4],"start":row[5],"end":row[6],"url":row[7],"score":score})
-        for row,score in flow.invoke(inputs)]
+    return retrieve_with_trace(query, snapshot, edital)[0]

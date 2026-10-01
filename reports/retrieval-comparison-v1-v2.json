@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-01",
+  "reference_sha256": "4b0f577f1f1cb902c058960a905570b58b9018deba42592f2acbb52947d69fb1",
+  "change": "lexical_all_terms_to_any_normalized_term_only",
+  "cases_per_mode": 30,
+  "searches_executed": 180,
+  "hybrid_known_chunk_hits_before": 17,
+  "hybrid_known_chunk_hits_after": 20,
+  "hybrid_delta_percentage_points": 10,
+  "gained_cases": [
+    "pilot-04",
+    "pilot-07",
+    "pilot-13",
+    "pilot-18",
+    "pilot-27"
+  ],
+  "regressed_cases": [
+    "pilot-01",
+    "pilot-02"
+  ],
+  "remaining_misses": [
+    {
+      "case_id": "pilot-01",
+      "candidate_first_expected_rank": {
+        "semantic": 3,
+        "keyword": 8
+      },
+      "known_quote_supported": false,
+      "diagnostic": "final_ranking_miss"
+    },
+    {
+      "case_id": "pilot-02",
+      "candidate_first_expected_rank": {
+        "semantic": 3,
+        "keyword": null
+      },
+      "known_quote_supported": false,
+      "diagnostic": "final_ranking_miss"
+    },
+    {
+      "case_id": "pilot-06",
+      "candidate_first_expected_rank": {
+        "semantic": 7,
+        "keyword": null
+      },
+      "known_quote_supported": false,
+      "diagnostic": "final_ranking_miss"
+    },
+    {
+      "case_id": "pilot-11",
+      "candidate_first_expected_rank": {
+        "semantic": null,
+        "keyword": null
+      },
+      "known_quote_supported": false,
+      "diagnostic": "candidate_pool_miss"
+    },
+    {
+      "case_id": "pilot-16",
+      "candidate_first_expected_rank": {
+        "semantic": null,
+        "keyword": null
+      },
+      "known_quote_supported": false,
+      "diagnostic": "candidate_pool_miss"
+    },
+    {
+      "case_id": "pilot-17",
+      "candidate_first_expected_rank": {
+        "semantic": null,
+        "keyword": null
+      },
+      "known_quote_supported": false,
+      "diagnostic": "candidate_pool_miss"
+    },
+    {
+      "case_id": "pilot-19",
+      "candidate_first_expected_rank": {
+        "semantic": null,
+        "keyword": null
+      },
+      "known_quote_supported": false,
+      "diagnostic": "candidate_pool_miss"
+    },
+    {
+      "case_id": "pilot-21",
+      "candidate_first_expected_rank": {
+        "semantic": null,
+        "keyword": null
+      },
+      "known_quote_supported": false,
+      "diagnostic": "candidate_pool_miss"
+    },
+    {
+      "case_id": "pilot-23",
+      "candidate_first_expected_rank": {
+        "semantic": null,
+        "keyword": null
+      },
+      "known_quote_supported": false,
+      "diagnostic": "candidate_pool_miss"
+    },
+    {
+      "case_id": "pilot-32",
+      "candidate_first_expected_rank": {
+        "semantic": null,
+        "keyword": 4
+      },
+      "known_quote_supported": false,
+      "diagnostic": "final_ranking_miss"
+    }
+  ],
+  "refusals_evaluated": false,
+  "generation_evaluated": false,
+  "decision": "any_default_for_development_with_known_regressions_not_production_approval"
+}
