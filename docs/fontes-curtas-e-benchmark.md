@@ -20,7 +20,7 @@ Etapas antes de chamar isso de benchmark independente:
 2. Conferir visualmente tabelas, cabeçalhos, unidades, item/lote e retificações; páginas com OCR ruim ficam pendentes.
 3. Preparar dez perguntas iniciais com referência exata para Renê aprovar antes da primeira execução; não reutilizar perguntas já ajustadas.
 4. Incluir casos de itens semelhantes com valores diferentes, ITEM versus QTD, unidade, cabeçalho em página anterior, anexos conflitantes e insuficiência real. Não tratar texto de uma linha vizinha como evidência do item solicitado.
-5. Congelar referência e versão antes do teste. Medir recuperação, correção, completude, apoio e cobertura separadamente. Ampliar para a política proposta de100 perguntas/dez editais novos antes de elegibilidade de promoção.
+5. Congelar referência e versão antes do teste. Medir recuperação, correção, completude, apoio e cobertura separadamente. Ampliar para a política proposta de 100 perguntas/dez editais novos antes de elegibilidade de promoção.
 
 Nenhuma associação automática de células/itens foi implementada nesta etapa. Ainda não existem perguntas novas dessa lista executadas ou PDFs novos indexados. A coleta de metadados não comprova a meta90% nem crescimento testado.
 
@@ -48,3 +48,9 @@ Coleta encontrou erros HTTP e ao menos um429 (limite do serviço). Novas solicit
 O helper agora não repete HTTP429 imediatamente e o novo planejador interrompe o lote ao recebê-lo. Teste com transporte simulado confirmou uma única requisição e ausência de sleep/retry;100 testes locais passaram. Este controle não é monitoramento automático nem retomada agendada.
 
 [Resumo](../reports/generation-alias-summary-v1.json) · [Revisão](../reports/generation-alias-review-v1.json) · [Configuração](../reports/generation-alias-protocol-v1.json) · [Lista candidata parcial](../reports/independent-corpus-candidates-v1.json).
+
+## Atualização: PDFs e referências preparados
+
+Em 2026-10-01, preparação posterior à lista de metadados extraiu sete PDFs/422 páginas. Um PDF do PA tem SHA-256 idêntico a arquivo da base antiga: removido da referência independente, mesmo sob outro identificador PNCP. Seis PDFs novos em quatro regiões sustentam o [rascunho de dez perguntas](perguntas-independentes-para-revisao.md). Um arquivo GO é certidão de publicação, não edital técnico. Três falhas ValueError permaneceram sem diagnóstico específico.
+
+Hashes armazenados e 17 passagens foram conferidos; 11 páginas foram vistas pelo assistente. Renê aprovou explicitamente as dez perguntas e referências. Não houve indexação, geração ou avaliação das respostas da IA. Esta preparação não demonstra 90% nem cumpre ainda o conjunto ampliado. Evidências em independent-documents-v1.json e independent-reference-v1.json. O estado metadata-only descrito anteriormente é histórico.

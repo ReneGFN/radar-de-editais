@@ -145,6 +145,16 @@ Tokens de entrada nos sete casos aceitos comuns: 10.273 →18.994. Revisão huma
 
 ## Rótulos curtos — experimental
 
-Fonte enviada à IA como S1–S5, schema com lista fechada, restaurada ao ID real antes da validação/apresentação. Nova execução nos mesmos dez casos: dez respostas passaram pelo validador literal, sem erro nesta execução; referência humana de correção ainda pendente. Padrões anteriores mantidos.100 testes locais passaram e pip-audit sem avisos conhecidos auditáveis.
+Fonte enviada à IA como S1–S5, schema com lista fechada, restaurada ao ID real antes da validação/apresentação. Nova execução nos mesmos dez casos: dez respostas passaram pelo validador literal, sem erro nesta execução; referência humana de correção ainda pendente. Padrões anteriores mantidos. 100 testes locais passaram e pip-audit sem avisos conhecidos auditáveis.
 
-Próxima base independente: nove editais candidatos distintos dos30 atuais, obtidos por consultas nas cinco regiões; dez arquivos listados. Coleta parcial por erros/HTTP429, sem PDF baixado, hash comparado, indexação ou pergunta nova executada. [Implementação, comparação e próximos critérios](docs/fontes-curtas-e-benchmark.md).
+Lista candidata independente: nove contratações distintas das 30 atuais, obtidas por consultas nas cinco regiões; dez arquivos listados. A seleção de metadados foi parcial por erros/HTTP429. Na preparação posterior, sete PDFs foram extraídos e um foi excluído por hash repetido na base antiga. [Implementação e comparação](docs/fontes-curtas-e-benchmark.md).
+
+## Dez novas referências — aprovadas, avaliação pendente
+
+[Perguntas, respostas esperadas e páginas oficiais](docs/perguntas-independentes-para-revisao.md): dez perguntas em seis contratações/seis PDFs novos, RJ/PR/SC/CE/GO/DF, quatro regiões. Cinco PDFs de editais com anexos e uma certidão de publicação de GO. Caso Serpro inclui roteador, ampliando a amostra de informática para equipamento de rede.
+
+Verificados os hashes de seis arquivos e 17 passagens literais; 11 páginas conferidas visualmente pelo assistente. PDF do PA reutiliza conteúdo já existente, portanto não conta como nova fonte. Três arquivos não preparados (ValueError; motivo específico não registrado). Renê aprovou explicitamente as dez perguntas e referências. Nenhuma pergunta nova executada, nenhum vetor/carga de banco; avaliação das respostas da IA ainda não realizada. 100 testes passaram e pip-audit atual sem avisos conhecidos auditáveis.
+
+A amostra ainda não satisfaz o protocolo de 100 perguntas/10 novas contratações nem demonstra 90% de acerto. [Preparação](reports/independent-documents-v1.json) · [Integridade da referência](reports/independent-reference-v1.json) · [Segurança e limites](reports/seguranca-independente-2026-10-01.md).
+
+[Plano do snapshot separado](reports/independent-index-plan-v1.json): seis PDFs novos/370 páginas, vetores novos ainda não criados. As referências serão vinculadas aos trechos após preparação. A avaliação atual seleciona a contratação por PNCP; não mede descoberta global do edital entre toda a base.

@@ -1,0 +1,25 @@
+{
+  "checked_at_utc": "2026-10-01T20:07:47.671983+00:00",
+  "reference_sha256": "b9544411224d8dba0bc8508a990767dc4bc53c34d52f36f513eb5d0deffd5f69",
+  "state": "reference_integrity_verified",
+  "checks": {
+    "cases": 10,
+    "distinct_pncp": 6,
+    "distinct_pdf_hashes": 6,
+    "reference_pages": 11,
+    "literal_spans_checked": 17,
+    "pncp_overlap_existing": 0,
+    "pdf_hash_overlap_existing": 0,
+    "stored_pdf_hashes_verified": 6
+  },
+  "reference_approval": "approved_reference_not_executed",
+  "retrieval_calls": 0,
+  "groq_calls": 0,
+  "database_changes": 0,
+  "does_not_certify": [
+    "semantic_correctness",
+    "full_document_review",
+    "90_percent_accuracy",
+    "user_approval"
+  ]
+}
