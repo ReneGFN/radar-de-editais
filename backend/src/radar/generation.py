@@ -109,6 +109,9 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
     reverse_aliases={value:key for key,value in aliases.items()}
     context=[{'chunk_id':reverse_aliases.get(d.metadata['id'],d.metadata['id']),'page':d.metadata['page'],
               'document_sequence':d.metadata['document_sequence'],'content':d.page_content} for d in docs]
+    if context_profile == 'item_structure':
+        for entry,doc in zip(context,docs):
+            entry['item_context']={k:doc.metadata[k] for k in ('item_number','item_header_page','item_header_start','item_recognition','item_continuation','quantity_candidates') if k in doc.metadata}
     user=json.dumps({'question':query,'documents':context},ensure_ascii=False)
     if len(user)>16000: raise ValueError('Contexto excede o limite de consulta')
     # O SDK Groq acrescenta /openai/v1/chat/completions; base deve ser somente a origem.

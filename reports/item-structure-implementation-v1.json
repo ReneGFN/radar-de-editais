@@ -1,0 +1,17 @@
+{
+  "stage": 1,
+  "state": "implemented_waiting_approval_for_stage2",
+  "tests_passed": 119,
+  "pip_audit": "no_known_vulnerabilities_in_auditable_packages",
+  "groq_calls": 0,
+  "database_writes": 0,
+  "real_database_new_profile": "not_executed",
+  "answer_accuracy": null,
+  "default_unchanged": true,
+  "code_sha256": {
+    "backend/src/radar/item_structure.py": "7e0c3de49329ca27e75cfa6179d9fa590eeef92c51f639aa7ffb834efdf381f7",
+    "backend/src/radar/retrieval.py": "54c0127703a969ee0999229f2fc4cde73dddaf3bb57f4abb4c9209383a53d702",
+    "backend/src/radar/generation.py": "8177b0be6c3fd2170951919f63aca98c4dc98b1dfacf7ce324639216edfd36cf",
+    "backend/tests/test_item_structure.py": "a955212a7b92dd75c2f17e023a478c6dfd15fddb4c0cc111330a81cd823d4821"
+  }
+}

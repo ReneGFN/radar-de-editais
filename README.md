@@ -172,3 +172,7 @@ O plano acima descreve a etapa anterior; a carga/conferência agora está conclu
 ## Geração candidata executada — 2026-10-01
 
 Dez novos casos autorizados e executados na Groq: seis respostas/quatro abstenções, integridade10/10; correção humana pendente. Quantidade presente mas não interpretada no03; omissão de por item no08; fontes alternativas legítimas07/10. Gate permanece bloqueado, sem promoção ou garantia de90%. [Resultados, método e próximo passo](docs/geracao-na-base-candidata.md). 110 testes passaram e auditoria atual sem avisos conhecidos auditáveis.
+
+## Etapa1 implementada — aguardando aprovação para etapa2
+
+Perfil opcional item_structure vincula itens/continuações, destaca quantidade literal e reduz repetição de fontes.119 testes passaram; pip-audit atual sem avisos conhecidos auditáveis. Sem Groq, avaliação de acerto ou escrita no banco nesta etapa; integração real e avaliação quantitativa aguardam aprovação explícita conforme pedido de Renê. [Funcionamento, limites e evidências](docs/estrutura-dos-itens.md).
