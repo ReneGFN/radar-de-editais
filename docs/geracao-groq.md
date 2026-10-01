@@ -51,3 +51,13 @@ Correção, completude, apoio semântico e qualidade da recusa ainda não pontua
 [Resumo operacional sem textos](../reports/generation-summary-v1.json) · [Configuração de reprodução](../reports/generation-protocol-v1.json).
 
 A pergunta pilot-17 também merece revisão: a página recuperada contém especificações com SSDs de 500 GB e 512 GB, enquanto a referência seleciona 512 GB sem explicitar o item na pergunta. Não alteramos a referência aprovada; essa ambiguidade deve ser resolvida na revisão do conjunto.
+
+## Resposta acompanhada das fontes — atualização 2026-10-01
+
+A consulta individual agora salva também Markdown legível no diretório privado. Cada afirmação recebe referências numeradas; cada referência mostra identificador PNCP do edital, número do arquivo, página do PDF, link oficial e passagem original. A montagem usa os metadados recuperados e citações validadas, sem pedir ao modelo que invente arquivo, página ou endereço.
+
+O link aponta para o documento PNCP com `#page=N`. A abertura direta na página depende do navegador/visualizador; a página indicada conta as páginas físicas do PDF, incluindo capa, e pode divergir do número impresso no rodapé. Não houve teste de navegação em todos os visualizadores.
+
+A apresentação bloqueia afirmações sem fonte validada e endereços externos ao PNCP ou com credenciais. Conteúdo textual é escapado para Markdown. Em recusas/insuficiência, apresenta aviso neutro e possibilidade de reformular, sem inventar fontes nem apresentar justificativas factuais não citadas do campo reason. O resultado bruto permanece privado para revisão.
+
+Sete testes novos passaram: vínculo de afirmação/fonte, edital/arquivo/página/quote, ausência de fonte, links inseguros, escape de marcação e recusa sem afirmação não citada. Conferido exemplo real salvo do lote, sem nova chamada à Groq. Isto implementa a apresentação no CLI; interface web continua planejada.
