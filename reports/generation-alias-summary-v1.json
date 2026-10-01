@@ -1,0 +1,132 @@
+{
+  "variant": "alias_window",
+  "model": "openai/gpt-oss-120b",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63",
+  "free_plan": "user_confirmed_not_independently_audited",
+  "completed": 10,
+  "tested_cases": 10,
+  "rejected_case_ids": [],
+  "generation_calls": 10,
+  "input_tokens_successful_cases": 26089,
+  "output_tokens_successful_cases": 2229,
+  "median_generation_latency_ms": 950.56,
+  "failed_attempts": 0,
+  "failed_attempt_usage": "not_confirmed",
+  "actual_billing": "not_independently_verified",
+  "correctness": "not_scored_pending_human_review",
+  "refusal_safety": "not_scored_pending_human_review",
+  "cases": [
+    {
+      "case_id": "reserve-01",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2707,
+      "output_tokens": 150,
+      "total_latency_ms": 3289.08,
+      "generation_latency_ms": 963.48
+    },
+    {
+      "case_id": "reserve-02",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2900,
+      "output_tokens": 187,
+      "total_latency_ms": 961.31,
+      "generation_latency_ms": 839.22
+    },
+    {
+      "case_id": "reserve-03",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2435,
+      "output_tokens": 181,
+      "total_latency_ms": 931.37,
+      "generation_latency_ms": 795.5
+    },
+    {
+      "case_id": "reserve-04",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2300,
+      "output_tokens": 175,
+      "total_latency_ms": 942.23,
+      "generation_latency_ms": 818.41
+    },
+    {
+      "case_id": "reserve-05",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2314,
+      "output_tokens": 228,
+      "total_latency_ms": 1351.93,
+      "generation_latency_ms": 1204.7
+    },
+    {
+      "case_id": "reserve-06",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2819,
+      "output_tokens": 215,
+      "total_latency_ms": 1055.24,
+      "generation_latency_ms": 937.63
+    },
+    {
+      "case_id": "reserve-07",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2439,
+      "output_tokens": 160,
+      "total_latency_ms": 975.43,
+      "generation_latency_ms": 850.41
+    },
+    {
+      "case_id": "reserve-08",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2577,
+      "output_tokens": 324,
+      "total_latency_ms": 1305.37,
+      "generation_latency_ms": 1189.23
+    },
+    {
+      "case_id": "reserve-09",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 3018,
+      "output_tokens": 264,
+      "total_latency_ms": 1512.47,
+      "generation_latency_ms": 1388.89
+    },
+    {
+      "case_id": "reserve-10",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 2580,
+      "output_tokens": 345,
+      "total_latency_ms": 3224.94,
+      "generation_latency_ms": 3119.35
+    }
+  ],
+  "errors": []
+}

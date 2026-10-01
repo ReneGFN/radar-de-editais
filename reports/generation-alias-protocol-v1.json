@@ -1,0 +1,22 @@
+{
+  "variant": "alias_window",
+  "model": "openai/gpt-oss-120b",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63",
+  "authorization": "same_ten_cases_authorized_in_chat_and_user_approved_continuation",
+  "context_profile": "page_window",
+  "citation_mode": "source_alias",
+  "max_sources": 5,
+  "aliases": "S1_to_S5_per_request_closed_enum",
+  "reference_answers_sent": false,
+  "real_source_ids_recovered_before_validation": true,
+  "human_correctness_review": "pending",
+  "prompt_clarification_changed_along_with_aliases": true,
+  "code_sha256_during_batch": {
+    "backend/src/radar/citations.py": "67c7234adc236bbef29a7df7b8b72817205bede16886c6f12202e9852b7fc165",
+    "backend/src/radar/generation.py": "53f7144c8b86b70c1edf23444f76240fd05e4928ebe032c5f98c38057d0907b0",
+    "backend/src/radar/context.py": "3c54fa37eedd630d0818abbe7b54a36f92c3f4668721ba31643f7c0e742b54a6",
+    "ops/evaluate-generation.py": "9c84d1c84526c62c230dc80baacf3c1534b88bafd86c4a7387f631eaca63ab59"
+  },
+  "per_request_code_hashes_recorded": false
+}

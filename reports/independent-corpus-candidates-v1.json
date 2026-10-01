@@ -1,0 +1,329 @@
+{
+  "captured_at_utc": "2026-10-01T18:33:51.309200+00:00",
+  "state": "metadata_candidates_not_downloaded_or_indexed",
+  "existing_snapshot": "4f8ddffaa01b6a20",
+  "candidates": [
+    {
+      "pncp_id": "45358058000140-1-000160/2026",
+      "uf": "SP",
+      "region": "Sudeste",
+      "agency": "FUNDACAO UNIVERSIDADE FEDERAL DE SAO CARLOS",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/45358058000140/2026/160",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45358058000140/compras/2026/160/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "32512501000143-1-000385/2026",
+      "uf": "RJ",
+      "region": "Sudeste",
+      "agency": "MUNICIPIO DE VOLTA REDONDA",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/32512501000143/2026/385",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "76279975000162-1-000083/2026",
+      "uf": "PR",
+      "region": "Sul",
+      "agency": "MUNICIPIO DE UNIFLOR",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/76279975000162/2026/83",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "82575812000120-1-000428/2026",
+      "uf": "SC",
+      "region": "Sul",
+      "agency": "MUNICIPIO DE PORTO BELO",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/82575812000120/2026/428",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "14235899000136-1-000081/2026",
+      "uf": "BA",
+      "region": "Nordeste",
+      "agency": "MUNICIPIO DE VALENCA",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/14235899000136/2026/81",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/14235899000136/compras/2026/81/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "00348003000110-1-001037/2026",
+      "uf": "CE",
+      "region": "Nordeste",
+      "agency": "EMPRESA BRASILEIRA DE PESQUISA AGROPECUARIA",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/00348003000110/2026/1037",
+      "documents": [
+        {
+          "sequence": 2,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "10936853000193-1-000094/2026",
+      "uf": "GO",
+      "region": "Centro-Oeste",
+      "agency": "FUNDO MUNICIPAL DE SAUDE",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/10936853000193/2026/94",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10936853000193/compras/2026/94/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        },
+        {
+          "sequence": 2,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10936853000193/compras/2026/94/arquivos/2",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "33683111000107-1-000073/2026",
+      "uf": "DF",
+      "region": "Centro-Oeste",
+      "agency": "SERVICO FEDERAL DE PROCESSAMENTO DE DADOS (SERPRO)",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/33683111000107/2026/73",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "00368105000106-1-000158/2026",
+      "uf": "PA",
+      "region": "Norte",
+      "agency": "POLICIA CIVIL DO ESTADO DO PARA",
+      "sector_triage": "in_scope_candidate",
+      "official_url": "https://pncp.gov.br/app/editais/00368105000106/2026/158",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00368105000106/compras/2026/158/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "uf": "CE",
+      "page": 1,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "CE",
+      "page": 2,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "CE",
+      "page": 3,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "CE",
+      "page": 4,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "CE",
+      "page": 5,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "GO",
+      "page": 1,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "GO",
+      "page": 2,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "GO",
+      "page": 3,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "GO",
+      "page": 4,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "GO",
+      "page": 5,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "DF",
+      "page": 1,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "DF",
+      "page": 2,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "DF",
+      "page": 3,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "DF",
+      "page": 4,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "DF",
+      "page": 5,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "PA",
+      "page": 1,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "PA",
+      "page": 2,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "PA",
+      "page": 3,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "PA",
+      "page": 4,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "PA",
+      "page": 5,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "AM",
+      "page": 1,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "AM",
+      "page": 2,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "AM",
+      "page": 3,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "AM",
+      "page": 4,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "AM",
+      "page": 5,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "uf": "AM",
+      "page": 2,
+      "stage": "publication_query",
+      "error_type": "HTTPStatusError",
+      "http_status": 429
+    },
+    {
+      "uf": "AM",
+      "page": 3,
+      "stage": "publication_query",
+      "error_type": "HTTPStatusError",
+      "http_status": 429
+    },
+    {
+      "uf": "AM",
+      "page": 4,
+      "stage": "publication_query",
+      "error_type": "HTTPStatusError",
+      "http_status": 429
+    },
+    {
+      "uf": "AM",
+      "page": 5,
+      "stage": "publication_query",
+      "error_type": "HTTPStatusError",
+      "http_status": 429
+    }
+  ],
+  "search_window": [
+    "20260921",
+    "20261001"
+  ],
+  "target": 10,
+  "complete": false,
+  "edital_overlap": 0,
+  "pdf_hash_overlap_check": "pending_download",
+  "questions": "not_prepared_not_executed",
+  "representative": false,
+  "production_promotion": false,
+  "rate_limited_observed": true,
+  "collection_followup": "paused_after_observed_HTTP429_no_further_requests_this_delivery",
+  "diagnostic_publication_query_ce_http_status": 200,
+  "historical_error_stage_unknown": true,
+  "initial_cli_write_failure_corrected": true,
+  "candidate_file_error_no_longer_discards_other_items": true
+}

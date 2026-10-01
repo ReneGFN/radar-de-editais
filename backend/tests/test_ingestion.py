@@ -40,3 +40,14 @@ def test_sector():
     assert matches_sector("Aquisição de computadores e acessórios de informática")
     assert not matches_sector("Materiais para manutenção de automação industrial")
     assert not matches_sector("Papelaria, expediente e suprimentos de informática")
+
+
+def test_rate_limit_is_not_retried_immediately(monkeypatch):
+    calls=[]
+    def respond(request):
+        calls.append(request)
+        return httpx.Response(429,headers={'Retry-After':'60'})
+    monkeypatch.setattr('radar.ingestion.time.sleep',lambda *a:pytest.fail('Must not retry HTTP 429'))
+    with httpx.Client(transport=httpx.MockTransport(respond)) as client:
+        with pytest.raises(httpx.HTTPStatusError):get(client,'https://pncp.gov.br/a')
+    assert len(calls)==1

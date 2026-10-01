@@ -74,3 +74,7 @@ O bônus de cobertura lexical não melhorou cobertura completa da híbrida nem d
 ## Janela e evidência literal avaliadas
 
 Ganho de cobertura híbrida medido, com nove respostas aceitas e uma fonte bloqueada nos dez casos de desenvolvimento. A janela não reconstrói células e fonte verdadeira não comprova cada afirmação. Consumo aumentou; humanos e nova reserva precisam confirmar ganho de correção. Nenhuma promoção automática ocorreu. [Comparação e limites](contexto-e-citacoes.md).
+
+## Identificadores e nova lista candidata
+
+Aliases locais S1–S5 reduziram erro de cópia; dez casos passaram pelo validador, sem nota humana de precisão. Lista independente tem nove candidatos sem sobreposição PNCP, mas PDF/hash e referências ainda pendentes. Meta de dez editais/100 perguntas para promoção continua não atendida. [Evidências](fontes-curtas-e-benchmark.md).

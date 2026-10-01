@@ -142,3 +142,9 @@ Prioridade seguinte: preservar cabeçalhos/identidade de item ao montar contexto
 Implementadas opções de janela da página original e evidência selecionada por ID, com passagem literal inserida pelo servidor. Mesmo corpus e ranking: cobertura completa híbrida 29/30 →30/30 nas antigas e 8/10 →9/10 no desenvolvimento; Hit@5 igual. Nova geração dos mesmos dez casos: nove respostas aceitas e uma fonte inválida bloqueada, antes seis respostas/uma insuficiência/três rejeições. **Não equivale a 90% de acerto humano.**
 
 Tokens de entrada nos sete casos aceitos comuns: 10.273 →18.994. Revisão humana/independência pendentes, padrão anterior preservado. 85 testes passaram; pip-audit sem avisos conhecidos auditáveis. [Método, custos operacionais e limitações](docs/contexto-e-citacoes.md) · [Segurança desta atualização](reports/seguranca-janelas-2026-10-01.md).
+
+## Rótulos curtos — experimental
+
+Fonte enviada à IA como S1–S5, schema com lista fechada, restaurada ao ID real antes da validação/apresentação. Nova execução nos mesmos dez casos: dez respostas passaram pelo validador literal, sem erro nesta execução; referência humana de correção ainda pendente. Padrões anteriores mantidos.100 testes locais passaram e pip-audit sem avisos conhecidos auditáveis.
+
+Próxima base independente: nove editais candidatos distintos dos30 atuais, obtidos por consultas nas cinco regiões; dez arquivos listados. Coleta parcial por erros/HTTP429, sem PDF baixado, hash comparado, indexação ou pergunta nova executada. [Implementação, comparação e próximos critérios](docs/fontes-curtas-e-benchmark.md).

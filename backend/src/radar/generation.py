@@ -93,7 +93,7 @@ def key():
 def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='structured',context_profile='chunk',citation_mode='model_quote'):
     if not free_plan_confirmed:
         raise ValueError('Confirme o plano gratuito antes de chamar Groq')
-    if citation_mode not in ('model_quote','source_id'):
+    if citation_mode not in ('model_quote','source_id','source_alias'):
         raise ValueError('Modo de citação inválido')
     docs,trace=retrieve_with_trace(query,snapshot,edital,query_profile=query_profile,context_profile=context_profile)
     if not docs:
@@ -102,7 +102,12 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
     from langchain_groq import ChatGroq
     import json
     # Apenas trechos efetivamente recuperados; metadados de referência não entram no prompt.
-    context=[{'chunk_id':d.metadata['id'],'page':d.metadata['page'],
+    aliases={}
+    if citation_mode=='source_alias':
+        from .citations import source_aliases
+        aliases=source_aliases(docs)
+    reverse_aliases={value:key for key,value in aliases.items()}
+    context=[{'chunk_id':reverse_aliases.get(d.metadata['id'],d.metadata['id']),'page':d.metadata['page'],
               'document_sequence':d.metadata['document_sequence'],'content':d.page_content} for d in docs]
     user=json.dumps({'question':query,'documents':context},ensure_ascii=False)
     if len(user)>16000: raise ValueError('Contexto excede o limite de consulta')
@@ -111,9 +116,10 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
                    reasoning_effort='low',model_kwargs={'include_reasoning':False},
                    timeout=40,max_retries=0,verbose=False)
     schema=SCHEMA;system=SYSTEM
-    if citation_mode=='source_id':
-        from .citations import source_schema
-        schema=source_schema(SCHEMA)
+    if citation_mode in ('source_id','source_alias'):
+        from .citations import source_schema,alias_schema
+        schema=alias_schema(SCHEMA,aliases) if citation_mode=='source_alias' else source_schema(SCHEMA)
+        system=system.replace('um chunk_id e quote literal do contexto','um chunk_id do contexto')
         system += '\nNeste modo evidence contém somente chunk_id, sem quote. Selecione somente fontes que sustentem cada afirmação; o servidor exibirá a passagem original completa. Não reproduza nem abrevie citações no JSON.'
     flow=model.with_structured_output(schema,method='json_schema',strict=True,include_raw=True)
     started=perf_counter()
@@ -125,6 +131,9 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
         if citation_mode=='source_id':
             from .citations import attach_literal_sources
             parsed=attach_literal_sources(parsed,docs)
+        if citation_mode=='source_alias':
+            from .citations import resolve_aliases,attach_literal_sources
+            parsed=attach_literal_sources(resolve_aliases(parsed,aliases),docs)
         validated=validate_answer(parsed,docs)
     except Exception as exc:
         # Mensagens de erro do SDK podem conter requisição/resposta: não exportá-las.
@@ -146,7 +155,7 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
                            'error':str(exc)})
         raise GenerationFailure(kind,getattr(exc,'status_code',None)) from None
     raw=result['raw']
-    validated.update(citation_mode=citation_mode,context_profile=context_profile,model=MODEL,generation_calls=1,retrieval=trace,
+    validated.update(source_alias_map=aliases,citation_mode=citation_mode,context_profile=context_profile,model=MODEL,generation_calls=1,retrieval=trace,
                      generation_latency_ms=(perf_counter()-started)*1000,
                      usage=raw.usage_metadata or {},free_plan_confirmed=True,
                      billing='free_plan_user_confirmed_not_independently_verified')

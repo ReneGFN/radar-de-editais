@@ -44,10 +44,10 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference',type=Path)
     parser.add_argument('--report',type=Path,required=True)
-    parser.add_argument('--variant',choices=('baseline','source_window'),default='baseline')
+    parser.add_argument('--variant',choices=('baseline','source_window','alias_window'),default='baseline')
     args=parser.parse_args()
     digest=hashlib.sha256(args.reference.read_bytes()).hexdigest()
-    path=private_root()/'generation'/f"evaluation-{digest[:16]}{'-source_window' if args.variant=='source_window' else ''}.json"
+    path=private_root()/'generation'/f"evaluation-{digest[:16]}{'-'+args.variant if args.variant!='baseline' else ''}.json"
     checkpoint=json.loads(path.read_text(encoding='utf-8'))
     if checkpoint['reference_sha256']!=digest or checkpoint['model']!=MODEL:
         raise ValueError('Checkpoint incompatível')

@@ -68,7 +68,8 @@ def get(client: httpx.Client, url: str, *, params=None, binary=False):
                 raise
             time.sleep(attempt + 1)
         except httpx.HTTPStatusError as exc:
-            if exc.response.status_code not in (429, 500, 502, 503, 504) or attempt == 2:
+            # Limite do serviço requer interromper e retomar depois, não insistir.
+            if exc.response.status_code not in (500, 502, 503, 504) or attempt == 2:
                 raise
             time.sleep(attempt + 1)
 

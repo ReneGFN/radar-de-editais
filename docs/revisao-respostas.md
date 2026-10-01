@@ -71,3 +71,19 @@ Diagnóstico privado de rejeição era nomeado só pela pergunta e o candidato d
 Próximo experimento: rótulos curtos de fonte mapeados pelo servidor, mantendo IDs reais na rastreabilidade; vínculo explícito de itens/cabeçalhos e teste independente de tabelas em nova reserva. Ainda não implementados.
 
 [Resumo operacional](../reports/generation-window-summary-v1.json) · [Revisão e comparação](../reports/generation-window-review-v1.json) · [Protocolo](../reports/generation-window-protocol-v1.json).
+
+## Resultado dos rótulos curtos — 2026-10-01
+
+Dez requisições nos mesmos casos de desenvolvimento: dez answered passaram pela validação literal, sem erro nesta execução. Na variante anterior, nove passaram e reserve-10 foi bloqueado por identificador inválido. O caso agora resolveu as fontes. Não repetir para ocultar falhas; checkpoints de todas as variantes permanecem separados.
+
+Revisão do assistente encontrou valores alinhados às referências; fontes repetidas de reserve-08/09/10 ainda exigem conferir identidade do item. Correção/completude/apoio humanos não pontuados. Aprovação de continuidade não foi registrada como aprovação humana de10 acertos. Resultado não prova100% de precisão ou manutenção de90% com documentos novos.
+
+Nos nove casos aceitos comuns, tokens de entrada passaram24.911→23.509 (-5,6%). Totais do novo lote (dez aceitos):26.089 entrada/2.229 saída; mediana modelo950,56ms. Uma execução, com saídas diferentes e prompt também esclarecido: não declarar ganho causal de velocidade ou faturamento gratuito auditado.
+
+Lista independente: nove candidatos distintos dos30 existentes, obtidos por consultas em nove UFs abrangendo cinco regiões; dez documentos listados como edital. Meta inicial10 candidatos incompleta. PDFs não baixados, hashes/retificações/qualidade/identidade dos itens pendentes, nenhum documento indexado ou pergunta nova executada. Cotas são amostra de conveniência, não representatividade.
+
+Coleta encontrou erros HTTP e ao menos um429 (limite do serviço). Novas solicitações foram encerradas nesta entrega; nove candidatos preservados. Uma falha de listagem não deve descartar os demais editais da página: corrigido isolamento. Relatório inicialmente não era salvo por argumento string; corrigido Path/checkpoints por UF e execução confirmou gravação. Erros históricos sem estágio/código não foram reclassificados por hipótese.
+
+O helper agora não repete HTTP429 imediatamente e o novo planejador interrompe o lote ao recebê-lo. Teste com transporte simulado confirmou uma única requisição e ausência de sleep/retry;100 testes locais passaram. Este controle não é monitoramento automático nem retomada agendada.
+
+[Resumo](../reports/generation-alias-summary-v1.json) · [Revisão](../reports/generation-alias-review-v1.json) · [Configuração](../reports/generation-alias-protocol-v1.json) · [Lista candidata parcial](../reports/independent-corpus-candidates-v1.json).

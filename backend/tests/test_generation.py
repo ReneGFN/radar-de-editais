@@ -77,7 +77,7 @@ def test_invalid_key_format_rejected(monkeypatch):
 
 
 @pytest.mark.parametrize('provider_error',[False,True])
-@pytest.mark.parametrize('citation_mode',['model_quote','source_id'])
+@pytest.mark.parametrize('citation_mode',['model_quote','source_id','source_alias'])
 def test_sdk_origin_and_private_context_boundary(monkeypatch,provider_error,citation_mode):
     import langchain_groq
     import radar.generation as generation
@@ -92,7 +92,8 @@ def test_sdk_origin_and_private_context_boundary(monkeypatch,provider_error,cita
                     body={'error':{'code':'json_validate_failed','message':'PRIVATE_SDK_BODY'}}
                 raise ProviderError('PRIVATE_SDK_BODY')
             value=payload()
-            if citation_mode=='source_id':value['claims'][0]['evidence'][0].pop('quote')
+            if citation_mode!='model_quote':value['claims'][0]['evidence'][0].pop('quote')
+            if citation_mode=='source_alias':value['claims'][0]['evidence'][0]['chunk_id']='S1'
             return {'parsed':value,'parsing_error':None,
                     'raw':SimpleNamespace(usage_metadata={'input_tokens':10,'output_tokens':5})}
     class Model:
@@ -119,7 +120,7 @@ def test_sdk_origin_and_private_context_boundary(monkeypatch,provider_error,cita
     assert result['generation_calls']==1
 
 
-@pytest.mark.parametrize('citation_mode',['model_quote','source_id'])
+@pytest.mark.parametrize('citation_mode',['model_quote','source_id','source_alias'])
 def test_missing_evidence_does_not_contact_model(monkeypatch,citation_mode):
     import radar.generation as generation
     monkeypatch.setattr(generation,'retrieve_with_trace',lambda *a,**k:([],{}))
