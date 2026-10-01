@@ -1,0 +1,21 @@
+{
+  "cases": 10,
+  "approved": 10,
+  "counts_by_kind": {
+    "answerable": 10
+  },
+  "draft": 0,
+  "answerable_editais": 4,
+  "evidence_documents": 4,
+  "answerable_states": [
+    "PR",
+    "RS",
+    "SP"
+  ],
+  "coverage_note": "known_evidence_not_exhaustive_relevance_labels",
+  "evidence_integrity": "passed",
+  "human_review": "not_performed_by_validator",
+  "quality_metrics": "not_computed",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63"
+}

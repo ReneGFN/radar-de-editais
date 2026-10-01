@@ -26,12 +26,8 @@ def normalized(text: str) -> str:
 
 
 def matches_sector(text: str) -> bool:
-    text = normalized(text)
-    if re.search(r"multiparametric|cardiac|hospitalar|monitoramento ambiental",text):
-        return False
-    if "informatica" in text and not re.search(r"computador|notebook|monitor|periferic|equipamento|switch|rack|workstation",text):
-        return False
-    return bool(re.search(r"\b(computadores?|notebooks?|microcomputadores?|monitores?|informatica|perifericos?)\b", text))
+    from .sector import classify_sector
+    return classify_sector(text) in ('in_scope_candidate','mixed_requires_item_review')
 
 
 def safe_url(url: str) -> str:

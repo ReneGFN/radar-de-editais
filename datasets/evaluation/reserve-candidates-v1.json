@@ -1,0 +1,275 @@
+{
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "status": "approved",
+  "target_counts": {
+    "answerable": 10
+  },
+  "purpose": "initial_reserve_candidates_not_tested_not_a_growth_benchmark",
+  "limitations": "four editais already indexed but absent from pilot; three states, not representative; no newly added corpus",
+  "cases": [
+    {
+      "id": "reserve-01",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "46377800000127-1-004178/2026",
+      "question": "Qual memória RAM e frequência são exigidas para o notebook da contratação da SSP/SP em Presidente Prudente?",
+      "expected_answer": "16 GB de RAM DDR4 a 3200 MHz.",
+      "evidence": [
+        {
+          "chunk_id": "25badca1554a5df6ea7ffc5492ac6fba977d9e1cfee752b6af25d24178be93ed",
+          "document_sequence": 3,
+          "page": 3,
+          "document_sha256": "ffdae98df5cf5bfdd6fb806111d39f74fe1d232d3173e6534a89886e45c3b30f",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4178/arquivos/3",
+          "quote": "ITEM 02 ESPECIFICAÇÃO COMPLETA (SIAFISICO/BEC)\nNotebook; Microcomputador Portátil; Com Processador de 04 Nucleos, Arquitetura X86, Compatível Com o Padrao X64; Com Frequencia de\nClock Real, Igual Ou Superior a 2.4ghz; Memoria Ram Ddr4 de 3200mhz; de 16gb; Cache 08mb; Controladora de Disco Padrao M.2 Pcie;"
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-02",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "46377800000127-1-004178/2026",
+      "question": "Quantos núcleos e qual frequência mínima de clock são exigidos para o processador do notebook da SSP/SP em Presidente Prudente?",
+      "expected_answer": "Quatro núcleos e clock real igual ou superior a 2,4 GHz.",
+      "evidence": [
+        {
+          "chunk_id": "25badca1554a5df6ea7ffc5492ac6fba977d9e1cfee752b6af25d24178be93ed",
+          "document_sequence": 3,
+          "page": 3,
+          "document_sha256": "ffdae98df5cf5bfdd6fb806111d39f74fe1d232d3173e6534a89886e45c3b30f",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4178/arquivos/3",
+          "quote": "ITEM 02 ESPECIFICAÇÃO COMPLETA (SIAFISICO/BEC)\nNotebook; Microcomputador Portátil; Com Processador de 04 Nucleos, Arquitetura X86, Compatível Com o Padrao X64; Com Frequencia de\nClock Real, Igual Ou Superior a 2.4ghz; Memoria Ram Ddr4 de 3200mhz; de 16gb; Cache 08mb; Controladora de Disco Padrao M.2 Pcie;"
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-03",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "63025530000104-1-003836/2026",
+      "question": "Nos notebooks da EACH/USP, qual memória instalada, padrão, frequência e limite de expansão são exigidos?",
+      "expected_answer": "16 GB instalados, DDR5 a 5200 MHz, com expansão até 64 GB.",
+      "evidence": [
+        {
+          "chunk_id": "cf6178ab221a5c539f17f7c10c49c16b2d350894fb2160aeec49c4497e167495",
+          "document_sequence": 2,
+          "page": 35,
+          "document_sha256": "a279b6a1940797906f2c434f1a68ae916a93a639712bd453a35e5be743f9a98f",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/63025530000104/compras/2026/3836/arquivos/2",
+          "quote": "- Padrão DDR5 5200 MHz;  \n- Permitir expansão para até 64GB;  \n- 16GB de memória RAM instalada;  \n \nArmazenamento  \n- Controladora de discos integrada à placa-mãe do equipamento, padrão M.2 NVME, com \nsuporte à instalação de no mínimo uma (01) unidade SSD em slot dedicado para unidade SSD;  \n- Uma unidade de armazenamento instalada, interna, de no mínimo 512GB SSD;"
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-04",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "63025530000104-1-003836/2026",
+      "question": "Qual capacidade mínima de SSD e padrão de conexão são exigidos nos notebooks da EACH/USP?",
+      "expected_answer": "Uma unidade interna instalada de no mínimo 512 GB SSD, com controladora padrão M.2 NVME.",
+      "evidence": [
+        {
+          "chunk_id": "cf6178ab221a5c539f17f7c10c49c16b2d350894fb2160aeec49c4497e167495",
+          "document_sequence": 2,
+          "page": 35,
+          "document_sha256": "a279b6a1940797906f2c434f1a68ae916a93a639712bd453a35e5be743f9a98f",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/63025530000104/compras/2026/3836/arquivos/2",
+          "quote": "- Padrão DDR5 5200 MHz;  \n- Permitir expansão para até 64GB;  \n- 16GB de memória RAM instalada;  \n \nArmazenamento  \n- Controladora de discos integrada à placa-mãe do equipamento, padrão M.2 NVME, com \nsuporte à instalação de no mínimo uma (01) unidade SSD em slot dedicado para unidade SSD;  \n- Uma unidade de armazenamento instalada, interna, de no mínimo 512GB SSD;"
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-05",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "63025530000104-1-003836/2026",
+      "question": "Qual garantia de fábrica e regime de atendimento são exigidos para os notebooks da EACH/USP?",
+      "expected_answer": "Três anos de fábrica, atendimento 5x8 de segunda a sexta-feira, exceto feriados, com reposição de peças, mão de obra e atendimento no local.",
+      "evidence": [
+        {
+          "chunk_id": "27aef6cb31dc9a258006132b758cc728ae2fe56c41e807143a705867b7997500",
+          "document_sequence": 2,
+          "page": 37,
+          "document_sha256": "a279b6a1940797906f2c434f1a68ae916a93a639712bd453a35e5be743f9a98f",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/63025530000104/compras/2026/3836/arquivos/2",
+          "quote": "- O notebook deve ser Compatível com Linux Ubuntu 22.04 LTS ou superior.  \n- Os certificados acima deverão ser entregues na proposta comercial;  \n \nGarantia e Suporte Técnico  \n- O notebook proposto deve possuir garantia de 3 anos de fábrica com  \natendimento 5x8 de segunda-feira a sexta-feira exceto em feriados para  \nreposição de peças, mão de obra e atendimento no local;"
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-06",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "01613770000172-1-000166/2026",
+      "question": "Para o computador desktop completo do lote 3 de Imbaú, quais memória RAM e armazenamento são exigidos?",
+      "expected_answer": "16 GB de RAM DDR4 ou superior e SSD de no mínimo 480 GB.",
+      "evidence": [
+        {
+          "chunk_id": "c763219507c17a79be10ee99be04fd38b69b104065a473e1099caaf9758b2fc9",
+          "document_sequence": 1,
+          "page": 24,
+          "document_sha256": "7f0a504dffe3c8a4b9d5b1dfaedf59ade570e1dc97adee61e6f2b0f3fc1186a4",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01613770000172/compras/2026/166/arquivos/1",
+          "quote": "alimentação bivolt automática e acessórios \nnecessários ao seu funcionamento, garantia \nmínima de 12 meses. \n2,00 UN 30.538,13 61.076,26 \nLote: Lote 3 \nItem Nome do produto/serviço Quantidade Unidade Preço \nmáximo \nPreço máximo \ntotal \n1 Computador Desktop completo Computador \nDesktop completo, novo, composto por gabinete, \nmonitor, teclado e mouse. Processador com no \nmínimo 6 núcleos e 12 threads, memória RAM de \n16 GB DDR4 ou superior, armazenamento SSD de"
+        },
+        {
+          "chunk_id": "448ec70f0a7034553ac82499624dd7ac6ddecda842b8d7f2b9d7b38dece527cd",
+          "document_sequence": 1,
+          "page": 24,
+          "document_sha256": "7f0a504dffe3c8a4b9d5b1dfaedf59ade570e1dc97adee61e6f2b0f3fc1186a4",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01613770000172/compras/2026/166/arquivos/1",
+          "quote": "16 GB DDR4 ou superior, armazenamento SSD de \nno mínimo 480 GB, placa de rede Gigabit Ethernet, \nportas USB e saídas de vídeo compatíveis. Monitor \nLED de no mínimo 21,5” com resolução Full HD. \nTeclado padrão ABNT2 e mouse óptico USB. \nSistema operacional Windows 11 Pro original e \nlicenciado. Equipamento acompanhado de todos \nos cabos necessários ao funcionamento e garantia \nmínima de 12 meses. \n7,00 UN 5.521,68 38.651,76 \nLote: Lote 4"
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-07",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "01613770000172-1-000166/2026",
+      "question": "Qual tamanho mínimo e resolução do monitor que acompanha o desktop do lote 3 de Imbaú?",
+      "expected_answer": "Monitor LED de no mínimo 21,5 polegadas, com resolução Full HD.",
+      "evidence": [
+        {
+          "chunk_id": "448ec70f0a7034553ac82499624dd7ac6ddecda842b8d7f2b9d7b38dece527cd",
+          "document_sequence": 1,
+          "page": 24,
+          "document_sha256": "7f0a504dffe3c8a4b9d5b1dfaedf59ade570e1dc97adee61e6f2b0f3fc1186a4",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01613770000172/compras/2026/166/arquivos/1",
+          "quote": "16 GB DDR4 ou superior, armazenamento SSD de \nno mínimo 480 GB, placa de rede Gigabit Ethernet, \nportas USB e saídas de vídeo compatíveis. Monitor \nLED de no mínimo 21,5” com resolução Full HD. \nTeclado padrão ABNT2 e mouse óptico USB. \nSistema operacional Windows 11 Pro original e \nlicenciado. Equipamento acompanhado de todos \nos cabos necessários ao funcionamento e garantia \nmínima de 12 meses. \n7,00 UN 5.521,68 38.651,76 \nLote: Lote 4"
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-08",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "98661366000106-1-000557/2026",
+      "question": "No item 2 de Vera Cruz/RS, quais capacidade, formato e frequência mínima da memória RAM são exigidos?",
+      "expected_answer": "8 GB em um único módulo, formato SODIMM, padrão DDR4 SDRAM, frequência de 3200 MHz ou superior.",
+      "evidence": [
+        {
+          "chunk_id": "f6bbb122a7011df51453adcb556149667c8ee5c0d45c99af6ff3f7bdb7537d19",
+          "document_sequence": 1,
+          "page": 2,
+          "document_sha256": "f36716d9325bbd6488691c94ac79d3ba3667ac9d135d2e50dda5aef02fdf5d50",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/98661366000106/compras/2026/557/arquivos/1",
+          "quote": "50 un R$ 65,20  R$ 3.260,00\n02\nMEMÒRIA RAM 8gb\nPadrão DDR4 SDRAM, formato SODIMM, com capacidade de 8  \nGB em um único módulo, frequência de 3200 MHz (PC4-25600)  \nou  superior,  tensão  de  1,2  V,  não  ECC,  compatível  com  \nnotebooks que suportem DDR4 SODIMM."
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-09",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "98661366000106-1-000557/2026",
+      "question": "No SSD do item 6 de Vera Cruz/RS, quais capacidade e interface são especificadas?",
+      "expected_answer": "256 GB e interface SATA Rev. 3.0 (6 Gb/s).",
+      "evidence": [
+        {
+          "chunk_id": "54557122a6b7b0d45c25e48672d589daf47b97c078e76243c1737009424d1653",
+          "document_sequence": 1,
+          "page": 4,
+          "document_sha256": "f36716d9325bbd6488691c94ac79d3ba3667ac9d135d2e50dda5aef02fdf5d50",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/98661366000106/compras/2026/557/arquivos/1",
+          "quote": "SSD 256gb\nSSD, novo, com as seguintes especificações mínimas:\npara desktop/notebooks: Capacidade de armazenamento 256GB  \n-  Formato  2,5  pol  -  Interface  SATA  Rev.  3.0  (6Gb/s)  —"
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    },
+    {
+      "id": "reserve-10",
+      "kind": "answerable",
+      "review_status": "approved",
+      "pncp_id": "98661366000106-1-000557/2026",
+      "question": "Qual tamanho, tipo de painel e resolução são exigidos no monitor do item 5 de Vera Cruz/RS?",
+      "expected_answer": "23,8 polegadas, painel IPS LED, Full HD de 1920 × 1080.",
+      "evidence": [
+        {
+          "chunk_id": "591616f7d54fa6a6dbf57a278ac4251cc4b22f561cc3694c39bf442339085ca3",
+          "document_sequence": 1,
+          "page": 3,
+          "document_sha256": "f36716d9325bbd6488691c94ac79d3ba3667ac9d135d2e50dda5aef02fdf5d50",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/98661366000106/compras/2026/557/arquivos/1",
+          "quote": "Monitor com tela IPS LED 23,8\" com ângulos de visualização  \namplos de 178 graus, resolução Full HD de 1920 x 1080, ajuste  \nde altura, inclinação e rotação do monitor."
+        }
+      ],
+      "notes": "Sem localização na pergunta; fonte no rascunho de referência. Ainda exige revisão humana/PDF.",
+      "review_record": {
+        "date": "2026-10-01",
+        "basis": "explicit_user_approval_in_chat",
+        "scope": "questions_and_expected_answers",
+        "independent_pdf_review": "not_recorded"
+      }
+    }
+  ],
+  "approval_record": {
+    "date": "2026-10-01",
+    "basis": "explicit_user_approval_in_chat",
+    "scope": "questions_and_expected_answers",
+    "independent_pdf_review": "not_recorded"
+  }
+}

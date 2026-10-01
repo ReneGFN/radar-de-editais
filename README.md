@@ -10,7 +10,7 @@ O projeto investiga se pequenos fornecedores conseguem encontrar prazos, especif
 - **Carga ampliada verificada:** 15.773 vetores no PostgreSQL; repetição sem duplicação, filtros e offsets conferidos. Backup restaurado em banco separado com os mesmos 15.773 trechos. Reaproveitados 4.664 vetores compatíveis da base inicial.
 - **Base inicial verificada:** 10 editais, 14 PDFs e 4.664 vetores; carga idempotente, filtros, offsets e backup/restauração conferidos. Evidências históricas em `reports/snapshots/b1ee54ef84e97078/`.
 - **Implementados:** coleta, extração, embeddings locais, PostgreSQL/pgvector e busca híbrida coordenada por LangChain.
-- **Avaliação em revisão:** 30 perguntas com respostas e 10 recusas; 40 casos aprovados pelo usuário. Evidências em 24 editais/24 PDFs, 11 estados; integridade conferida; 50 testes locais passaram na integração atual. [Perguntas para revisão](docs/perguntas-para-revisao.md).
+- **Avaliação em revisão:** 30 perguntas com respostas e 10 recusas; 40 casos aprovados pelo usuário. Evidências em 24 editais/24 PDFs, 11 estados; integridade conferida; 72 testes locais passaram na integração atual. [Perguntas para revisão](docs/perguntas-para-revisao.md).
 - **Recuperação avaliada:** 180 buscas em 30 perguntas aprovadas. Híbrida: trecho de referência no top 5 em 17/30 na linha de base e 20/30 após mudança lexical (+10 pontos percentuais), com cinco ganhos e duas regressões. [Método, resultados e erros](docs/resultados-recuperacao.md).
 - **Recuperação melhorada:** lexical 29/30, semântica 28/30, híbrida 29/30 em Hit@5 no mesmo piloto; 13 perguntas têm pistas explícitas de localização. Sem filtros de localização: 24/30, 25/30, 24/30. Ver ablação e limites nos resultados.
 - **Geração implementada:** GPT-OSS 120B na Groq, JSON estruturado, verificação de citações e checkpoint privado. 40 casos testados: 38 respostas passaram pelo validador, duas rejeitadas por citações inválidas; nove tentativas com erro preservadas. Não equivale a 38 acertos. Plano gratuito confirmado pelo usuário; autenticação e acesso ao modelo verificados por resposta real.
@@ -34,7 +34,7 @@ API FastAPI e interface React/TypeScript estão planejadas. O mesmo núcleo serv
 
 ## Corpus e seleção
 
-Setor: computadores, monitores e acessórios. Mantidos dez editais de SP, com dois adicionais de PR, RS, MG, RJ, BA, PE, GO, MT, PA e AM. Amostra de conveniência por cotas, **sem representatividade estatística**. Há editais mistos; a avaliação deve identificar os itens de informática.
+Setor: computadores, monitores e acessórios. Mantidos dez editais de SP, com dois adicionais de PR, RS, MG, RJ, BA, PE, GO, MT, PA e AM. Amostra de conveniência por cotas, **sem representatividade estatística**. Há editais mistos; a avaliação deve identificar os itens de informática. Revisão posterior encontrou dois objetos médicos falsamente selecionados; estão sinalizados para revisão em uma versão futura, sem alterar este snapshot histórico.
 
 [Manifesto final](datasets/manifests/4f8ddffaa01b6a20.json) · [Distribuição da amostra](reports/amostra-30.json) · [Preparação](reports/preparacao.json) · [Qualidade por documento](reports/qualidade-30.json)
 
@@ -103,3 +103,15 @@ GPT-OSS 120B funcionou na conta confirmada como gratuita pelo usuário. Busca h�
 [Integração, erros e reprodução](docs/geracao-groq.md) · [Resumo operacional](reports/generation-summary-v1.json) · [Segurança desta entrega](reports/seguranca-geracao-2026-10-01.md). Próximo passo: revisar as respostas/recusas e corrigir interpretação de tabelas, escopo de item e formatação de citações; medir novamente em versão separada.
 
 **Fontes na resposta:** consulta individual salva Markdown privado com referências por afirmação: edital PNCP, arquivo, página física do PDF, link oficial e passagem original. Metadados vêm da recuperação validada. Interface web continua planejada. [Funcionamento e limites](docs/geracao-groq.md).
+
+## Revisão e expansão controlada — 2026-10-01
+
+Revisão do assistente nos 40 casos anteriores: dois erros claros de conteúdo, duas respostas bloqueadas e pendências de completude/unidades/ambiguidade. Isso não substitui avaliação humana. [Achados e critérios](docs/revisao-respostas.md).
+
+Dez perguntas novas aprovadas pelo usuário, sem pistas de localização: palavras-chave 8/10, semântica 7/10 e híbrida 9/10 em Hit@5; cobertura de todas as passagens esperadas na híbrida 8/10. Quatro editais já indexados, separados do piloto; ainda não é teste de crescimento do corpus nem nota de geração. [Execução registrada](docs/resultados-recuperacao.md#primeira-execução-das-dez-perguntas-reservadas--2026-10-01).
+
+Triagem encontrou dois objetos médicos selecionados pelo termo monitores. A seleção futura foi corrigida; o snapshot histórico permanece intacto. [Triagem e limites](reports/sector-review-v1.json).
+
+Implementado checador local de qualidade: exige revisão humana, pelo menos 90% de respostas corretas, completas e apoiadas em cada grupo antigo/novo, cobertura separada e ausência de sobreposição de editais/PDFs. Política inicial: 30 perguntas antigas e 100 novas em dez editais; não garante precisão futura. Estado atual: bloqueado por avaliações pendentes e amostra nova insuficiente. Sem promoção automática de banco. [Plano para manter qualidade](docs/qualidade-na-expansao.md).
+
+Verificação da atualização: 72 testes locais passaram; pip-audit sem vulnerabilidades conhecidas nas dependências auditáveis. API/interface, OCR de tabelas, reranker, painel e 3D permanecem planejados.

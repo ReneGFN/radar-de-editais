@@ -102,3 +102,21 @@ Erros restantes de ID conhecido: lexical e híbrida pilot-11; semântica pilot-0
 ```
 
 [Experimento v3](../reports/retrieval-focused-v3.json) · [Experimento v4](../reports/retrieval-structured-v4.json). Os hashes registram o código no momento de cada execução; a promoção posterior do padrão modifica o hash do arquivo, sem alterar a configuração explícita desses experimentos.
+
+## Primeira execução das dez perguntas reservadas — 2026-10-01
+
+Renê aprovou as perguntas e referências antes da execução. Foram 30 buscas locais, dez por modo, usando a versão congelada do pipeline. Nenhuma chamada nova à Groq. Perguntas sem página/arquivo/cláusula, em quatro editais e quatro PDFs ausentes do piloto anterior, SP/PR/RS. Os documentos já estavam indexados: este teste **não mede crescimento da base**.
+
+| Modo | Referência conhecida no top 5 | Todas as passagens esperadas no top 5 | Mediana local |
+|---|---:|---:|---:|
+| Palavras-chave | 8/10 (80%) | 7/10 (70%) | 71,33 ms |
+| Semântico | 7/10 (70%) | 7/10 (70%) | 71,33 ms |
+| Híbrido | 9/10 (90%) | 8/10 (80%) | 82,37 ms |
+
+Na híbrida, reserve-06 recuperou uma das duas referências: ambas estavam entre os candidatos, mas uma ficou fora dos cinco trechos finais. Em reserve-08 a referência estava entre candidatos semânticos e ficou fora da seleção final. São problemas observados de seleção/cobertura, não evidência de documento ausente. Um reranker ou contexto de tabela/seção será experimento futuro; nenhum ganho dessas alternativas foi medido.
+
+O protocolo e os rótulos foram preservados após observar resultados. O campo genérico `dataset_role` do avaliador ainda diz desenvolvimento; o registro específico da reserva documenta separação por edital/PDF e congelamento antes da primeira execução. Depois de usar esses erros para ajustar o sistema, outra reserva será necessária.
+
+A amostra é pequena e concentrada em três estados. Hit@5 de 90% não é 90% de respostas completas/corretas nem garantia em documentos futuros. Geração das dez perguntas e conferência independente dos PDFs seguem pendentes.
+
+[Resultados por caso](../reports/retrieval-reserve-v1.json) · [Protocolo congelado](../reports/reserve-protocol-v1.json) · [Referências aprovadas](perguntas-reserva-para-revisao.md).

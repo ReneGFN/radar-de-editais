@@ -1,0 +1,29 @@
+{
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "state": "approved_before_first_retrieval_run",
+  "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63",
+  "pipeline_retrieval_sha256": "ac833c4591434fff0f3710ef3c57b9c6553215dd53c3142028845d13cc0556ac",
+  "pipeline_query_sha256": "c69ecc9fc52bcee9e9d85e76c042286f4e7a1565c78537a1bff051d7f6d38a2f",
+  "pipeline_generation_sha256": "ab643a37d306869e33d967f88941dc213caf0ac9ef224bfa356402d361fd56ad",
+  "cases": 10,
+  "editais": 4,
+  "edital_overlap": 0,
+  "pdf_overlap": 0,
+  "location_hints_in_questions": 0,
+  "corpus_growth_test": false,
+  "human_reference_review": "questions_and_expected_answers_approved_in_chat; independent_pdf_review_not_recorded",
+  "new_editais": [
+    "01613770000172-1-000166/2026",
+    "46377800000127-1-004178/2026",
+    "63025530000104-1-003836/2026",
+    "98661366000106-1-000557/2026"
+  ],
+  "execution": {
+    "state": "retrieval_only_completed",
+    "report": "reports/retrieval-reserve-v1.json",
+    "queries": 30,
+    "groq_calls": 0,
+    "pipeline_changed_after_test": false,
+    "reference_changed_after_test": false
+  }
+}

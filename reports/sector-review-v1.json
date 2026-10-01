@@ -1,0 +1,218 @@
+{
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "basis": "object_metadata_screening_not_complete_pdf_audit",
+  "snapshot_modified": false,
+  "requires_item_review": true,
+  "cases": [
+    {
+      "pncp_id": "45374469000129-1-000030/2026",
+      "agency": "MUNICIPIO DE SANTA ERNESTINA",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "45339363000194-1-000286/2026",
+      "agency": "MUNICIPIO DE PORTO FERREIRA",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "46377800000127-1-004170/2026",
+      "agency": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "46179941000135-1-000443/2026",
+      "agency": "MUNICIPIO DE ASSIS",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "46179941000135-1-000446/2026",
+      "agency": "MUNICIPIO DE ASSIS",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "01626427000162-1-000010/2026",
+      "agency": "CAMARA MUNICIPAL DE NOVA ODESSA",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "46377800000127-1-004178/2026",
+      "agency": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": false
+    },
+    {
+      "pncp_id": "46732442000123-1-000103/2026",
+      "agency": "MUNICIPIO DE DESCALVADO",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "63025530000104-1-003836/2026",
+      "agency": "UNIVERSIDADE DE SAO PAULO",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": false
+    },
+    {
+      "pncp_id": "67360537000133-1-000020/2026",
+      "agency": "CAMARA MUNICIPAL DE ITAPETININGA",
+      "uf": "SP",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "78121936000168-1-000072/2026",
+      "agency": "MUNICIPIO DE TRES BARRAS DO PARANA",
+      "uf": "PR",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "01613770000172-1-000166/2026",
+      "agency": "MUNICIPIO DE IMBAU",
+      "uf": "PR",
+      "classification": "mixed_requires_item_review",
+      "already_in_pilot": false
+    },
+    {
+      "pncp_id": "98661366000106-1-000557/2026",
+      "agency": "MUNICIPIO DE VERA CRUZ",
+      "uf": "RS",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": false
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "agency": "MUNICIPIO DE JARI",
+      "uf": "RS",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "18094870000132-1-000077/2026",
+      "agency": "MUNICIPIO DE SENHORA DOS REMEDIOS",
+      "uf": "MG",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "17955535000119-1-000275/2026",
+      "agency": "MUNICIPIO DE TRES CORACOES",
+      "uf": "MG",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "00394502000144-1-012044/2026",
+      "agency": "COMANDO DA MARINHA",
+      "uf": "RJ",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "39547500000183-1-000077/2026",
+      "agency": "MUNICIPIO DE GUAPIMIRIM",
+      "uf": "RJ",
+      "classification": "out_of_scope",
+      "already_in_pilot": false
+    },
+    {
+      "pncp_id": "13634977000102-1-000128/2026",
+      "agency": "MUNICIPIO DE BELMONTE",
+      "uf": "BA",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "63084727000114-1-000009/2026",
+      "agency": "MORPARA CAMARA MUNICIPAL",
+      "uf": "BA",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "11348570000193-1-000065/2026",
+      "agency": "MUNICIPIO DE VERDEJANTE",
+      "uf": "PE",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "10106268000166-1-000069/2026",
+      "agency": "MUNICIPIO DE VENTUROSA",
+      "uf": "PE",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "02291730000114-1-000117/2026",
+      "agency": "GOIAS TRIBUNAL DE CONTAS",
+      "uf": "GO",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "45701259000106-1-000008/2026",
+      "agency": "FUNDO MUNICIPAL DE EDUCACAO DE CACU - GO",
+      "uf": "GO",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "03507415002864-1-000159/2026",
+      "agency": "ESTADO DE MATO GROSSO",
+      "uf": "MT",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "03347135000116-1-000070/2026",
+      "agency": "MUNICIPIO DE JACIARA",
+      "uf": "MT",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "00368105000106-1-000157/2026",
+      "agency": "POLICIA CIVIL DO ESTADO DO PARA",
+      "uf": "PA",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "05054929000117-1-000378/2026",
+      "agency": "SECRETARIA DE ESTADO DE SAUDE PUBLICA",
+      "uf": "PA",
+      "classification": "out_of_scope",
+      "already_in_pilot": false
+    },
+    {
+      "pncp_id": "00394452000103-1-020757/2026",
+      "agency": "COMANDO DO EXERCITO",
+      "uf": "AM",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    },
+    {
+      "pncp_id": "02006782000100-1-000026/2026",
+      "agency": "FUNDACAO DE DERMATOLOGIA TROPICAL E VENEREOLOGIA ALFREDO DA MATTA",
+      "uf": "AM",
+      "classification": "in_scope_candidate",
+      "already_in_pilot": true
+    }
+  ]
+}
