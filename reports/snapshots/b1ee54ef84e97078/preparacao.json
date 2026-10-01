@@ -1,0 +1,10 @@
+{
+  "snapshot_id": "b1ee54ef84e97078",
+  "editais": 10,
+  "documents": 14,
+  "pages": 682,
+  "pages_needing_review": 16,
+  "chunks": 4664,
+  "status": "prepared_not_loaded",
+  "pdf_text_quality": "automatic_check_only_visual_review_pending"
+}

@@ -1,0 +1,20 @@
+{
+  "status": "smoke_test_not_quality_metric",
+  "results": [
+    {
+      "query": "SSD",
+      "semantic": 10,
+      "keyword": 10
+    },
+    {
+      "query": "prazo entrega",
+      "semantic": 10,
+      "keyword": 10
+    },
+    {
+      "query": "Qual é o prazo de entrega dos computadores?",
+      "semantic": 10,
+      "keyword": 0
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+# Segredos e configuração local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Ambientes, dependências e artefatos gerados
+.venv/
+venv/
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+coverage/
+
+# Dados e resultados locais até revisão de licença e privacidade
+data/raw/
+data/private/
+results/local/
+tmp/
+raw/
+prepared/
+models/
+vectors/
+checkpoints/
+backups/
+*.pdf
+*.dump
+*.backup
+*_password
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db

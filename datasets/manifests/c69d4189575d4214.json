@@ -1,0 +1,92 @@
+{
+  "sector": "informatica",
+  "uf": "MG",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:51:34.547240+00:00",
+  "editais": [
+    {
+      "pncp_id": "18094870000132-1-000077/2026",
+      "cnpj": "18094870000132",
+      "year": 2026,
+      "uf": "MG",
+      "sequence": 77,
+      "agency": "MUNICIPIO DE SENHORA DOS REMEDIOS",
+      "object": "Aquisição de equipamentos de informática, mobiliários, eletroeletrônicos, utensílios e demais equipamentos e materiais permanentes, destinados ao atendimento das necessidades da Administração Municipal e das diversas Secretarias do Município de Senhora dos Remédios/MG.",
+      "publication_date": "2026-09-21T08:16:25",
+      "proposal_start": "2026-09-21T08:00:00",
+      "proposal_end": "2026-10-05T09:30:00",
+      "official_url": "https://pncp.gov.br/app/editais/18094870000132/2026/77",
+      "documents": [
+        {
+          "sha256": "0d0c7195f90bd58078f41da8e11b82a45ffdc4c8f640d0cd96943fc3134a0a43",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18094870000132/compras/2026/77/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1706228,
+          "source_date": "2026-09-21T08:16:26"
+        }
+      ]
+    },
+    {
+      "pncp_id": "17955535000119-1-000275/2026",
+      "cnpj": "17955535000119",
+      "year": 2026,
+      "uf": "MG",
+      "sequence": 275,
+      "agency": "MUNICIPIO DE TRES CORACOES",
+      "object": "AQUISIÇÃO DE COMPUTADORES PARA ATENDER ÀS SECRETARIAS MUNICIPAIS",
+      "publication_date": "2026-09-21T10:10:10",
+      "proposal_start": "2026-08-24T09:00:00",
+      "proposal_end": "2026-10-07T14:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/17955535000119/2026/275",
+      "documents": [
+        {
+          "sha256": "130b47a290d3e386aa31529fd9354c0657eb85a1a38d7a069149fc4da64dee08",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/17955535000119/compras/2026/275/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1161470,
+          "source_date": "2026-09-21T10:10:11"
+        },
+        {
+          "sha256": "0b0891fc074b16d0762b87b411e361ccc622fa04be8f121ec4b9e7468256bd2b",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/17955535000119/compras/2026/275/arquivos/2",
+          "sequence": 2,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1643754,
+          "source_date": "2026-09-21T10:10:25"
+        },
+        {
+          "sha256": "ab4546a880aeeb6bcc398670f7dcbef5a87f78a5fac36b9b563815d99e77037c",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/17955535000119/compras/2026/275/arquivos/3",
+          "sequence": 3,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1626829,
+          "source_date": "2026-09-21T10:10:33"
+        },
+        {
+          "sha256": "4a0aa3e0bf7a8579b15f662d749159b6fe59feed67ce18ca4978437fc817938d",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/17955535000119/compras/2026/275/arquivos/4",
+          "sequence": 4,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1616481,
+          "source_date": "2026-09-21T10:10:41"
+        }
+      ]
+    }
+  ],
+  "rejections": [],
+  "selection_complete": true,
+  "snapshot_id": "c69d4189575d4214"
+}

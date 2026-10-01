@@ -1,0 +1,82 @@
+{
+  "sector": "informatica",
+  "uf": "RJ",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:57:51.547038+00:00",
+  "editais": [
+    {
+      "pncp_id": "00394502000144-1-012044/2026",
+      "cnpj": "00394502000144",
+      "year": 2026,
+      "uf": "RJ",
+      "sequence": 12044,
+      "agency": "COMANDO DA MARINHA",
+      "object": "Registro de Preços (SRP) para eventual aquisição de equipamentos de informática e de Tecnologia da Informação e Comunicação (TIC)",
+      "publication_date": "2026-09-21T04:15:01",
+      "proposal_start": "2026-09-21T09:00:00",
+      "proposal_end": "2026-10-01T09:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/00394502000144/2026/12044",
+      "documents": [
+        {
+          "sha256": "dd7a2d29bb9a4107becd702135e31abe4c4b4da490d7809924a96dac22467abc",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00394502000144/compras/2026/12044/arquivos/1",
+          "sequence": 1,
+          "type_id": 4,
+          "type_name": "Termo de Referência",
+          "active": true,
+          "bytes": 670945,
+          "source_date": "2026-09-21T04:15:02"
+        },
+        {
+          "sha256": "9eb7b394231848722efa8e64c24f5364fa41c6a016bf0473f4f079906829cd68",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00394502000144/compras/2026/12044/arquivos/3",
+          "sequence": 3,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 538896,
+          "source_date": "2026-09-21T04:20:14"
+        },
+        {
+          "sha256": "836bb541a2ea91d49018f8b276e5a1a9b41c031f586446eeb69dde5befc1f50a",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00394502000144/compras/2026/12044/arquivos/6",
+          "sequence": 6,
+          "type_id": 7,
+          "type_name": "Estudo Técnico Preliminar",
+          "active": true,
+          "bytes": 402198,
+          "source_date": "2026-09-21T04:21:28"
+        }
+      ]
+    },
+    {
+      "pncp_id": "39547500000183-1-000077/2026",
+      "cnpj": "39547500000183",
+      "year": 2026,
+      "uf": "RJ",
+      "sequence": 77,
+      "agency": "MUNICIPIO DE GUAPIMIRIM",
+      "object": "A presente licitação tem como objeto a aquisição de tiras reagentes para determinação quantitativas de glicose capilar, lancetas estéreis descartáveis e monitores portáteis de glicemia, estes últimos disponibilizados em regime de comodato, em atendimento às necessidades da Secretaria Municipal de Saúde.",
+      "publication_date": "2026-09-22T09:24:03",
+      "proposal_start": "2026-09-22T00:00:00",
+      "proposal_end": "2026-10-06T23:59:00",
+      "official_url": "https://pncp.gov.br/app/editais/39547500000183/2026/77",
+      "documents": [
+        {
+          "sha256": "efc929f792af8102a5dbfa3b290b87680942f2e0b24d361cbfa582c34a4ab463",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/39547500000183/compras/2026/77/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1119773,
+          "source_date": "2026-09-22T09:24:03"
+        }
+      ]
+    }
+  ],
+  "rejections": [],
+  "selection_complete": true,
+  "snapshot_id": "f3f1d7410066fbdb"
+}

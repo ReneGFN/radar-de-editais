@@ -1,0 +1,106 @@
+{
+  "sector": "informatica",
+  "uf": "MT",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:53:25.378779+00:00",
+  "editais": [
+    {
+      "pncp_id": "03507415002864-1-000159/2026",
+      "cnpj": "03507415002864",
+      "year": 2026,
+      "uf": "MT",
+      "sequence": 159,
+      "agency": "ESTADO DE MATO GROSSO",
+      "object": "Aquisição de Estações de Trabalho (Workstation Forenses) de alto desempenho, monitores, solução de armazenamento em rede (Storage NAS) e discos rígidos (Hds) NAS  para expansão da capacidade operacional da Gerência de Perícias de Computação Forense da POLITEC/MT.",
+      "publication_date": "2026-09-23T11:17:39",
+      "proposal_start": "2026-09-23T09:30:00",
+      "proposal_end": "2026-10-05T09:45:00",
+      "official_url": "https://pncp.gov.br/app/editais/03507415002864/2026/159",
+      "documents": [
+        {
+          "sha256": "68c7f26bb0806294502977494beaff913e526ca484dae2646c7abc9d5b05a0d9",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/03507415002864/compras/2026/159/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 13439,
+          "source_date": "2026-09-23T11:17:39"
+        },
+        {
+          "sha256": "2cdc7c6ade50535410cf61038b59c244f335cc9f3cb62536994bdac2c1562054",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/03507415002864/compras/2026/159/arquivos/2",
+          "sequence": 2,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 3070831,
+          "source_date": "2026-09-23T11:17:51"
+        }
+      ]
+    },
+    {
+      "pncp_id": "03347135000116-1-000070/2026",
+      "cnpj": "03347135000116",
+      "year": 2026,
+      "uf": "MT",
+      "sequence": 70,
+      "agency": "MUNICIPIO DE JACIARA",
+      "object": "“REGISTRO DE PREÇOS PARA EVENTUAL AQUISIÇÃO DE MATERIAIS E EQUIPAMENTOS DE INFORMÁTICA PARA ATENDIMENTO A SECRETARIA MUNICIPAL DE EDUCAÇÃO DE JACIARA/MT”.",
+      "publication_date": "2026-09-28T11:47:54",
+      "proposal_start": "2026-09-29T07:00:00",
+      "proposal_end": "2026-10-08T09:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/03347135000116/2026/70",
+      "documents": [
+        {
+          "sha256": "95f2c5e7bffeac860ce6d6dab8e486da1f286c43ad9dc185d048b9cfe386000c",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/03347135000116/compras/2026/70/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 633823,
+          "source_date": "2026-09-28T11:47:55"
+        }
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "pncp_id": "15023278000151-1-000021/2026",
+      "reason": "anexo_nao_pdf",
+      "document_sequence": 1
+    },
+    {
+      "pncp_id": "15023278000151-1-000021/2026",
+      "reason": "anexo_nao_pdf",
+      "document_sequence": 6
+    },
+    {
+      "pncp_id": "15023278000151-1-000021/2026",
+      "reason": "anexo_nao_pdf",
+      "document_sequence": 7
+    },
+    {
+      "pncp_id": "15023278000151-1-000021/2026",
+      "reason": "anexo_nao_pdf",
+      "document_sequence": 8
+    },
+    {
+      "pncp_id": "15023278000151-1-000021/2026",
+      "reason": "anexo_nao_pdf",
+      "document_sequence": 9
+    },
+    {
+      "pncp_id": "15023278000151-1-000021/2026",
+      "reason": "edital_pdf_ausente"
+    },
+    {
+      "pncp_id": "01321850000154-1-000062/2026",
+      "reason": "sem_edital_na_listagem"
+    }
+  ],
+  "selection_complete": true,
+  "snapshot_id": "340c1811c354f870"
+}

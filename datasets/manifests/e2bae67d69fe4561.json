@@ -1,0 +1,67 @@
+{
+  "sector": "informatica",
+  "uf": "GO",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:57:56.144125+00:00",
+  "editais": [
+    {
+      "pncp_id": "02291730000114-1-000117/2026",
+      "cnpj": "02291730000114",
+      "year": 2026,
+      "uf": "GO",
+      "sequence": 117,
+      "agency": "GOIAS TRIBUNAL DE CONTAS",
+      "object": "Aquisição de notebook e computadores de alto desempenho e monitores, incluindo serviços de garantia.",
+      "publication_date": "2026-09-21T09:38:56",
+      "proposal_start": "2026-09-22T08:00:00",
+      "proposal_end": "2026-10-02T08:59:00",
+      "official_url": "https://pncp.gov.br/app/editais/02291730000114/2026/117",
+      "documents": [
+        {
+          "sha256": "bb21373e232b2a2e261a362b494c8408b1ae5ba1ca4bc0bdda0f6629da7de3db",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/02291730000114/compras/2026/117/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 972723,
+          "source_date": "2026-09-21T09:38:57"
+        }
+      ]
+    },
+    {
+      "pncp_id": "45701259000106-1-000008/2026",
+      "cnpj": "45701259000106",
+      "year": 2026,
+      "uf": "GO",
+      "sequence": 8,
+      "agency": "FUNDO MUNICIPAL DE EDUCACAO DE CACU - GO",
+      "object": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA O FORNECIMENTO DE NOTEBOOKS, COM PROCESSADOR DE NO MÍNIMO 13ª GERAÇÃO DA LINHA INTEL® CORE™ I3 OU EQUIVALENTE EM DESEMPENHO, DESTINADOS AO ATENDIMENTO DAS DEMANDAS DOS PROFESSORES DA REDE MUNICIPAL DE EDUCAÇÃO DE CAÇU/GO, CONFORME EMENDA PARLAMENTAR IMPOSITIVA Nº 123.1/2026,  CONVÊNIO  Nº 052/2026,  VINCULADA AO PROCESSO Nº 202600005002410.",
+      "publication_date": "2026-09-23T09:58:07",
+      "proposal_start": "2026-04-29T13:28:05",
+      "proposal_end": "2026-06-24T08:59:00",
+      "official_url": "https://pncp.gov.br/app/editais/45701259000106/2026/8",
+      "documents": [
+        {
+          "sha256": "2ddc8f2de370c15b37dced955c2661e5f0535005cc5d2ae6218a611388f8bc68",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45701259000106/compras/2026/8/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1118424,
+          "source_date": "2026-09-23T09:58:07"
+        }
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "pncp_id": "10936853000193-1-000094/2026",
+      "reason": "ValueError"
+    }
+  ],
+  "selection_complete": true,
+  "snapshot_id": "e2bae67d69fe4561"
+}

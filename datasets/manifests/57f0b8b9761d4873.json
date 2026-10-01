@@ -1,0 +1,132 @@
+{
+  "sector": "informatica",
+  "uf": "RS",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:48:10.865179+00:00",
+  "editais": [
+    {
+      "pncp_id": "98661366000106-1-000557/2026",
+      "cnpj": "98661366000106",
+      "year": 2026,
+      "uf": "RS",
+      "sequence": 557,
+      "agency": "MUNICIPIO DE VERA CRUZ",
+      "object": "Aquisição de materiais e equipamentos de informática, para todas as Secretarias Municipais, do Município de Vera Cruz/RS.",
+      "publication_date": "2026-09-22T08:57:16",
+      "proposal_start": "2026-08-14T17:00:00",
+      "proposal_end": "2026-09-01T07:55:00",
+      "official_url": "https://pncp.gov.br/app/editais/98661366000106/2026/557",
+      "documents": [
+        {
+          "sha256": "f36716d9325bbd6488691c94ac79d3ba3667ac9d135d2e50dda5aef02fdf5d50",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/98661366000106/compras/2026/557/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 942022,
+          "source_date": "2026-09-22T08:57:17"
+        }
+      ]
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "cnpj": "01609402000150",
+      "year": 2026,
+      "uf": "RS",
+      "sequence": 45,
+      "agency": "MUNICIPIO DE JARI",
+      "object": "[Portal de Compras Públicas] - AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA",
+      "publication_date": "2026-09-22T15:37:47",
+      "proposal_start": "2026-09-23T08:00:00",
+      "proposal_end": "2026-10-05T08:29:00",
+      "official_url": "https://pncp.gov.br/app/editais/01609402000150/2026/45",
+      "documents": [
+        {
+          "sha256": "66d712072b39fb19ebba3403626b0994917cdc41e7ca09e70f845e610c73ecb3",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 2289481,
+          "source_date": "2026-09-22T15:37:47"
+        },
+        {
+          "sha256": "bfe9687cdc42151d7b3369996bdf5b94602e5f1234889c151a8a6cc9962b8bc6",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/2",
+          "sequence": 2,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 394340,
+          "source_date": "2026-09-22T15:37:53"
+        },
+        {
+          "sha256": "14970d9700fa15a8e4175a2aa37f59f98b912957136334a4fdf5cc4c5b5b7194",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/3",
+          "sequence": 3,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 6655411,
+          "source_date": "2026-09-22T15:37:58"
+        },
+        {
+          "sha256": "125a01fe3eb00d68d83e2385947e140577674f57fde2d141878ec4b35c07c18d",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/4",
+          "sequence": 4,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1484002,
+          "source_date": "2026-09-22T15:38:01"
+        },
+        {
+          "sha256": "f27ce908df72e9cc18bb1f8f4a5b106ca9b20a1f757c2dfc81075226af3132a7",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/5",
+          "sequence": 5,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 7095076,
+          "source_date": "2026-09-22T15:38:05"
+        },
+        {
+          "sha256": "c23e3a63207fa56dd8e5b27f374e18be785e2171f392ea95b4adccec9839ca35",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/6",
+          "sequence": 6,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 7998782,
+          "source_date": "2026-09-22T15:38:10"
+        },
+        {
+          "sha256": "1b9ed2ec7ed2bbcce113c1299ae82f5753256768e069b702dace2766636c609b",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/7",
+          "sequence": 7,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1254685,
+          "source_date": "2026-09-22T15:38:13"
+        },
+        {
+          "sha256": "0b463911d7671a4a5b7f58ebbe21386982beed4c46323970e09e4490385194f2",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/8",
+          "sequence": 8,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 8794085,
+          "source_date": "2026-09-22T15:38:17"
+        }
+      ]
+    }
+  ],
+  "rejections": [],
+  "selection_complete": true,
+  "snapshot_id": "57f0b8b9761d4873"
+}

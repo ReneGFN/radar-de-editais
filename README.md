@@ -1,81 +1,91 @@
 # Radar de Editais
 
-**Laboratório de avaliação de um assistente RAG para leitura de editais públicos.**
+**Laboratório de avaliação de RAG para leitura de editais públicos de informática.**
 
-O projeto investiga uma pergunta prática: um pequeno fornecedor consegue localizar prazos, exigências e condições de um edital sem perder a referência ao texto original? O assistente proposto recupera trechos de editais e anexos, responde com citações verificáveis e declara quando a informação não foi encontrada. Um painel compara versões por qualidade da recuperação, apoio das respostas nas fontes, latência e custo.
+O projeto investiga se pequenos fornecedores conseguem encontrar prazos, especificações e condições com referência verificável ao documento original. O objetivo é publicar metodologia, resultados medidos e erros encontrados ao comparar versões do sistema.
 
-> **Estado em 2026-09-29:** repositório e escopo inicial documentados. Ainda não há aplicação, corpus selecionado, conjunto de avaliação ou resultados medidos.
+## Estado em 2026-10-01
 
-| Campo | Estado |
+- **Base ampliada preparada:** 30 editais/contratações, 11 estados, cinco regiões; 49 PDFs, 2.525 páginas e 15.773 trechos.
+- **Carga ampliada:** em execução local; não confundir preparação com carga verificada.
+- **Base inicial verificada:** 10 editais, 14 PDFs e 4.664 vetores; carga idempotente, filtros, offsets e backup/restauração conferidos. Evidências históricas em `reports/snapshots/b1ee54ef84e97078/`.
+- **Implementados:** coleta, extração, embeddings locais, PostgreSQL/pgvector e busca híbrida coordenada por LangChain.
+- **Planejados:** geração com Groq, perguntas de referência revisadas, avaliação, API/interface e explorador 2D/3D.
+- **Nenhuma métrica de qualidade do RAG foi medida.** Testes funcionais não são resultados de precisão.
+
+## Arquitetura
+
+[Arquitetura e diagramas](docs/arquitetura.md) · [Execução local](docs/base-e-operacao.md) · [Investigação 2D/3D](docs/visualizacao-3d.md)
+
+```text
+PNCP → PDFs privados → texto por página → trechos LangChain
+     → embeddings locais → PostgreSQL + pgvector
+Pergunta + edital + snapshot → buscas semântica e lexical
+     → fusão dos rankings → trechos com página e fonte
+```
+
+Python organiza o núcleo. LangChain divide os textos e coordena as buscas em paralelo. MiniLM multilíngue gera vetores de 384 dimensões em CPU; PostgreSQL combina busca exata por cosseno e full text search. Groq será usado na geração; modelo específico ainda a definir. Dify fica para uma opção futura.
+
+API FastAPI e interface React/TypeScript estão planejadas. O mesmo núcleo servirá CLI, API e avaliador.
+
+## Corpus e seleção
+
+Setor: computadores, monitores e acessórios. Mantidos dez editais de SP, com dois adicionais de PR, RS, MG, RJ, BA, PE, GO, MT, PA e AM. Amostra de conveniência por cotas, **sem representatividade estatística**. Há editais mistos; a avaliação deve identificar os itens de informática.
+
+[Manifesto final](datasets/manifests/4f8ddffaa01b6a20.json) · [Distribuição da amostra](reports/amostra-30.json) · [Preparação](reports/preparacao.json) · [Qualidade por documento](reports/qualidade-30.json)
+
+Metadados registram fonte oficial, data e hash do PDF. Consulta da API não comprova vigência ou oportunidade aberta; datas e condições exigem conferência no documento. Anexos/retificações são preservados sem presumir substituição automática.
+
+PDFs, textos extraídos, modelos, vetores, credenciais e backups **não são publicados**. O comando hydrate baixa documentos oficiais e confere hashes; fonte alterada é sinalizada, sem substituir silenciosamente o snapshot.
+
+## Avaliação planejada
+
+| Medida | O que será examinado |
 |---|---|
-| Tipo | Agente / Dados |
-| Status | Planejamento |
-| Responsável | Renê |
-| Início | 2026-09-29 |
-| Prazo | Não informado |
-| Próximo passo | Escolher um setor de fornecimento e a primeira amostra de editais |
+| Hit@k / Recall@k | Presença e cobertura dos trechos esperados na recuperação. |
+| Afirmações sem apoio | Alegações não sustentadas pelas citações, com correção/completude e recusa correta como auxiliares. |
+| Latência | Tempo ponta a ponta, p50/p95, repetição, falhas e cache. |
+| Custo por consulta | Uso reportado e preços na data da execução; separar ingestão, consulta e avaliação. |
 
-## Problema e público
+Perguntas e respostas de referência terão revisão humana e fontes identificadas; parte dos casos ficará reservada. Comparações usarão mesmo corpus/perguntas e alteração de um fator por experimento. Não publicar ganhos antes de medir regressões e erros.
 
-Editais e anexos podem ser extensos, espalhar condições por vários arquivos e receber retificações. O público inicial são pequenos fornecedores que precisam encontrar informações para **conferência humana**. O projeto não determina elegibilidade, recomenda participação nem substitui a leitura do edital vigente ou orientação especializada.
+## Investigação 2D/3D
 
-## Primeira versão planejada
+O explorador permitirá inspecionar trechos recuperados e referências esperadas, possíveis repetições e casos de erro. PCA será a referência inicial; UMAP poderá ser comparado depois. Projeções perdem informação: conclusões devem ser confirmadas nos textos e vetores originais. Compararemos tarefas em 2D/3D para verificar se o terceiro eixo ajuda. **Ainda não implementado.**
 
-- Selecionar um tipo de fornecimento e uma amostra limitada de editais reais publicados no [Portal Nacional de Contratações Públicas (PNCP)](https://www.gov.br/pncp/).
-- Registrar, para cada documento usado na avaliação, URL oficial, identificador, data de consulta, versão ou data de publicação, e hash do arquivo. Verificar termos de reutilização antes de distribuir cópias no repositório.
-- Permitir perguntas sobre **um edital selecionado por vez**. A resposta mostrará documento, página ou seção e trecho de apoio, com link para a fonte oficial.
-- Tratar anexos e retificações como documentos distintos; indicar conflitos ou ausência de evidência em vez de escolher uma regra sem justificativa.
-- Criar perguntas com respostas esperadas e fontes de referência para executar as mesmas provas em cada versão do sistema.
-- Mostrar no painel resultados agregados e casos individuais de erro.
+## Reprodução
 
-Exemplos de perguntas para o conjunto de avaliação, após seleção dos documentos:
+Requer PowerShell 7, Python 3.12, Docker Desktop e internet nos downloads iniciais.
 
-- Qual é o prazo final para enviar a proposta?
-- Quais documentos são exigidos para a habilitação?
-- Onde estão descritas as condições de entrega?
-- O documento informa algo sobre uma exigência específica? Se não, a resposta deve reconhecer a ausência.
+```powershell
+py -3.12 -m venv .venv
+& .venv/Scripts/python.exe -m pip install -r requirements-lock.txt
+& .venv/Scripts/python.exe -m pip install --no-deps -e ./backend
+& ./ops/start-db.ps1 -Initialize
+& .venv/Scripts/python.exe -m radar.cli hydrate datasets/manifests/4f8ddffaa01b6a20.json
+& .venv/Scripts/python.exe -m radar.cli prepare datasets/manifests/4f8ddffaa01b6a20.json
+& .venv/Scripts/python.exe -m radar.cli load datasets/manifests/4f8ddffaa01b6a20.json
+& .venv/Scripts/python.exe -m radar.cli search 'prazo entrega' --snapshot 4f8ddffaa01b6a20 --edital 02291730000114-1-000117/2026
+& .venv/Scripts/python.exe -m pytest backend/tests -q -p no:cacheprovider
+```
 
-## Como a avaliação funcionará
+Banco apenas em `127.0.0.1:55432`, rede e volume exclusivos. Dados privados em `%LOCALAPPDATA%\RadarDeEditais`; `RADAR_PRIVATE_ROOT` permite escolher outro diretório fora da pasta do projeto e da sincronização OneDrive. Usar o mesmo diretório nas etapas.
 
-Cada caso de teste terá pergunta, documento ou trecho esperado, resposta de referência, critérios de aceitação e indicação de quando a resposta correta é “não consta”. As respostas de referência serão revisadas manualmente. Uma parte dos casos ficará reservada para verificar melhorias depois dos ajustes, reduzindo o risco de adaptar o sistema apenas às perguntas conhecidas.
+[Comandos de expansão, verificação e limites](docs/base-e-operacao.md).
 
-| Medida | Definição inicial |
-|---|---|
-| Recuperação, Recall@k | Fração de perguntas em que ao menos um trecho necessário aparece entre os `k` primeiros trechos recuperados. O valor de `k` será fixado antes da comparação. |
-| Afirmações sem apoio | Fração de respostas com pelo menos uma afirmação factual que não possa ser sustentada pelos trechos citados. Casos duvidosos terão revisão humana. |
-| Latência | Tempo ponta a ponta por consulta, apresentado por mediana (p50) e percentil 95 (p95). |
-| Custo por consulta | Custo calculado a partir do uso registrado e da tabela de preços do modelo na data da execução; separar custo de avaliação do custo da resposta quando houver juiz automatizado. |
+## Erros e limites conhecidos
 
-As versões serão comparadas com o mesmo conjunto de perguntas e o mesmo retrato dos documentos. Cada experimento registrará a mudança feita, hipótese, parâmetros, data, modelo, resultados e exemplos de regressão. **Nenhum resultado será publicado antes de ser medido.**
+- 71 páginas com pouco texto exigem revisão/OCR; nenhuma afirmação de extração integral.
+- Tipo de anexo da API pode divergir do conteúdo.
+- Perguntas longas podem tornar a busca lexical restritiva; recuperação semântica não comprova resposta correta.
+- PDFs com tabelas podem perder relações; revisão visual é amostral.
+- Ainda sem geração, autenticação de aplicação, API pública ou implantação.
+- Docker Desktop exigiu recuperação de sockets temporários no ambiente local; dados do banco inicial preservados. Estabilidade em futuras reinicializações não comprovada.
 
-## Arquitetura proposta
-
-1. **Coleta e registro de fontes:** obtém metadados e documentos públicos do PNCP e guarda um manifesto reproduzível.
-2. **Preparação e busca:** extrai o texto, preserva página ou seção, divide em trechos e recupera os mais relevantes.
-3. **Resposta com fontes:** gera uma resposta somente a partir dos trechos encontrados; exibe as citações e admite falta de evidência.
-4. **Avaliador:** executa as perguntas de referência, calcula métricas e conserva resultados por versão.
-5. **Painel:** permite comparar métricas e inspecionar pergunta, resposta, trechos recuperados e motivo do erro.
-
-A tecnologia de implementação ainda será escolhida conforme facilidade de reprodução, custo e qualidade da extração dos PDFs. O Codex poderá apoiar código e testes; a definição dos critérios e a análise dos resultados exigem revisão humana.
-
-## Critérios de conclusão da primeira entrega
-
-- [ ] Amostra de documentos reais com origem, data, versão e integridade registrados.
-- [ ] Assistente funcional com citações verificáveis e resposta explícita para falta de evidência.
-- [ ] Conjunto de avaliação versionado, com perguntas e respostas esperadas revisadas.
-- [ ] Execução reproduzível de pelo menos duas versões nas quatro medidas acima.
-- [ ] Painel com acesso aos erros individuais e relatório que explique melhorias e regressões.
-- [ ] Instruções de execução local e limites de custo publicados após a implementação.
-
-## Fontes e cuidados
-
-- [PNCP](https://www.gov.br/pncp/) — consulta a contratações e documentos oficiais.
-- [Dados abertos do PNCP](https://www.gov.br/pncp/pt-br/acesso-a-informacao/copy_of_dados-abertos) — acesso público a consultas de dados.
-- [Saiba como vender para o governo](https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/licitacoes-publicas) — contexto para pequenos negócios.
-
-O corpus será formado por documentos públicos. Credenciais de serviços de IA, caso sejam necessárias, ficarão fora do repositório e serão usadas somente no servidor. Conteúdo dos documentos será tratado como dado de entrada, nunca como instrução para o assistente ou para os testes. Datas, prazos e condições sempre deverão apontar para a versão da fonte utilizada.
+[Revisão inicial dos PDFs](reports/revisao-pdf.md) · [Revisão da ampliação](reports/revisao-pdf-2026-10-01.md) · [Segurança dos dez grupos](reports/seguranca-2026-10-01.md).
 
 ## Próximo passo
 
-Escolher **um setor de fornecimento** e selecionar a primeira amostra de editais para criar o conjunto de perguntas de referência.
+Criar e revisar perguntas de referência antes de integrar Groq, medir qualidade e construir o painel. O assistente será ferramenta de conferência humana; não determina elegibilidade nem substitui leitura do edital vigente.
 
+Fontes: [PNCP](https://www.gov.br/pncp/), [API de consulta](https://pncp.gov.br/api/consulta/swagger-ui/index.html).

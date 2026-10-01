@@ -1,0 +1,9 @@
+{
+  "snapshot_id": "b1ee54ef84e97078",
+  "status": "loaded",
+  "chunks": 4664,
+  "dimensions": 384,
+  "transaction": "atomic",
+  "cost_groq": 0,
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+}

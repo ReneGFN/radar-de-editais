@@ -1,0 +1,87 @@
+{
+  "sector": "informatica",
+  "uf": "PR",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:42:51.817031+00:00",
+  "editais": [
+    {
+      "pncp_id": "78121936000168-1-000072/2026",
+      "cnpj": "78121936000168",
+      "year": 2026,
+      "uf": "PR",
+      "sequence": 72,
+      "agency": "MUNICIPIO DE TRES BARRAS DO PARANA",
+      "object": "AQUISICAO DE MOBILIARIOS  EQUIPAMENTOS DE INFORMATICA  AUDIO  VIDEO E SONORIZACAO  BEM COMO ACESSORIOS CORRELATOS  CONFORME AS ESPECIFICACOES  QUANTIDADES E DEMAIS EXIGENCIAS ESTABELECIDAS NO TERMO DE REFERENCIA.",
+      "publication_date": "2026-09-21T09:45:12",
+      "proposal_start": "2026-09-19T09:00:00",
+      "proposal_end": "2026-10-01T08:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/78121936000168/2026/72",
+      "documents": [
+        {
+          "sha256": "b4d14d9b69d7439445bddf21a17c867c62bcdeef09a112f67ac129d37fc0d6f3",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/78121936000168/compras/2026/72/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 2780303,
+          "source_date": "2026-09-21T09:45:13"
+        },
+        {
+          "sha256": "42fc6cdbc2c09853faf0a3ea2b6ef9a7971e03f28c722b6ca3c767d317abc21d",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/78121936000168/compras/2026/72/arquivos/3",
+          "sequence": 3,
+          "type_id": 7,
+          "type_name": "Estudo Técnico Preliminar",
+          "active": true,
+          "bytes": 801726,
+          "source_date": "2026-09-21T09:45:31"
+        },
+        {
+          "sha256": "5d5bd3d6038942617ef5c1ceb9debbd2b8e415719239d9445a63790ecea5df3e",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/78121936000168/compras/2026/72/arquivos/4",
+          "sequence": 4,
+          "type_id": 4,
+          "type_name": "Termo de Referência",
+          "active": true,
+          "bytes": 675794,
+          "source_date": "2026-09-21T09:45:45"
+        }
+      ]
+    },
+    {
+      "pncp_id": "01613770000172-1-000166/2026",
+      "cnpj": "01613770000172",
+      "year": 2026,
+      "uf": "PR",
+      "sequence": 166,
+      "agency": "MUNICIPIO DE IMBAU",
+      "object": "Aquisição de Equipamentos Médicos, Odontológicos, Fisioterapeuticos, Mobiliários, Eletrodomésticos e Informática",
+      "publication_date": "2026-09-21T15:57:55",
+      "proposal_start": "2026-09-22T09:00:00",
+      "proposal_end": "2026-10-19T09:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/01613770000172/2026/166",
+      "documents": [
+        {
+          "sha256": "7f0a504dffe3c8a4b9d5b1dfaedf59ade570e1dc97adee61e6f2b0f3fc1186a4",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01613770000172/compras/2026/166/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 893641,
+          "source_date": "2026-09-21T15:57:55"
+        }
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "pncp_id": "76279975000162-1-000083/2026",
+      "reason": "ReadTimeout"
+    }
+  ],
+  "selection_complete": true,
+  "snapshot_id": "500bb9ee296e2450"
+}

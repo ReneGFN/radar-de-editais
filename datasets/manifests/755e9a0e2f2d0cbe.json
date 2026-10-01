@@ -1,0 +1,68 @@
+{
+  "sector": "informatica",
+  "uf": "AM",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:53:52.206855+00:00",
+  "editais": [
+    {
+      "pncp_id": "00394452000103-1-020757/2026",
+      "cnpj": "00394452000103",
+      "year": 2026,
+      "uf": "AM",
+      "sequence": 20757,
+      "agency": "COMANDO DO EXERCITO",
+      "object": "Aquisição de equipamentos de Tecnologia da Informação e Comunicação (TIC), compreendendo recursos de estações de trabalho, notebook, servidor, sistema de armazenamento de dados (storage), servidor NAS, console KVM, monitores, equipamentos de comunicação de dados, impressoras, scanner e conversores de mídia, destinados à modernização, ampliação, renovação, sustentação e continuidade da infraestrutura tecnológica do 4º Centro de Geoinformação e das Organizações Militares participantes do GCALC/DSG",
+      "publication_date": "2026-09-23T14:47:02",
+      "proposal_start": "2026-09-24T08:00:00",
+      "proposal_end": "2026-10-06T08:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/00394452000103/2026/20757",
+      "documents": [
+        {
+          "sha256": "c56aa328d29475ab50855a16f798a71afe24ccfb761076621523ab92ad75aefe",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00394452000103/compras/2026/20757/arquivos/3",
+          "sequence": 3,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 254266,
+          "source_date": "2026-09-23T14:48:05"
+        }
+      ]
+    },
+    {
+      "pncp_id": "02006782000100-1-000026/2026",
+      "cnpj": "02006782000100",
+      "year": 2026,
+      "uf": "AM",
+      "sequence": 26,
+      "agency": "FUNDACAO DE DERMATOLOGIA TROPICAL E VENEREOLOGIA ALFREDO DA MATTA",
+      "object": "Aquisição de Equipamentos de Informática",
+      "publication_date": "2026-09-28T23:30:28",
+      "proposal_start": "2026-09-28T23:29:59",
+      "proposal_end": "2026-10-13T09:15:00",
+      "official_url": "https://pncp.gov.br/app/editais/02006782000100/2026/26",
+      "documents": [
+        {
+          "sha256": "5de117725f05a9daf31455175c03ece96bade354286a1aff2f0d735fa95cf1a8",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/02006782000100/compras/2026/26/arquivos/2",
+          "sequence": 2,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 931356,
+          "source_date": "2026-09-28T23:30:39"
+        }
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "pncp_id": "02006782000100-1-000026/2026",
+      "reason": "anexo_nao_pdf",
+      "document_sequence": 1
+    }
+  ],
+  "selection_complete": true,
+  "snapshot_id": "755e9a0e2f2d0cbe"
+}

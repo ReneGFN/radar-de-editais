@@ -1,0 +1,300 @@
+{
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "method": "text_length_threshold_not_manual_quality",
+  "documents": [
+    {
+      "pncp_id": "45374469000129-1-000030/2026",
+      "document_sequence": 1,
+      "pages": 96,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "45339363000194-1-000286/2026",
+      "document_sequence": 1,
+      "pages": 55,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "45339363000194-1-000286/2026",
+      "document_sequence": 2,
+      "pages": 58,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "46377800000127-1-004170/2026",
+      "document_sequence": 1,
+      "pages": 59,
+      "pages_needing_review": 6
+    },
+    {
+      "pncp_id": "46377800000127-1-004170/2026",
+      "document_sequence": 5,
+      "pages": 12,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "46179941000135-1-000443/2026",
+      "document_sequence": 1,
+      "pages": 16,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "46179941000135-1-000446/2026",
+      "document_sequence": 1,
+      "pages": 24,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "01626427000162-1-000010/2026",
+      "document_sequence": 1,
+      "pages": 81,
+      "pages_needing_review": 10
+    },
+    {
+      "pncp_id": "46377800000127-1-004178/2026",
+      "document_sequence": 2,
+      "pages": 24,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "46377800000127-1-004178/2026",
+      "document_sequence": 3,
+      "pages": 17,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "46732442000123-1-000103/2026",
+      "document_sequence": 1,
+      "pages": 103,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "63025530000104-1-003836/2026",
+      "document_sequence": 1,
+      "pages": 7,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "63025530000104-1-003836/2026",
+      "document_sequence": 2,
+      "pages": 43,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "67360537000133-1-000020/2026",
+      "document_sequence": 1,
+      "pages": 87,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "78121936000168-1-000072/2026",
+      "document_sequence": 1,
+      "pages": 77,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "78121936000168-1-000072/2026",
+      "document_sequence": 3,
+      "pages": 13,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "78121936000168-1-000072/2026",
+      "document_sequence": 4,
+      "pages": 23,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "01613770000172-1-000166/2026",
+      "document_sequence": 1,
+      "pages": 111,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "98661366000106-1-000557/2026",
+      "document_sequence": 1,
+      "pages": 101,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "document_sequence": 1,
+      "pages": 3,
+      "pages_needing_review": 3
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "document_sequence": 2,
+      "pages": 55,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "document_sequence": 3,
+      "pages": 8,
+      "pages_needing_review": 8
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "document_sequence": 4,
+      "pages": 2,
+      "pages_needing_review": 2
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "document_sequence": 5,
+      "pages": 13,
+      "pages_needing_review": 13
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "document_sequence": 6,
+      "pages": 15,
+      "pages_needing_review": 15
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "document_sequence": 7,
+      "pages": 3,
+      "pages_needing_review": 3
+    },
+    {
+      "pncp_id": "01609402000150-1-000045/2026",
+      "document_sequence": 8,
+      "pages": 11,
+      "pages_needing_review": 11
+    },
+    {
+      "pncp_id": "18094870000132-1-000077/2026",
+      "document_sequence": 1,
+      "pages": 85,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "17955535000119-1-000275/2026",
+      "document_sequence": 1,
+      "pages": 99,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "17955535000119-1-000275/2026",
+      "document_sequence": 2,
+      "pages": 100,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "17955535000119-1-000275/2026",
+      "document_sequence": 3,
+      "pages": 98,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "17955535000119-1-000275/2026",
+      "document_sequence": 4,
+      "pages": 98,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "00394502000144-1-012044/2026",
+      "document_sequence": 1,
+      "pages": 37,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "00394502000144-1-012044/2026",
+      "document_sequence": 3,
+      "pages": 20,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "00394502000144-1-012044/2026",
+      "document_sequence": 6,
+      "pages": 14,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "39547500000183-1-000077/2026",
+      "document_sequence": 1,
+      "pages": 115,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "13634977000102-1-000128/2026",
+      "document_sequence": 1,
+      "pages": 56,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "63084727000114-1-000009/2026",
+      "document_sequence": 1,
+      "pages": 68,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "11348570000193-1-000065/2026",
+      "document_sequence": 1,
+      "pages": 59,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "10106268000166-1-000069/2026",
+      "document_sequence": 1,
+      "pages": 54,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "02291730000114-1-000117/2026",
+      "document_sequence": 1,
+      "pages": 95,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "45701259000106-1-000008/2026",
+      "document_sequence": 1,
+      "pages": 37,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "03507415002864-1-000159/2026",
+      "document_sequence": 1,
+      "pages": 2,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "03507415002864-1-000159/2026",
+      "document_sequence": 2,
+      "pages": 85,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "03347135000116-1-000070/2026",
+      "document_sequence": 1,
+      "pages": 106,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "00368105000106-1-000157/2026",
+      "document_sequence": 2,
+      "pages": 52,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "05054929000117-1-000378/2026",
+      "document_sequence": 1,
+      "pages": 64,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "00394452000103-1-020757/2026",
+      "document_sequence": 3,
+      "pages": 20,
+      "pages_needing_review": 0
+    },
+    {
+      "pncp_id": "02006782000100-1-000026/2026",
+      "document_sequence": 2,
+      "pages": 44,
+      "pages_needing_review": 0
+    }
+  ]
+}

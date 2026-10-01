@@ -1,0 +1,62 @@
+{
+  "sector": "informatica",
+  "uf": "PE",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:52:36.651156+00:00",
+  "editais": [
+    {
+      "pncp_id": "11348570000193-1-000065/2026",
+      "cnpj": "11348570000193",
+      "year": 2026,
+      "uf": "PE",
+      "sequence": 65,
+      "agency": "MUNICIPIO DE VERDEJANTE",
+      "object": "Registro de preço para eventual e futura aquisição de equipamentos de informática",
+      "publication_date": "2026-09-21T10:06:19",
+      "proposal_start": "2026-09-21T00:00:00",
+      "proposal_end": "2026-10-06T09:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/11348570000193/2026/65",
+      "documents": [
+        {
+          "sha256": "6c9c3a088573452b57fbc81651061b6e443e7becf5bad1afb75d86dd84300e54",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/11348570000193/compras/2026/65/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1146066,
+          "source_date": "2026-09-21T10:06:20"
+        }
+      ]
+    },
+    {
+      "pncp_id": "10106268000166-1-000069/2026",
+      "cnpj": "10106268000166",
+      "year": 2026,
+      "uf": "PE",
+      "sequence": 69,
+      "agency": "MUNICIPIO DE VENTUROSA",
+      "object": "[Portal de Compras Públicas] - CONTRATAÇÃO DE EMPRESA PARA FORNECIMENTO DE EQUIPAMENTO DE INFORMATICA DESTINADO AO FUNDO MUNICIPAL DE SAÚDE DE VENTUROSA/PE, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NESTE EDITAL, TERMO DE REFERÊNCIA E DEMAIS ANEXOS.",
+      "publication_date": "2026-09-21T13:40:38",
+      "proposal_start": "2026-09-21T11:30:00",
+      "proposal_end": "2026-10-01T14:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/10106268000166/2026/69",
+      "documents": [
+        {
+          "sha256": "88af558975c2e20de0fc3cdf961e6cc4d9a547ad2b06636cae75edee1fccd7e6",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10106268000166/compras/2026/69/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1092718,
+          "source_date": "2026-09-21T13:40:39"
+        }
+      ]
+    }
+  ],
+  "rejections": [],
+  "selection_complete": true,
+  "snapshot_id": "48b14e4acd037808"
+}

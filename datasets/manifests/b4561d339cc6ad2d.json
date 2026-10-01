@@ -1,0 +1,62 @@
+{
+  "sector": "informatica",
+  "uf": "BA",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:52:24.148651+00:00",
+  "editais": [
+    {
+      "pncp_id": "13634977000102-1-000128/2026",
+      "cnpj": "13634977000102",
+      "year": 2026,
+      "uf": "BA",
+      "sequence": 128,
+      "agency": "MUNICIPIO DE BELMONTE",
+      "object": "REGISTRO DE PREÇOS PARA POSSÍVEL CONTRATAÇÃO DE EMPRESA(S) PARA FORNECIMENTO PARCELADO DE MATERIAIS, SUPRIMENTOS E EQUIPAMENTOS DE INFORMÁTICA, PARA ATENDER AS NECESSIDADES DA PREFEITURA MUNICIPAL DE BELMONTE - BA.",
+      "publication_date": "2026-09-21T08:27:20",
+      "proposal_start": "2026-09-21T09:00:00",
+      "proposal_end": "2026-10-05T08:30:00",
+      "official_url": "https://pncp.gov.br/app/editais/13634977000102/2026/128",
+      "documents": [
+        {
+          "sha256": "8eb7dfacbeae85086a172d77640b61bfb6868029e1345862f08aa7fc75cf8b0d",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13634977000102/compras/2026/128/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 792946,
+          "source_date": "2026-09-21T08:27:20"
+        }
+      ]
+    },
+    {
+      "pncp_id": "63084727000114-1-000009/2026",
+      "cnpj": "63084727000114",
+      "year": 2026,
+      "uf": "BA",
+      "sequence": 9,
+      "agency": "MORPARA CAMARA MUNICIPAL",
+      "object": "a contratação de empresa especializada no fornecimento com instalação inclusa, de equipamentos dos segmentos eletroeletrônicos, informática, câmeras de segurança e demais itens para implantação do sistema de monitoramento, destinados a suprir as demandas da Câmara de Vereadores de Morpará – Bahia.",
+      "publication_date": "2026-09-22T12:27:43",
+      "proposal_start": "2026-09-20T08:00:00",
+      "proposal_end": "2026-09-30T08:29:00",
+      "official_url": "https://pncp.gov.br/app/editais/63084727000114/2026/9",
+      "documents": [
+        {
+          "sha256": "373a9c554e42c8c199222bde00e3d82aa23823ee4965a16a3ec9665969bd1a42",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/63084727000114/compras/2026/9/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 872264,
+          "source_date": "2026-09-22T12:27:43"
+        }
+      ]
+    }
+  ],
+  "rejections": [],
+  "selection_complete": true,
+  "snapshot_id": "b4561d339cc6ad2d"
+}

@@ -1,0 +1,62 @@
+{
+  "sector": "informatica",
+  "uf": "PA",
+  "start": "20260921",
+  "end": "20261001",
+  "captured_at": "2026-10-01T03:58:06.066878+00:00",
+  "editais": [
+    {
+      "pncp_id": "00368105000106-1-000157/2026",
+      "cnpj": "00368105000106",
+      "year": 2026,
+      "uf": "PA",
+      "sequence": 157,
+      "agency": "POLICIA CIVIL DO ESTADO DO PARA",
+      "object": "Registro de Preços para Eventual Aquisição de Equipamentos de Informática (Switches e Racks), conforme disposições descritas no Termo de Referência.",
+      "publication_date": "2026-09-24T11:30:18",
+      "proposal_start": "2026-09-24T13:24:00",
+      "proposal_end": "2026-10-09T09:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/00368105000106/2026/157",
+      "documents": [
+        {
+          "sha256": "131b5d447a5ad85145460dd40a74544e5b84c8d4987fc6b59db681c99bfa03fa",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00368105000106/compras/2026/157/arquivos/2",
+          "sequence": 2,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1358709,
+          "source_date": "2026-09-25T11:12:43"
+        }
+      ]
+    },
+    {
+      "pncp_id": "05054929000117-1-000378/2026",
+      "cnpj": "05054929000117",
+      "year": 2026,
+      "uf": "PA",
+      "sequence": 378,
+      "agency": "SECRETARIA DE ESTADO DE SAUDE PUBLICA",
+      "object": "Aquisição de monitores de sinais vitais de triagem e seladora para plástico e pedal",
+      "publication_date": "2026-09-24T14:14:01",
+      "proposal_start": "2026-09-23T10:00:00",
+      "proposal_end": "2026-10-08T10:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/05054929000117/2026/378",
+      "documents": [
+        {
+          "sha256": "fcce89ae8800064a1301e0c4e2ea72fee50e37e18fbf984acfac97adbf11c609",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05054929000117/compras/2026/378/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1405204,
+          "source_date": "2026-09-24T14:14:01"
+        }
+      ]
+    }
+  ],
+  "rejections": [],
+  "selection_complete": true,
+  "snapshot_id": "b97d2dc50b84d3d9"
+}

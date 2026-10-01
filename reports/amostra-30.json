@@ -1,0 +1,51 @@
+{
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "editais": 30,
+  "states": {
+    "SP": 10,
+    "PR": 2,
+    "RS": 2,
+    "MG": 2,
+    "RJ": 2,
+    "BA": 2,
+    "PE": 2,
+    "GO": 2,
+    "MT": 2,
+    "PA": 2,
+    "AM": 2
+  },
+  "regions": {
+    "Sudeste": 14,
+    "Sul": 4,
+    "Nordeste": 4,
+    "Centro-Oeste": 4,
+    "Norte": 4
+  },
+  "unique_pncp_ids": 30,
+  "documents": 49,
+  "source_snapshots": [
+    "b1ee54ef84e97078",
+    "500bb9ee296e2450",
+    "57f0b8b9761d4873",
+    "c69d4189575d4214",
+    "f3f1d7410066fbdb",
+    "b4561d339cc6ad2d",
+    "48b14e4acd037808",
+    "e2bae67d69fe4561",
+    "340c1811c354f870",
+    "b97d2dc50b84d3d9",
+    "755e9a0e2f2d0cbe"
+  ],
+  "sampling": {
+    "method": "convenience_with_state_quotas",
+    "seed_sp": 10,
+    "additional_per_state": 2,
+    "additional_window": [
+      "20260921",
+      "20261001"
+    ],
+    "fallback_start": "20260901",
+    "representative": false
+  },
+  "manifest": "datasets\\manifests\\4f8ddffaa01b6a20.json"
+}

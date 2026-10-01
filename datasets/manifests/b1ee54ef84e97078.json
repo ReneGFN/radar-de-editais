@@ -1,0 +1,297 @@
+{
+  "sector": "informatica",
+  "uf": "SP",
+  "start": "20260928",
+  "end": "20260930",
+  "captured_at": "2026-10-01T00:20:52.035697+00:00",
+  "editais": [
+    {
+      "pncp_id": "45374469000129-1-000030/2026",
+      "cnpj": "45374469000129",
+      "year": 2026,
+      "sequence": 30,
+      "agency": "MUNICIPIO DE SANTA ERNESTINA",
+      "object": "REGISTRO DE PREÇOS PARA A AQUISIÇÃO DE EQUIPAMENTOS, MATERIAIS E RECURSOS DE INFORMÁTICA, TECNOLOGIA DA INFORMAÇÃO, PERIFÉRICOS, INFRAESTRUTURA DE REDE, EQUIPAMENTOS AUDIOVISUAIS E DEMAIS ITENS CORRELATOS, DESTINADOS AO ATENDIMENTO DAS NECESSIDADES DAS SECRETARIAS DO MUNICÍPIO DE SANTA ERNESTINA/SP",
+      "publication_date": "2026-09-28T09:04:10",
+      "proposal_start": "2026-09-28T09:15:00",
+      "proposal_end": "2026-10-09T08:29:00",
+      "official_url": "https://pncp.gov.br/app/editais/45374469000129/2026/30",
+      "documents": [
+        {
+          "sha256": "37f9952276faa545374cdc9c2dec594ce6a4a53e9f7817d1c4ef1240447e0ddd",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45374469000129/compras/2026/30/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1230978,
+          "source_date": "2026-09-28T09:04:11"
+        }
+      ]
+    },
+    {
+      "pncp_id": "45339363000194-1-000286/2026",
+      "cnpj": "45339363000194",
+      "year": 2026,
+      "sequence": 286,
+      "agency": "MUNICIPIO DE PORTO FERREIRA",
+      "object": "Aquisição de equipamentos de informática e apoio tecnológico para unidades escolares e para a Farmácia Municipal/Secretaria de Saúde.",
+      "publication_date": "2026-09-28T09:59:47",
+      "proposal_start": "2026-09-29T08:00:00",
+      "proposal_end": "2026-10-08T13:30:00",
+      "official_url": "https://pncp.gov.br/app/editais/45339363000194/2026/286",
+      "documents": [
+        {
+          "sha256": "042f252d71452cad20adcf1360c6809a3175c5e8b38fc95cb33fccd03047ddb5",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45339363000194/compras/2026/286/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 908168,
+          "source_date": "2026-09-28T09:59:47"
+        },
+        {
+          "sha256": "6a87f1a76606244447812920c3e18878bbcdb9fe472179f187fd65736ff3d796",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45339363000194/compras/2026/286/arquivos/2",
+          "sequence": 2,
+          "type_id": 7,
+          "type_name": "Estudo Técnico Preliminar",
+          "active": true,
+          "bytes": 8672438,
+          "source_date": "2026-09-28T10:00:07"
+        }
+      ]
+    },
+    {
+      "pncp_id": "46377800000127-1-004170/2026",
+      "cnpj": "46377800000127",
+      "year": 2026,
+      "sequence": 4170,
+      "agency": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+      "object": "Aquisição de materiais de informática para o CPI-7",
+      "publication_date": "2026-09-28T10:10:41",
+      "proposal_start": "2026-09-29T08:00:00",
+      "proposal_end": "2026-10-14T08:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/46377800000127/2026/4170",
+      "documents": [
+        {
+          "sha256": "10b151153853da70d35711b9bf2d22aa79bddd8f4fe5bc9bd6fc26856d3eeed6",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4170/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 4074149,
+          "source_date": "2026-09-28T10:10:41"
+        },
+        {
+          "sha256": "a8c460f8ca9d97e6f1bccb2042a60ec699b796400a8c1715bc874a4f33a53c31",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4170/arquivos/5",
+          "sequence": 5,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 138224,
+          "source_date": "2026-09-28T10:11:44"
+        }
+      ]
+    },
+    {
+      "pncp_id": "46179941000135-1-000443/2026",
+      "cnpj": "46179941000135",
+      "year": 2026,
+      "sequence": 443,
+      "agency": "MUNICIPIO DE ASSIS",
+      "object": "AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA",
+      "publication_date": "2026-09-28T10:27:51",
+      "proposal_start": "2026-09-29T09:00:00",
+      "proposal_end": "2026-10-21T09:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/46179941000135/2026/443",
+      "documents": [
+        {
+          "sha256": "33ef16104ac3f44b2939f06de7c65ff082970e06c2baca4a5c1f15966dc43644",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46179941000135/compras/2026/443/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 344776,
+          "source_date": "2026-09-28T10:27:51"
+        }
+      ]
+    },
+    {
+      "pncp_id": "46179941000135-1-000446/2026",
+      "cnpj": "46179941000135",
+      "year": 2026,
+      "sequence": 446,
+      "agency": "MUNICIPIO DE ASSIS",
+      "object": "REGISTRO DE PREÇOS PARA AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA",
+      "publication_date": "2026-09-28T11:26:00",
+      "proposal_start": "2026-09-29T09:00:00",
+      "proposal_end": "2026-10-26T09:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/46179941000135/2026/446",
+      "documents": [
+        {
+          "sha256": "cf4826edbf68ca89c8ab3c60a5f55b1ff8dcf81fb1e7499a65d6262a6e4731b6",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46179941000135/compras/2026/446/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 405751,
+          "source_date": "2026-09-28T11:26:00"
+        }
+      ]
+    },
+    {
+      "pncp_id": "01626427000162-1-000010/2026",
+      "cnpj": "01626427000162",
+      "year": 2026,
+      "sequence": 10,
+      "agency": "CAMARA MUNICIPAL DE NOVA ODESSA",
+      "object": "Locação de Notebooks e Monitores.",
+      "publication_date": "2026-09-28T14:43:01",
+      "proposal_start": "2026-09-28T15:00:00",
+      "proposal_end": "2026-10-16T08:59:00",
+      "official_url": "https://pncp.gov.br/app/editais/01626427000162/2026/10",
+      "documents": [
+        {
+          "sha256": "280e615a071dfbced2e660c9ff66773ab73824422d14bd3401b3aec215477faf",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01626427000162/compras/2026/10/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 4807924,
+          "source_date": "2026-09-28T14:43:03"
+        }
+      ]
+    },
+    {
+      "pncp_id": "46377800000127-1-004178/2026",
+      "cnpj": "46377800000127",
+      "year": 2026,
+      "sequence": 4178,
+      "agency": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+      "object": "Aquisição de GERADOR DE ENERGIA, NOTEBOOK, IMPRESSORA, NO-BREAK, GPS, KIT DE FERRAMENTAS MANUAIS, CAMA DOBRAVEL, FOGÃO INDUSTRIAL, FORNO MICRO-ONDAS, BEBEDOURO ELETRICO, MONITOR LFD 55 POL, SUPORTE PARA VIDEO WALL, CONTROLADOR DE VIDEO WALL 3X3, CABO HDMI, SWITCH 24 PORTAS, REFRIGERADOR e LONGARINA 3 LUGARES, para a Sede da 3ª Cia do 2º BPAmb – Terceira Companhia do Segundo Batalhão de Polícia Ambiental, situada em Presidente Prudente/SP.",
+      "publication_date": "2026-09-28T15:15:37",
+      "proposal_start": "2026-09-30T09:00:00",
+      "proposal_end": "2026-10-13T09:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/46377800000127/2026/4178",
+      "documents": [
+        {
+          "sha256": "2f8a0559f36a02cce95f0fc639a3720dee8658b0c009b6736d9ec50f3d169959",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4178/arquivos/2",
+          "sequence": 2,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 990274,
+          "source_date": "2026-09-28T15:16:41"
+        },
+        {
+          "sha256": "ffdae98df5cf5bfdd6fb806111d39f74fe1d232d3173e6534a89886e45c3b30f",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4178/arquivos/3",
+          "sequence": 3,
+          "type_id": 4,
+          "type_name": "Termo de Referência",
+          "active": true,
+          "bytes": 157656,
+          "source_date": "2026-09-28T15:16:42"
+        }
+      ]
+    },
+    {
+      "pncp_id": "46732442000123-1-000103/2026",
+      "cnpj": "46732442000123",
+      "year": 2026,
+      "sequence": 103,
+      "agency": "MUNICIPIO DE DESCALVADO",
+      "object": "Registro de Preço para eventuais aquisições parceladas de equipamentos de informática, suprimentos e afins, em atendimento às necessidades das Secretarias da Prefeitura Municipal de Descalvado, São Paulo, pelo prazo de 12 (doze) meses",
+      "publication_date": "2026-09-28T17:15:30",
+      "proposal_start": "2026-09-28T17:30:00",
+      "proposal_end": "2026-10-13T08:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/46732442000123/2026/103",
+      "documents": [
+        {
+          "sha256": "11abee0fb40629b83f736a6484524e7fb8dd38415f276073274ad21b3f2fe1ad",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46732442000123/compras/2026/103/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1437477,
+          "source_date": "2026-09-28T17:15:31"
+        }
+      ]
+    },
+    {
+      "pncp_id": "63025530000104-1-003836/2026",
+      "cnpj": "63025530000104",
+      "year": 2026,
+      "sequence": 3836,
+      "agency": "UNIVERSIDADE DE SAO PAULO",
+      "object": "Aquisição de notebooks",
+      "publication_date": "2026-09-29T08:20:12",
+      "proposal_start": "2026-09-30T08:00:00",
+      "proposal_end": "2026-10-19T08:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/63025530000104/2026/3836",
+      "documents": [
+        {
+          "sha256": "91b26f1d507d048bec6096d85f738e3d4165a3f8a5db1f16a3d73bbed39a3b89",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/63025530000104/compras/2026/3836/arquivos/1",
+          "sequence": 1,
+          "type_id": 7,
+          "type_name": "Estudo Técnico Preliminar",
+          "active": true,
+          "bytes": 893330,
+          "source_date": "2026-09-29T08:20:13"
+        },
+        {
+          "sha256": "a279b6a1940797906f2c434f1a68ae916a93a639712bd453a35e5be743f9a98f",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/63025530000104/compras/2026/3836/arquivos/2",
+          "sequence": 2,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 1274176,
+          "source_date": "2026-09-29T08:21:14"
+        }
+      ]
+    },
+    {
+      "pncp_id": "67360537000133-1-000020/2026",
+      "cnpj": "67360537000133",
+      "year": 2026,
+      "sequence": 20,
+      "agency": "CAMARA MUNICIPAL DE ITAPETININGA",
+      "object": "AQUISIÇÃO  DE EQUIPAMENTO DE INFORMÁTICA.",
+      "publication_date": "2026-09-29T12:38:56",
+      "proposal_start": "2026-09-28T08:00:00",
+      "proposal_end": "2026-10-07T08:00:00",
+      "official_url": "https://pncp.gov.br/app/editais/67360537000133/2026/20",
+      "documents": [
+        {
+          "sha256": "6728de8668eb3915317cf54305e1ea6516e40664ff6797862a17678940509e75",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/67360537000133/compras/2026/20/arquivos/1",
+          "sequence": 1,
+          "type_id": 2,
+          "type_name": "Edital",
+          "active": true,
+          "bytes": 677663,
+          "source_date": "2026-09-29T12:38:57"
+        }
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "pncp_id": "49895378000190-1-000045/2026",
+      "reason": "sem_edital_na_listagem"
+    }
+  ],
+  "selection_complete": true,
+  "snapshot_id": "b1ee54ef84e97078"
+}
