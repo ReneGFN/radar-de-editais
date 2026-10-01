@@ -1,6 +1,6 @@
 # Dez perguntas naturais para revisão
 
-**Estado: dez perguntas e referências aprovadas por Renê em 2026-10-01; recuperação executada após aprovação, geração Groq ainda não executada.** As respostas abaixo são referências, não saídas do RAG.
+**Estado: dez perguntas e referências aprovadas por Renê em 2026-10-01; recuperação executada após aprovação, geração Groq executada após autorização adicional: seis respostas, uma insuficiência e três citações bloqueadas; conferência humana pendente.** As respostas abaixo são referências, não saídas do RAG.
 Quatro editais já indexados, ausentes do piloto anterior, em SP/PR/RS. Não simula aumento de corpus nem representa as cinco regiões.
 As perguntas não incluem página, arquivo ou cláusula. A localização aparece somente na referência para conferência.
 

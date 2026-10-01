@@ -1,0 +1,204 @@
+{
+  "experiment": "coverage_bonus_0.02",
+  "default_selection": "rrf",
+  "decision": "keep_experimental_no_hybrid_coverage_gain",
+  "new_provider_calls": 0,
+  "groups": {
+    "pilot": {
+      "reference_sha256": "4b0f577f1f1cb902c058960a905570b58b9018deba42592f2acbb52947d69fb1",
+      "before_report": "retrieval-structured-v4.json",
+      "after_report": "retrieval-coverage-pilot-v1.json",
+      "before": {
+        "keyword": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.788888888888889,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 59.891449999895485,
+          "latency_p95_ms": 80.26639999980034
+        },
+        "semantic": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 28,
+          "known_chunk_hit_at_5": 0.9333333333333333,
+          "known_chunk_mrr_at_5": 0.6911111111111111,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 63.2084000001214,
+          "latency_p95_ms": 80.24519999980839
+        },
+        "hybrid": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.7938888888888889,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 63.432199999851946,
+          "latency_p95_ms": 77.84599999968123
+        }
+      },
+      "after": {
+        "keyword": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.8305555555555556,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 50.056550000590505,
+          "latency_p95_ms": 76.8514999999752
+        },
+        "semantic": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 28,
+          "known_chunk_hit_at_5": 0.9333333333333333,
+          "known_chunk_mrr_at_5": 0.888888888888889,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 69.74395000088407,
+          "latency_p95_ms": 101.23920000114595
+        },
+        "hybrid": {
+          "cases": 30,
+          "known_chunk_hits_at_5": 29,
+          "known_chunk_hit_at_5": 0.9666666666666667,
+          "known_chunk_mrr_at_5": 0.8372222222222222,
+          "all_known_quotes_supported_at_5": 0.9666666666666667,
+          "latency_median_ms": 62.259549999907904,
+          "latency_p95_ms": 89.36410000023898
+        }
+      },
+      "changes": {
+        "keyword": {
+          "known_chunk_hit_at_k": {
+            "gains": [],
+            "regressions": []
+          },
+          "all_known_quotes_supported_at_k": {
+            "gains": [],
+            "regressions": []
+          }
+        },
+        "semantic": {
+          "known_chunk_hit_at_k": {
+            "gains": [],
+            "regressions": []
+          },
+          "all_known_quotes_supported_at_k": {
+            "gains": [],
+            "regressions": []
+          }
+        },
+        "hybrid": {
+          "known_chunk_hit_at_k": {
+            "gains": [],
+            "regressions": []
+          },
+          "all_known_quotes_supported_at_k": {
+            "gains": [],
+            "regressions": []
+          }
+        }
+      }
+    },
+    "reserve": {
+      "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63",
+      "before_report": "retrieval-reserve-v1.json",
+      "after_report": "retrieval-coverage-reserve-v1.json",
+      "before": {
+        "keyword": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 8,
+          "known_chunk_hit_at_5": 0.8,
+          "known_chunk_mrr_at_5": 0.65,
+          "all_known_quotes_supported_at_5": 0.7,
+          "latency_median_ms": 71.33324999995239,
+          "latency_p95_ms": 116.96020000090357
+        },
+        "semantic": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 7,
+          "known_chunk_hit_at_5": 0.7,
+          "known_chunk_mrr_at_5": 0.575,
+          "all_known_quotes_supported_at_5": 0.7,
+          "latency_median_ms": 71.33394999982556,
+          "latency_p95_ms": 102.08520000014687
+        },
+        "hybrid": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 9,
+          "known_chunk_hit_at_5": 0.9,
+          "known_chunk_mrr_at_5": 0.6733333333333333,
+          "all_known_quotes_supported_at_5": 0.8,
+          "latency_median_ms": 82.37469999949099,
+          "latency_p95_ms": 111.10120000012103
+        }
+      },
+      "after": {
+        "keyword": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 8,
+          "known_chunk_hit_at_5": 0.8,
+          "known_chunk_mrr_at_5": 0.5833333333333333,
+          "all_known_quotes_supported_at_5": 0.7,
+          "latency_median_ms": 55.275450000408455,
+          "latency_p95_ms": 68.97839999874122
+        },
+        "semantic": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 8,
+          "known_chunk_hit_at_5": 0.8,
+          "known_chunk_mrr_at_5": 0.6583333333333333,
+          "all_known_quotes_supported_at_5": 0.7,
+          "latency_median_ms": 67.06579999990936,
+          "latency_p95_ms": 77.42500000131258
+        },
+        "hybrid": {
+          "cases": 10,
+          "known_chunk_hits_at_5": 9,
+          "known_chunk_hit_at_5": 0.9,
+          "known_chunk_mrr_at_5": 0.6733333333333333,
+          "all_known_quotes_supported_at_5": 0.8,
+          "latency_median_ms": 63.131199999588716,
+          "latency_p95_ms": 68.85190000139119
+        }
+      },
+      "changes": {
+        "keyword": {
+          "known_chunk_hit_at_k": {
+            "gains": [],
+            "regressions": []
+          },
+          "all_known_quotes_supported_at_k": {
+            "gains": [],
+            "regressions": []
+          }
+        },
+        "semantic": {
+          "known_chunk_hit_at_k": {
+            "gains": [
+              "reserve-08"
+            ],
+            "regressions": []
+          },
+          "all_known_quotes_supported_at_k": {
+            "gains": [
+              "reserve-08"
+            ],
+            "regressions": [
+              "reserve-06"
+            ]
+          }
+        },
+        "hybrid": {
+          "known_chunk_hit_at_k": {
+            "gains": [],
+            "regressions": []
+          },
+          "all_known_quotes_supported_at_k": {
+            "gains": [],
+            "regressions": []
+          }
+        }
+      }
+    }
+  }
+}

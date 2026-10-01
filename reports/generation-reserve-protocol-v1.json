@@ -1,0 +1,19 @@
+{
+  "authorization": "explicit_user_approval_in_chat_2026-10-01_for_ten_new_cases",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63",
+  "model": "openai/gpt-oss-120b",
+  "selection_profile": "rrf",
+  "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+  "max_public_chunks_per_query": 5,
+  "expected_answers_in_prompt": false,
+  "free_plan": "user_confirmed",
+  "code_sha256_at_running_batch": {
+    "backend/src/radar/generation.py": "ab643a37d306869e33d967f88941dc213caf0ac9ef224bfa356402d361fd56ad",
+    "backend/src/radar/retrieval.py": "6fe3d9c3ef4eca1f50414676b7646ea3ff5a79a6dbcb5b23d2a7a5e24a8d1548",
+    "backend/src/radar/query.py": "c69ecc9fc52bcee9e9d85e76c042286f4e7a1565c78537a1bff051d7f6d38a2f",
+    "ops/evaluate-generation.py": "373482c521bf64a5d35c273e1b1648c724cb8068c517fa8abda9478846cac67d"
+  },
+  "per_request_code_hash_recorded": false,
+  "human_response_review": "pending"
+}

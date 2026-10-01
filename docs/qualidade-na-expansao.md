@@ -39,7 +39,7 @@ A busca atual usa cosseno exato no PostgreSQL dentro do edital. A [documentaçã
 .\.venv\Scripts\python.exe ops/check-quality.py reports/generation-review-v1.json --report reports/quality-release-v1-repeat.json
 ```
 
-O arquivo de revisão guarda status explícito de assistente versus humano e pontuações booleanas; a checagem não autentica quem editou o arquivo. No futuro, registrar revisão com identidade e acesso controlados na API. A recuperação das dez perguntas foi executada após aprovação; geração e revisão humana das saídas permanecem pendentes; usar a reserva para ajustar transforma-a em desenvolvimento e exige outra reserva.
+O arquivo de revisão guarda status explícito de assistente versus humano e pontuações booleanas; a checagem não autentica quem editou o arquivo. No futuro, registrar revisão com identidade e acesso controlados na API. A recuperação das dez perguntas foi executada após aprovação; geração concluída (seis respostas, uma insuficiência, três rejeições) e revisão humana das saídas permanece pendente; usar a reserva para ajustar transforma-a em desenvolvimento e exige outra reserva.
 
 ## Problema encontrado no corpus atual
 
@@ -66,3 +66,7 @@ O protocolo e os rótulos foram preservados após observar resultados. O campo g
 A amostra é pequena e concentrada em três estados. Hit@5 de 90% não é 90% de respostas completas/corretas nem garantia em documentos futuros. Geração das dez perguntas e conferência independente dos PDFs seguem pendentes.
 
 [Resultados por caso](../reports/retrieval-reserve-v1.json) · [Protocolo congelado](../reports/reserve-protocol-v1.json) · [Referências aprovadas](perguntas-reserva-para-revisao.md).
+
+## Seleção experimental avaliada
+
+O bônus de cobertura lexical não melhorou cobertura completa da híbrida nem do conjunto novo. RRF continua padrão. Ganho semântico reserve-08 veio com regressão de completude reserve-06. As dez perguntas agora são desenvolvimento, pois os erros orientaram o experimento; reservar novos editais para avaliar a próxima mudança. [Comparação e reprodução](resultados-recuperacao.md#experimento-cobertura-de-termos-na-seleção--2026-10-01).

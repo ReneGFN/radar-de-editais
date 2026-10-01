@@ -34,7 +34,7 @@ def main():
         for error in errors.get(case['id'],[]):
             lines.append('- Tentativa com erro: '+str(error.get('cause_type') or error['error_type']))
         lines.extend(['','**Conferência de Renê:** pendente.',''])
-    path=root/'revisao-respostas-v1.md'
+    path=root/f'revisao-respostas-{digest[:16]}.md'
     path.write_text('\n'.join(lines),encoding='utf-8')
     print(json.dumps({'private_review':str(path),'accepted':len(completed)}))
 

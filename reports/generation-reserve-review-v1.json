@@ -1,0 +1,116 @@
+{
+  "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63",
+  "review_method": "assistant_comparison_expected_answer_and_private_response_quotes",
+  "human_response_review": "pending",
+  "cases": [
+    {
+      "case_id": "reserve-01",
+      "assistant_review": "no_apparent_divergence",
+      "flags": [],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-02",
+      "assistant_review": "no_apparent_divergence",
+      "flags": [],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-03",
+      "assistant_review": "no_apparent_divergence",
+      "flags": [],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-04",
+      "assistant_review": "no_apparent_divergence",
+      "flags": [],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-05",
+      "assistant_review": "completeness_review",
+      "flags": [
+        "parts_labor_onsite_conditions_not_in_answer"
+      ],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-06",
+      "assistant_review": "source_context_review",
+      "flags": [
+        "storage_evidence_from_other_pages_requires_item_identity_check",
+        "one_quote_missing_capacity"
+      ],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-07",
+      "assistant_review": "insufficient_evidence",
+      "flags": [
+        "retrieval_lacks_explicit_link_to_requested_lot"
+      ],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-08",
+      "assistant_review": "rejected_citation",
+      "flags": [
+        "ellipsis_or_changed_literal_quote"
+      ],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-09",
+      "assistant_review": "rejected_citation",
+      "flags": [
+        "ellipsis_or_changed_literal_quote"
+      ],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    },
+    {
+      "case_id": "reserve-10",
+      "assistant_review": "rejected_citation",
+      "flags": [
+        "ellipsis_or_changed_literal_quote"
+      ],
+      "human_review": "pending",
+      "correct": null,
+      "complete": null,
+      "supported": null
+    }
+  ],
+  "correctness_rate": null,
+  "promotion": "blocked_no_final_human_score",
+  "requests_attempted": 10,
+  "answers_validated": 6,
+  "insufficient_validated": 1,
+  "rejected_citations": 3
+}

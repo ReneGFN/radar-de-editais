@@ -6,6 +6,7 @@ from pgvector.psycopg import register_vector
 from .storage import connect
 from .embeddings import local_embeddings
 from .query import plan
+from .reranking import rerank_coverage
 
 DEFAULT_LEXICAL_STRATEGY = 'any'
 DEFAULT_QUERY_PROFILE = 'structured'
@@ -47,7 +48,7 @@ def branch(inputs, semantic):
                             params+(inputs['query'],inputs['query'])).fetchall()
 
 
-def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY, query_profile=DEFAULT_QUERY_PROFILE):
+def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY, query_profile=DEFAULT_QUERY_PROFILE, selection_profile='rrf'):
     """Mesmo núcleo da busca, com rankings para diagnóstico e comparação."""
     if not isinstance(query,str) or not query.strip() or len(query)>1000:
         raise ValueError("Consulta inválida")
@@ -57,6 +58,8 @@ def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy
         raise ValueError('Estratégia lexical inválida')
     if query_profile not in ('original','focused','structured'):
         raise ValueError('Perfil de consulta inválido')
+    if selection_profile not in ('rrf','coverage'):
+        raise ValueError('Perfil de seleção inválido')
     started = perf_counter()
     inputs = {"query":query,"snapshot":snapshot,"edital":edital,'lexical_strategy':lexical_strategy}
     if query_profile != 'original':
@@ -74,11 +77,14 @@ def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy
         branches['keyword'] = RunnableLambda(lambda x:branch(x,False))
     rankings = RunnableParallel(**branches).invoke(inputs)
     selected = combine(rankings) if mode == 'hybrid' else [(row,None) for row in rankings[mode][:5]]
+    if selection_profile == 'coverage':
+        candidates = combine(rankings, limit=20) if mode == 'hybrid' else [(row,1/(60+i)) for i,row in enumerate(rankings[mode],1)]
+        selected = rerank_coverage(candidates, inputs['query'])
     documents = [Document(page_content=row[1], metadata={"id":row[0],"pncp_id":row[2],
         "document_sequence":row[3],"page":row[4],"start":row[5],"end":row[6],"url":row[7],"score":score})
         for row,score in selected]
     return documents, {'mode': mode, 'lexical_strategy':lexical_strategy,'query_profile':query_profile,
-                       'effective_query':inputs['query'],'filters':inputs.get('filters',{}), 'latency_ms': (perf_counter()-started)*1000,
+                       'selection_profile':selection_profile,'effective_query':inputs['query'],'filters':inputs.get('filters',{}), 'latency_ms': (perf_counter()-started)*1000,
                        'candidate_ids': {name:[row[0] for row in rows] for name,rows in rankings.items()}}
 
 

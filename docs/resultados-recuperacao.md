@@ -120,3 +120,28 @@ O protocolo e os rótulos foram preservados após observar resultados. O campo g
 A amostra é pequena e concentrada em três estados. Hit@5 de 90% não é 90% de respostas completas/corretas nem garantia em documentos futuros. Geração das dez perguntas e conferência independente dos PDFs seguem pendentes.
 
 [Resultados por caso](../reports/retrieval-reserve-v1.json) · [Protocolo congelado](../reports/reserve-protocol-v1.json) · [Referências aprovadas](perguntas-reserva-para-revisao.md).
+
+## Experimento: cobertura de termos na seleção — 2026-10-01
+
+Implementada opção `coverage`, mantendo `rrf` como padrão. Aos mesmos candidatos (dez por ramo) acrescenta bônus 0,02 × fração dos termos distintos da pergunta presentes no trecho. Usa somente pergunta/trechos, com normalização de acentos e stopwords. Não usa respostas esperadas, IDs de casos ou regras por edital. É uma heurística lexical de reordenação, não modelo cross-encoder nem extração de tabelas.
+
+Executadas 120 consultas: 30 perguntas antigas + dez da antiga reserva, cada uma em três modos. Referências e corpus preservados.
+
+| Grupo | Modo | Hit@5 anterior → experimento | Todas as passagens anterior → experimento |
+|---|---|---:|---:|
+| Antigas (30) | Palavras-chave | 29 → 29 | 29 → 29 |
+| Antigas (30) | Semântico | 28 → 28 | 29 → 29 |
+| Antigas (30) | Híbrido | 29 → 29 | 29 → 29 |
+| Novas (10) | Palavras-chave | 8 → 8 | 7 → 7 |
+| Novas (10) | Semântico | 7 → 8 | 7 → 7 |
+| Novas (10) | Híbrido | 9 → 9 | 8 → 8 |
+
+Na semântica, reserve-08 ganhou evidência, mas reserve-06 perdeu cobertura completa. O total de completude ficou igual. A híbrida não resolveu reserve-06/reserve-08. **Decisão: manter RRF como padrão; alternativa apenas experimental.** Não ajustar peso repetidamente buscando nota nesses casos. Uma próxima intervenção deverá avaliar contexto com identidade de item/cabeçalho e preservação de tabela, além de outra reserva realmente nova.
+
+Como os erros da reserva agora orientaram a criação do experimento, as dez perguntas passam a conjunto de desenvolvimento; não apresentar o resultado posterior como teste independente. Nenhum novo documento foi adicionado. Latências vêm de execução única em momentos diferentes, sem controle da carga; não afirmar ganho de velocidade.
+
+[Comparação por caso](../reports/retrieval-coverage-comparison-v1.json) · [Execução antigas](../reports/retrieval-coverage-pilot-v1.json) · [Execução novas](../reports/retrieval-coverage-reserve-v1.json).
+
+```powershell
+.\.venv\Scripts\python.exe ops/evaluate-retrieval.py datasets/evaluation/reserve-candidates-v1.json datasets/manifests/4f8ddffaa01b6a20.json --query-profile structured --lexical-strategy any --selection-profile coverage --report reports/retrieval-coverage-reserve-repeat.json
+```

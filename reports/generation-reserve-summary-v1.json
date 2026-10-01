@@ -1,0 +1,124 @@
+{
+  "model": "openai/gpt-oss-120b",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "8e9a0dc04db45f3fd330a129cc9535a9c3b8cbb1640af2b3395d2c4c76a2bb63",
+  "free_plan": "user_confirmed_not_independently_audited",
+  "completed": 7,
+  "tested_cases": 10,
+  "rejected_case_ids": [
+    "reserve-08",
+    "reserve-09",
+    "reserve-10"
+  ],
+  "generation_calls": 7,
+  "input_tokens_successful_cases": 10273,
+  "output_tokens_successful_cases": 2185,
+  "median_generation_latency_ms": 1022.92,
+  "failed_attempts": 3,
+  "failed_attempt_usage": "not_confirmed",
+  "actual_billing": "not_independently_verified",
+  "correctness": "not_scored_pending_human_review",
+  "refusal_safety": "not_scored_pending_human_review",
+  "cases": [
+    {
+      "case_id": "reserve-01",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1378,
+      "output_tokens": 232,
+      "total_latency_ms": 3784.55,
+      "generation_latency_ms": 985.54
+    },
+    {
+      "case_id": "reserve-02",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1390,
+      "output_tokens": 272,
+      "total_latency_ms": 1173.72,
+      "generation_latency_ms": 1066.19
+    },
+    {
+      "case_id": "reserve-03",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1501,
+      "output_tokens": 521,
+      "total_latency_ms": 1674.7,
+      "generation_latency_ms": 1590.6
+    },
+    {
+      "case_id": "reserve-04",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1527,
+      "output_tokens": 219,
+      "total_latency_ms": 982.31,
+      "generation_latency_ms": 892.56
+    },
+    {
+      "case_id": "reserve-05",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1469,
+      "output_tokens": 276,
+      "total_latency_ms": 1135.19,
+      "generation_latency_ms": 1022.92
+    },
+    {
+      "case_id": "reserve-06",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1510,
+      "output_tokens": 511,
+      "total_latency_ms": 2070.2,
+      "generation_latency_ms": 1979.82
+    },
+    {
+      "case_id": "reserve-07",
+      "kind": "answerable",
+      "response_status": "insufficient_evidence",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1498,
+      "output_tokens": 154,
+      "total_latency_ms": 823.54,
+      "generation_latency_ms": 705.78
+    }
+  ],
+  "errors": [
+    {
+      "case_id": "reserve-08",
+      "error_type": "GenerationFailure",
+      "cause_type": "ValueError: Citação inventada",
+      "http_status": null,
+      "date_utc": "2026-10-01T17:59:21.837084+00:00"
+    },
+    {
+      "case_id": "reserve-09",
+      "error_type": "GenerationFailure",
+      "cause_type": "ValueError: Citação inventada",
+      "http_status": null,
+      "date_utc": "2026-10-01T17:59:57.894401+00:00"
+    },
+    {
+      "case_id": "reserve-10",
+      "error_type": "GenerationFailure",
+      "cause_type": "ValueError: Citação inventada",
+      "http_status": null,
+      "date_utc": "2026-10-01T18:00:34.053830+00:00"
+    }
+  ]
+}
