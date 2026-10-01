@@ -36,3 +36,7 @@ backups/
 # Arquivos do sistema
 .DS_Store
 Thumbs.db
+
+# Credencial Groq e checkpoints de geração locais
+groq_api_key
+generation/

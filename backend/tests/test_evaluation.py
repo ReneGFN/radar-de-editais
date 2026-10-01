@@ -54,7 +54,7 @@ def test_keyword_does_not_initialize_embedding(monkeypatch):
         seen.append((inputs['lexical_strategy'],semantic))
         return [('expected','text','edital',1,2,0,4,'https://pncp.gov.br/example')]
     monkeypatch.setattr(retrieval,'branch',branch)
-    docs,trace=retrieval.retrieve_with_trace('SSD','snapshot','edital','keyword','any')
+    docs,trace=retrieval.retrieve_with_trace('SSD','snapshot','edital','keyword','any','original')
     assert seen==[('any',False)] and docs[0].metadata['id']=='expected'
     assert trace['candidate_ids']=={'keyword':['expected']}
 

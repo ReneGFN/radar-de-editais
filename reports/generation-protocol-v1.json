@@ -1,0 +1,21 @@
+{
+  "model": "openai/gpt-oss-120b",
+  "provider_endpoint": "https://api.groq.com/openai/v1/chat/completions",
+  "temperature": 0,
+  "reasoning_effort": "low",
+  "include_reasoning": false,
+  "max_output_tokens": 1600,
+  "retrieval_profile": "structured",
+  "context_max_chunks": 5,
+  "context_max_characters": 16000,
+  "automatic_api_retries": 0,
+  "interval_seconds": 35,
+  "system_prompt_sha256": "266fe806d65e393eeef89f8858e8344a6401dc31d412442a1a9d9289856ba4af",
+  "schema_sha256": "d05ef3eca19b2f72ae77dc405ad7951972f477031c9b9945cd21794ba6193c2a",
+  "reference_sha256": "4b0f577f1f1cb902c058960a905570b58b9018deba42592f2acbb52947d69fb1",
+  "prompt_changed_during_batch": false,
+  "operational_fixes": "endpoint origin, credential parser, whitespace-only quote recovery, private diagnosis and rejection continuation",
+  "execution_code_hash": "not_recorded_per_request",
+  "provider_weight_revision": "not_exposed_in_result",
+  "reproducibility_limit": "Temperature zero does not ensure identical provider responses; configuration and corpus are reproducible."
+}

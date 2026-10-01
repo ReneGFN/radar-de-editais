@@ -5,8 +5,10 @@ from langchain_core.runnables import RunnableLambda, RunnableParallel
 from pgvector.psycopg import register_vector
 from .storage import connect
 from .embeddings import local_embeddings
+from .query import plan
 
 DEFAULT_LEXICAL_STRATEGY = 'any'
+DEFAULT_QUERY_PROFILE = 'structured'
 
 
 def combine(rankings, limit=5):
@@ -25,6 +27,13 @@ def branch(inputs, semantic):
         columns = "c.id,c.text,c.pncp_id,c.document_sequence,c.page,c.start_offset,c.end_offset,d.source->>'url'"
         scope = " FROM radar.chunks c JOIN radar.documents d ON d.snapshot_id=c.snapshot_id AND d.pncp_id=c.pncp_id AND d.sequence=c.document_sequence WHERE c.snapshot_id=%s AND c.pncp_id=%s"
         params = (inputs["snapshot"],inputs["edital"])
+        for name in ('page','document_sequence'):
+            if name in inputs.get('filters',{}):
+                scope += ' AND c.'+name+'=%s'
+                params += (inputs['filters'][name],)
+        if 'clause' in inputs.get('filters',{}):
+            scope += ' AND c.text LIKE %s'
+            params += ('%'+inputs['filters']['clause']+'%',)
         if semantic:
             return conn.execute("SELECT "+columns+scope+" ORDER BY c.embedding <=> %s::vector,c.id LIMIT 10", params+(inputs["vector"],)).fetchall()
         strategy = inputs.get('lexical_strategy', DEFAULT_LEXICAL_STRATEGY)
@@ -38,7 +47,7 @@ def branch(inputs, semantic):
                             params+(inputs['query'],inputs['query'])).fetchall()
 
 
-def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY):
+def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY, query_profile=DEFAULT_QUERY_PROFILE):
     """Mesmo núcleo da busca, com rankings para diagnóstico e comparação."""
     if not isinstance(query,str) or not query.strip() or len(query)>1000:
         raise ValueError("Consulta inválida")
@@ -46,10 +55,18 @@ def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy
         raise ValueError('Modo de busca inválido')
     if lexical_strategy not in ('all', 'any'):
         raise ValueError('Estratégia lexical inválida')
+    if query_profile not in ('original','focused','structured'):
+        raise ValueError('Perfil de consulta inválido')
     started = perf_counter()
     inputs = {"query":query,"snapshot":snapshot,"edital":edital,'lexical_strategy':lexical_strategy}
+    if query_profile != 'original':
+        with connect() as conn:
+            source = conn.execute('SELECT manifest FROM radar.snapshots WHERE id=%s',(snapshot,)).fetchone()
+        agency = next((e['agency'] for e in source[0]['editais'] if e['pncp_id']==edital),'') if source else ''
+        planned = plan(query,agency,query_profile=='structured')
+        inputs.update(query=planned['query'],filters=planned['filters'])
     if mode != 'keyword':
-        inputs['vector'] = local_embeddings().embed_query(query)
+        inputs['vector'] = local_embeddings().embed_query(inputs['query'])
     branches = {}
     if mode != 'keyword':
         branches['semantic'] = RunnableLambda(lambda x:branch(x,True))
@@ -60,7 +77,8 @@ def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy
     documents = [Document(page_content=row[1], metadata={"id":row[0],"pncp_id":row[2],
         "document_sequence":row[3],"page":row[4],"start":row[5],"end":row[6],"url":row[7],"score":score})
         for row,score in selected]
-    return documents, {'mode': mode, 'lexical_strategy':lexical_strategy, 'latency_ms': (perf_counter()-started)*1000,
+    return documents, {'mode': mode, 'lexical_strategy':lexical_strategy,'query_profile':query_profile,
+                       'effective_query':inputs['query'],'filters':inputs.get('filters',{}), 'latency_ms': (perf_counter()-started)*1000,
                        'candidate_ids': {name:[row[0] for row in rows] for name,rows in rankings.items()}}
 
 

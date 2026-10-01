@@ -1,0 +1,504 @@
+{
+  "model": "openai/gpt-oss-120b",
+  "snapshot_id": "4f8ddffaa01b6a20",
+  "reference_sha256": "4b0f577f1f1cb902c058960a905570b58b9018deba42592f2acbb52947d69fb1",
+  "free_plan": "user_confirmed_not_independently_audited",
+  "completed": 38,
+  "tested_cases": 40,
+  "rejected_case_ids": [
+    "pilot-17",
+    "pilot-20"
+  ],
+  "generation_calls": 38,
+  "input_tokens_successful_cases": 52877,
+  "output_tokens_successful_cases": 8922,
+  "median_generation_latency_ms": 1195.66,
+  "failed_attempts": 9,
+  "failed_attempt_usage": "not_confirmed",
+  "actual_billing": "not_independently_verified",
+  "correctness": "not_scored_pending_human_review",
+  "refusal_safety": "not_scored_pending_human_review",
+  "cases": [
+    {
+      "case_id": "pilot-01",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1376,
+      "output_tokens": 275,
+      "total_latency_ms": 6555.48,
+      "generation_latency_ms": 4118.52
+    },
+    {
+      "case_id": "pilot-02",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1390,
+      "output_tokens": 168,
+      "total_latency_ms": 3234.81,
+      "generation_latency_ms": 859.93
+    },
+    {
+      "case_id": "pilot-03",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1423,
+      "output_tokens": 182,
+      "total_latency_ms": 875.82,
+      "generation_latency_ms": 786.75
+    },
+    {
+      "case_id": "pilot-04",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1448,
+      "output_tokens": 260,
+      "total_latency_ms": 1179.07,
+      "generation_latency_ms": 1087.28
+    },
+    {
+      "case_id": "pilot-05",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1458,
+      "output_tokens": 386,
+      "total_latency_ms": 1378.06,
+      "generation_latency_ms": 1278.25
+    },
+    {
+      "case_id": "pilot-06",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1014,
+      "output_tokens": 169,
+      "total_latency_ms": 1298.27,
+      "generation_latency_ms": 1222.3
+    },
+    {
+      "case_id": "pilot-07",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1019,
+      "output_tokens": 182,
+      "total_latency_ms": 1187.7,
+      "generation_latency_ms": 1096.84
+    },
+    {
+      "case_id": "pilot-08",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1356,
+      "output_tokens": 263,
+      "total_latency_ms": 1252.26,
+      "generation_latency_ms": 1170.0
+    },
+    {
+      "case_id": "pilot-09",
+      "kind": "out_of_scope",
+      "response_status": "insufficient_evidence",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1452,
+      "output_tokens": 85,
+      "total_latency_ms": 1797.42,
+      "generation_latency_ms": 1717.86
+    },
+    {
+      "case_id": "pilot-10",
+      "kind": "out_of_scope",
+      "response_status": "refused",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1389,
+      "output_tokens": 86,
+      "total_latency_ms": 2340.34,
+      "generation_latency_ms": 2260.74
+    },
+    {
+      "case_id": "pilot-11",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1451,
+      "output_tokens": 332,
+      "total_latency_ms": 1164.96,
+      "generation_latency_ms": 1063.48
+    },
+    {
+      "case_id": "pilot-12",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1470,
+      "output_tokens": 371,
+      "total_latency_ms": 1397.51,
+      "generation_latency_ms": 1287.04
+    },
+    {
+      "case_id": "pilot-13",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1429,
+      "output_tokens": 197,
+      "total_latency_ms": 1021.1,
+      "generation_latency_ms": 925.25
+    },
+    {
+      "case_id": "pilot-14",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1449,
+      "output_tokens": 298,
+      "total_latency_ms": 3558.15,
+      "generation_latency_ms": 1161.17
+    },
+    {
+      "case_id": "pilot-15",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1453,
+      "output_tokens": 246,
+      "total_latency_ms": 3553.57,
+      "generation_latency_ms": 1108.85
+    },
+    {
+      "case_id": "pilot-16",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 764,
+      "output_tokens": 189,
+      "total_latency_ms": 975.04,
+      "generation_latency_ms": 881.61
+    },
+    {
+      "case_id": "pilot-18",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1465,
+      "output_tokens": 191,
+      "total_latency_ms": 11027.8,
+      "generation_latency_ms": 7801.42
+    },
+    {
+      "case_id": "pilot-19",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1010,
+      "output_tokens": 255,
+      "total_latency_ms": 5305.07,
+      "generation_latency_ms": 5204.27
+    },
+    {
+      "case_id": "pilot-21",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1503,
+      "output_tokens": 349,
+      "total_latency_ms": 1346.89,
+      "generation_latency_ms": 1210.48
+    },
+    {
+      "case_id": "pilot-22",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1416,
+      "output_tokens": 269,
+      "total_latency_ms": 1203.84,
+      "generation_latency_ms": 1084.65
+    },
+    {
+      "case_id": "pilot-23",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1462,
+      "output_tokens": 233,
+      "total_latency_ms": 3801.43,
+      "generation_latency_ms": 3705.42
+    },
+    {
+      "case_id": "pilot-24",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1503,
+      "output_tokens": 255,
+      "total_latency_ms": 2976.8,
+      "generation_latency_ms": 2872.34
+    },
+    {
+      "case_id": "pilot-25",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1489,
+      "output_tokens": 229,
+      "total_latency_ms": 1059.45,
+      "generation_latency_ms": 934.98
+    },
+    {
+      "case_id": "pilot-26",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1622,
+      "output_tokens": 547,
+      "total_latency_ms": 1706.41,
+      "generation_latency_ms": 1612.78
+    },
+    {
+      "case_id": "pilot-27",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1442,
+      "output_tokens": 450,
+      "total_latency_ms": 3073.02,
+      "generation_latency_ms": 2784.25
+    },
+    {
+      "case_id": "pilot-28",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1410,
+      "output_tokens": 416,
+      "total_latency_ms": 2592.3,
+      "generation_latency_ms": 2455.98
+    },
+    {
+      "case_id": "pilot-29",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1536,
+      "output_tokens": 398,
+      "total_latency_ms": 1450.61,
+      "generation_latency_ms": 1313.48
+    },
+    {
+      "case_id": "pilot-30",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1433,
+      "output_tokens": 336,
+      "total_latency_ms": 1377.36,
+      "generation_latency_ms": 1180.84
+    },
+    {
+      "case_id": "pilot-31",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1491,
+      "output_tokens": 309,
+      "total_latency_ms": 1179.12,
+      "generation_latency_ms": 1041.5
+    },
+    {
+      "case_id": "pilot-32",
+      "kind": "answerable",
+      "response_status": "answered",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1473,
+      "output_tokens": 177,
+      "total_latency_ms": 1621.63,
+      "generation_latency_ms": 1501.96
+    },
+    {
+      "case_id": "pilot-33",
+      "kind": "out_of_scope",
+      "response_status": "insufficient_evidence",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1465,
+      "output_tokens": 83,
+      "total_latency_ms": 853.7,
+      "generation_latency_ms": 699.26
+    },
+    {
+      "case_id": "pilot-34",
+      "kind": "out_of_scope",
+      "response_status": "insufficient_evidence",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1468,
+      "output_tokens": 84,
+      "total_latency_ms": 8328.81,
+      "generation_latency_ms": 4402.61
+    },
+    {
+      "case_id": "pilot-35",
+      "kind": "out_of_scope",
+      "response_status": "refused",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1306,
+      "output_tokens": 189,
+      "total_latency_ms": 5191.07,
+      "generation_latency_ms": 1553.29
+    },
+    {
+      "case_id": "pilot-36",
+      "kind": "out_of_scope",
+      "response_status": "refused",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1336,
+      "output_tokens": 99,
+      "total_latency_ms": 1201.96,
+      "generation_latency_ms": 1076.57
+    },
+    {
+      "case_id": "pilot-37",
+      "kind": "out_of_scope",
+      "response_status": "refused",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1452,
+      "output_tokens": 119,
+      "total_latency_ms": 1148.38,
+      "generation_latency_ms": 1027.28
+    },
+    {
+      "case_id": "pilot-38",
+      "kind": "out_of_scope",
+      "response_status": "refused",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1412,
+      "output_tokens": 88,
+      "total_latency_ms": 2160.24,
+      "generation_latency_ms": 2028.89
+    },
+    {
+      "case_id": "pilot-39",
+      "kind": "out_of_scope",
+      "response_status": "refused",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1427,
+      "output_tokens": 76,
+      "total_latency_ms": 730.45,
+      "generation_latency_ms": 602.79
+    },
+    {
+      "case_id": "pilot-40",
+      "kind": "out_of_scope",
+      "response_status": "refused",
+      "generation_calls": 1,
+      "citation_integrity": "passed",
+      "input_tokens": 1415,
+      "output_tokens": 81,
+      "total_latency_ms": 777.44,
+      "generation_latency_ms": 656.26
+    }
+  ],
+  "errors": [
+    {
+      "case_id": "pilot-01",
+      "error_type": "RuntimeError",
+      "date_utc": "2026-10-01T14:38:08.275220+00:00"
+    },
+    {
+      "case_id": "pilot-01",
+      "error_type": "GenerationFailure",
+      "cause_type": "NotFoundError",
+      "http_status": 404,
+      "date_utc": "2026-10-01T14:39:43.684105+00:00"
+    },
+    {
+      "case_id": "pilot-01",
+      "error_type": "GenerationFailure",
+      "cause_type": "AuthenticationError",
+      "http_status": 401,
+      "date_utc": "2026-10-01T14:40:41.208380+00:00"
+    },
+    {
+      "case_id": "pilot-01",
+      "error_type": "GenerationFailure",
+      "cause_type": "ValueError",
+      "http_status": null,
+      "date_utc": "2026-10-01T14:48:23.116394+00:00"
+    },
+    {
+      "case_id": "pilot-01",
+      "error_type": "GenerationFailure",
+      "cause_type": "ValueError: Citação inventada",
+      "http_status": null,
+      "date_utc": "2026-10-01T14:49:01.561867+00:00"
+    },
+    {
+      "case_id": "pilot-14",
+      "error_type": "GenerationFailure",
+      "cause_type": "ValueError: Citação inventada",
+      "http_status": null,
+      "date_utc": "2026-10-01T14:57:05.661626+00:00"
+    },
+    {
+      "case_id": "pilot-17",
+      "error_type": "GenerationFailure",
+      "cause_type": "ValueError: Citação inventada",
+      "http_status": null,
+      "date_utc": "2026-10-01T14:59:51.142074+00:00"
+    },
+    {
+      "case_id": "pilot-20",
+      "error_type": "GenerationFailure",
+      "cause_type": "ValueError: Citação inventada",
+      "http_status": null,
+      "date_utc": "2026-10-01T15:02:59.733615+00:00"
+    },
+    {
+      "case_id": "pilot-34",
+      "error_type": "GenerationFailure",
+      "cause_type": "BadRequestError",
+      "http_status": 400,
+      "date_utc": "2026-10-01T15:11:39.902907+00:00"
+    }
+  ]
+}

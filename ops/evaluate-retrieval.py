@@ -21,6 +21,7 @@ def main():
     parser.add_argument('manifest', type=Path)
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--lexical-strategy', choices=('all','any'), default='all')
+    parser.add_argument('--query-profile',choices=('original','focused','structured'),default='original')
     args = parser.parse_args()
     ref_raw = args.reference.read_bytes()
     manifest_raw = args.manifest.read_bytes()
@@ -66,14 +67,15 @@ def main():
         # Alterna ordem para reduzir vantagem sistemática de cache entre modos.
         order = modes[i%3:] + modes[:i%3]
         for mode in order:
-            docs, trace = retrieve_with_trace(case['question'],snapshot,case['pncp_id'],mode,args.lexical_strategy)
+            docs, trace = retrieve_with_trace(case['question'],snapshot,case['pncp_id'],mode,args.lexical_strategy,args.query_profile)
             result = score_case(case,docs)
             rows[mode].append(dict(case_id=case['id'],pncp_id=case['pncp_id'],
                 expected_chunk_ids=[e['chunk_id'] for e in case['evidence']],
                 retrieved=[d.metadata for d in docs],candidate_ids=trace['candidate_ids'],
                 latency_ms=trace['latency_ms'],**result))
+            rows[mode][-1].update(effective_query=trace['effective_query'],filters=trace['filters'])
         print(json.dumps({'cases_done':i+1,'total':len(cases)}),flush=True)
-    code_paths = ['backend/src/radar/retrieval.py','backend/src/radar/evaluation.py',
+    code_paths = ['backend/src/radar/retrieval.py','backend/src/radar/evaluation.py','backend/src/radar/query.py',
                   'ops/evaluate-retrieval.py','ops/validate-reference.py']
     report = {'executed_at_utc':datetime.now(timezone.utc).isoformat(),
         'snapshot_id':snapshot,'reference_sha256':hashlib.sha256(ref_raw).hexdigest(),
@@ -83,7 +85,7 @@ def main():
         'dependencies':{p:version(p) for p in ('langchain-core','fastembed','psycopg','pgvector')},
         'embedding':prepared['embedding'],'model_startup_and_warmup_ms':warmup_ms,
         'protocol':{'top_k':5,'candidates_per_branch':10,'rrf_constant':60,
-            'query_rewrite':False,'lexical_strategy':args.lexical_strategy,'model_warmup_excluded_from_query_latencies':True,
+            'query_rewrite':args.query_profile!='original','query_profile':args.query_profile,'lexical_strategy':args.lexical_strategy,'model_warmup_excluded_from_query_latencies':True,
             'mode_order':'rotating_per_case','repetitions':1,'latency_percentile':'nearest_rank',
             'labels':'known_chunks_and_same_source_page_quotes_not_exhaustive',
             'dataset_role':'development_pilot_not_held_out_test'},

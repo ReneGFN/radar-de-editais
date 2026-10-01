@@ -77,3 +77,28 @@ Para conservar as evidências originais, escolha nomes novos em `--report` ao re
 [Linha de base](../reports/retrieval-baseline-v1.json) · [Experimento v2](../reports/retrieval-experiment-v2.json) · [Comparação e erros](../reports/retrieval-comparison-v1-v2.json) · [Segurança no escopo](../reports/seguranca-avaliacao-2026-10-01.md)
 
 Próximo passo: integrar geração com fontes e recusa, definir modelo/orçamento Groq e avaliar as respostas nos 40 casos. Manter o registro das dez falhas de busca para distinguir contexto insuficiente de erro de interpretação.
+
+## Evolução v3 e v4 — 2026-10-01
+
+Mesmos 30 casos aprovados, snapshot, embeddings, dez candidatos por ramo e cinco resultados finais. Nenhuma resposta esperada alimenta a busca. Acrescentado planejamento determinístico da consulta: retirar palavras de pergunta e identidade do órgão já delimitado pelo edital; usar página, número de arquivo ou cláusula somente quando escritos na pergunta.
+
+| Versão | Lexical Hit@5 | Semântica Hit@5 | Híbrida Hit@5 |
+|---|---:|---:|---:|
+| v2: OR, pergunta original | 18/30 | 17/30 | 20/30 |
+| v3: consulta focada, sem filtros de localização | 24/30 | 25/30 | 24/30 |
+| v4: consulta focada + localização explícita | **29/30** | **28/30** | **29/30** |
+
+Metas solicitadas: pelo menos 25/30 em cada ramo e 28/30 na híbrida. v4 atende às três neste conjunto de desenvolvimento. 28/30 = 93,3%; 29/30 = 96,7%. Não são taxas de respostas corretas nem garantia de desempenho em novas perguntas.
+
+Treze perguntas contêm pistas de localização. A comparação v3/v4 mostra quanto essas pistas ajudam; sem os filtros, lexical e híbrida ainda não atingem a meta. É necessário um conjunto reservado por edital, com perguntas naturais sem indicação de página, antes de afirmar generalização. Não alteramos perguntas/rótulos para aumentar o resultado.
+
+v4: mediana lexical 59,9 ms, semântica 63,2 ms e híbrida 63,4 ms; p95 80,3 / 80,2 / 77,8 ms. Medição local aquecida, uma passagem, sem geração. Apoio da citação conhecida: 29/30 nos três modos; a semântica pode recuperar passagem equivalente na mesma página sem acertar o ID rotulado.
+
+Erros restantes de ID conhecido: lexical e híbrida pilot-11; semântica pilot-04 e pilot-21. Anexos repetidos e referências não exaustivas exigem revisão antes de considerar evidência alternativa correta. O perfil estruturado passa a ser o padrão; original e focused permanecem disponíveis para comparação.
+
+```powershell
+.\.venv\Scripts\python.exe ops/evaluate-retrieval.py datasets/evaluation/pilot-v2.json datasets/manifests/4f8ddffaa01b6a20.json --query-profile focused --report reports/retrieval-focused-v3-repeat.json
+.\.venv\Scripts\python.exe ops/evaluate-retrieval.py datasets/evaluation/pilot-v2.json datasets/manifests/4f8ddffaa01b6a20.json --query-profile structured --report reports/retrieval-structured-v4-repeat.json
+```
+
+[Experimento v3](../reports/retrieval-focused-v3.json) · [Experimento v4](../reports/retrieval-structured-v4.json). Os hashes registram o código no momento de cada execução; a promoção posterior do padrão modifica o hash do arquivo, sem alterar a configuração explícita desses experimentos.

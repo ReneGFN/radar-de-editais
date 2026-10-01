@@ -113,3 +113,9 @@ Downloads restritos ao PNCP em HTTPS com limites; SQL parametrizado. API públic
 - [PostgreSQL full text search](https://www.postgresql.org/docs/current/textsearch.html)
 - [MiniLM multilíngue](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
 - [LangChain ChatGroq](https://docs.langchain.com/oss/python/integrations/chat/groq)
+
+## Atualização implementada em 2026-10-01
+
+Antes dos dois ramos, um planejador determinístico remove termos genéricos e a identidade do órgão já selecionado; aplica localização somente se explícita na pergunta. Os cinco trechos finais seguem para GPT-OSS 120B via Groq, com saída JSON estruturada e validação das citações. O avaliador salva respostas, uso e tempos no diretório privado; um resumo operacional sem textos pode ser exportado. Qualidade semântica exige revisão separada.
+
+[Resultados e ablação da busca](resultados-recuperacao.md) · [Integração e reprodução Groq](geracao-groq.md) · [Segurança no escopo](../reports/seguranca-geracao-2026-10-01.md). API, interface e explorador continuam planejados.

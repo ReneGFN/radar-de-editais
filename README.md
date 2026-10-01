@@ -10,10 +10,12 @@ O projeto investiga se pequenos fornecedores conseguem encontrar prazos, especif
 - **Carga ampliada verificada:** 15.773 vetores no PostgreSQL; repetição sem duplicação, filtros e offsets conferidos. Backup restaurado em banco separado com os mesmos 15.773 trechos. Reaproveitados 4.664 vetores compatíveis da base inicial.
 - **Base inicial verificada:** 10 editais, 14 PDFs e 4.664 vetores; carga idempotente, filtros, offsets e backup/restauração conferidos. Evidências históricas em `reports/snapshots/b1ee54ef84e97078/`.
 - **Implementados:** coleta, extração, embeddings locais, PostgreSQL/pgvector e busca híbrida coordenada por LangChain.
-- **Avaliação em revisão:** 30 perguntas com respostas e 10 recusas; 40 casos aprovados pelo usuário. Evidências em 24 editais/24 PDFs, 11 estados; integridade conferida, 32 testes passaram. [Perguntas para revisão](docs/perguntas-para-revisao.md).
+- **Avaliação em revisão:** 30 perguntas com respostas e 10 recusas; 40 casos aprovados pelo usuário. Evidências em 24 editais/24 PDFs, 11 estados; integridade conferida; 50 testes locais passaram na integração atual. [Perguntas para revisão](docs/perguntas-para-revisao.md).
 - **Recuperação avaliada:** 180 buscas em 30 perguntas aprovadas. Híbrida: trecho de referência no top 5 em 17/30 na linha de base e 20/30 após mudança lexical (+10 pontos percentuais), com cinco ganhos e duas regressões. [Método, resultados e erros](docs/resultados-recuperacao.md).
-- **Planejados:** geração com Groq, avaliação de respostas/recusas, API/interface e explorador 2D/3D.
-- **Qualidade das respostas ainda não medida.** Recuperar uma evidência não comprova resposta correta ou recusa segura.
+- **Recuperação melhorada:** lexical 29/30, semântica 28/30, híbrida 29/30 em Hit@5 no mesmo piloto; 13 perguntas têm pistas explícitas de localização. Sem filtros de localização: 24/30, 25/30, 24/30. Ver ablação e limites nos resultados.
+- **Geração implementada:** GPT-OSS 120B na Groq, JSON estruturado, verificação de citações e checkpoint privado. 40 casos testados: 38 respostas passaram pelo validador, duas rejeitadas por citações inválidas; nove tentativas com erro preservadas. Não equivale a 38 acertos. Plano gratuito confirmado pelo usuário; autenticação e acesso ao modelo verificados por resposta real.
+- **Planejados:** avaliação semântica das respostas/recusas, API/interface e explorador 2D/3D.
+- **Correção das respostas ainda não pontuada.** Erros de conteúdo já observados e registrados. Recuperar uma evidência não comprova resposta correta ou recusa segura.
 
 ## Arquitetura
 
@@ -26,7 +28,7 @@ Pergunta + edital + snapshot → buscas semântica e lexical
      → fusão dos rankings → trechos com página e fonte
 ```
 
-Python organiza o núcleo. LangChain divide os textos e coordena as buscas em paralelo. MiniLM multilíngue gera vetores de 384 dimensões em CPU; PostgreSQL combina busca exata por cosseno e full text search. Groq será usado na geração; modelo específico ainda a definir. Dify fica para uma opção futura.
+Python organiza o núcleo. LangChain divide os textos e coordena as buscas em paralelo. MiniLM multilíngue gera vetores de 384 dimensões em CPU; PostgreSQL combina busca exata por cosseno e full text search. Groq fornece `openai/gpt-oss-120b` para geração com fontes; credenciais e resultados brutos ficam fora do repositório. Dify fica para uma opção futura.
 
 API FastAPI e interface React/TypeScript estão planejadas. O mesmo núcleo servirá CLI, API e avaliador.
 
@@ -42,7 +44,7 @@ Metadados registram fonte oficial, data e hash do PDF. Consulta da API não comp
 
 PDFs, textos extraídos, modelos, vetores, credenciais e backups **não são publicados**. O comando hydrate baixa documentos oficiais e confere hashes; fonte alterada é sinalizada, sem substituir silenciosamente o snapshot.
 
-## Avaliação planejada
+## Protocolo de avaliação
 
 | Medida | O que será examinado |
 |---|---|
@@ -93,3 +95,9 @@ Banco apenas em `127.0.0.1:55432`, rede e volume exclusivos. Dados privados em `
 Definir modelo/orçamento Groq, integrar resposta com fontes e recusa e avaliar os 40 casos. Manter as falhas de recuperação registradas para separar falta de contexto de erro de interpretação. A aprovação das perguntas/respostas não equivale à conferência independente de PDFs/retificações. O assistente será ferramenta de conferência humana; não determina elegibilidade nem substitui leitura do edital vigente. [Método de avaliação](docs/avaliacao.md) · [Primeiros resultados reproduzíveis](docs/resultados-recuperacao.md).
 
 Fontes: [PNCP](https://www.gov.br/pncp/), [API de consulta](https://pncp.gov.br/api/consulta/swagger-ui/index.html).
+
+## Geração: primeiro lote concluído
+
+GPT-OSS 120B funcionou na conta confirmada como gratuita pelo usuário. Busca híbrida: 28 respostas factuais geradas, sete recusas e três respostas por falta de evidência; dois casos factuais bloqueados. Citações existentes não impediram erros de capacidade de SSD e quantidade de tabela. Mediana de geração de 1.195,66 ms nos casos concluídos; 52.877 tokens de entrada e 8.922 de saída, sem contabilizar consumo não confirmado das nove tentativas falhas. Faturamento efetivo não auditado.
+
+[Integração, erros e reprodução](docs/geracao-groq.md) · [Resumo operacional](reports/generation-summary-v1.json) · [Segurança desta entrega](reports/seguranca-geracao-2026-10-01.md). Próximo passo: revisar as respostas/recusas e corrigir interpretação de tabelas, escopo de item e formatação de citações; medir novamente em versão separada.
