@@ -4,6 +4,7 @@ Público (reports/): só ids, estados, contagens, tamanhos, tokens e latências.
 Privado (generation/): ficha lado a lado com as duas respostas, para revisão humana.
 Não chama a Groq e não lê o holdout.
 """
+import argparse
 import hashlib
 import json
 from statistics import median
@@ -43,13 +44,17 @@ def summary(rows, key):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--baseline', default='alias_items')
+    parser.add_argument('--candidate', default='alias_items_v2')
+    args = parser.parse_args()
     public, private = [], []
     for name in REFERENCES:
         raw = (PROJECT / 'datasets/evaluation' / name).read_bytes()
         reference = json.loads(raw)
         digest = hashlib.sha256(raw).hexdigest()
-        v1, r1 = load(digest, 'alias_items')
-        v2, r2 = load(digest, 'alias_items_v2')
+        v1, r1 = load(digest, args.baseline)
+        v2, r2 = load(digest, args.candidate)
         for case in reference['cases']:
             a, b = v1.get(case['id']), v2.get(case['id'])
             row = {'case_id': case['id'], 'kind': case['kind'], 'category': case.get('category'),
@@ -64,8 +69,8 @@ def main():
     changes = [r for r in public if r['state_v1'] != r['state_v2']]
     factual = [r for r in public if r['kind'] == 'answerable']
     report = {
-        'schema_version': 'variant-comparison-v1', 'baseline': 'alias_items', 'candidate': 'alias_items_v2',
-        'holdout_used': False, 'semantic_correctness': 'not_scored_pending_human_review_of_v2',
+        'schema_version': 'variant-comparison-v1', 'baseline': args.baseline, 'candidate': args.candidate,
+        'holdout_used': False, 'semantic_correctness': 'not_scored_pending_human_review_of_candidate',
         'retrieval_changed': False,
         'state_changes': [{k: r[k] for k in ('case_id', 'kind', 'state_v1', 'state_v2', 'rejection_v2')} for r in changes],
         'factual_answered': {'v1': sum(r['state_v1'] == 'answered' for r in factual), 'v2': sum(r['state_v2'] == 'answered' for r in factual), 'of': len(factual)},
@@ -73,13 +78,16 @@ def main():
         'aggregate': {v: {k: summary([r[v] for r in public], k) for k in ('claims', 'answer_chars', 'input_tokens', 'output_tokens', 'generation_ms', 'total_ms')}
                       for v in ('v1', 'v2')},
         'cases': public}
-    emit_json(PROJECT / 'reports/variant-comparison-alias-items-v2.json', report)
-    lines = ['# Comparação alias_items x alias_items_v2 (PRIVADO — contém respostas)', '']
+    # Nome legado mantido para a primeira comparação (alias_items x alias_items_v2).
+    stem = ('alias-items-v2' if (args.baseline, args.candidate) == ('alias_items', 'alias_items_v2')
+            else f"{args.baseline}-vs-{args.candidate}".replace('_', '-'))
+    emit_json(PROJECT / 'reports' / f'variant-comparison-{stem}.json', report)
+    lines = [f'# Comparação {args.baseline} x {args.candidate} (PRIVADO — contém respostas)', '']
     for p in private:
         lines += [f"## {p['case_id']} — v1 `{p['state_v1']}` / v2 `{p['state_v2']}`" + (f" ({p['rejection_v2']})" if p['rejection_v2'] else ''),
                   f"**Pergunta:** {p['question']}", f"**Referência:** {p['expected']}",
                   f"**v1:** {p['answer_v1']}", f"**v2:** {p['answer_v2']}", '']
-    (private_root() / 'generation/comparacao-alias-items-v2.md').write_text('\n'.join(lines), encoding='utf-8')
+    (private_root() / 'generation' / f'comparacao-{stem}.md').write_text('\n'.join(lines), encoding='utf-8')
     print(json.dumps({k: report[k] for k in ('state_changes', 'factual_answered', 'identical_answers')}, ensure_ascii=False))
     print(json.dumps({v: {k: report['aggregate'][v][k]['median'] for k in report['aggregate'][v]} for v in ('v1', 'v2')}))
     print(json.dumps({v: {k: report['aggregate'][v][k]['total'] for k in ('input_tokens', 'output_tokens')} for v in ('v1', 'v2')}))
