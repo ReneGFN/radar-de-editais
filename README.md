@@ -1,6 +1,6 @@
 # Radar de Editais
 
-**Estado atual (2026-10-02):** 47/50 casos gerados na Groq com citação íntegra; pilot-38 a pilot-40 pendentes por HTTP 429. Nenhuma resposta revisada por uma pessoa, então não há taxa de acerto e a meta de 90% não é avaliável. Revisão humana com registro privado implementada; amostra independente v2 com 14 candidatos inéditos, ainda sem perguntas. [Métricas atuais e limites](docs/metricas-atuais.md) · [Plano de revisão humana](docs/plano-revisao-humana.md) · [Amostra independente v2](docs/amostra-independente-v2.md) · [Proposta de API e painel](docs/proposta-api-painel.md).
+**Estado atual (2026-10-02):** 49/50 casos gerados na Groq com citação íntegra; pilot-40 (instrução embutida no documento) pendente por HTTP 429, sem repetição. Nenhuma resposta revisada por uma pessoa, então não há taxa de acerto e a meta de 90% não é avaliável. Revisão humana com registro privado implementada; amostra independente v2 com 14 candidatos inéditos, ainda sem perguntas. [Métricas atuais e limites](docs/metricas-atuais.md) · [Plano de revisão humana](docs/plano-revisao-humana.md) · [Amostra independente v2](docs/amostra-independente-v2.md) · [Proposta de API e painel](docs/proposta-api-painel.md).
 
 Estado anterior (2026-10-01): etapa 2 parcialmente executada; 39/50 casos Groq concluídos e 11 pendentes por HTTP 429. [Resultados](docs/avaliacao-da-estrutura.md).
 
