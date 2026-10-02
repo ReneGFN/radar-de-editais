@@ -73,6 +73,39 @@ Quatorze candidatos cobrem as 5 regiões. Três (MA, MT, PR) podem cair na triag
 ## Estado
 
 - Feito: guarda de independência com testes, coletor e 14 candidatos.
-- Não feito: download, hashes, triagem manual, perguntas, aprovação, indexação, chamadas à Groq.
+- Feito (2026-10-02): download privado, hashes, triagem e rascunho de 46 perguntas (ver abaixo).
+- Não feito: aprovação do Renê, indexação, recuperação, chamadas à Groq.
+
+## Atualização — PDFs e rascunho de perguntas (2026-10-02)
+
+**Download** (`ops/prepare-holdout-documents.py`): 18 PDFs de 13 contratações, salvos só no diretório privado (`raw/<sha256>.pdf`; texto por página em `holdout/pages-*.json`). Antes de aceitar cada PDF, o script compara hash e URL com todo o desenvolvimento: 0 sobreposições com o desenvolvimento e 0 PDFs repetidos na amostra. Nenhuma página ficou abaixo de 80 caracteres de texto. O de RO (07100011000192-1-000002/2026) falhou: o arquivo não começa com `%PDF-` e foi descartado sem retentativa. Metadados públicos: `reports/holdout-documents-v1.json` e `datasets/holdout/manifest-v1.json`. Os dois ficam fora de `datasets/manifests` e `datasets/evaluation` para não entrar na lista de exclusões antes da hora.
+
+**Triagem**: o MA é locação de computadores (serviço), mas o objeto é equipamento de informática, e por isso ficou. MS, MT e PR estão no manifesto, mas sem perguntas. No MS o texto extraído tem acentuação corrompida (`Gestªo`); no MT e no PR o escopo é misto.
+
+**Rascunho** (`datasets/holdout/holdout-v1-draft.json`): 36 factuais e 10 recusas em 10 contratações (AM, RS, ES, PB, MG, TO, PE, PA, RN, MA), todas com `review_status: pending_user_approval`.
+
+| Categoria | Casos | Exemplos de armadilha |
+|---|---:|---|
+| `item` | 6 | Dois microcomputadores (DDR4 2933 × DDR5 5600), memórias quase iguais em lista longa, extensão de 10 m × 30 m |
+| `quantity` | 8 | Mínimo × máximo de registro de preços, total × parcela por secretaria, 12 meses × unidades, "05(uma)" |
+| `specification` | 8 | MT/s e MHz no mesmo documento, Mbps, leitura × escrita do SSD |
+| `deadline` | 7 | Dias úteis × sem indicação, 48 horas, frase que continua na página seguinte |
+| `judgment_criterion` | 7 | Por item × por lote × global; edital e TR divergentes (ES) |
+| Recusas | 10 | Orçamento sigiloso (2), anexos fora do PDF, vencedor futuro, CPF de servidor, senha, citação falsa, garantia de aceitação, instrução embutida, dados de empresa |
+
+Três respostas esperadas pedem para **apontar uma contradição** em vez de escolher um valor: holdout-11 (ES, lote × item), holdout-16 (MG, "05(uma)") e holdout-28 (PA, MT/s × MHz e "expansível até 16GB"). Revisar essas três com atenção: o critério de "correta" nelas é diferente do usual.
+
+**Como foi redigido**: quem redigiu foi o assistente (Kiro), lendo só o texto extraído. Nenhuma recuperação, nenhuma saída do sistema e nenhuma chamada à Groq foi feita sobre esses documentos. Cada trecho citado foi localizado automaticamente na página e guardado com `char_start`/`char_end`. A redação pelo assistente não substitui a aprovação humana; ela só garante que quem redigiu não viu respostas do sistema.
+
+**Verificação** (`ops/check-holdout.py` → `reports/holdout-independence-check-v1.json`): `independent: true`, sem violações nem avisos de órgão repetido. Todos os trechos batem com o offset declarado, e nenhum trecho contém e-mail, CPF ou telefone. `ready_to_execute: false` porque nenhum caso foi aprovado. Testes: `backend/tests/test_check_holdout.py` cobre offset deslocado, página errada, e-mail no trecho e aprovação sem registro.
+
+**Limitações**:
+- Amostra de conveniência, uma contratação por UF.
+- As perguntas foram escritas por uma única pessoa (o assistente) e podem trazer viés de redação.
+- Os PDFs trazem nomes e e-mails de servidores, que ficam no privado e não entram nos trechos.
+- O caso holdout-39 testa uma lacuna real de corpus: o Termo de Referência da POTIGÁS fica fora do PDF.
+- O caso holdout-45 (instrução embutida) continua sendo um pedido do usuário, não uma injeção real dentro do PDF.
+
+**Próximo passo**: o Renê revisa os 46 casos (pergunta, resposta esperada, página e trecho), corrige ou descarta os que quiser e registra a aprovação. Só depois: congelar o protocolo, indexar num snapshot próprio e preparar a prévia de prompts para autorização.
 - Limitação: busca escopada por `pncp_id`. A avaliação mede achar a página dentro do edital certo, não achar o edital certo entre todos.
 - Limitação: as recusas do tipo "instrução embutida no documento" usam um pedido do usuário que descreve a instrução. Isso não prova resistência a uma injeção real dentro do PDF; para testá-la, seria preciso um documento sintético marcado como tal, fora do corpus público.
