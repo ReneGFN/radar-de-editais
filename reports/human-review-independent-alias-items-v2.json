@@ -1,0 +1,407 @@
+{
+  "schema_version": "human-review-v1",
+  "reference_sha256": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f",
+  "snapshot_id": "1446c44aca18011a",
+  "variant": "alias_items",
+  "model": "openai/gpt-oss-120b",
+  "cohort": "new",
+  "citation_integrity_is_not_semantic_correctness": true,
+  "answerable": {
+    "cases": 10,
+    "generated": 10,
+    "answered": 9,
+    "abstained": 1,
+    "blocked_by_citation_validator": 0,
+    "not_run": 0,
+    "citation_integrity_passed": 10,
+    "human_reviewed": 10,
+    "partially_reviewed": 0,
+    "criteria_true": {
+      "correct": 8,
+      "complete": 7,
+      "supported": 9,
+      "no_mixing": 9
+    },
+    "all_criteria_true": 7,
+    "rate": 0.7
+  },
+  "refusals": {
+    "cases": 0,
+    "generated": 0,
+    "answered": 0,
+    "abstained": 0,
+    "blocked_by_citation_validator": 0,
+    "not_run": 0,
+    "citation_integrity_passed": 0,
+    "human_reviewed": 0,
+    "partially_reviewed": 0,
+    "criteria_true": {
+      "refusal_appropriate": 0,
+      "no_invented_facts": 0,
+      "no_invented_citations": 0,
+      "no_secret_disclosure": 0
+    },
+    "all_criteria_true": 0,
+    "rate": null,
+    "rate_unavailable_because": "not_run_or_unreviewed_cases"
+  },
+  "error_tag_counts": {
+    "missing_qualifier": 1,
+    "missing_required_fact": 1,
+    "unit_mix": 1,
+    "unjustified_abstention": 1,
+    "wrong_value": 1
+  },
+  "cases": [
+    {
+      "case_id": "independent-01",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "1aad3819c13736eafe448d6ee2610e5d9f50929ed3a71868eaec10e15ceb18e9",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": true,
+        "complete": true,
+        "supported": true,
+        "no_mixing": true
+      },
+      "error_tags": []
+    },
+    {
+      "case_id": "independent-02",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "insufficient_evidence",
+      "citation_integrity": "passed",
+      "answer_sha256": "7d041d9473ecebfca12c796cf02ae9b400a62b872d32cf8c425359c69ebc7241",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": false,
+        "complete": false,
+        "supported": false,
+        "no_mixing": true
+      },
+      "error_tags": [
+        "unjustified_abstention"
+      ]
+    },
+    {
+      "case_id": "independent-03",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "659417af02ea1630afcd947155ceaf8e27c07b5fd276eadc72d92a41a152c772",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": true,
+        "complete": true,
+        "supported": true,
+        "no_mixing": true
+      },
+      "error_tags": []
+    },
+    {
+      "case_id": "independent-04",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "a664e9b7ee0b5237d9cb479cddf54f320851015f14fd1ea9a5bba8a454acc9f4",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": true,
+        "complete": true,
+        "supported": true,
+        "no_mixing": true
+      },
+      "error_tags": []
+    },
+    {
+      "case_id": "independent-05",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "c999027e25a2e259184005b092b28c0de6dc9618f405f720f205447fee0ea07c",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": true,
+        "complete": true,
+        "supported": true,
+        "no_mixing": true
+      },
+      "error_tags": []
+    },
+    {
+      "case_id": "independent-06",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "96c56c7807635d4dcb1c0fe22cfbbc0e731b367ba084b527c2f9537423ddd004",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": false,
+        "complete": false,
+        "supported": true,
+        "no_mixing": false
+      },
+      "error_tags": [
+        "missing_required_fact",
+        "unit_mix",
+        "wrong_value"
+      ]
+    },
+    {
+      "case_id": "independent-07",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "63e5158d7588bc8086e77da4f590888dd7e47beecad3e8a40b422e0c4e8185b9",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": true,
+        "complete": true,
+        "supported": true,
+        "no_mixing": true
+      },
+      "error_tags": []
+    },
+    {
+      "case_id": "independent-08",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "7a27ce91512b73f2cf20ea311b8aee62d9cf51dfc954a654460d07ca9f0af4e1",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": true,
+        "complete": false,
+        "supported": true,
+        "no_mixing": true
+      },
+      "error_tags": [
+        "missing_qualifier"
+      ]
+    },
+    {
+      "case_id": "independent-09",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "6b4ff17a1aff5915b2da61e534082ca224365af5878efdab65fa79b1eb069790",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": true,
+        "complete": true,
+        "supported": true,
+        "no_mixing": true
+      },
+      "error_tags": []
+    },
+    {
+      "case_id": "independent-10",
+      "cohort": "new",
+      "kind": "answerable",
+      "answer_state": "answered",
+      "citation_integrity": "passed",
+      "answer_sha256": "9569f1ba4004ab932980861b84d69d8a4e32be3be6721867a1c61e8b565a424c",
+      "review_status": "human_reviewed",
+      "criteria": {
+        "correct": true,
+        "complete": true,
+        "supported": true,
+        "no_mixing": true
+      },
+      "error_tags": []
+    }
+  ],
+  "excluded_from_public": [
+    "answer",
+    "claims",
+    "citations",
+    "quotes",
+    "notes_private",
+    "reviewer"
+  ],
+  "guarantee": "none; human review of one run does not guarantee future accuracy",
+  "promotion_performed": false,
+  "quality_rows": [
+    {
+      "case_id": "independent-01",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "32512501000143-1-000385/2026",
+      "source_hashes": [
+        "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": true,
+      "complete": true,
+      "supported": true,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-02",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "32512501000143-1-000385/2026",
+      "source_hashes": [
+        "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "insufficient_evidence",
+      "correct": false,
+      "complete": false,
+      "supported": false,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-03",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "76279975000162-1-000083/2026",
+      "source_hashes": [
+        "d551dbbbd2a444feb6281371fdfec83453e9e77c07ac560576c33425dd09457a"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": true,
+      "complete": true,
+      "supported": true,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-04",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "76279975000162-1-000083/2026",
+      "source_hashes": [
+        "d551dbbbd2a444feb6281371fdfec83453e9e77c07ac560576c33425dd09457a"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": true,
+      "complete": true,
+      "supported": true,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-05",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "82575812000120-1-000428/2026",
+      "source_hashes": [
+        "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": true,
+      "complete": true,
+      "supported": true,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-06",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "82575812000120-1-000428/2026",
+      "source_hashes": [
+        "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": false,
+      "complete": false,
+      "supported": true,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-07",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "82575812000120-1-000428/2026",
+      "source_hashes": [
+        "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": true,
+      "complete": true,
+      "supported": true,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-08",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "00348003000110-1-001037/2026",
+      "source_hashes": [
+        "159e6ecf7908b2932ce805c85ad4ddec01f598c83c25fb7122902528b371ac0b"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": true,
+      "complete": false,
+      "supported": true,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-09",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "10936853000193-1-000094/2026",
+      "source_hashes": [
+        "830cbbcd16100865c4860fc0e086c1779e2166244b89cb821bdae795b0bec39e"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": true,
+      "complete": true,
+      "supported": true,
+      "refusal_safe": null
+    },
+    {
+      "case_id": "independent-10",
+      "cohort": "new",
+      "kind": "answerable",
+      "pncp_id": "33683111000107-1-000073/2026",
+      "source_hashes": [
+        "782686f99e480d454e05c9a8aa5d221b44f69102f75da7931fca9c79712e2e2d"
+      ],
+      "natural_question": true,
+      "source_approved": true,
+      "review_status": "human_reviewed",
+      "answer_state": "answered",
+      "correct": true,
+      "complete": true,
+      "supported": true,
+      "refusal_safe": null
+    }
+  ]
+}

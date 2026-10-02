@@ -1,0 +1,223 @@
+{
+  "role": "holdout_draft_not_indexed",
+  "candidate_sha256": "f59c15cae9d20a9dc2de602da1ea2782a708d4b2dc90f6c17d46d92c93a64bf2",
+  "editais": [
+    {
+      "pncp_id": "37344355000108-1-000026/2026",
+      "uf": "TO",
+      "agency": "MUNICIPIO DE SANDOLANDIA",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "476579d6f92c8861cefbd0ab6c4deb7180192247120c1d6435d83596d19da36e",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/1",
+          "bytes": 540393,
+          "page_count": 61
+        },
+        {
+          "sequence": 2,
+          "sha256": "4769a6a084dfda41b032fa16539ca6c330eaa98836c44f89e2cd1a39b191c3c0",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/2",
+          "bytes": 257475,
+          "page_count": 14
+        },
+        {
+          "sequence": 3,
+          "sha256": "e88f3c46766228619d6a1462d3854222aebc203ea169976cc4e0a93055edd6fd",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/3",
+          "bytes": 372457,
+          "page_count": 16
+        }
+      ]
+    },
+    {
+      "pncp_id": "41479569000169-1-000055/2026",
+      "uf": "MA",
+      "agency": "MUNICIPIO DE ROSARIO",
+      "documents": [
+        {
+          "sequence": 3,
+          "sha256": "73b66e95e7d417dd75fdcd8f933a313b92fe91c4a5b042338c715a6eaa0ddb1d",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/41479569000169/compras/2026/55/arquivos/3",
+          "bytes": 949852,
+          "page_count": 64
+        }
+      ]
+    },
+    {
+      "pncp_id": "10091619000102-1-000090/2026",
+      "uf": "PE",
+      "agency": "MUNICIPIO DE CACHOEIRINHA",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "1cfc33f83db3ddf4652f47c212b60e3b17721cf7c3463fb6cadb39cffeede545",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10091619000102/compras/2026/90/arquivos/1",
+          "bytes": 1042864,
+          "page_count": 80
+        }
+      ]
+    },
+    {
+      "pncp_id": "70157896000100-1-000010/2026",
+      "uf": "RN",
+      "agency": "COMPANHIA POTIGUAR DE GAS POTIGAS",
+      "documents": [
+        {
+          "sequence": 3,
+          "sha256": "abc089df8f8bf00e1124be5fed2b8d8b1ff9e1781940924d024c9166dcad4219",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/70157896000100/compras/2026/10/arquivos/3",
+          "bytes": 219396,
+          "page_count": 16
+        }
+      ]
+    },
+    {
+      "pncp_id": "08702573000179-1-000050/2026",
+      "uf": "PB",
+      "agency": "MUNICIPIO DE BOQUEIRAO",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "ba7a84954238ef210fb633620d3b4fffe0938235a5a7e9ec888a218930fdbceb",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/08702573000179/compras/2026/50/arquivos/1",
+          "bytes": 343806,
+          "page_count": 26
+        }
+      ]
+    },
+    {
+      "pncp_id": "03238755000117-1-000031/2026",
+      "uf": "MT",
+      "agency": "SORRISO CAMARA MUNICIPAL",
+      "documents": [
+        {
+          "sequence": 6,
+          "sha256": "54cab84bdc2fed321d7dfb0a9cca7159c7ac93f6672adc25278fdb6fd8f9cefc",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/03238755000117/compras/2026/31/arquivos/6",
+          "bytes": 706441,
+          "page_count": 56
+        }
+      ]
+    },
+    {
+      "pncp_id": "03173317000118-1-000078/2026",
+      "uf": "MS",
+      "agency": "MUNICIPIO DE NOVA ANDRADINA",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "20eced2de8745b5c64447e6029a3951f562c89739fe5c43a992eccf5a1d12f2c",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/03173317000118/compras/2026/78/arquivos/1",
+          "bytes": 8597619,
+          "page_count": 180
+        }
+      ]
+    },
+    {
+      "pncp_id": "01759101000103-1-000011/2026",
+      "uf": "MG",
+      "agency": "CAMARA MUNICIPAL DE DOM SILVERIO",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "fd68aeca1c569ca809c9f3f6ba1e7cd45ac3e5b924759b7ef91b48a4fd5d37d8",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01759101000103/compras/2026/11/arquivos/1",
+          "bytes": 3766168,
+          "page_count": 67
+        }
+      ]
+    },
+    {
+      "pncp_id": "14004319000108-1-000050/2026",
+      "uf": "ES",
+      "agency": "FUNDO MUNICIPAL DE SAUDE DE RIO NOVO DO SUL",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "60e364baead1d533c164250f887bdfb608e6c1024c302b464ff4f8e59e17e823",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/14004319000108/compras/2026/50/arquivos/1",
+          "bytes": 2016011,
+          "page_count": 67
+        }
+      ]
+    },
+    {
+      "pncp_id": "04312658000190-1-000026/2026",
+      "uf": "AM",
+      "agency": "SECRETARIA MUNICIPAL DE FINANCAS E TECNOLOGIA DA INFORMACAO - SEMEF",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "a0cad139c9b17869b60bb09cd4cf85bf05597d02dce20af1bd6a64048b967f38",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/04312658000190/compras/2026/26/arquivos/1",
+          "bytes": 1357930,
+          "page_count": 68
+        }
+      ]
+    },
+    {
+      "pncp_id": "05138730000177-1-000086/2026",
+      "uf": "PA",
+      "agency": "MUNICIPIO DE ITAITUBA",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "060a967d5ed5b7b69bb407ca71c6180a7abf4249fd9b35977c067f3b22cf0757",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/1",
+          "bytes": 2257976,
+          "page_count": 35
+        },
+        {
+          "sequence": 2,
+          "sha256": "ed372d6bcf796fd62a221c8d42f1fd212aed3d1332a7a03ae1eb7de7a923018f",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/2",
+          "bytes": 2204076,
+          "page_count": 15
+        },
+        {
+          "sequence": 3,
+          "sha256": "19e7c7440ac2bf73e680961e26441063a0285dbc252f763fa20e8a1d6938516c",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/3",
+          "bytes": 2201928,
+          "page_count": 14
+        }
+      ]
+    },
+    {
+      "pncp_id": "87691507000117-1-000046/2026",
+      "uf": "RS",
+      "agency": "MUNICIPIO DE CAPAO DO LEAO",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "2f12c56ad90e561bf4b3fdb7110cca4cc43010e76ed5ac976bf9c555e9e37812",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/87691507000117/compras/2026/46/arquivos/1",
+          "bytes": 237356,
+          "page_count": 8
+        },
+        {
+          "sequence": 2,
+          "sha256": "9c1d0973068ce3726059f0ba3aba84b9cb42ad54dc70dddb7771596beb3c6fe0",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/87691507000117/compras/2026/46/arquivos/2",
+          "bytes": 628210,
+          "page_count": 38
+        }
+      ]
+    },
+    {
+      "pncp_id": "79151312000156-1-000510/2026",
+      "uf": "PR",
+      "agency": "UNIVERSIDADE ESTADUAL DE MARINGA",
+      "documents": [
+        {
+          "sequence": 1,
+          "sha256": "bdaf2c34fea205feb7cf3ab5df2f26ed4e36af4b26742c87ac7413bdf8070e58",
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/79151312000156/compras/2026/510/arquivos/1",
+          "bytes": 6723020,
+          "page_count": 106
+        }
+      ]
+    }
+  ]
+}

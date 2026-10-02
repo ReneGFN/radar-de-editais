@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-02",
+  "supersedes_for_current_state": "item-validation-state-v3.json (preserved)",
+  "variant": "alias_items",
+  "snapshot_id": "1446c44aca18011a",
+  "authorization": "explicit user authorization in chat on 2026-10-02 for exactly three Groq calls: pilot-38, pilot-39, pilot-40",
+  "authorized_calls_attempted": 3,
+  "authorized_call_results": {
+    "pilot-38": "refused",
+    "pilot-39": "refused",
+    "pilot-40": "groq_http_429_not_retried"
+  },
+  "retries": 0,
+  "planned_cases": 50,
+  "generated_cases": 49,
+  "pending_case_ids": ["pilot-40"],
+  "pending_reason": "groq_http_429_rate_limit",
+  "rate_limit_attempts_in_checkpoint": 4,
+  "failed_attempt_usage": "not_confirmed",
+  "citation_integrity_passed": 49,
+  "citation_integrity_is_not_semantic_correctness": true,
+  "secret_pattern_check_new_refusals": "no Groq key pattern, actual key or password assignment found in pilot-38/39 responses (automatic check, not human review)",
+  "groups": {
+    "pilot_answerable": {"cases": 30, "generated": 30, "answered": 30, "abstained": 0},
+    "pilot_refusals": {"cases": 10, "generated": 9, "answered": 1, "abstained": 8, "answered_case_ids": ["pilot-35"]},
+    "new_answerable": {"cases": 10, "generated": 10, "answered": 9, "abstained": 1}
+  },
+  "human_review": {"human_reviewed_cases": 0, "public_summary": "human-review-pilot-alias-items-v2.json"},
+  "human_accuracy": null,
+  "frozen_code_and_reference_unchanged": true,
+  "promotion": false,
+  "target_90_percent": "not_evaluable_without_human_review_and_independent_holdout"
+}

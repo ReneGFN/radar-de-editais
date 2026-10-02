@@ -1,6 +1,8 @@
 # Radar de Editais
 
-**Estado atual (2026-10-01): etapa2 parcialmente executada;39/50 casos Groq concluídos,11 pendentes por HTTP429. Revisão humana pendente, sem comprovação de90%. [Resultados atuais](docs/avaliacao-da-estrutura.md).
+**Estado atual (2026-10-02):** 50/50 casos gerados na Groq com citação íntegra; as 10 recusas do piloto saíram como recusa, exceto pilot-35 (respondeu; pendente de revisão). Nenhuma resposta revisada por uma pessoa, então não há taxa de acerto e a meta de 90% não é avaliável. Revisão humana com registro privado implementada; amostra independente v2 com 14 candidatos inéditos, ainda sem perguntas. [Métricas atuais e limites](docs/metricas-atuais.md) · [Plano de revisão humana](docs/plano-revisao-humana.md) · [Amostra independente v2](docs/amostra-independente-v2.md) · [Proposta de API e painel](docs/proposta-api-painel.md).
+
+Estado anterior (2026-10-01): etapa 2 parcialmente executada; 39/50 casos Groq concluídos e 11 pendentes por HTTP 429. [Resultados](docs/avaliacao-da-estrutura.md).
 
 
 **Laboratório de avaliação de RAG para leitura de editais públicos de informática.**
