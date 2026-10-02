@@ -12,7 +12,7 @@ from pathlib import Path
 from radar.config import PROJECT, emit_json, private_root
 from radar.human_review import build_form, public_summary, quality_rows, refresh_form, validate_form
 
-VARIANTS = ('baseline', 'source_window', 'alias_window', 'alias_items')
+VARIANTS = ('baseline', 'source_window', 'alias_window', 'alias_items', 'alias_items_v2')
 
 
 def paths(reference_path, variant):
