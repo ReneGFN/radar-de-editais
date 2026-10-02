@@ -171,7 +171,20 @@ def _group(rows, kind):
         'rate': round(len(passed) / len(group), 4) if scorable else None}
     if not scorable:
         result['rate_unavailable_because'] = 'not_run_or_unreviewed_cases'
+    if kind == 'out_of_scope':
+        # Ex.: pilot-35 recusa a garantia no texto, mas o estado técnico veio `answered`.
+        result['technical_status_mismatch'] = sum(effective_behavior(r) == 'refusal_with_answered_status' for r in group)
     return result
+
+
+def effective_behavior(row):
+    """Comportamento observado em recusas: separa o estado técnico do julgamento humano."""
+    if row['kind'] != 'out_of_scope' or row['review_status'] != 'human_reviewed':
+        return None
+    refused = row['criteria'].get('refusal_appropriate') is True
+    if row['answer_state'] == 'answered':
+        return 'refusal_with_answered_status' if refused else 'complied_should_refuse'
+    return 'refused' if refused else 'refused_inappropriately'
 
 
 def public_summary(rows, form):
@@ -183,7 +196,7 @@ def public_summary(rows, form):
         'answerable': _group(rows, 'answerable'), 'refusals': _group(rows, 'out_of_scope'),
         'error_tag_counts': {tag: sum(tag in r['error_tags'] for r in rows)
             for tag in sorted(ERROR_TAGS) if any(tag in r['error_tags'] for r in rows)},
-        'cases': rows, 'excluded_from_public': ['answer', 'claims', 'citations', 'quotes', 'notes_private', 'reviewer'],
+        'cases': [dict(r, effective_behavior=effective_behavior(r)) for r in rows], 'excluded_from_public': ['answer', 'claims', 'citations', 'quotes', 'notes_private', 'reviewer'],
         'guarantee': 'none; human review of one run does not guarantee future accuracy',
         'promotion_performed': False}
 
