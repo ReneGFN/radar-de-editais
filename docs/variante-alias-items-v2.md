@@ -47,3 +47,29 @@ Para pilot-35, além da regra no prompt, o resumo da revisão humana passou a se
 ## Critério de decisão após a execução
 
 Comparar `alias_items_v2` contra `alias_items` nos mesmos 50 casos, com revisão humana só das respostas que mudarem. Se não houver melhora verificável em correção/completude, ou houver regressão relevante (acertos perdidos, recusas inseguras, rejeições novas, latência), `alias_items` continua padrão.
+
+
+## Execução autorizada — 50 chamadas (2026-10-02)
+
+Renê autorizou "as 50 chamadas Groq da v2". Uma tentativa por caso, `max_retries=0`, 35 s de intervalo, nenhum HTTP 429. Comparação: [`reports/variant-comparison-alias-items-v2.json`](../reports/variant-comparison-alias-items-v2.json) (só ids, estados e números; as respostas ficam na ficha privada `comparacao-alias-items-v2.md`).
+
+| Medida (50 casos de desenvolvimento) | alias_items | alias_items_v2 |
+|---|---:|---:|
+| Factuais respondidas (de 40) | 39 | 38 |
+| Rejeitadas pelo validador | 0 | 2 (pilot-22 estado incoerente; independent-08 qualificador omitido) |
+| Mediana de afirmações por resposta | 1 | 1 (17 casos com menos afirmações, 1 com mais) |
+| Mediana de caracteres da resposta | 115,5 | 111,5 |
+| Tokens de entrada / saída (total) | 117.498 / 8.651 | 128.312 / 7.815 |
+| Mediana de geração / total por caso | 866 / 1.018 ms | 928 / 1.081 ms |
+| Respostas idênticas | — | 1 de 50 |
+
+Mudanças de estado: pilot-35 `answered` → `refused`; pilot-36 `insufficient_evidence` → `refused`; independent-02 `insufficient_evidence` → `answered`; pilot-22 e independent-08 → `rejected`.
+
+Leitura do assistente, que **não é nota humana**:
+
+- melhorou: pilot-35 recusa a garantia; independent-06 não mistura mais unidades nem chama CL40 de mínimo; respostas mais agrupadas (ex.: 06 numa linha só);
+- não resolveu: independent-06 ainda omite JEDEC 4800 MT/s; independent-08 ainda omitiu "por item" (a guarda barrou); pilot-17 agora separa os itens, mas os chama de "Item 1/Item 2" em vez de 29/30 e não pede o item;
+- piorou: independent-02 trocou abstenção por valor errado (21 em ampla concorrência; a referência diz 28), que é pior que abster-se; pilot-22, correto na v1, foi rejeitado; pilot-36 deixou de informar a garantia de 12 meses que a fonte dá;
+- custo: +9% de tokens de entrada e +7% na mediana de geração.
+
+Decisão: **`alias_items` continua padrão**. Não há melhora verificável sem revisão humana, e há regressões visíveis (02, 22). Fichas em branco da v2 criadas no privado (`human-review-*-alias_items_v2.json`); a revisão humana decide o resultado final.
