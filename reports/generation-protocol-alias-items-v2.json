@@ -1,0 +1,28 @@
+{
+  "state": "prepared_before_execution_awaiting_user_authorization",
+  "variant": "alias_items_v2",
+  "baseline_variant_preserved": "alias_items",
+  "model": "openai/gpt-oss-120b",
+  "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+  "cases": 50,
+  "max_passages": 5,
+  "reference_sha256": {
+    "pilot-candidate-v1.json": "9b9a5bb89a9a3511c5a5e334227495b56b4985c0e8fe8f23e64ae5e9f54f535a",
+    "independent-bound-v1.json": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f"
+  },
+  "system_prompt_sha256": "a476d12b057b1f67c6e8078178bf3e12f13969b57bb82f879d867556d747b0ae",
+  "preview_sha256": "9502ade0dee5d354a00e21cde305f367de51f62f85613aaf1af40e900553ee9a",
+  "code_sha256": {
+    "backend/src/radar/generation.py": "46c5fd9818531b11e8e95f2298f42dd788cec1ede0d061128a1236a8eeba744a",
+    "backend/src/radar/retrieval.py": "54c0127703a969ee0999229f2fc4cde73dddaf3bb57f4abb4c9209383a53d702",
+    "backend/src/radar/item_structure.py": "4eefa9e5d25a27963741849e1b20deef10c264fdc86fcf53628e401039e89f0b",
+    "backend/src/radar/citations.py": "67c7234adc236bbef29a7df7b8b72817205bede16886c6f12202e9852b7fc165",
+    "ops/evaluate-generation.py": "5ba1324158fea09127b5ac2c8511b339d4252e6fc804de5e61a94f5590c44ec4",
+    "ops/preview-generation-v2.py": "b814f95f34dcd367d390316b23319e8165c21202a266806e907776a970d08e7b"
+  },
+  "holdout_used": false,
+  "key_in_prompt": false,
+  "gold_in_prompt": false,
+  "groq_calls": 0,
+  "human_accuracy": null
+}
