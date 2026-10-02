@@ -37,7 +37,7 @@ SCHEMA = {'title':'GroundedAnswer','type':'object','additionalProperties':False,
      'properties':{'chunk_id':{'type':'string'},'quote':{'type':'string'}},'required':['chunk_id','quote']}}},
    'required':['text','evidence']}}},'required':['status','reason','claims']}
 
-PROMPT_VERSIONS = ('v1','v2')
+PROMPT_VERSIONS = ('v1','v2','v3')
 SOURCE_MODE_RULE = '\nNeste modo evidence contém somente chunk_id, sem quote. Selecione somente fontes que sustentem cada afirmação; o servidor exibirá a passagem original completa. Não reproduza nem abrevie citações no JSON.'
 # v2: corrige padrões gerais observados no desenvolvimento (nunca no holdout).
 V2_RULES = '''
@@ -60,6 +60,15 @@ Regras adicionais:
   pergunta precisa indicar o item.
 - Pedido de garantia de resultado, aceitação ou ausência de risco é refused, mesmo que
   haja cláusulas relacionadas; as cláusulas úteis podem ser mencionadas em reason.'''
+# v3: soma regras a v2 para três falhas observadas na execução da v2 (pilot-22, pilot-36, independent-02).
+V3_RULES = '''
+- Não calcule, some nem subtraia quantidades. Informe cada número exatamente como aparece
+  na linha do item. Numa tabela com linhas de ampla concorrência e de cota, a linha marcada
+  como cota traz a quantidade da cota e a outra linha traz a quantidade da ampla concorrência.
+- Se as fontes respondem a pergunta, mesmo que em parte, use answered com as afirmações
+  sustentadas e diga em reason o que não foi encontrado.
+- Ao recusar um pedido para alterar, omitir ou contrariar o documento, use refused e
+  inclua em claims o que a fonte realmente diz, com a fonte.'''
 
 
 def system_prompt(citation_mode='model_quote',prompt_version='v1'):
@@ -67,13 +76,15 @@ def system_prompt(citation_mode='model_quote',prompt_version='v1'):
     if prompt_version not in PROMPT_VERSIONS:
         raise ValueError('Versão de prompt inválida')
     system=SYSTEM
-    if prompt_version=='v2':
+    if prompt_version in ('v2','v3'):
         system=system.replace('uma afirmação curta por claim','uma afirmação por item ou fato pedido')
     if citation_mode in ('source_id','source_alias'):
         system=system.replace('um chunk_id e quote literal do contexto','um chunk_id do contexto')
         system+=SOURCE_MODE_RULE
-    if prompt_version=='v2':
+    if prompt_version in ('v2','v3'):
         system+=V2_RULES
+    if prompt_version=='v3':
+        system+=V3_RULES
     return system
 
 
@@ -123,7 +134,23 @@ def semantic_guards(validated):
     return validated
 
 
-def validate_answer(payload, documents):
+_QUANTITY=re.compile(r'(?<![\d.,])(\d{1,6})(?![\d.,]\d)\s*(?:unidades?|und\b|un\b|notebooks?|computadores?|desktops?|monitores?|equipamentos?)',re.I)
+
+
+def quantity_guard(validated):
+    """v3: quantidade afirmada precisa aparecer como número isolado nas fontes citadas (sem conta do modelo)."""
+    if validated['status']!='answered':
+        return validated
+    for claim in validated['claims']:
+        evidence=' '.join(ev['quote'] for ev in claim['evidence'])
+        for match in _QUANTITY.finditer(claim['text']):
+            number=match.group(1)
+            if not re.search(r'(?<![\d.,])'+re.escape(number)+r'(?![\d]|[.,]\d)',evidence):
+                raise ValueError('Quantidade sem apoio literal')
+    return validated
+
+
+def validate_answer(payload, documents, *, allow_supported_claims=False):
     if not isinstance(payload,dict) or set(payload)!= {'status','reason','claims'}:
         raise ValueError('Formato de resposta inválido')
     if payload['status'] not in ('answered','refused','insufficient_evidence') or not isinstance(payload['reason'],str):
@@ -150,13 +177,26 @@ def validate_answer(payload, documents):
                 if not match: raise ValueError('Citação inventada')
                 ev['quote']=match.group(0)
             citations.append(dict(sources[ev['chunk_id']].metadata,quote=ev['quote']))
-    if (payload['status']=='answered') != bool(payload['claims']):
+    status=payload['status'];partial=False
+    if allow_supported_claims and payload['claims'] and status=='insufficient_evidence':
+        # v3: afirmações já verificadas não são descartadas; a lacuna fica explícita em reason.
+        status='answered';partial=True
+    if allow_supported_claims and status=='refused':
+        pass  # v3: a recusa pode trazer o que a fonte realmente diz, com citação verificada.
+    elif (status=='answered') != bool(payload['claims']):
         raise ValueError('Estado incompatível com afirmações')
-    rendered=' '.join(c['text'] for c in payload['claims']) if payload['status']=='answered' else payload['reason']
+    claims_text=' '.join(c['text'] for c in payload['claims'])
+    if status=='answered':
+        rendered=claims_text+(' '+payload['reason'] if partial and payload['reason'].strip() else '')
+    else:
+        rendered=payload['reason']+(' '+claims_text if claims_text else '')
     if not rendered.strip() or len(rendered)>12000 or re.search(r'\b(?:gsk_|sk-|ghp_)[A-Za-z0-9_-]{20,}',rendered):
         raise ValueError('Resposta vazia, longa ou com padrão de segredo')
-    return {'status':payload['status'],'answer':rendered,'claims':payload['claims'],'citations':citations,
+    result={'status':status,'answer':rendered,'claims':payload['claims'],'citations':citations,
             'citation_integrity':'passed','semantic_support':'requires_review'}
+    if partial:
+        result['partial_answer']=True;result['model_status']='insufficient_evidence'
+    return result
 
 
 def key():
@@ -221,12 +261,14 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
         if citation_mode=='source_alias':
             from .citations import resolve_aliases,attach_literal_sources
             parsed=attach_literal_sources(resolve_aliases(parsed,aliases),docs)
-        validated=validate_answer(parsed,docs)
-        if prompt_version=='v2':
+        validated=validate_answer(parsed,docs,allow_supported_claims=prompt_version=='v3')
+        if prompt_version in ('v2','v3'):
             validated=semantic_guards(validated)
+        if prompt_version=='v3':
+            validated=quantity_guard(validated)
     except Exception as exc:
         # Mensagens de erro do SDK podem conter requisição/resposta: não exportá-las.
-        known={'Formato de resposta inválido','Estado de resposta inválido','Afirmações inválidas','Afirmação inválida','Afirmação sem evidência','Fonte não recuperada','Citação inventada','Estado incompatível com afirmações','Resposta vazia, longa ou com padrão de segredo','Resposta estruturada inválida','Unidade divergente da fonte','Qualificador do critério omitido','Limite não declarado na fonte'}
+        known={'Formato de resposta inválido','Estado de resposta inválido','Afirmações inválidas','Afirmação inválida','Afirmação sem evidência','Fonte não recuperada','Citação inventada','Estado incompatível com afirmações','Resposta vazia, longa ou com padrão de segredo','Resposta estruturada inválida','Unidade divergente da fonte','Qualificador do critério omitido','Limite não declarado na fonte','Quantidade sem apoio literal'}
         kind=type(exc).__name__
         body=getattr(exc,'body',None)
         provider_code=body.get('error',{}).get('code') if isinstance(body,dict) and isinstance(body.get('error',{}),dict) else None

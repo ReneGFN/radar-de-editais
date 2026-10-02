@@ -29,7 +29,7 @@ def test_v2_prompt_is_a_different_versioned_prompt():
     assert hashlib.sha256(v2.encode()).hexdigest() != ALIAS_ITEMS_SYSTEM_SHA256
     assert 'uma afirmação curta por claim' not in v2
     with pytest.raises(ValueError):
-        system_prompt('source_alias', 'v3')
+        system_prompt('source_alias', 'v9')
 
 
 def test_unit_swapped_from_mt_s_to_mhz_is_rejected():
