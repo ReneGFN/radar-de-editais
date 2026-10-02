@@ -44,6 +44,23 @@ def quote_checks(reference, pages_path):
     return problems
 
 
+def revoked_hashes(holdout_dir):
+    """Hashes de referências cuja aprovação foi revogada; nunca ficam prontas para executar."""
+    revoked = set()
+    for path in sorted(Path(holdout_dir).glob('*-approval-revocation.json')):
+        record = json.loads(path.read_text(encoding='utf-8'))
+        digest = record.get('revokes_reference_sha256', '')
+        if not re.fullmatch(r'[0-9a-f]{64}', digest):
+            raise SystemExit('Revogação sem hash válido: ' + path.name)
+        revoked.add(digest)
+    return revoked
+
+
+def ready(result, reference, digest, revoked):
+    return (result['independent'] and not result['quote_violations'] and digest not in revoked
+            and all(c['review_status'] == 'approved' for c in reference['cases']))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('manifest', type=Path)
@@ -57,18 +74,20 @@ def main():
     result = check_holdout(manifest, reference, load_exclusions())
     result['quote_violations'] = quote_checks(reference, pages_path)
     factual = [c for c in reference['cases'] if c['kind'] == 'answerable']
+    digest = hashlib.sha256(raw).hexdigest()
+    revoked = revoked_hashes(PROJECT / 'datasets/holdout')
     result.update({
         'checked_at_utc': datetime.now(timezone.utc).isoformat(),
-        'reference_sha256': hashlib.sha256(raw).hexdigest(),
+        'reference_sha256': digest,
+        'approval_revoked': digest in revoked,
         'manifest_sha256': hashlib.sha256(args.manifest.read_bytes()).hexdigest(),
         'category_counts': dict(Counter(c['category'] for c in factual)),
         'factual_per_edital': dict(Counter(c['pncp_id'] for c in factual)),
         'review_status_counts': dict(Counter(c['review_status'] for c in reference['cases'])),
-        'ready_to_execute': result['independent'] and not result['quote_violations']
-                            and all(c['review_status'] == 'approved' for c in reference['cases']),
+        'ready_to_execute': ready(result, reference, digest, revoked),
         'groq_calls': 0, 'database_changes': 0})
     emit_json(args.report, result)
-    print(json.dumps({k: result[k] for k in ('independent', 'ready_to_execute', 'factual', 'refusals', 'editais',
+    print(json.dumps({k: result[k] for k in ('independent', 'ready_to_execute', 'approval_revoked', 'factual', 'refusals', 'editais',
                                              'documents', 'category_counts', 'review_status_counts')}
                      | {'violations': result['violations'], 'quote_violations': result['quote_violations'],
                         'warnings': result['warnings']}, ensure_ascii=False))

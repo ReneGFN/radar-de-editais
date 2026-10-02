@@ -51,3 +51,30 @@ def test_approved_without_record_fails(tmp_path):
     quote = 'UN 01 100'
     approved = case(quote, TEXT.index(quote), review_status='approved')
     assert module.quote_checks({'cases': [approved]}, pages(tmp_path)) == [{'type': 'approved_without_record', 'value': 'h-1'}]
+
+
+
+def _revocation(tmp_path, digest):
+    (tmp_path / 'holdout-v1-approval-revocation.json').write_text(
+        json.dumps({'revokes_reference_sha256': digest}), encoding='utf-8')
+
+
+def test_revoked_reference_is_never_ready_even_if_all_approved(tmp_path):
+    _revocation(tmp_path, SHA)
+    reference = {'cases': [{'review_status': 'approved'}]}
+    result = {'independent': True, 'quote_violations': []}
+    revoked = module.revoked_hashes(tmp_path)
+    assert module.ready(result, reference, SHA, revoked) is False
+    assert module.ready(result, reference, 'b' * 64, revoked) is True
+
+
+def test_pending_case_is_not_ready(tmp_path):
+    reference = {'cases': [{'review_status': 'approved'}, {'review_status': 'pending_user_approval'}]}
+    assert module.ready({'independent': True, 'quote_violations': []}, reference, SHA, set()) is False
+
+
+def test_revocation_without_valid_hash_is_refused(tmp_path):
+    _revocation(tmp_path, 'abc')
+    import pytest
+    with pytest.raises(SystemExit):
+        module.revoked_hashes(tmp_path)

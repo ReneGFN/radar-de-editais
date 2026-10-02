@@ -79,4 +79,10 @@ Renê revisou as 50 respostas: aprovou 46 em bloco pelo chat e confirmou 4 erros
 
 Erros confirmados: independent-02 (abstenção indevida), independent-06 (compatibilidade JEDEC é 4800 MT/s, não "5600MHz"; 5600 MT/s como mínimo está certo), independent-08 ("menor preço" sem "por item"; o revisor considerou cerca de 70% certo, mas a ficha só registra verdadeiro/falso e o caso conta como incompleto), pilot-17 (juntou SSDs de dois itens).
 
-Esses 90% não cumprem a meta: são casos usados nos ajustes do perfil `alias_items`, e 46 deles foram aprovados em bloco, o que é uma revisão mais fraca que conferir caso a caso. A meta só pode ser avaliada no holdout v1 (`9744a41a954f7654`), ainda não executado.
+Esses 90% não cumprem a meta: são casos usados nos ajustes do perfil `alias_items`, e 46 deles foram aprovados em bloco, o que é uma revisão mais fraca que conferir caso a caso. A meta só pode ser avaliada no holdout da amostra independente v2, ainda não executado.
+
+## Atualização — aprovação do holdout revogada (2026-10-02)
+
+O dono do repositório decidiu revisar os 46 casos do holdout manualmente, um a um. A aprovação em bloco pelo chat, que gerou `datasets/holdout/holdout-v1.json` (`9744a41a954f7654`), foi revogada em [`holdout-v1-approval-revocation.json`](../datasets/holdout/holdout-v1-approval-revocation.json). O arquivo revogado continua no repositório como histórico, sem edição. O holdout volta a `pending_user_approval`, e a fonte da revisão é o rascunho `holdout-v1-draft.json`.
+
+`ops/check-holdout.py` agora recusa como pronta qualquer referência com aprovação revogada. Verificação: [check v3](../reports/holdout-independence-check-v3.json) sobre o arquivo revogado e [check v4](../reports/holdout-independence-check-v4-draft.json) sobre o rascunho deram ambos independente, 0 violações e `ready_to_execute: false`. O holdout nunca foi indexado, recuperado nem enviado a modelo.

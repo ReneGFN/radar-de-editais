@@ -1,0 +1,47 @@
+{
+  "independent": true,
+  "violations": [],
+  "warnings": [],
+  "factual": 36,
+  "refusals": 10,
+  "editais": 13,
+  "documents": 18,
+  "categories": [
+    "deadline",
+    "item",
+    "judgment_criterion",
+    "quantity",
+    "specification"
+  ],
+  "scope": "data separation only; says nothing about answer quality",
+  "quote_violations": [],
+  "checked_at_utc": "2026-10-02T22:15:52.913395+00:00",
+  "reference_sha256": "9744a41a954f7654924a26af47702e9560e0a063ade5c6455457e9081f86828d",
+  "approval_revoked": true,
+  "manifest_sha256": "0fe38a985862a8eb2ec86cd4ac1851351ac1f6bf835f6dc7cd625d1a1fc36b3e",
+  "category_counts": {
+    "quantity": 8,
+    "specification": 8,
+    "deadline": 7,
+    "judgment_criterion": 7,
+    "item": 6
+  },
+  "factual_per_edital": {
+    "04312658000190-1-000026/2026": 5,
+    "87691507000117-1-000046/2026": 4,
+    "14004319000108-1-000050/2026": 4,
+    "08702573000179-1-000050/2026": 4,
+    "01759101000103-1-000011/2026": 4,
+    "37344355000108-1-000026/2026": 4,
+    "10091619000102-1-000090/2026": 4,
+    "05138730000177-1-000086/2026": 3,
+    "70157896000100-1-000010/2026": 2,
+    "41479569000169-1-000055/2026": 2
+  },
+  "review_status_counts": {
+    "approved": 46
+  },
+  "ready_to_execute": false,
+  "groq_calls": 0,
+  "database_changes": 0
+}
