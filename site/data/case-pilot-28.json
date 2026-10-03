@@ -1,0 +1,45 @@
+{
+ "id": "pilot-28",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "multi_attribute",
+ "pncp_id": "03507415002864-1-000159/2026",
+ "question": "Na workstation forense da SESP/MT, quais quantidades mínimas de slots PCI-Express x16 e M.2 NVMe são exigidas?",
+ "expected_answer": "No mínimo 3 slots PCI-Express x16 e 2 slots M.2 PCIe 4.0/5.0 NVMe.",
+ "sources": [
+  {
+   "document_sha256": "2cdc7c6ade50535410cf61038b59c244f335cc9f3cb62536994bdac2c1562054",
+   "document_sequence": 2,
+   "page": 51,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/03507415002864/compras/2026/159/arquivos/2"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

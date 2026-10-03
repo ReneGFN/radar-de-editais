@@ -1,0 +1,45 @@
+{
+ "id": "pilot-14",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "multi_attribute",
+ "pncp_id": "46179941000135-1-000443/2026",
+ "question": "Para o monitor do edital de Assis de sequência 443, qual tamanho mínimo e resolução nativa são exigidos?",
+ "expected_answer": "No mínimo 23,8 polegadas e resolução FHD de 1920 × 1080, ou superior.",
+ "sources": [
+  {
+   "document_sha256": "33ef16104ac3f44b2939f06de7c65ff082970e06c2baca4a5c1f15966dc43644",
+   "document_sequence": 1,
+   "page": 11,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46179941000135/compras/2026/443/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

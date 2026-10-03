@@ -1,0 +1,45 @@
+{
+ "id": "pilot-08",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "procedure",
+ "pncp_id": "00394452000103-1-020757/2026",
+ "question": "No trecho da página 18 sobre motivação encaminhada à autoridade superior, qual prazo máximo para a decisão e seu marco inicial?",
+ "expected_answer": "20 dias úteis, contados do recebimento dos autos.",
+ "sources": [
+  {
+   "document_sha256": "c56aa328d29475ab50855a16f798a71afe24ccfb761076621523ab92ad75aefe",
+   "document_sequence": 3,
+   "page": 18,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00394452000103/compras/2026/20757/arquivos/3"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

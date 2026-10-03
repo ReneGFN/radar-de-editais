@@ -1,0 +1,45 @@
+{
+ "id": "pilot-02",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "specification",
+ "pncp_id": "45374469000129-1-000030/2026",
+ "question": "Na especificação de RAM da página 31, qual é a velocidade mínima?",
+ "expected_answer": "2400 MHz, ou superior compatível com o sistema.",
+ "sources": [
+  {
+   "document_sha256": "37f9952276faa545374cdc9c2dec594ce6a4a53e9f7817d1c4ef1240447e0ddd",
+   "document_sequence": 1,
+   "page": 31,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45374469000129/compras/2026/30/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "decision": "blocked",
+ "target": 0.9,
+ "target_status": "não avaliável: exige holdout independente aprovado, executado e revisado por humano",
+ "default_variant": "alias_items",
+ "criteria_met": [
+  "Revisão humana do desenvolvimento em alias_items: 36/40 factuais e 10/10 recusas",
+  "Integridade de citação verificada automaticamente (separada da correção)",
+  "Independência do holdout verificada: sem sobreposição de edital, PDF, URL ou pergunta"
+ ],
+ "blockers": [
+  "Holdout com 46 de 46 casos pendentes de aprovação",
+  "Holdout não executado",
+  "Respostas do holdout sem revisão humana",
+  "Conjunto novo anterior é desenvolvimento, não validação independente"
+ ],
+ "previous_gate_reasons": [
+  "references_or_human_reviews_pending",
+  "regression_below_target_or_unscored",
+  "new_sample_too_small",
+  "new_below_target_or_unscored",
+  "new_editais_too_few",
+  "refusal_review_pending_or_unsafe"
+ ],
+ "holdout": {
+  "cases": 46,
+  "cases_pending_user_approval": 46,
+  "status": "pending_user_approval",
+  "executed": false
+ },
+ "holdout_requirements": [
+  "aprovação humana explícita dos 46 casos",
+  "protocolo congelado com hashes",
+  "snapshot exclusivo, separado de 1446c44aca18011a",
+  "execução única autorizada",
+  "revisão humana das respostas",
+  "mínimo de 30 factuais, 10 recusas e 10 contratações"
+ ],
+ "development_set_note": "o conjunto \"independent-*\" foi usado em ajustes: é desenvolvimento, não validação independente",
+ "guarantee": "nenhuma; nenhuma taxa medida aqui garante desempenho futuro"
+}

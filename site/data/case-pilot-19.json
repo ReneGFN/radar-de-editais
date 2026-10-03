@@ -1,0 +1,45 @@
+{
+ "id": "pilot-19",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "delivery",
+ "pncp_id": "78121936000168-1-000072/2026",
+ "question": "Em Três Barras do Paraná, o prazo de entrega da cláusula 7.9 é de quantos dias e eles são úteis ou corridos?",
+ "expected_answer": "Até 10 dias úteis.",
+ "sources": [
+  {
+   "document_sha256": "b4d14d9b69d7439445bddf21a17c867c62bcdeef09a112f67ac129d37fc0d6f3",
+   "document_sequence": 1,
+   "page": 40,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/78121936000168/compras/2026/72/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

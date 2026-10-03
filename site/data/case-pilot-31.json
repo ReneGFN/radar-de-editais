@@ -1,0 +1,45 @@
+{
+ "id": "pilot-31",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "proposal",
+ "pncp_id": "02006782000100-1-000026/2026",
+ "question": "Qual prazo mínimo de validade da proposta consta no arquivo 2 da Fundação Alfredo da Matta e como tratar uma validade superior?",
+ "expected_answer": "90 dias; a validade superior proposta pelo licitante não poderá ser recusada pelas demais empresas participantes, conforme o trecho.",
+ "sources": [
+  {
+   "document_sha256": "5de117725f05a9daf31455175c03ece96bade354286a1aff2f0d735fa95cf1a8",
+   "document_sequence": 2,
+   "page": 7,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/02006782000100/compras/2026/26/arquivos/2"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

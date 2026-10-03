@@ -1,0 +1,878 @@
+{
+ "development": {
+  "snapshot_id": "1446c44aca18011a",
+  "editais": 36,
+  "documents": 55,
+  "pages": 2895,
+  "chunks": 18554,
+  "status": null
+ },
+ "holdout": {
+  "snapshot_id": null,
+  "editais": 13,
+  "documents": 18,
+  "pages": 931,
+  "chunks": null,
+  "status": "pending_user_approval_not_indexed"
+ },
+ "by_uf": [
+  {
+   "role": "development",
+   "region": "Centro-Oeste",
+   "uf": "DF",
+   "editais": 1,
+   "documents": 1,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Centro-Oeste",
+   "uf": "GO",
+   "editais": 3,
+   "documents": 3,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Centro-Oeste",
+   "uf": "MT",
+   "editais": 2,
+   "documents": 3,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Nordeste",
+   "uf": "BA",
+   "editais": 2,
+   "documents": 2,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Nordeste",
+   "uf": "CE",
+   "editais": 1,
+   "documents": 1,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Nordeste",
+   "uf": "PE",
+   "editais": 2,
+   "documents": 2,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Norte",
+   "uf": "AM",
+   "editais": 2,
+   "documents": 2,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Norte",
+   "uf": "PA",
+   "editais": 2,
+   "documents": 2,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Sudeste",
+   "uf": "MG",
+   "editais": 2,
+   "documents": 5,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Sudeste",
+   "uf": "RJ",
+   "editais": 3,
+   "documents": 5,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Sudeste",
+   "uf": "SP",
+   "editais": 10,
+   "documents": 14,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Sul",
+   "uf": "PR",
+   "editais": 3,
+   "documents": 5,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Sul",
+   "uf": "RS",
+   "editais": 2,
+   "documents": 9,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "development",
+   "region": "Sul",
+   "uf": "SC",
+   "editais": 1,
+   "documents": 1,
+   "pages": null,
+   "pages_known": false
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Centro-Oeste",
+   "uf": "MS",
+   "editais": 1,
+   "documents": 1,
+   "pages": 180,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Centro-Oeste",
+   "uf": "MT",
+   "editais": 1,
+   "documents": 1,
+   "pages": 56,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Nordeste",
+   "uf": "MA",
+   "editais": 1,
+   "documents": 1,
+   "pages": 64,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Nordeste",
+   "uf": "PB",
+   "editais": 1,
+   "documents": 1,
+   "pages": 26,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Nordeste",
+   "uf": "PE",
+   "editais": 1,
+   "documents": 1,
+   "pages": 80,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Nordeste",
+   "uf": "RN",
+   "editais": 1,
+   "documents": 1,
+   "pages": 16,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Norte",
+   "uf": "AM",
+   "editais": 1,
+   "documents": 1,
+   "pages": 68,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Norte",
+   "uf": "PA",
+   "editais": 1,
+   "documents": 3,
+   "pages": 64,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Norte",
+   "uf": "TO",
+   "editais": 1,
+   "documents": 3,
+   "pages": 91,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Sudeste",
+   "uf": "ES",
+   "editais": 1,
+   "documents": 1,
+   "pages": 67,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Sudeste",
+   "uf": "MG",
+   "editais": 1,
+   "documents": 1,
+   "pages": 67,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Sul",
+   "uf": "PR",
+   "editais": 1,
+   "documents": 1,
+   "pages": 106,
+   "pages_known": true
+  },
+  {
+   "role": "holdout_pending",
+   "region": "Sul",
+   "uf": "RS",
+   "editais": 1,
+   "documents": 2,
+   "pages": 46,
+   "pages_known": true
+  }
+ ],
+ "editais": [
+  {
+   "pncp_id": "45374469000129-1-000030/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/45374469000129/2026/30",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/45374469000129/compras/2026/30/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "45339363000194-1-000286/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 2,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/45339363000194/2026/286",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/45339363000194/compras/2026/286/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/45339363000194/compras/2026/286/arquivos/2"
+   ]
+  },
+  {
+   "pncp_id": "46377800000127-1-004170/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 2,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/46377800000127/2026/4170",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4170/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4170/arquivos/5"
+   ]
+  },
+  {
+   "pncp_id": "46179941000135-1-000443/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/46179941000135/2026/443",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/46179941000135/compras/2026/443/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "46179941000135-1-000446/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/46179941000135/2026/446",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/46179941000135/compras/2026/446/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "01626427000162-1-000010/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/01626427000162/2026/10",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01626427000162/compras/2026/10/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "46377800000127-1-004178/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 2,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/46377800000127/2026/4178",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4178/arquivos/2",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4178/arquivos/3"
+   ]
+  },
+  {
+   "pncp_id": "46732442000123-1-000103/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/46732442000123/2026/103",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/46732442000123/compras/2026/103/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "63025530000104-1-003836/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 2,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/63025530000104/2026/3836",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/63025530000104/compras/2026/3836/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/63025530000104/compras/2026/3836/arquivos/2"
+   ]
+  },
+  {
+   "pncp_id": "67360537000133-1-000020/2026",
+   "uf": "SP",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/67360537000133/2026/20",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/67360537000133/compras/2026/20/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "78121936000168-1-000072/2026",
+   "uf": "PR",
+   "region": "Sul",
+   "role": "development",
+   "documents": 3,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/78121936000168/2026/72",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/78121936000168/compras/2026/72/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/78121936000168/compras/2026/72/arquivos/3",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/78121936000168/compras/2026/72/arquivos/4"
+   ]
+  },
+  {
+   "pncp_id": "01613770000172-1-000166/2026",
+   "uf": "PR",
+   "region": "Sul",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/01613770000172/2026/166",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01613770000172/compras/2026/166/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "98661366000106-1-000557/2026",
+   "uf": "RS",
+   "region": "Sul",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/98661366000106/2026/557",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/98661366000106/compras/2026/557/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "01609402000150-1-000045/2026",
+   "uf": "RS",
+   "region": "Sul",
+   "role": "development",
+   "documents": 8,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/01609402000150/2026/45",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/2",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/3",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/4",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/5",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/6",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/7",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/8"
+   ]
+  },
+  {
+   "pncp_id": "18094870000132-1-000077/2026",
+   "uf": "MG",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/18094870000132/2026/77",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/18094870000132/compras/2026/77/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "17955535000119-1-000275/2026",
+   "uf": "MG",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 4,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/17955535000119/2026/275",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/17955535000119/compras/2026/275/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/17955535000119/compras/2026/275/arquivos/2",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/17955535000119/compras/2026/275/arquivos/3",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/17955535000119/compras/2026/275/arquivos/4"
+   ]
+  },
+  {
+   "pncp_id": "00394502000144-1-012044/2026",
+   "uf": "RJ",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 3,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/00394502000144/2026/12044",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/00394502000144/compras/2026/12044/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/00394502000144/compras/2026/12044/arquivos/3",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/00394502000144/compras/2026/12044/arquivos/6"
+   ]
+  },
+  {
+   "pncp_id": "39547500000183-1-000077/2026",
+   "uf": "RJ",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/39547500000183/2026/77",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/39547500000183/compras/2026/77/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "13634977000102-1-000128/2026",
+   "uf": "BA",
+   "region": "Nordeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/13634977000102/2026/128",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/13634977000102/compras/2026/128/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "63084727000114-1-000009/2026",
+   "uf": "BA",
+   "region": "Nordeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/63084727000114/2026/9",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/63084727000114/compras/2026/9/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "11348570000193-1-000065/2026",
+   "uf": "PE",
+   "region": "Nordeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/11348570000193/2026/65",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/11348570000193/compras/2026/65/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "10106268000166-1-000069/2026",
+   "uf": "PE",
+   "region": "Nordeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/10106268000166/2026/69",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/10106268000166/compras/2026/69/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "02291730000114-1-000117/2026",
+   "uf": "GO",
+   "region": "Centro-Oeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/02291730000114/2026/117",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/02291730000114/compras/2026/117/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "45701259000106-1-000008/2026",
+   "uf": "GO",
+   "region": "Centro-Oeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/45701259000106/2026/8",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/45701259000106/compras/2026/8/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "03507415002864-1-000159/2026",
+   "uf": "MT",
+   "region": "Centro-Oeste",
+   "role": "development",
+   "documents": 2,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/03507415002864/2026/159",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/03507415002864/compras/2026/159/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/03507415002864/compras/2026/159/arquivos/2"
+   ]
+  },
+  {
+   "pncp_id": "03347135000116-1-000070/2026",
+   "uf": "MT",
+   "region": "Centro-Oeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/03347135000116/2026/70",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/03347135000116/compras/2026/70/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "00368105000106-1-000157/2026",
+   "uf": "PA",
+   "region": "Norte",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/00368105000106/2026/157",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/00368105000106/compras/2026/157/arquivos/2"
+   ]
+  },
+  {
+   "pncp_id": "05054929000117-1-000378/2026",
+   "uf": "PA",
+   "region": "Norte",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/05054929000117/2026/378",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/05054929000117/compras/2026/378/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "00394452000103-1-020757/2026",
+   "uf": "AM",
+   "region": "Norte",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/00394452000103/2026/20757",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/00394452000103/compras/2026/20757/arquivos/3"
+   ]
+  },
+  {
+   "pncp_id": "02006782000100-1-000026/2026",
+   "uf": "AM",
+   "region": "Norte",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": "https://pncp.gov.br/app/editais/02006782000100/2026/26",
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/02006782000100/compras/2026/26/arquivos/2"
+   ]
+  },
+  {
+   "pncp_id": "32512501000143-1-000385/2026",
+   "uf": "RJ",
+   "region": "Sudeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "76279975000162-1-000083/2026",
+   "uf": "PR",
+   "region": "Sul",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/76279975000162/compras/2026/83/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "82575812000120-1-000428/2026",
+   "uf": "SC",
+   "region": "Sul",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "00348003000110-1-001037/2026",
+   "uf": "CE",
+   "region": "Nordeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2"
+   ]
+  },
+  {
+   "pncp_id": "10936853000193-1-000094/2026",
+   "uf": "GO",
+   "region": "Centro-Oeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/10936853000193/compras/2026/94/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "33683111000107-1-000073/2026",
+   "uf": "DF",
+   "region": "Centro-Oeste",
+   "role": "development",
+   "documents": 1,
+   "pages": null,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/33683111000107/compras/2026/73/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "37344355000108-1-000026/2026",
+   "uf": "TO",
+   "region": "Norte",
+   "role": "holdout_pending",
+   "documents": 3,
+   "pages": 91,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/2",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/3"
+   ]
+  },
+  {
+   "pncp_id": "41479569000169-1-000055/2026",
+   "uf": "MA",
+   "region": "Nordeste",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 64,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/41479569000169/compras/2026/55/arquivos/3"
+   ]
+  },
+  {
+   "pncp_id": "10091619000102-1-000090/2026",
+   "uf": "PE",
+   "region": "Nordeste",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 80,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/10091619000102/compras/2026/90/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "70157896000100-1-000010/2026",
+   "uf": "RN",
+   "region": "Nordeste",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 16,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/70157896000100/compras/2026/10/arquivos/3"
+   ]
+  },
+  {
+   "pncp_id": "08702573000179-1-000050/2026",
+   "uf": "PB",
+   "region": "Nordeste",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 26,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/08702573000179/compras/2026/50/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "03238755000117-1-000031/2026",
+   "uf": "MT",
+   "region": "Centro-Oeste",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 56,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/03238755000117/compras/2026/31/arquivos/6"
+   ]
+  },
+  {
+   "pncp_id": "03173317000118-1-000078/2026",
+   "uf": "MS",
+   "region": "Centro-Oeste",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 180,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/03173317000118/compras/2026/78/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "01759101000103-1-000011/2026",
+   "uf": "MG",
+   "region": "Sudeste",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 67,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/01759101000103/compras/2026/11/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "14004319000108-1-000050/2026",
+   "uf": "ES",
+   "region": "Sudeste",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 67,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/14004319000108/compras/2026/50/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "04312658000190-1-000026/2026",
+   "uf": "AM",
+   "region": "Norte",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 68,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/04312658000190/compras/2026/26/arquivos/1"
+   ]
+  },
+  {
+   "pncp_id": "05138730000177-1-000086/2026",
+   "uf": "PA",
+   "region": "Norte",
+   "role": "holdout_pending",
+   "documents": 3,
+   "pages": 64,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/2",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/3"
+   ]
+  },
+  {
+   "pncp_id": "87691507000117-1-000046/2026",
+   "uf": "RS",
+   "region": "Sul",
+   "role": "holdout_pending",
+   "documents": 2,
+   "pages": 46,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/87691507000117/compras/2026/46/arquivos/1",
+    "https://pncp.gov.br/pncp-api/v1/orgaos/87691507000117/compras/2026/46/arquivos/2"
+   ]
+  },
+  {
+   "pncp_id": "79151312000156-1-000510/2026",
+   "uf": "PR",
+   "region": "Sul",
+   "role": "holdout_pending",
+   "documents": 1,
+   "pages": 106,
+   "official_url": null,
+   "document_urls": [
+    "https://pncp.gov.br/pncp-api/v1/orgaos/79151312000156/compras/2026/510/arquivos/1"
+   ]
+  }
+ ],
+ "note": "páginas por UF de desenvolvimento não constam do manifesto público (null)"
+}

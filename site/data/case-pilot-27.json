@@ -1,0 +1,45 @@
+{
+ "id": "pilot-27",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "specification",
+ "pncp_id": "45701259000106-1-000008/2026",
+ "question": "Em Caçu, qual autonomia mínima da bateria é exigida para uso moderado e quais atividades exemplificam esse uso?",
+ "expected_answer": "No mínimo 6 horas, em navegação web e aplicativos de escritório, conforme especificação do fabricante.",
+ "sources": [
+  {
+   "document_sha256": "2ddc8f2de370c15b37dced955c2661e5f0535005cc5d2ae6218a611388f8bc68",
+   "document_sequence": 1,
+   "page": 23,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45701259000106/compras/2026/8/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

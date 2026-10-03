@@ -1,0 +1,45 @@
+{
+ "id": "pilot-30",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "multi_attribute",
+ "pncp_id": "00368105000106-1-000157/2026",
+ "question": "Na seção de prova de qualidade da Polícia Civil do Pará, há exigência de amostra e qual período de garantia do bem está indicado?",
+ "expected_answer": "Não há exigência de amostra nessa seção; a garantia do bem indicada é de 36 meses.",
+ "sources": [
+  {
+   "document_sha256": "131b5d447a5ad85145460dd40a74544e5b84c8d4987fc6b59db681c99bfa03fa",
+   "document_sequence": 2,
+   "page": 29,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00368105000106/compras/2026/157/arquivos/2"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

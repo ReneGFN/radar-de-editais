@@ -1,0 +1,45 @@
+{
+ "id": "pilot-15",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "quantity",
+ "pncp_id": "46179941000135-1-000446/2026",
+ "question": "Quantos monitores de 19,5 polegadas constam no item 5 do edital de Assis de sequência 446?",
+ "expected_answer": "100 unidades.",
+ "sources": [
+  {
+   "document_sha256": "cf4826edbf68ca89c8ab3c60a5f55b1ff8dcf81fb1e7499a65d6262a6e4731b6",
+   "document_sequence": 1,
+   "page": 19,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46179941000135/compras/2026/446/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}
