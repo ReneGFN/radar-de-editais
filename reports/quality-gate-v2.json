@@ -1,0 +1,144 @@
+{
+  "schema_version": "quality-gate-v2",
+  "date": "2026-10-03",
+  "decision": "blocked",
+  "target": 0.9,
+  "default_variant": "alias_items",
+  "decision_record": {
+    "by": "repository_owner",
+    "reviewer_kind": "human",
+    "date": "2026-10-03",
+    "basis": [
+      "métricas operacionais nos 50 casos de desenvolvimento",
+      "revisão humana da alias_items_v3"
+    ],
+    "reason": "a v3 corrigiu comportamentos de segurança, mas não teve ganho humano líquido; custa mais e responde uma factual a menos"
+  },
+  "variants": {
+    "alias_items": {
+      "role": "default",
+      "status": "human_reviewed_development_only",
+      "factual_answered_of_40": 39,
+      "input_tokens_total": 117498,
+      "input_tokens_counted_cases": 50,
+      "generation_ms_median": 866.5,
+      "total_ms_median": 1017.5,
+      "human_review_development": {
+        "answerable": {
+          "cases": 40,
+          "human_reviewed": 40,
+          "all_criteria_true": 36,
+          "rate_pilot": 0.9667,
+          "rate_new": 0.7
+        },
+        "refusals": {
+          "cases": 10,
+          "human_reviewed": 10,
+          "all_criteria_true": 10,
+          "rate_pilot": 1.0,
+          "rate_new": null
+        },
+        "error_tag_counts": {
+          "ambiguous_question": 1,
+          "missing_qualifier": 1,
+          "missing_required_fact": 1,
+          "unit_mix": 1,
+          "unjustified_abstention": 1,
+          "wrong_item": 1,
+          "wrong_value": 1
+        }
+      }
+    },
+    "alias_items_v2": {
+      "role": "experimental_preserved",
+      "status": "not_human_reviewed",
+      "promoted": false,
+      "factual_answered_of_40": 38,
+      "input_tokens_total": 128312,
+      "input_tokens_counted_cases": 48,
+      "generation_ms_median": 927.5,
+      "total_ms_median": 1081.0
+    },
+    "alias_items_v3": {
+      "role": "experimental_safety_variant_preserved",
+      "status": "human_reviewed_not_promoted",
+      "promoted": false,
+      "factual_answered_of_40": 38,
+      "input_tokens_total": 134569,
+      "input_tokens_counted_cases": 48,
+      "generation_ms_median": 929.5,
+      "total_ms_median": 1063.5,
+      "execution_report": "generation-execution-alias-items-v3.json",
+      "calls_attempted": 51,
+      "cases_completed": 50,
+      "human_review_development": {
+        "answerable": {
+          "cases": 40,
+          "human_reviewed": 3,
+          "all_criteria_true": 1,
+          "rate_pilot": null,
+          "rate_new": null
+        },
+        "refusals": {
+          "cases": 10,
+          "human_reviewed": 2,
+          "all_criteria_true": 2,
+          "rate_pilot": null,
+          "rate_new": null
+        },
+        "error_tag_counts": {
+          "ambiguous_question": 1,
+          "missing_required_fact": 1
+        }
+      },
+      "human_review_scope": {
+        "declared_by_owner": "2026-10-03, review of v3 answers confirming the findings below",
+        "case_level_criteria_recorded": 5,
+        "validator_rejections_counted_as_failures": 2,
+        "other_cases": "no case-level criteria recorded; v3 rate not computed"
+      },
+      "human_findings": {
+        "fixed": [
+          "pilot-35: recusa a garantia indevida",
+          "pilot-36: recusa citando o fato documentado",
+          "pilot-22: estado técnico de resposta parcial corrigido"
+        ],
+        "blocked_safely_still_wrong": [
+          "independent-02: quantidade sem apoio barrada",
+          "independent-08: omissão de \"por item\" barrada"
+        ],
+        "still_failing": [
+          "independent-06: omite a compatibilidade JEDEC 4800 MT/s",
+          "pilot-17: ambiguidade de item não resolvida"
+        ],
+        "regressions_vs_default": [
+          "uma factual aceita a menos (38 contra 39 de 40)",
+          "mais tokens de entrada",
+          "latência de geração e total maior"
+        ]
+      }
+    }
+  },
+  "metric_caveats": [
+    "tokens e latências de v2/v3 contam só respostas aceitas (48 casos); alias_items conta 50",
+    "entradas de recuperação idênticas entre variantes; Hit@5 não muda",
+    "integridade de citação não é correção semântica"
+  ],
+  "development_set_note": "o conjunto \"independent-*\" foi usado em ajustes: é desenvolvimento, não validação independente",
+  "target_90_percent": "não avaliável: exige holdout independente aprovado, executado e revisado por humano",
+  "holdout": {
+    "reference_draft": "datasets/holdout/holdout-v1-draft.json",
+    "cases": 46,
+    "cases_pending_user_approval": 46,
+    "frozen_bulk_approval_revoked": "9744a41a954f7654",
+    "status": "pending_user_approval",
+    "executed": false
+  },
+  "guarantee": "nenhuma; nenhuma taxa medida aqui garante desempenho futuro",
+  "inputs_sha256": {
+    "variant-comparison-alias-items-v2.json": "7340675b265a9380d126df6f488cc5a9824e2f8213480d47f4c5294561075597",
+    "variant-comparison-alias-items-vs-alias-items-v3.json": "944470ad348e35bf320e804db190559f29527b01649233be1ed2dcb33a403362",
+    "generation-execution-alias-items-v3.json": "277ddaea9ffa09f7ab825504b4e03f4233bd1a4dec1d0b006494b5b99145aee7"
+  },
+  "promotion_performed": false
+}

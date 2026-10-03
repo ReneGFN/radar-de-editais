@@ -49,3 +49,37 @@ Igual ao da v2: comparar v3 contra `alias_items` nos mesmos 50 casos (`ops/compa
 Leitura do assistente, não nota humana: `pilot-22` e `pilot-36` parecem resolvidos; `pilot-17` agora separa os itens 29 e 30 com os números certos, mas não pede o item; `independent-06` não mistura mais unidades nem chama CL40 de mínimo, mas segue sem a compatibilidade JEDEC 4800 MT/s; `independent-02` e `independent-08` ficam seguros (barrados) mas sem resposta certa.
 
 Decisão: `alias_items` continua padrão até a revisão humana das fichas `human-review-*-alias_items_v3.json` (privadas, em branco).
+
+
+## Decisão e revisão humana — 2026-10-03
+
+**Decisão de Renê: `alias_items` continua como variante padrão.** `alias_items_v2` e `alias_items_v3` ficam preservadas (código, protocolos, checkpoints privados, comparações, testes e documentação) como evidência de iteração. A v3 fica registrada como **variante experimental de segurança, revisada por humano e não promovida**.
+
+| Medida (50 casos de desenvolvimento) | alias_items | v2 | v3 |
+|---|---:|---:|---:|
+| Factuais aceitas (de 40) | 39 | 38 | 38 |
+| Tokens de entrada | 117.498 (50 casos) | 128.312 (48) | 134.569 (48) |
+| Geração, mediana | 866 ms | 928 ms | 930 ms |
+| Total, mediana | 1.018 ms | 1.081 ms | 1.064 ms |
+| Revisão humana | 36/40 factuais, 10/10 recusas | não avaliada | casos abaixo |
+
+Tokens e latências de v2/v3 contam só respostas aceitas; não é comparação 1:1 de custo.
+
+Achados humanos da v3 (Renê confirmou a análise do assistente):
+- Corrigiu: pilot-35 (recusa a garantia indevida), pilot-36 (recusa citando o fato documentado), pilot-22 (estado técnico de resposta parcial).
+- Barrou, erro seguro mas ainda erro: independent-02 (quantidade sem apoio), independent-08 (omissão de "por item").
+- Ainda falha: independent-06 (omite JEDEC 4800 MT/s), pilot-17 (não resolve a ambiguidade do item).
+- Regressões frente ao padrão: uma factual aceita a menos, mais tokens, mais latência.
+
+Como foi registrado: critérios caso a caso nas fichas privadas da v3 para os cinco casos com julgamento explícito (22, 17, 35, 36, independent-06); 02 e 08 não recebem nota porque foram barrados e contam como não aprovados. Os outros 43 ficaram sem critérios caso a caso, porque a revisão declarada não julgou cada um; por isso a taxa da v3 não é calculada. Resumos públicos: `reports/human-review-pilot-alias-items-v3-review-v1.json` e `reports/human-review-independent-alias-items-v3-review-v1.json`. Gate: `reports/quality-gate-v2.json`.
+
+## Execução — relatório separado do protocolo
+
+O protocolo `reports/generation-protocol-alias-items-v3.json` continua com `prepared_before_execution_awaiting_user_authorization`, sem edição: ele descreve o que foi congelado antes. O que aconteceu depois está em `reports/generation-execution-alias-items-v3.json` (gerado por `ops/report-generation-execution.py`, que lê os checkpoints privados e grava só agregados):
+
+- 51 chamadas para 50 casos: 20 na primeira execução, parada pelo HTTP 429 na tentativa do pilot-20; 31 na retomada autorizada, incluindo nova tentativa do pilot-20.
+- Nenhum caso aceito repetido; 50 casos concluídos: 48 aceitos e 2 barrados pelo validador.
+- Estados no piloto: 30 respondidas, 7 recusas, 3 evidência insuficiente; nos novos: 8 respondidas e 2 barradas.
+- Consumo da tentativa com 429 e das barradas não registrado; faturamento não auditado independentemente.
+
+O script de prévia `ops/preview-generation-v3.py` reescreveria o protocolo se executado de novo. Ele não foi alterado, porque o próprio protocolo guarda o hash desse arquivo; não executar de novo.

@@ -86,3 +86,12 @@ Esses 90% não cumprem a meta: são casos usados nos ajustes do perfil `alias_it
 O dono do repositório decidiu revisar os 46 casos do holdout manualmente, um a um. A aprovação em bloco pelo chat, que gerou `datasets/holdout/holdout-v1.json` (`9744a41a954f7654`), foi revogada em [`holdout-v1-approval-revocation.json`](../datasets/holdout/holdout-v1-approval-revocation.json). O arquivo revogado continua no repositório como histórico, sem edição. O holdout volta a `pending_user_approval`, e a fonte da revisão é o rascunho `holdout-v1-draft.json`.
 
 `ops/check-holdout.py` agora recusa como pronta qualquer referência com aprovação revogada. Verificação: [check v3](../reports/holdout-independence-check-v3.json) sobre o arquivo revogado e [check v4](../reports/holdout-independence-check-v4-draft.json) sobre o rascunho deram ambos independente, 0 violações e `ready_to_execute: false`. O holdout nunca foi indexado, recuperado nem enviado a modelo.
+
+## Atualização 2026-10-03 — decisão de variante
+
+- Variante padrão: `alias_items`. v2 e v3 preservadas como experimentais; v3 revisada por humano e não promovida (decisão de Renê).
+- Recuperação: inalterada entre variantes (mesmas entradas ao modelo); Hit@5 e tempos de busca acima continuam válidos.
+- Desenvolvimento, `alias_items` com revisão humana: 36/40 factuais e 10/10 recusas. Esses casos foram usados para ajustes e 46 das 50 notas vieram de aprovação em bloco; não medem generalização.
+- v3: 38/40 factuais aceitas, 134.569 tokens de entrada (48 casos aceitos), geração mediana 930 ms, total mediano 1.064 ms; 51 chamadas para 50 casos (uma com 429). Taxa humana da v3 não calculada: só 5 casos têm critérios caso a caso, 2 barrados contam como erro.
+- Meta de 90%: não avaliável até o holdout ser aprovado, executado e revisado. Nenhuma taxa garante desempenho futuro.
+- Fonte única dessas contagens: `reports/quality-gate-v2.json`.
