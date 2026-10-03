@@ -1,6 +1,8 @@
 # Radar de Editais
 
-**Estado atual (2026-10-02):** 50/50 casos gerados na Groq com citação íntegra; as 10 recusas do piloto saíram como recusa, exceto pilot-35 (respondeu; pendente de revisão). Nenhuma resposta revisada por uma pessoa, então não há taxa de acerto e a meta de 90% não é avaliável. Revisão humana com registro privado implementada; amostra independente v2 com 14 candidatos inéditos, ainda sem perguntas. [Métricas atuais e limites](docs/metricas-atuais.md) · [Plano de revisão humana](docs/plano-revisao-humana.md) · [Amostra independente v2](docs/amostra-independente-v2.md) · [Proposta de API e painel](docs/proposta-api-painel.md).
+**Estado atual (2026-10-03):** variante padrão **`alias_items`**, por decisão de Renê com base em métricas operacionais e revisão humana da v3. No desenvolvimento, `alias_items` tem revisão humana de 36/40 factuais e 10/10 recusas, mas esses casos foram usados em ajustes e não medem generalização. `alias_items_v2` e `alias_items_v3` ficam preservadas como experimentais; a v3 corrigiu comportamentos de segurança (pilot-22, 35, 36; barrou 02 e 08), não teve ganho humano líquido e não foi promovida. A meta de 90% exige o holdout de 46 casos, que segue `pending_user_approval` e não foi executado. Primeira versão local de **API somente leitura e painel** implementada. [Painel e API](docs/painel-e-api.md) · [Decisão e métricas v1/v2/v3](docs/variante-alias-items-v3.md#decisão-e-revisão-humana--2026-10-03) · [Fluxo futuro do holdout](docs/holdout-execucao-futura.md) · [Gate](reports/quality-gate-v2.json) · [Segurança](reports/seguranca-v3-painel-2026-10-03.md).
+
+Estado anterior (2026-10-02): 50/50 casos gerados na Groq com citação íntegra; as 10 recusas do piloto saíram como recusa, exceto pilot-35 (respondeu; pendente de revisão). Nenhuma resposta revisada por uma pessoa naquela data. [Métricas atuais e limites](docs/metricas-atuais.md) · [Plano de revisão humana](docs/plano-revisao-humana.md) · [Amostra independente v2](docs/amostra-independente-v2.md) · [Proposta de API e painel](docs/proposta-api-painel.md).
 
 Estado anterior (2026-10-01): etapa 2 parcialmente executada; 39/50 casos Groq concluídos e 11 pendentes por HTTP 429. [Resultados](docs/avaliacao-da-estrutura.md).
 
@@ -35,7 +37,7 @@ Pergunta + edital + snapshot → buscas semântica e lexical
 
 Python organiza o núcleo. LangChain divide os textos e coordena as buscas em paralelo. MiniLM multilíngue gera vetores de 384 dimensões em CPU; PostgreSQL combina busca exata por cosseno e full text search. Groq fornece `openai/gpt-oss-120b` para geração com fontes; credenciais e resultados brutos ficam fora do repositório. Dify fica para uma opção futura.
 
-API FastAPI e interface React/TypeScript estão planejadas. O mesmo núcleo servirá CLI, API e avaliador.
+API FastAPI local somente leitura e painel React/TypeScript implementados sobre relatórios públicos ([como rodar](docs/painel-e-api.md)); a API não acessa o banco nem a Groq. O mesmo núcleo serve CLI e avaliador.
 
 ## Corpus e seleção
 
