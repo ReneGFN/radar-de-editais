@@ -33,3 +33,19 @@ A v3 é a v2 mais três correções. `alias_items` (v1) e `alias_items_v2` ficam
 ## Critério de decisão
 
 Igual ao da v2: comparar v3 contra `alias_items` nos mesmos 50 casos (`ops/compare-variants.py --candidate alias_items_v3`) e só trocar o padrão com melhora verificável e sem regressão relevante após revisão humana.
+
+
+## Execução (2026-10-03)
+
+- 51 chamadas à Groq no total para 50 casos: 20 na primeira tentativa (pilot-20 recebeu HTTP 429 e a execução parou) e 31 na retomada autorizada, sem 429. Nenhum caso aceito foi repetido; `max_retries=0`.
+- Estados factuais (40): `alias_items` 39 respondidas, v2 38, v3 38. Na v3, `independent-02` foi barrado pela verificação de quantidade (`Quantidade sem apoio literal`) e `independent-08` pela do qualificador (`Qualificador do critério omitido`). Barrado conta como erro.
+- Mudanças de estado v2 → v3: `pilot-22` passou de barrado para respondido; `independent-02` passou de respondido (21, errado) para barrado.
+- Mudanças de estado `alias_items` → v3: `pilot-35` `answered` → `refused`; `pilot-36` `insufficient_evidence` → `refused`; `independent-02` e `independent-08` → barrados.
+- Integridade de citação: 48/48 respostas aceitas com citação íntegra. Isso não é correção semântica.
+- Tokens de entrada (total): `alias_items` 117.498, v2 128.312, v3 134.569 (+14,5% sobre `alias_items`). Saída: 8.651 / 7.815 / 8.211.
+- Geração (mediana): 866 / 928 / 930 ms. Recuperação inalterada (mesmas entradas).
+- Relatórios públicos: `reports/variant-comparison-alias-items-vs-alias-items-v3.json` e `reports/variant-comparison-alias-items-v2-vs-alias-items-v3.json` (só ids, estados e números).
+
+Leitura do assistente, não nota humana: `pilot-22` e `pilot-36` parecem resolvidos; `pilot-17` agora separa os itens 29 e 30 com os números certos, mas não pede o item; `independent-06` não mistura mais unidades nem chama CL40 de mínimo, mas segue sem a compatibilidade JEDEC 4800 MT/s; `independent-02` e `independent-08` ficam seguros (barrados) mas sem resposta certa.
+
+Decisão: `alias_items` continua padrão até a revisão humana das fichas `human-review-*-alias_items_v3.json` (privadas, em branco).
