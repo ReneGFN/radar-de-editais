@@ -37,8 +37,120 @@ SCHEMA = {'title':'GroundedAnswer','type':'object','additionalProperties':False,
      'properties':{'chunk_id':{'type':'string'},'quote':{'type':'string'}},'required':['chunk_id','quote']}}},
    'required':['text','evidence']}}},'required':['status','reason','claims']}
 
+PROMPT_VERSIONS = ('v1','v2','v3')
+SOURCE_MODE_RULE = '\nNeste modo evidence contém somente chunk_id, sem quote. Selecione somente fontes que sustentem cada afirmação; o servidor exibirá a passagem original completa. Não reproduza nem abrevie citações no JSON.'
+# v2: corrige padrões gerais observados no desenvolvimento (nunca no holdout).
+V2_RULES = '''
+Regras adicionais:
+- Seja direto: responda só o que a pergunta pede. Agrupe na mesma afirmação os atributos
+  do mesmo item (exemplo de forma: "Item 1: SSD de X, memória de Y, processador Z"), com
+  as fontes de todos os atributos; não repita o mesmo item em frases separadas.
+- Copie números e unidades como estão no documento. MT/s e MHz são unidades diferentes:
+  não converta, não equipare e não troque uma pela outra.
+- Só chame um valor de mínimo, máximo ou exato se o documento usar essa palavra para ele.
+  Latência (CL) e outros parâmetros ficam como o documento os escreve.
+- Se a pergunta pedir especificação ou compatibilidade e o trecho citar padrão ou
+  compatibilidade (por exemplo JEDEC), inclua esse valor com a unidade original.
+- Em critério de julgamento, preço ou adjudicação, mantenha o qualificador literal:
+  por item, por lote, por grupo ou global.
+- Em tabelas que dividem a quantidade entre ampla concorrência e cota reservada,
+  informe a quantidade de cada parte por item, como a tabela mostra.
+- Se a pergunta não identifica o item e o contexto tem itens com valores diferentes,
+  não escolha um nem junte os valores: liste cada item com o seu valor e diga que a
+  pergunta precisa indicar o item.
+- Pedido de garantia de resultado, aceitação ou ausência de risco é refused, mesmo que
+  haja cláusulas relacionadas; as cláusulas úteis podem ser mencionadas em reason.'''
+# v3: soma regras a v2 para três falhas observadas na execução da v2 (pilot-22, pilot-36, independent-02).
+V3_RULES = '''
+- Não calcule, some nem subtraia quantidades. Informe cada número exatamente como aparece
+  na linha do item. Numa tabela com linhas de ampla concorrência e de cota, a linha marcada
+  como cota traz a quantidade da cota e a outra linha traz a quantidade da ampla concorrência.
+- Se as fontes respondem a pergunta, mesmo que em parte, use answered com as afirmações
+  sustentadas e diga em reason o que não foi encontrado.
+- Ao recusar um pedido para alterar, omitir ou contrariar o documento, use refused e
+  inclua em claims o que a fonte realmente diz, com a fonte.'''
 
-def validate_answer(payload, documents):
+
+def system_prompt(citation_mode='model_quote',prompt_version='v1',rerank_profile='none',guardrails=False):
+    """Monta o prompt de sistema; v1 reproduz byte a byte o texto usado por alias_items."""
+    if prompt_version not in PROMPT_VERSIONS:
+        raise ValueError('Versão de prompt inválida')
+    system=SYSTEM
+    if prompt_version in ('v2','v3'):
+        system=system.replace('uma afirmação curta por claim','uma afirmação por item ou fato pedido')
+    if citation_mode in ('source_id','source_alias'):
+        system=system.replace('um chunk_id e quote literal do contexto','um chunk_id do contexto')
+        system+=SOURCE_MODE_RULE
+    if prompt_version in ('v2','v3'):
+        system+=V2_RULES
+    if prompt_version=='v3':
+        system+=V3_RULES
+    return system
+
+
+_UNIT=re.compile(r'(\d+(?:[.,]\d+)?)\s*(mhz|mt/s)\b',re.I)
+_PRICE=re.compile(r'menor\s+pre[çc]o',re.I)
+_QUALIFIER=re.compile(r'por\s+(?:item|lote|grupo)|global',re.I)
+# Qualificador literal ao lado do critério, ou opção marcada no quadro de adjudicação: "Por item (X)".
+_SOURCE_QUALIFIER=re.compile(r'menor\s+pre[çc]o\W{0,3}(?:por\s+(?:item|lote|grupo)|global)'
+                             r'|(?:por\s+(?:item|lote|grupo)|global)\s*\(\s*x\s*\)',re.I)
+_CL=re.compile(r'\bCL\s?\d{2}\b',re.I)
+_LIMIT=re.compile(r'm[íi]nim[oa]|m[áa]xim[oa]',re.I)
+
+
+def _units(text):
+    # "2 666 MHZ" e "5.600 MT/s" viram 2666 e 5600 antes da comparação.
+    compact=re.sub(r'(?<=\d)[\s.](?=\d{3}\b)','',text)
+    return {(m.group(1).replace(',','.'),m.group(2).lower()) for m in _UNIT.finditer(compact)}
+
+
+def _paired_in_source(number,evidence):
+    compact=re.sub(r'(?<=\d)[\s.](?=\d{3}\b)','',evidence)
+    pattern=re.escape(number)+r'\s*(?:mhz|mt/s)\W{0,6}'+re.escape(number)+r'\s*(?:mhz|mt/s)'
+    return re.search(pattern,compact,re.I) is not None
+
+
+def semantic_guards(validated):
+    """Recusas determinísticas da v2: unidade trocada ou equiparada, limite inventado e qualificador omitido."""
+    if validated['status']!='answered':
+        return validated
+    for claim in validated['claims']:
+        evidence=' '.join(ev['quote'] for ev in claim['evidence'])
+        source=_units(evidence)
+        claimed=_units(claim['text'])
+        for number,unit in claimed:
+            other='mt/s' if unit=='mhz' else 'mhz'
+            if (number,unit) not in source and (number,other) in source:
+                raise ValueError('Unidade divergente da fonte')
+            # "5600MT/s (ou 5600MHz)": equiparar unidades só vale se a fonte fizer o mesmo.
+            if (number,other) in claimed and not _paired_in_source(number,evidence):
+                raise ValueError('Unidade divergente da fonte')
+        if _CL.search(claim['text']) and _LIMIT.search(claim['text']):
+            near=[evidence[max(0,m.start()-60):m.end()+60] for m in _CL.finditer(evidence)]
+            if not any(_LIMIT.search(window) for window in near):
+                raise ValueError('Limite não declarado na fonte')
+        if _PRICE.search(claim['text']) and not _QUALIFIER.search(claim['text']) and _SOURCE_QUALIFIER.search(evidence):
+            raise ValueError('Qualificador do critério omitido')
+    return validated
+
+
+_QUANTITY=re.compile(r'(?<![\d.,])(\d{1,6})(?![\d.,]\d)\s*(?:unidades?|und\b|un\b|notebooks?|computadores?|desktops?|monitores?|equipamentos?)',re.I)
+
+
+def quantity_guard(validated):
+    """v3: quantidade afirmada precisa aparecer como número isolado nas fontes citadas (sem conta do modelo)."""
+    if validated['status']!='answered':
+        return validated
+    for claim in validated['claims']:
+        evidence=' '.join(ev['quote'] for ev in claim['evidence'])
+        for match in _QUANTITY.finditer(claim['text']):
+            number=match.group(1)
+            if not re.search(r'(?<![\d.,])'+re.escape(number)+r'(?![\d]|[.,]\d)',evidence):
+                raise ValueError('Quantidade sem apoio literal')
+    return validated
+
+
+def validate_answer(payload, documents, *, allow_supported_claims=False):
     if not isinstance(payload,dict) or set(payload)!= {'status','reason','claims'}:
         raise ValueError('Formato de resposta inválido')
     if payload['status'] not in ('answered','refused','insufficient_evidence') or not isinstance(payload['reason'],str):
@@ -65,13 +177,26 @@ def validate_answer(payload, documents):
                 if not match: raise ValueError('Citação inventada')
                 ev['quote']=match.group(0)
             citations.append(dict(sources[ev['chunk_id']].metadata,quote=ev['quote']))
-    if (payload['status']=='answered') != bool(payload['claims']):
+    status=payload['status'];partial=False
+    if allow_supported_claims and payload['claims'] and status=='insufficient_evidence':
+        # v3: afirmações já verificadas não são descartadas; a lacuna fica explícita em reason.
+        status='answered';partial=True
+    if allow_supported_claims and status=='refused':
+        pass  # v3: a recusa pode trazer o que a fonte realmente diz, com citação verificada.
+    elif (status=='answered') != bool(payload['claims']):
         raise ValueError('Estado incompatível com afirmações')
-    rendered=' '.join(c['text'] for c in payload['claims']) if payload['status']=='answered' else payload['reason']
+    claims_text=' '.join(c['text'] for c in payload['claims'])
+    if status=='answered':
+        rendered=claims_text+(' '+payload['reason'] if partial and payload['reason'].strip() else '')
+    else:
+        rendered=payload['reason']+(' '+claims_text if claims_text else '')
     if not rendered.strip() or len(rendered)>12000 or re.search(r'\b(?:gsk_|sk-|ghp_)[A-Za-z0-9_-]{20,}',rendered):
         raise ValueError('Resposta vazia, longa ou com padrão de segredo')
-    return {'status':payload['status'],'answer':rendered,'claims':payload['claims'],'citations':citations,
+    result={'status':status,'answer':rendered,'claims':payload['claims'],'citations':citations,
             'citation_integrity':'passed','semantic_support':'requires_review'}
+    if partial:
+        result['partial_answer']=True;result['model_status']='insufficient_evidence'
+    return result
 
 
 def key():
@@ -90,15 +215,30 @@ def key():
     return value
 
 
-def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='structured',context_profile='chunk',citation_mode='model_quote'):
+def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='structured',context_profile='chunk',citation_mode='model_quote',prompt_version='v1',rerank_profile='none',guardrails=False,document_scope=None):
+    if rerank_profile not in ('none','coverage_v1'):
+        raise ValueError('Perfil de reranking inválido')
     if not free_plan_confirmed:
         raise ValueError('Confirme o plano gratuito antes de chamar Groq')
     if citation_mode not in ('model_quote','source_id','source_alias'):
         raise ValueError('Modo de citação inválido')
-    docs,trace=retrieve_with_trace(query,snapshot,edital,query_profile=query_profile,context_profile=context_profile)
+    system=system_prompt(citation_mode,prompt_version)
+    if document_scope:
+        from .retrieval import retrieve_document_scope
+        docs,trace=retrieve_document_scope(query,snapshot,document_scope)
+    else:
+        docs,trace=retrieve_with_trace(query,snapshot,edital,query_profile=query_profile,context_profile=context_profile)
     if not docs:
         return {'status':'insufficient_evidence','answer':'Não encontrei evidência no escopo informado.',
                 'claims':[],'citations':[],'generation_calls':0,'retrieval':trace,'semantic_support':'requires_review'}
+    if guardrails:
+        from .guardrails import context_is_safe
+        if not context_is_safe(docs):
+            return {'status':'insufficient_evidence','answer':'O contexto recuperado contém instruções suspeitas. Consulte o PDF original.', 'claims':[],'citations':[], 'generation_calls':0,'retrieval':trace,'semantic_support':'requires_review'}
+    if rerank_profile == 'coverage_v1':
+        from .reranking import rerank_documents
+        docs = rerank_documents(docs, query)
+    trace['rerank_profile'] = rerank_profile
     from langchain_groq import ChatGroq
     import json
     # Apenas trechos efetivamente recuperados; metadados de referência não entram no prompt.
@@ -112,18 +252,23 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
     if context_profile == 'item_structure':
         for entry,doc in zip(context,docs):
             entry['item_context']={k:doc.metadata[k] for k in ('item_number','item_header_page','item_header_start','item_recognition','item_continuation','quantity_candidates') if k in doc.metadata}
+    if document_scope:
+        from .discovery import allowed_editais
+        catalog = allowed_editais()
+        for entry,doc in zip(context,docs):
+            entry['pncp_id'] = doc.metadata['pncp_id']
+            entry['agency'] = catalog[doc.metadata['pncp_id']]['agency']
+        system += '\nOs documentos pertencem à seleção do usuário. Diferencie contratações pelo pncp_id e não misture suas exigências. Só responda com apoio nos trechos; explicite comparações sem evidência suficiente.'
     user=json.dumps({'question':query,'documents':context},ensure_ascii=False)
     if len(user)>16000: raise ValueError('Contexto excede o limite de consulta')
     # O SDK Groq acrescenta /openai/v1/chat/completions; base deve ser somente a origem.
     model=ChatGroq(model=MODEL,api_key=key(),base_url='https://api.groq.com',temperature=0,max_tokens=1600,
                    reasoning_effort='low',model_kwargs={'include_reasoning':False},
                    timeout=40,max_retries=0,verbose=False)
-    schema=SCHEMA;system=SYSTEM
+    schema=SCHEMA
     if citation_mode in ('source_id','source_alias'):
         from .citations import source_schema,alias_schema
         schema=alias_schema(SCHEMA,aliases) if citation_mode=='source_alias' else source_schema(SCHEMA)
-        system=system.replace('um chunk_id e quote literal do contexto','um chunk_id do contexto')
-        system += '\nNeste modo evidence contém somente chunk_id, sem quote. Selecione somente fontes que sustentem cada afirmação; o servidor exibirá a passagem original completa. Não reproduza nem abrevie citações no JSON.'
     flow=model.with_structured_output(schema,method='json_schema',strict=True,include_raw=True)
     started=perf_counter()
     try:
@@ -137,10 +282,14 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
         if citation_mode=='source_alias':
             from .citations import resolve_aliases,attach_literal_sources
             parsed=attach_literal_sources(resolve_aliases(parsed,aliases),docs)
-        validated=validate_answer(parsed,docs)
+        validated=validate_answer(parsed,docs,allow_supported_claims=prompt_version=='v3')
+        if prompt_version in ('v2','v3'):
+            validated=semantic_guards(validated)
+        if prompt_version=='v3':
+            validated=quantity_guard(validated)
     except Exception as exc:
         # Mensagens de erro do SDK podem conter requisição/resposta: não exportá-las.
-        known={'Formato de resposta inválido','Estado de resposta inválido','Afirmações inválidas','Afirmação inválida','Afirmação sem evidência','Fonte não recuperada','Citação inventada','Estado incompatível com afirmações','Resposta vazia, longa ou com padrão de segredo','Resposta estruturada inválida'}
+        known={'Formato de resposta inválido','Estado de resposta inválido','Afirmações inválidas','Afirmação inválida','Afirmação sem evidência','Fonte não recuperada','Citação inventada','Estado incompatível com afirmações','Resposta vazia, longa ou com padrão de segredo','Resposta estruturada inválida','Unidade divergente da fonte','Qualificador do critério omitido','Limite não declarado na fonte','Quantidade sem apoio literal'}
         kind=type(exc).__name__
         body=getattr(exc,'body',None)
         provider_code=body.get('error',{}).get('code') if isinstance(body,dict) and isinstance(body.get('error',{}),dict) else None
@@ -157,8 +306,11 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
                           {'parsed':result['parsed'],'usage':getattr(result.get('raw'),'usage_metadata',None),
                            'error':str(exc)})
         raise GenerationFailure(kind,getattr(exc,'status_code',None)) from None
+    if guardrails:
+        from .guardrails import numeric_support
+        validated = numeric_support(validated)
     raw=result['raw']
-    validated.update(source_alias_map=aliases,citation_mode=citation_mode,context_profile=context_profile,model=MODEL,generation_calls=1,retrieval=trace,
+    validated.update(source_alias_map=aliases,citation_mode=citation_mode,context_profile=context_profile,prompt_version=prompt_version,model=MODEL,generation_calls=1,retrieval=trace,
                      generation_latency_ms=(perf_counter()-started)*1000,
                      usage=raw.usage_metadata or {},free_plan_confirmed=True,
                      billing='free_plan_user_confirmed_not_independently_verified')

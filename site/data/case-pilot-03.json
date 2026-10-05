@@ -1,0 +1,45 @@
+{
+ "id": "pilot-03",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "quantity",
+ "pncp_id": "13634977000102-1-000128/2026",
+ "question": "Qual é a quantidade de computadores desktop do item 01 do lote 01 na planilha da página 26?",
+ "expected_answer": "80 unidades.",
+ "sources": [
+  {
+   "document_sha256": "8eb7dfacbeae85086a172d77640b61bfb6868029e1345862f08aa7fc75cf8b0d",
+   "document_sequence": 1,
+   "page": 26,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/13634977000102/compras/2026/128/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

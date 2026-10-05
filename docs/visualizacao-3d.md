@@ -21,3 +21,5 @@ Repetir tarefas em 2D/3D: localizar referência não recuperada, identificar can
 Manter modo 2D e tabela/lista para leitura e acessibilidade; o 3D pode sofrer com oclusão e navegação. Documentar visualização → erro → hipótese → mudança → resultado medido e regressões.
 
 Ainda não há mapa, teste de utilidade ou comparação. Referências: [Embedding Projector](https://projector.tensorflow.org/), [limitações do UMAP](https://umap-learn.readthedocs.io/en/latest/clustering.html).
+
+Análise 2026-10-05: [referência de interface 3D e separação código/modelo](proposta-3d-e-controle.md). Protótipo novo proposto, aguardando revisão; nenhuma implementação ou utilidade medida.

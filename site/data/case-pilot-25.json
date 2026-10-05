@@ -1,0 +1,45 @@
+{
+ "id": "pilot-25",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "warranty",
+ "pncp_id": "11348570000193-1-000065/2026",
+ "question": "Qual garantia é descrita para o SSD de 240 GB do item 17 em Verdejante?",
+ "expected_answer": "3 meses.",
+ "sources": [
+  {
+   "document_sha256": "6c9c3a088573452b57fbc81651061b6e443e7becf5bad1afb75d86dd84300e54",
+   "document_sequence": 1,
+   "page": 29,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/11348570000193/compras/2026/65/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

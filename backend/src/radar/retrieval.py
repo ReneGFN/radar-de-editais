@@ -32,6 +32,9 @@ def branch(inputs, semantic):
             if name in inputs.get('filters',{}):
                 scope += ' AND c.'+name+'=%s'
                 params += (inputs['filters'][name],)
+        if 'document_sequences' in inputs.get('filters',{}):
+            scope += ' AND c.document_sequence = ANY(%s)'
+            params += (inputs['filters']['document_sequences'],)
         if 'clause' in inputs.get('filters',{}):
             scope += ' AND c.text LIKE %s'
             params += ('%'+inputs['filters']['clause']+'%',)
@@ -48,9 +51,9 @@ def branch(inputs, semantic):
                             params+(inputs['query'],inputs['query'])).fetchall()
 
 
-def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY, query_profile=DEFAULT_QUERY_PROFILE, selection_profile='rrf', context_profile='chunk'):
+def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy=DEFAULT_LEXICAL_STRATEGY, query_profile=DEFAULT_QUERY_PROFILE, selection_profile='rrf', context_profile='chunk', document_sequences=None):
     """Mesmo núcleo da busca, com rankings para diagnóstico e comparação."""
-    if not isinstance(query,str) or not query.strip() or len(query)>1000:
+    if not isinstance(query,str) or not query.strip() or len(query)>2000:
         raise ValueError("Consulta inválida")
     if mode not in ('keyword', 'semantic', 'hybrid'):
         raise ValueError('Modo de busca inválido')
@@ -72,6 +75,9 @@ def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy
         agency = next((e['agency'] for e in source[0]['editais'] if e['pncp_id']==edital),'') if source else ''
         planned = plan(query,agency,query_profile=='structured')
         inputs.update(query=planned['query'],filters=planned['filters'])
+    if document_sequences is not None:
+        inputs.setdefault('filters',{}).pop('document_sequence',None)
+        inputs['filters']['document_sequences'] = document_sequences
     if mode != 'keyword':
         inputs['vector'] = local_embeddings().embed_query(inputs['query'])
     branches = {}
@@ -102,3 +108,21 @@ def retrieve_with_trace(query, snapshot, edital, mode='hybrid', lexical_strategy
 
 def retrieve(query, snapshot, edital):
     return retrieve_with_trace(query, snapshot, edital)[0]
+
+
+def retrieve_document_scope(query, snapshot, scope):
+    """Até cinco passagens exclusivamente dos arquivos escolhidos; uma por arquivo antes de completar."""
+    pools = []
+    for selection in scope:
+        docs, _ = retrieve_with_trace(query, snapshot, selection['pncp_id'],
+                                     context_profile='chunk', document_sequences=[selection['document_sequence']])
+        pools.append([d for d in docs if d.metadata['pncp_id'] == selection['pncp_id']
+                      and d.metadata['document_sequence'] == selection['document_sequence']])
+    selected = [pool[0] for pool in pools if pool]
+    seen = {d.metadata['id'] for d in selected}
+    for pool in pools:
+        for doc in pool[1:]:
+            if len(selected) >= 5: break
+            if doc.metadata['id'] not in seen:
+                selected.append(doc); seen.add(doc.metadata['id'])
+    return selected[:5], {'context_profile':'document_scope','selected_document_count':len(scope)}

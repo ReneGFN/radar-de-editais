@@ -44,7 +44,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference',type=Path)
     parser.add_argument('--report',type=Path,required=True)
-    parser.add_argument('--variant',choices=('baseline','source_window','alias_window','alias_items'),default='baseline')
+    parser.add_argument('--variant',choices=('baseline','source_window','alias_window','alias_items','alias_items_v2','alias_items_v3'),default='baseline')
     args=parser.parse_args()
     digest=hashlib.sha256(args.reference.read_bytes()).hexdigest()
     path=private_root()/'generation'/f"evaluation-{digest[:16]}{'-'+args.variant if args.variant!='baseline' else ''}.json"

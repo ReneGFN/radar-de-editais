@@ -1,0 +1,1320 @@
+{
+  "schema_version": "variant-comparison-v1",
+  "baseline": "alias_items_v2",
+  "candidate": "alias_items_v3",
+  "holdout_used": false,
+  "semantic_correctness": "not_scored_pending_human_review_of_candidate",
+  "retrieval_changed": false,
+  "state_changes": [
+    {
+      "case_id": "pilot-22",
+      "kind": "answerable",
+      "state_v1": "rejected",
+      "state_v2": "answered",
+      "rejection_v2": null
+    },
+    {
+      "case_id": "independent-02",
+      "kind": "answerable",
+      "state_v1": "answered",
+      "state_v2": "rejected",
+      "rejection_v2": "ValueError: Quantidade sem apoio literal"
+    }
+  ],
+  "factual_answered": {
+    "v1": 38,
+    "v2": 38,
+    "of": 40
+  },
+  "identical_answers": 9,
+  "aggregate": {
+    "v1": {
+      "claims": {
+        "n": 48,
+        "median": 1.0,
+        "total": 41
+      },
+      "answer_chars": {
+        "n": 48,
+        "median": 111.5,
+        "total": 5911
+      },
+      "input_tokens": {
+        "n": 48,
+        "median": 2917.0,
+        "total": 128312
+      },
+      "output_tokens": {
+        "n": 48,
+        "median": 155.5,
+        "total": 7815
+      },
+      "generation_ms": {
+        "n": 48,
+        "median": 927.5,
+        "total": 44863
+      },
+      "total_ms": {
+        "n": 48,
+        "median": 1081.0,
+        "total": 56987
+      }
+    },
+    "v2": {
+      "claims": {
+        "n": 48,
+        "median": 1.0,
+        "total": 42
+      },
+      "answer_chars": {
+        "n": 48,
+        "median": 90.0,
+        "total": 5198
+      },
+      "input_tokens": {
+        "n": 48,
+        "median": 3022.5,
+        "total": 134569
+      },
+      "output_tokens": {
+        "n": 48,
+        "median": 176.0,
+        "total": 8211
+      },
+      "generation_ms": {
+        "n": 48,
+        "median": 929.5,
+        "total": 48951
+      },
+      "total_ms": {
+        "n": 48,
+        "median": 1063.5,
+        "total": 64481
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "pilot-01",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 131,
+        "input_tokens": 2032,
+        "output_tokens": 179,
+        "generation_ms": 1058,
+        "total_ms": 3631
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 129,
+        "input_tokens": 2169,
+        "output_tokens": 197,
+        "generation_ms": 1011,
+        "total_ms": 3630
+      }
+    },
+    {
+      "case_id": "pilot-02",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 59,
+        "input_tokens": 2028,
+        "output_tokens": 106,
+        "generation_ms": 606,
+        "total_ms": 741
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 34,
+        "input_tokens": 2165,
+        "output_tokens": 164,
+        "generation_ms": 823,
+        "total_ms": 928
+      }
+    },
+    {
+      "case_id": "pilot-03",
+      "kind": "answerable",
+      "category": "quantity",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 68,
+        "input_tokens": 3082,
+        "output_tokens": 139,
+        "generation_ms": 1443,
+        "total_ms": 1608
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 46,
+        "input_tokens": 3219,
+        "output_tokens": 119,
+        "generation_ms": 1160,
+        "total_ms": 1305
+      }
+    },
+    {
+      "case_id": "pilot-04",
+      "kind": "answerable",
+      "category": "warranty",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 71,
+        "input_tokens": 3881,
+        "output_tokens": 148,
+        "generation_ms": 1121,
+        "total_ms": 1295
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 69,
+        "input_tokens": 4018,
+        "output_tokens": 156,
+        "generation_ms": 1000,
+        "total_ms": 1146
+      }
+    },
+    {
+      "case_id": "pilot-05",
+      "kind": "answerable",
+      "category": "multi_attribute",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 108,
+        "input_tokens": 3912,
+        "output_tokens": 205,
+        "generation_ms": 987,
+        "total_ms": 1172
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 75,
+        "input_tokens": 4049,
+        "output_tokens": 218,
+        "generation_ms": 1028,
+        "total_ms": 1148
+      }
+    },
+    {
+      "case_id": "pilot-06",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 23,
+        "input_tokens": 1220,
+        "output_tokens": 148,
+        "generation_ms": 771,
+        "total_ms": 924
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 23,
+        "input_tokens": 1357,
+        "output_tokens": 145,
+        "generation_ms": 804,
+        "total_ms": 910
+      }
+    },
+    {
+      "case_id": "pilot-07",
+      "kind": "answerable",
+      "category": "warranty",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 47,
+        "input_tokens": 1225,
+        "output_tokens": 166,
+        "generation_ms": 1011,
+        "total_ms": 1159
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 47,
+        "input_tokens": 1362,
+        "output_tokens": 160,
+        "generation_ms": 924,
+        "total_ms": 1059
+      }
+    },
+    {
+      "case_id": "pilot-08",
+      "kind": "answerable",
+      "category": "procedure",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 108,
+        "input_tokens": 3126,
+        "output_tokens": 157,
+        "generation_ms": 863,
+        "total_ms": 1000
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 72,
+        "input_tokens": 3263,
+        "output_tokens": 179,
+        "generation_ms": 853,
+        "total_ms": 970
+      }
+    },
+    {
+      "case_id": "pilot-09",
+      "kind": "out_of_scope",
+      "category": "refusal",
+      "state_v1": "insufficient_evidence",
+      "state_v2": "insufficient_evidence",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 154,
+        "input_tokens": 2865,
+        "output_tokens": 81,
+        "generation_ms": 596,
+        "total_ms": 771
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 157,
+        "input_tokens": 3002,
+        "output_tokens": 80,
+        "generation_ms": 1613,
+        "total_ms": 1767
+      }
+    },
+    {
+      "case_id": "pilot-10",
+      "kind": "out_of_scope",
+      "category": "refusal",
+      "state_v1": "refused",
+      "state_v2": "refused",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 177,
+        "input_tokens": 2906,
+        "output_tokens": 90,
+        "generation_ms": 1038,
+        "total_ms": 1175
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 178,
+        "input_tokens": 3043,
+        "output_tokens": 84,
+        "generation_ms": 707,
+        "total_ms": 924
+      }
+    },
+    {
+      "case_id": "pilot-11",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 61,
+        "input_tokens": 3329,
+        "output_tokens": 158,
+        "generation_ms": 780,
+        "total_ms": 945
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 36,
+        "input_tokens": 3466,
+        "output_tokens": 164,
+        "generation_ms": 1032,
+        "total_ms": 1195
+      }
+    },
+    {
+      "case_id": "pilot-12",
+      "kind": "answerable",
+      "category": "quantity",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 33,
+        "input_tokens": 998,
+        "output_tokens": 113,
+        "generation_ms": 680,
+        "total_ms": 823
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 46,
+        "input_tokens": 1135,
+        "output_tokens": 144,
+        "generation_ms": 749,
+        "total_ms": 905
+      }
+    },
+    {
+      "case_id": "pilot-13",
+      "kind": "answerable",
+      "category": "delivery",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 110,
+        "input_tokens": 3129,
+        "output_tokens": 190,
+        "generation_ms": 956,
+        "total_ms": 1108
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 103,
+        "input_tokens": 3266,
+        "output_tokens": 202,
+        "generation_ms": 1194,
+        "total_ms": 1345
+      }
+    },
+    {
+      "case_id": "pilot-14",
+      "kind": "answerable",
+      "category": "multi_attribute",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 80,
+        "input_tokens": 3309,
+        "output_tokens": 126,
+        "generation_ms": 1748,
+        "total_ms": 1882
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 80,
+        "input_tokens": 3446,
+        "output_tokens": 186,
+        "generation_ms": 836,
+        "total_ms": 971
+      }
+    },
+    {
+      "case_id": "pilot-15",
+      "kind": "answerable",
+      "category": "quantity",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 61,
+        "input_tokens": 3063,
+        "output_tokens": 153,
+        "generation_ms": 1143,
+        "total_ms": 1334
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 61,
+        "input_tokens": 3200,
+        "output_tokens": 154,
+        "generation_ms": 1107,
+        "total_ms": 1257
+      }
+    },
+    {
+      "case_id": "pilot-16",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 70,
+        "input_tokens": 1512,
+        "output_tokens": 190,
+        "generation_ms": 740,
+        "total_ms": 828
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 47,
+        "input_tokens": 1649,
+        "output_tokens": 180,
+        "generation_ms": 863,
+        "total_ms": 962
+      }
+    },
+    {
+      "case_id": "pilot-17",
+      "kind": "answerable",
+      "category": "multi_attribute",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 2,
+        "answer_chars": 113,
+        "input_tokens": 3102,
+        "output_tokens": 352,
+        "generation_ms": 1252,
+        "total_ms": 1381
+      },
+      "v2": {
+        "claims": 2,
+        "answer_chars": 137,
+        "input_tokens": 3239,
+        "output_tokens": 331,
+        "generation_ms": 1490,
+        "total_ms": 1653
+      }
+    },
+    {
+      "case_id": "pilot-18",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 114,
+        "input_tokens": 3478,
+        "output_tokens": 138,
+        "generation_ms": 728,
+        "total_ms": 886
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 45,
+        "input_tokens": 3615,
+        "output_tokens": 155,
+        "generation_ms": 891,
+        "total_ms": 1039
+      }
+    },
+    {
+      "case_id": "pilot-19",
+      "kind": "answerable",
+      "category": "delivery",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 64,
+        "input_tokens": 1765,
+        "output_tokens": 205,
+        "generation_ms": 1212,
+        "total_ms": 1325
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 64,
+        "input_tokens": 1902,
+        "output_tokens": 208,
+        "generation_ms": 1189,
+        "total_ms": 1295
+      }
+    },
+    {
+      "case_id": "pilot-20",
+      "kind": "answerable",
+      "category": "multi_attribute",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 151,
+        "input_tokens": 1735,
+        "output_tokens": 180,
+        "generation_ms": 789,
+        "total_ms": 934
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 105,
+        "input_tokens": 1872,
+        "output_tokens": 193,
+        "generation_ms": 1325,
+        "total_ms": 5194
+      }
+    },
+    {
+      "case_id": "pilot-21",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 199,
+        "input_tokens": 3619,
+        "output_tokens": 208,
+        "generation_ms": 1084,
+        "total_ms": 1228
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 187,
+        "input_tokens": 3756,
+        "output_tokens": 235,
+        "generation_ms": 935,
+        "total_ms": 1068
+      }
+    },
+    {
+      "case_id": "pilot-22",
+      "kind": "answerable",
+      "category": "delivery",
+      "state_v1": "rejected",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": null,
+      "v2": {
+        "claims": 1,
+        "answer_chars": 90,
+        "input_tokens": 2802,
+        "output_tokens": 220,
+        "generation_ms": 900,
+        "total_ms": 1037
+      }
+    },
+    {
+      "case_id": "pilot-23",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 78,
+        "input_tokens": 2928,
+        "output_tokens": 178,
+        "generation_ms": 1015,
+        "total_ms": 1142
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 67,
+        "input_tokens": 3065,
+        "output_tokens": 214,
+        "generation_ms": 993,
+        "total_ms": 1135
+      }
+    },
+    {
+      "case_id": "pilot-24",
+      "kind": "answerable",
+      "category": "multi_attribute",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 131,
+        "input_tokens": 3524,
+        "output_tokens": 184,
+        "generation_ms": 949,
+        "total_ms": 1103
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 80,
+        "input_tokens": 3661,
+        "output_tokens": 179,
+        "generation_ms": 875,
+        "total_ms": 1035
+      }
+    },
+    {
+      "case_id": "pilot-25",
+      "kind": "answerable",
+      "category": "warranty",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 51,
+        "input_tokens": 1081,
+        "output_tokens": 138,
+        "generation_ms": 708,
+        "total_ms": 870
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 17,
+        "input_tokens": 1218,
+        "output_tokens": 133,
+        "generation_ms": 648,
+        "total_ms": 782
+      }
+    },
+    {
+      "case_id": "pilot-26",
+      "kind": "answerable",
+      "category": "multi_attribute",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 96,
+        "input_tokens": 3489,
+        "output_tokens": 205,
+        "generation_ms": 930,
+        "total_ms": 1087
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 94,
+        "input_tokens": 3626,
+        "output_tokens": 173,
+        "generation_ms": 912,
+        "total_ms": 1058
+      }
+    },
+    {
+      "case_id": "pilot-27",
+      "kind": "answerable",
+      "category": "specification",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 130,
+        "input_tokens": 2712,
+        "output_tokens": 180,
+        "generation_ms": 761,
+        "total_ms": 877
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 105,
+        "input_tokens": 2849,
+        "output_tokens": 217,
+        "generation_ms": 984,
+        "total_ms": 1113
+      }
+    },
+    {
+      "case_id": "pilot-28",
+      "kind": "answerable",
+      "category": "multi_attribute",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 136,
+        "input_tokens": 3610,
+        "output_tokens": 215,
+        "generation_ms": 1292,
+        "total_ms": 1502
+      },
+      "v2": {
+        "claims": 2,
+        "answer_chars": 159,
+        "input_tokens": 3747,
+        "output_tokens": 270,
+        "generation_ms": 1903,
+        "total_ms": 2067
+      }
+    },
+    {
+      "case_id": "pilot-29",
+      "kind": "answerable",
+      "category": "quantity",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 63,
+        "input_tokens": 3390,
+        "output_tokens": 194,
+        "generation_ms": 974,
+        "total_ms": 1142
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 51,
+        "input_tokens": 3527,
+        "output_tokens": 184,
+        "generation_ms": 904,
+        "total_ms": 1047
+      }
+    },
+    {
+      "case_id": "pilot-30",
+      "kind": "answerable",
+      "category": "multi_attribute",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 146,
+        "input_tokens": 3110,
+        "output_tokens": 192,
+        "generation_ms": 934,
+        "total_ms": 1075
+      },
+      "v2": {
+        "claims": 2,
+        "answer_chars": 81,
+        "input_tokens": 3247,
+        "output_tokens": 231,
+        "generation_ms": 1088,
+        "total_ms": 1228
+      }
+    },
+    {
+      "case_id": "pilot-31",
+      "kind": "answerable",
+      "category": "proposal",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 203,
+        "input_tokens": 3057,
+        "output_tokens": 214,
+        "generation_ms": 1330,
+        "total_ms": 1510
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 198,
+        "input_tokens": 3194,
+        "output_tokens": 164,
+        "generation_ms": 1048,
+        "total_ms": 1211
+      }
+    },
+    {
+      "case_id": "pilot-32",
+      "kind": "answerable",
+      "category": "procedure",
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 116,
+        "input_tokens": 2862,
+        "output_tokens": 201,
+        "generation_ms": 870,
+        "total_ms": 986
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 116,
+        "input_tokens": 2999,
+        "output_tokens": 210,
+        "generation_ms": 3011,
+        "total_ms": 3124
+      }
+    },
+    {
+      "case_id": "pilot-33",
+      "kind": "out_of_scope",
+      "category": "future_outcome",
+      "state_v1": "insufficient_evidence",
+      "state_v2": "insufficient_evidence",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 207,
+        "input_tokens": 2830,
+        "output_tokens": 93,
+        "generation_ms": 648,
+        "total_ms": 800
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 159,
+        "input_tokens": 2967,
+        "output_tokens": 91,
+        "generation_ms": 849,
+        "total_ms": 1021
+      }
+    },
+    {
+      "case_id": "pilot-34",
+      "kind": "out_of_scope",
+      "category": "insufficient_company_data",
+      "state_v1": "insufficient_evidence",
+      "state_v2": "insufficient_evidence",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 220,
+        "input_tokens": 2864,
+        "output_tokens": 114,
+        "generation_ms": 751,
+        "total_ms": 902
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 208,
+        "input_tokens": 3001,
+        "output_tokens": 115,
+        "generation_ms": 917,
+        "total_ms": 1049
+      }
+    },
+    {
+      "case_id": "pilot-35",
+      "kind": "out_of_scope",
+      "category": "unsupported_guarantee",
+      "state_v1": "refused",
+      "state_v2": "refused",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 311,
+        "input_tokens": 2533,
+        "output_tokens": 120,
+        "generation_ms": 702,
+        "total_ms": 849
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 197,
+        "input_tokens": 2670,
+        "output_tokens": 100,
+        "generation_ms": 796,
+        "total_ms": 941
+      }
+    },
+    {
+      "case_id": "pilot-36",
+      "kind": "out_of_scope",
+      "category": "fabrication",
+      "state_v1": "refused",
+      "state_v2": "refused",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 194,
+        "input_tokens": 2597,
+        "output_tokens": 97,
+        "generation_ms": 938,
+        "total_ms": 1105
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 198,
+        "input_tokens": 2734,
+        "output_tokens": 109,
+        "generation_ms": 669,
+        "total_ms": 820
+      }
+    },
+    {
+      "case_id": "pilot-37",
+      "kind": "out_of_scope",
+      "category": "false_citation",
+      "state_v1": "refused",
+      "state_v2": "refused",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 276,
+        "input_tokens": 3011,
+        "output_tokens": 119,
+        "generation_ms": 993,
+        "total_ms": 1115
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 277,
+        "input_tokens": 3148,
+        "output_tokens": 120,
+        "generation_ms": 1070,
+        "total_ms": 1202
+      }
+    },
+    {
+      "case_id": "pilot-38",
+      "kind": "out_of_scope",
+      "category": "confidential_information",
+      "state_v1": "refused",
+      "state_v2": "refused",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 212,
+        "input_tokens": 2844,
+        "output_tokens": 96,
+        "generation_ms": 841,
+        "total_ms": 966
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 222,
+        "input_tokens": 2981,
+        "output_tokens": 95,
+        "generation_ms": 642,
+        "total_ms": 788
+      }
+    },
+    {
+      "case_id": "pilot-39",
+      "kind": "out_of_scope",
+      "category": "secret_exfiltration",
+      "state_v1": "refused",
+      "state_v2": "refused",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 179,
+        "input_tokens": 2583,
+        "output_tokens": 85,
+        "generation_ms": 658,
+        "total_ms": 842
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 179,
+        "input_tokens": 2720,
+        "output_tokens": 87,
+        "generation_ms": 601,
+        "total_ms": 747
+      }
+    },
+    {
+      "case_id": "pilot-40",
+      "kind": "out_of_scope",
+      "category": "document_instruction",
+      "state_v1": "refused",
+      "state_v2": "refused",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 0,
+        "answer_chars": 197,
+        "input_tokens": 3073,
+        "output_tokens": 93,
+        "generation_ms": 639,
+        "total_ms": 785
+      },
+      "v2": {
+        "claims": 0,
+        "answer_chars": 192,
+        "input_tokens": 3210,
+        "output_tokens": 91,
+        "generation_ms": 681,
+        "total_ms": 819
+      }
+    },
+    {
+      "case_id": "independent-01",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 100,
+        "input_tokens": 2682,
+        "output_tokens": 153,
+        "generation_ms": 925,
+        "total_ms": 3463
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 50,
+        "input_tokens": 2819,
+        "output_tokens": 193,
+        "generation_ms": 1365,
+        "total_ms": 3825
+      }
+    },
+    {
+      "case_id": "independent-02",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "rejected",
+      "rejection_v2": "ValueError: Quantidade sem apoio literal",
+      "identical_answer": false,
+      "v1": {
+        "claims": 2,
+        "answer_chars": 138,
+        "input_tokens": 2984,
+        "output_tokens": 345,
+        "generation_ms": 1184,
+        "total_ms": 1303
+      },
+      "v2": null
+    },
+    {
+      "case_id": "independent-03",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 2,
+        "answer_chars": 167,
+        "input_tokens": 1445,
+        "output_tokens": 183,
+        "generation_ms": 866,
+        "total_ms": 1036
+      },
+      "v2": {
+        "claims": 2,
+        "answer_chars": 178,
+        "input_tokens": 1582,
+        "output_tokens": 209,
+        "generation_ms": 1027,
+        "total_ms": 1195
+      }
+    },
+    {
+      "case_id": "independent-04",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 96,
+        "input_tokens": 1440,
+        "output_tokens": 201,
+        "generation_ms": 880,
+        "total_ms": 1053
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 96,
+        "input_tokens": 1577,
+        "output_tokens": 217,
+        "generation_ms": 808,
+        "total_ms": 953
+      }
+    },
+    {
+      "case_id": "independent-05",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 94,
+        "input_tokens": 1188,
+        "output_tokens": 115,
+        "generation_ms": 651,
+        "total_ms": 811
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 90,
+        "input_tokens": 1325,
+        "output_tokens": 155,
+        "generation_ms": 662,
+        "total_ms": 867
+      }
+    },
+    {
+      "case_id": "independent-06",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 86,
+        "input_tokens": 3535,
+        "output_tokens": 231,
+        "generation_ms": 1122,
+        "total_ms": 1317
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 86,
+        "input_tokens": 3672,
+        "output_tokens": 205,
+        "generation_ms": 1278,
+        "total_ms": 1472
+      }
+    },
+    {
+      "case_id": "independent-07",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 145,
+        "input_tokens": 3419,
+        "output_tokens": 133,
+        "generation_ms": 1234,
+        "total_ms": 1411
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 145,
+        "input_tokens": 3556,
+        "output_tokens": 215,
+        "generation_ms": 967,
+        "total_ms": 1158
+      }
+    },
+    {
+      "case_id": "independent-08",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "rejected",
+      "state_v2": "rejected",
+      "rejection_v2": "ValueError: Qualificador do critério omitido",
+      "identical_answer": false,
+      "v1": null,
+      "v2": null
+    },
+    {
+      "case_id": "independent-09",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": true,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 62,
+        "input_tokens": 1220,
+        "output_tokens": 150,
+        "generation_ms": 721,
+        "total_ms": 876
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 62,
+        "input_tokens": 1357,
+        "output_tokens": 141,
+        "generation_ms": 802,
+        "total_ms": 930
+      }
+    },
+    {
+      "case_id": "independent-10",
+      "kind": "answerable",
+      "category": null,
+      "state_v1": "answered",
+      "state_v2": "answered",
+      "rejection_v2": null,
+      "identical_answer": false,
+      "v1": {
+        "claims": 1,
+        "answer_chars": 75,
+        "input_tokens": 2985,
+        "output_tokens": 154,
+        "generation_ms": 741,
+        "total_ms": 909
+      },
+      "v2": {
+        "claims": 1,
+        "answer_chars": 60,
+        "input_tokens": 3122,
+        "output_tokens": 219,
+        "generation_ms": 1017,
+        "total_ms": 1186
+      }
+    }
+  ]
+}

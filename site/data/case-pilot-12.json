@@ -1,0 +1,45 @@
+{
+ "id": "pilot-12",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "quantity",
+ "pncp_id": "46377800000127-1-004170/2026",
+ "question": "Qual quantidade de SSDs de 240 GB é prevista no item 2 da contratação da SSP/SP de sequência 4170?",
+ "expected_answer": "80 unidades.",
+ "sources": [
+  {
+   "document_sha256": "10b151153853da70d35711b9bf2d22aa79bddd8f4fe5bc9bd6fc26856d3eeed6",
+   "document_sequence": 1,
+   "page": 15,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46377800000127/compras/2026/4170/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

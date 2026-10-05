@@ -1,0 +1,45 @@
+{
+ "id": "pilot-26",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "multi_attribute",
+ "pncp_id": "10106268000166-1-000069/2026",
+ "question": "Em Venturosa, quantos computadores completos do item 3 são previstos e quais capacidades de RAM e SSD aparecem na descrição?",
+ "expected_answer": "40 computadores, com 16 GB de RAM e SSD de 512 GB.",
+ "sources": [
+  {
+   "document_sha256": "88af558975c2e20de0fc3cdf961e6cc4d9a547ad2b06636cae75edee1fccd7e6",
+   "document_sequence": 1,
+   "page": 34,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10106268000166/compras/2026/69/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}
