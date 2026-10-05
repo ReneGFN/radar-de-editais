@@ -8,7 +8,7 @@ export function QualityPage() {
   const q = quality.data
   return (
     <>
-      <h2>Qualidade</h2>
+      <div className="page-heading"><p className="eyebrow">CRITÉRIOS DE CONFIANÇA</p><h2>Qualidade</h2><p className="muted">O que já foi verificado e o que ainda precisa passar.</p></div>
       <div className={q.decision === 'blocked' ? 'callout bad' : 'callout good'}>
         <p>Gate: <strong>{q.decision === 'blocked' ? 'bloqueado' : q.decision}</strong>. Meta: {fmt(q.target * 100)}%.</p>
         <p>Situação da meta: {q.target_status}</p>

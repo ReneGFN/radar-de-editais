@@ -21,14 +21,14 @@ export function CasesPage() {
   const rows = cases.data.filter((c) => kind === 'all' || c.kind === kind)
   return (
     <>
-      <h2>Casos de desenvolvimento</h2>
+      <div className="page-heading"><p className="eyebrow">EVIDÊNCIAS E REVISÃO</p><h2>Casos de desenvolvimento</h2><p className="muted">Explore cada pergunta, resultado e fonte.</p></div>
       <p className="muted">Só referências aprovadas. O holdout não aparece aqui enquanto estiver pendente de aprovação.</p>
       <form className="controls" onSubmit={(e) => e.preventDefault()}>
         <label>Tipo <select value={kind} onChange={(e) => setKind(e.target.value)}>
           <option value="all">todos</option><option value="answerable">factual</option><option value="out_of_scope">recusa</option>
         </select></label>
       </form>
-      <table>
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Tabela com rolagem horizontal"><table>
         <caption>{rows.length} casos</caption>
         <thead><tr><th>Caso</th><th>Conjunto</th><th>Tipo</th>
           {VARIANTS.map((v) => <th key={v}>{v}</th>)}</tr></thead>
@@ -39,14 +39,14 @@ export function CasesPage() {
               <td>{c.set}</td>
               <td>{kindLabel(c.kind)}{c.category ? ` · ${c.category}` : ''}</td>
               {VARIANTS.map((v) => (
-                <td key={v}>{stateLabel(c.states[v])}{' '}
+                <td key={v}><div className="case-result"><span className="technical-state">{stateLabel(c.states[v])}</span>
                   <span className={passClass(c.human_pass[v])}>{c.human[v] === 'human_reviewed' ? passLabel(c.human_pass[v]) : humanLabel(c.human[v])}</span>
-                </td>
+                </div></td>
               ))}
             </tr>
           ))}
         </tbody>
-      </table>
+      </table></div>
     </>
   )
 }
@@ -64,7 +64,7 @@ function Detail({ data }: { data: CaseDetail }) {
       </dl>
       <h3>Fontes oficiais</h3>
       {data.sources.length === 0 ? <p>Sem fonte (caso de recusa).</p> : (
-        <table>
+        <div className="table-scroll" tabIndex={0} role="region" aria-label="Tabela com rolagem horizontal"><table>
           <thead><tr><th>Arquivo (hash)</th><th>Documento</th><th>Página</th><th>Link oficial</th></tr></thead>
           <tbody>{data.sources.map((s, i) => {
             const url = safePncpUrl(s.url)
@@ -77,7 +77,7 @@ function Detail({ data }: { data: CaseDetail }) {
               </tr>
             )
           })}</tbody>
-        </table>
+        </table></div>
       )}
       <h3>Resultado por variante</h3>
       <p className="muted">Estado técnico (automático) e revisão humana são coisas diferentes; citação íntegra não significa resposta correta.</p>

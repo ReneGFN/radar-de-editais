@@ -71,7 +71,7 @@ V3_RULES = '''
   inclua em claims o que a fonte realmente diz, com a fonte.'''
 
 
-def system_prompt(citation_mode='model_quote',prompt_version='v1'):
+def system_prompt(citation_mode='model_quote',prompt_version='v1',rerank_profile='none',guardrails=False):
     """Monta o prompt de sistema; v1 reproduz byte a byte o texto usado por alias_items."""
     if prompt_version not in PROMPT_VERSIONS:
         raise ValueError('Versão de prompt inválida')
@@ -215,16 +215,30 @@ def key():
     return value
 
 
-def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='structured',context_profile='chunk',citation_mode='model_quote',prompt_version='v1'):
+def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='structured',context_profile='chunk',citation_mode='model_quote',prompt_version='v1',rerank_profile='none',guardrails=False,document_scope=None):
+    if rerank_profile not in ('none','coverage_v1'):
+        raise ValueError('Perfil de reranking inválido')
     if not free_plan_confirmed:
         raise ValueError('Confirme o plano gratuito antes de chamar Groq')
     if citation_mode not in ('model_quote','source_id','source_alias'):
         raise ValueError('Modo de citação inválido')
     system=system_prompt(citation_mode,prompt_version)
-    docs,trace=retrieve_with_trace(query,snapshot,edital,query_profile=query_profile,context_profile=context_profile)
+    if document_scope:
+        from .retrieval import retrieve_document_scope
+        docs,trace=retrieve_document_scope(query,snapshot,document_scope)
+    else:
+        docs,trace=retrieve_with_trace(query,snapshot,edital,query_profile=query_profile,context_profile=context_profile)
     if not docs:
         return {'status':'insufficient_evidence','answer':'Não encontrei evidência no escopo informado.',
                 'claims':[],'citations':[],'generation_calls':0,'retrieval':trace,'semantic_support':'requires_review'}
+    if guardrails:
+        from .guardrails import context_is_safe
+        if not context_is_safe(docs):
+            return {'status':'insufficient_evidence','answer':'O contexto recuperado contém instruções suspeitas. Consulte o PDF original.', 'claims':[],'citations':[], 'generation_calls':0,'retrieval':trace,'semantic_support':'requires_review'}
+    if rerank_profile == 'coverage_v1':
+        from .reranking import rerank_documents
+        docs = rerank_documents(docs, query)
+    trace['rerank_profile'] = rerank_profile
     from langchain_groq import ChatGroq
     import json
     # Apenas trechos efetivamente recuperados; metadados de referência não entram no prompt.
@@ -238,6 +252,13 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
     if context_profile == 'item_structure':
         for entry,doc in zip(context,docs):
             entry['item_context']={k:doc.metadata[k] for k in ('item_number','item_header_page','item_header_start','item_recognition','item_continuation','quantity_candidates') if k in doc.metadata}
+    if document_scope:
+        from .discovery import allowed_editais
+        catalog = allowed_editais()
+        for entry,doc in zip(context,docs):
+            entry['pncp_id'] = doc.metadata['pncp_id']
+            entry['agency'] = catalog[doc.metadata['pncp_id']]['agency']
+        system += '\nOs documentos pertencem à seleção do usuário. Diferencie contratações pelo pncp_id e não misture suas exigências. Só responda com apoio nos trechos; explicite comparações sem evidência suficiente.'
     user=json.dumps({'question':query,'documents':context},ensure_ascii=False)
     if len(user)>16000: raise ValueError('Contexto excede o limite de consulta')
     # O SDK Groq acrescenta /openai/v1/chat/completions; base deve ser somente a origem.
@@ -285,6 +306,9 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
                           {'parsed':result['parsed'],'usage':getattr(result.get('raw'),'usage_metadata',None),
                            'error':str(exc)})
         raise GenerationFailure(kind,getattr(exc,'status_code',None)) from None
+    if guardrails:
+        from .guardrails import numeric_support
+        validated = numeric_support(validated)
     raw=result['raw']
     validated.update(source_alias_map=aliases,citation_mode=citation_mode,context_profile=context_profile,prompt_version=prompt_version,model=MODEL,generation_calls=1,retrieval=trace,
                      generation_latency_ms=(perf_counter()-started)*1000,

@@ -22,7 +22,7 @@ export function CorpusPage() {
   const max = Math.max(...c.by_uf.map((r: UfRow) => r.editais))
   return (
     <>
-      <h2>Corpus</h2>
+      <div className="page-heading"><p className="eyebrow">BASE DE CONHECIMENTO</p><h2>Corpus</h2><p className="muted">Documentos, cobertura e rastreabilidade da base.</p></div>
       <div className="grid">
         <section className="card" aria-label="Desenvolvimento">
           <h3>Desenvolvimento</h3>
@@ -35,7 +35,7 @@ export function CorpusPage() {
           <p>{c.holdout.editais} contratações · {c.holdout.documents} PDFs · {fmt(c.holdout.pages)} páginas</p>
         </section>
       </div>
-      <table>
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Tabela com rolagem horizontal"><table>
         <caption>Distribuição por região e UF</caption>
         <thead><tr><th>Papel</th><th>Região</th><th>UF</th><th>Editais</th><th></th><th>PDFs</th><th>Páginas</th></tr></thead>
         <tbody>{c.by_uf.map((r) => (
@@ -45,7 +45,7 @@ export function CorpusPage() {
             <td>{r.pages_known ? fmt(r.pages) : 'não informado'}</td>
           </tr>
         ))}</tbody>
-      </table>
+      </table></div>
       <p className="muted">{c.note}</p>
     </>
   )

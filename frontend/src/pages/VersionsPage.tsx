@@ -10,11 +10,11 @@ function HumanCell({ version }: { version: Version }) {
   const total = h.answerable_reviewed + h.refusals_reviewed
   if (total === 0) return <span className="muted">não avaliado</span>
   return (
-    <span>
-      factuais: {h.answerable_all_criteria_true} aprovadas entre {h.answerable_reviewed} com critérios (de {h.answerable_cases});{' '}
-      recusas: {h.refusals_all_criteria_true} aprovadas entre {h.refusals_reviewed} (de {h.refusals_cases})
-      {!h.rate_available && <span className="badge warn"> taxa não calculada: revisão incompleta</span>}
-    </span>
+    <div className="human-results">
+      <p><strong>Factuais</strong><span>{h.answerable_all_criteria_true} aprovadas entre {h.answerable_reviewed} com critérios (de {h.answerable_cases})</span></p>
+      <p><strong>Recusas</strong><span>{h.refusals_all_criteria_true} aprovadas entre {h.refusals_reviewed} (de {h.refusals_cases})</span></p>
+      {!h.rate_available && <div className="review-warning"><strong>Taxa não calculada</strong><span>Revisão incompleta</span></div>}
+    </div>
   )
 }
 
@@ -27,12 +27,13 @@ function ComparisonView({ data }: { data: Comparison }) {
   const changed = data.cases.filter((c) => c.technical_change !== 'unchanged' || ['regression', 'improvement'].includes(c.human_change))
   return (
     <section aria-label="Resultado da comparação">
-      <p>
-        Factuais aceitas: <strong>{data.factual_answered[data.a]}</strong> ({data.a}) →{' '}
-        <strong>{data.factual_answered[data.b]}</strong> ({data.b}) de {data.factual_answered.of}.
-        {' '}Recuperação {data.retrieval_changed ? 'mudou' : 'idêntica'}; holdout {data.holdout_used ? 'usado' : 'não usado'}.
-      </p>
-      <div className="callout bad">
+      <div className="comparison-scoreboard">
+        <div><span className="eyebrow">BASE · {data.a}</span><strong>{data.factual_answered[data.a]}<small>/{data.factual_answered.of}</small></strong><span>Factuais aceitas</span></div>
+        <span className="comparison-arrow" aria-hidden="true">→</span>
+        <div><span className="eyebrow">CANDIDATA · {data.b}</span><strong>{data.factual_answered[data.b]}<small>/{data.factual_answered.of}</small></strong><span>Factuais aceitas</span></div>
+        <div className="comparison-context"><span>Recuperação <strong>{data.retrieval_changed ? 'mudou' : 'idêntica'}</strong></span><span>Holdout <strong>{data.holdout_used ? 'usado' : 'não usado'}</strong></span><small>Estado técnico; confira a revisão humana.</small></div>
+      </div>
+      <div className="comparison-findings"><div className="callout bad">
         <h3>Regressões ({data.regressions.length})</h3>
         {data.regressions.length === 0 ? <p>Nenhuma.</p> : (
           <ul>{data.regressions.map((id) => <li key={id}><a href={`#/casos/${id}`}>{id}</a></li>)}</ul>
@@ -43,9 +44,9 @@ function ComparisonView({ data }: { data: Comparison }) {
         {data.improvements.length === 0 ? <p>Nenhuma.</p> : (
           <ul>{data.improvements.map((id) => <li key={id}><a href={`#/casos/${id}`}>{id}</a></li>)}</ul>
         )}
-      </div>
-      <p className="muted">{data.note}</p>
-      <table>
+      </div></div>
+      <p className="muted comparison-note">{data.note}</p>
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Tabela com rolagem horizontal"><table>
         <caption>Casos com mudança ({changed.length} de {data.cases.length})</caption>
         <thead><tr><th>Caso</th><th>Tipo</th><th>{data.a}</th><th>{data.b}</th><th>Mudança técnica</th><th>Mudança humana</th></tr></thead>
         <tbody>
@@ -60,7 +61,7 @@ function ComparisonView({ data }: { data: Comparison }) {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table></div>
     </section>
   )
 }
@@ -74,30 +75,19 @@ export function VersionsPage() {
   const { data } = versions
   return (
     <>
-      <h2>Versões</h2>
+      <div className="page-heading"><p className="eyebrow">LABORATÓRIO DE AVALIAÇÃO</p><h2>Versões</h2><p className="muted">Compare os resultados. Entenda cada mudança.</p></div>
       <p>
         Variante padrão: <strong>{data.default_variant}</strong> (decisão de {data.decision_record.date}). {data.decision_record.reason}.
       </p>
-      <table>
-        <caption>Métricas nos 50 casos de desenvolvimento</caption>
-        <thead>
-          <tr><th>Variante</th><th>Papel</th><th>Factuais aceitas</th><th>Revisão humana</th>
-            <th>Tokens de entrada</th><th>Geração (mediana)</th><th>Total (mediana)</th></tr>
-        </thead>
-        <tbody>
-          {data.versions.map((v) => (
-            <tr key={v.id}>
-              <th scope="row">{v.label}{v.is_default && <span className="badge good"> padrão</span>}</th>
-              <td>{ROLES[v.role] ?? v.role}{!v.promoted && <span className="badge"> não promovida</span>}</td>
-              <td>{v.factual_answered_of_40}/40</td>
-              <td><HumanCell version={v} /></td>
-              <td>{fmt(v.input_tokens_total)} <span className="muted">({v.input_tokens_counted_cases} casos)</span></td>
-              <td>{fmt(v.generation_ms_median)} ms</td>
-              <td>{fmt(v.total_ms_median)} ms</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <section aria-label="Métricas nos 50 casos de desenvolvimento" className="version-grid">
+        {data.versions.map(v => <article key={v.id} className={`version-card ${v.is_default ? 'is-default' : ''}`}>
+          <div className="version-heading"><h3>{v.id}<small>{v.is_default ? 'Versão padrão' : v.id === 'alias_items_v3' ? 'Experimento de segurança' : 'Versão experimental'}</small></h3><span className={`badge ${v.is_default ? 'good' : ''}`}>{v.is_default ? 'Padrão' : 'Experimental'}</span></div>
+          <p className="muted version-role">{ROLES[v.role] ?? v.role}{!v.promoted && <> · <span>não promovida</span></>}</p>
+          <div className="metric-value">{v.factual_answered_of_40}<span>/40</span></div><p className="muted">Factuais aceitas pelo estado técnico</p>
+          <dl className="version-metrics"><div><dt>Geração · mediana</dt><dd>{fmt(v.generation_ms_median)} ms</dd></div><div><dt>Total · mediana</dt><dd>{fmt(v.total_ms_median)} ms</dd></div><div><dt>Tokens de entrada</dt><dd>{fmt(v.input_tokens_total)} <small>({v.input_tokens_counted_cases} casos)</small></dd></div></dl>
+          <div className="human-summary"><h4>Conferência humana</h4><HumanCell version={v} /></div>
+        </article>)}
+      </section>
       <ul className="muted">{data.metric_caveats.map((c) => <li key={c}>{c}</li>)}</ul>
       {data.versions.filter((v) => v.findings).map((v) => (
         <section key={v.id} aria-label={`Achados humanos de ${v.id}`}>
@@ -110,13 +100,14 @@ export function VersionsPage() {
           </div>
         </section>
       ))}
-      <h3>Comparar versões</h3>
-      <form className="controls" onSubmit={(e) => e.preventDefault()}>
+      <div className="comparison-toolbar"><div><p className="eyebrow">COMPARAÇÃO DIRETA</p><h3>Comparar versões</h3><p className="muted">Escolha a base e veja o que mudou na candidata.</p></div>
+      <form className="controls comparison-selectors" onSubmit={(e) => e.preventDefault()}>
         <label>Base <select value={a} onChange={(e) => isVariant(e.target.value) && setA(e.target.value)}>
           {VARIANTS.map((v) => <option key={v} value={v}>{v}</option>)}</select></label>
         <label>Candidata <select value={b} onChange={(e) => isVariant(e.target.value) && setB(e.target.value)}>
           {VARIANTS.map((v) => <option key={v} value={v}>{v}</option>)}</select></label>
       </form>
+      </div>
       {a === b ? <p>Escolha duas variantes diferentes.</p>
         : comparison.status === 'ok' ? <ComparisonView data={comparison.data} /> : <Status state={comparison} />}
     </>

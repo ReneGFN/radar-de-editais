@@ -14,6 +14,8 @@ OUT = ROOT / 'site' / 'data'
 
 
 def payloads():
+    from radar.atlas import explore_catalog
+    yield 'explore.json', None, explore_catalog()
     yield 'versions.json', api.Versions, public_data.versions()
     for (a, b) in public_data.COMPARISONS:
         for x, y in ((a, b), (b, a)):
@@ -31,7 +33,9 @@ def export(out=OUT):
         old.unlink()
     names = []
     for name, model, data in payloads():
-        if model is None:
+        if name == 'explore.json':
+            pass  # Lista permitida construída por atlas.explore_catalog; assert_public abaixo.
+        elif model is None:
             data = [api.CaseSummary.model_validate(row).model_dump() for row in data]
         else:
             data = model.model_validate(data).model_dump()

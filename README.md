@@ -1,5 +1,55 @@
 # Radar de Editais
 
+### 2026-10-05 — navegação final do atlas para revisão
+
+Entrada no estado pelo rótulo sigla/contagem; clique simples em superfície/pasta sem navegação. Retorno à visão geral com câmera interpolada por 900 ms. Build/21 testes/audit runtime e navegador PR→geral conferidos. [Evidências e dez grupos](docs/atlas-navegacao-intencional.md). Aguardar avaliação de Renê.
+
+### 2026-10-05 — mesa documental e consulta por PDFs para revisão
+
+PDFs alinhados ao tampo; clique no fundo retorna à visão geral. Mesa reúne até cinco PDFs, inclusive de editais diferentes, e encaminha ao chat com filtro real no PostgreSQL e validação das fontes por arquivo. 295 testes backend/21 frontend/build; busca local de três arquivos retornou cinco trechos sem sair do escopo. npm runtime/pip audit sem avisos conhecidos auditáveis. [Evidências, limites e dez grupos](docs/mesa-com-escopo-documental.md). Resposta conjunta Groq ainda não conferida; aguardar avaliação de Renê.
+
+### 2026-10-05 — estados e seleção de PDFs para revisão
+
+Seleção após filtro corrigida, leque com aproximação automática, rótulos legíveis no zoom e estado clicável. Cartões de PDFs reais com seleção/arraste à mesa. SC (um PDF) e MT (dois PDFs/arraste do arquivo 2) conferidos; móvel sem overflow horizontal. 20 testes/build, audit runtime zero avisos conhecidos. [Evidências e dez grupos](docs/atlas-estados-e-selecao.md). Aguardar avaliação de Renê.
+
+### 2026-10-05 — atlas interativo refinado para revisão
+
+Pastas com volume, gesto de levantar/soltar, abertura em leque, recolhimento sequencial, câmera suave e transporte do PDF selecionado até a mesa de conferência. 19 testes frontend/build passaram; audit runtime zero vulnerabilidades conhecidas. Jari/PDF 8 e layout móvel conferidos no navegador; desempenho e dispositivo físico pendentes. [Evidências, limitações e dez grupos](docs/atlas-interativo-refinado.md). Aguardar avaliação visual de Renê.
+
+### 2026-10-05 — controles e atlas 3D implementados para revisão
+
+Guardrails e confiança verificável ativos; reranking local implementado como experimento, padrão preservado após duas melhorias/duas pioras de ranking. Atlas UF/edital/PDF com fontes da última resposta, filtros e lista. 283 testes backend/18 frontend, build/audit; fluxo real Groq e fontes conferidos. [Entrega, limitações e dez grupos](docs/controles-e-atlas-3d.md). API ativa; aguardar revisão de Renê.
+
+### 2026-10-05 — API disponível para consulta real
+
+Instância antiga reiniciada com configuração privada; consulta real aprovada de Belmonte respondeu 12 meses com duas fontes. API ativa em loopback; disponibilidade não é precisão global. [Evidências, limitações e dez grupos](docs/api-disponivel-2026-10-05.md). Pausa para revisão; controles seguintes pendentes e 3D adiado.
+
+2026-10-05 — referência 3D pública e imagem sobre controle por código analisadas. [Proposta para revisão](docs/proposta-3d-e-controle.md): exploração semântica opcional com fontes, 2D/lista e validação de utilidade; sem implementação nova ou ganho comprovado.
+
+2026-10-05 — Renê aprovou Comparar versões; revisão visual concluída junto ao chat previamente aprovado. Próxima entrega: teste funcional de pergunta aprovada pela interface/Groq, com conferência das fontes e autorização aplicável. [Registro da entrega](docs/comparacao-visual.md). Pendências de imagem/runtime permanecem antes da publicação.
+
+2026-10-05 — chat aprovado visualmente por Renê. Bloco Comparar versões refinado com seletores integrados, placar e cartões de mudanças; tabela preservada. Build/17 testes e QA desktop/móvel passaram. [Entrega](docs/comparacao-visual.md). Aguardar revisão deste bloco.
+
+2026-10-05 — alinhamento corrigido em Versões/Casos, aviso de revisão em bloco próprio e escopo arrastável com teclado/restauração e rolagem sem barra visual. Build/17 testes/audit e QA local passaram. [Entrega e dez grupos](docs/alinhamento-e-escopo-movel.md). Aguardar revisão; sem Groq real/publicação.
+
+2026-10-05 — interface refinada conforme correções de Renê: sugestões centralizadas, foco fluido e escopo pesquisável; Versões/Casos/Qualidade/Corpus com identidade compartilhada. Tailwind integrado, build/16 testes/audit concluídos; QA desktop/móvel. [Entrega e dez grupos](docs/interface-refinada.md). Aguardar revisão; Node de testes, licença/otimização da imagem pendentes. Sem Groq real/publicação.
+
+2026-10-05 — design do chat adaptado à referência Moon Chat: fundo lunar, compositor translúcido e escopo recolhível. Build/15 testes/audit passaram; navegador conferiu esclarecimento real sem Groq e layout móvel. [Entrega, segurança e pendências de imagem](docs/design-moon-chat.md). Aguardar aprovação visual; revisão local, sem publicação.
+
+Entrega local 2026-10-05 — tela de chatbot inicial implementada, pergunta geral/editais opcionais, candidatos e fontes clicáveis; painel preservado. Build, 15 testes frontend e 270 backend passaram; npm audit sem vulnerabilidades conhecidas. Corrigido catálogo de seis contratações com metadados incompletos, 36 carregadas. Revisão em navegador com banco real e respostas simuladas, sem Groq real. Serviços normais ativos para revisão nesta sessão. [Abrir chat](http://127.0.0.1:5173/#/chat) · [Entrega e segurança](docs/tela-chat-local.md). Pausa antes do teste real pela Groq.
+
+Entrega local 2026-10-05 — serviço de perguntas implementado em 8766, com descoberta, esclarecimento e geração `alias_items` com fontes. 269 testes passaram; integração com banco/recuperação reais e **Groq simulada**, fontes conferidas; health HTTP real testado, processo encerrado. Sem nova chamada real à Groq; tela e respostas comparativas entre editais pendentes. [Executar, resultados e segurança](docs/servico-chat-local.md). Pausa para revisão antes da tela.
+
+Entrega local 2026-10-05 — nomes abreviados e esclarecimento: descoberta global v3 37/40 (92,5%) no top5, ante 35/40; dois ganhos, sem regressões. Roteamento definiu 18 escopos correspondentes à referência e pediu detalhes em 22 casos. Mediana 393,21 ms, fontes conferidas, 251 testes passaram. Não é precisão de respostas nem teste de generalização. [Resultados e limites](docs/descoberta-global-v3.md). API/tela de chat ainda pendentes; pausa para revisão.
+
+Entrega local 2026-10-05 — busca global v2: 35/40 (87,5%) de PNCP conhecido no top5, antes 21/40; 16 ganhos e duas regressões. Mediana 398,90 ms; fontes conferidas, 242 testes passaram. Combinação por contratação e pistas de órgão no catálogo. Meta de 90% e qualidade das respostas ainda não comprovadas. [Comparação, erros e segurança](docs/descoberta-global-v2.md). Pausa para revisão antes da próxima entrega.
+
+Avaliação local 2026-10-05: banco saudável e descoberta global executada — contratação conhecida no top5 em 21/40 perguntas de desenvolvimento, mediana348,23ms; fontes conferidas. Qualidade de resposta não medida. Jev investigado: API gratuita permanente não confirmada. [Resultados e recomendação](docs/descoberta-real-e-jev.md).
+
+Entrega local 2026-10-05: busca geral candidata em `radar.discovery`, com filtro opcional por edital; 239 testes passaram. Integração real pendente: PostgreSQL expirou na tentativa de conexão. Chat/geração ainda não conectados. [Detalhes e limites](docs/chat-local.md).
+
+Entrega para revisão em 2026-10-05: [contrato do chatbot local](docs/chat-local.md). API de perguntas e tela pendentes; continuidade por entregas individuais com aprovação de Renê.
+
 **Estado atual (2026-10-03):** variante padrão **`alias_items`**, por decisão de Renê com base em métricas operacionais e revisão humana da v3. No desenvolvimento, `alias_items` tem revisão humana de 36/40 factuais e 10/10 recusas, mas esses casos foram usados em ajustes e não medem generalização. `alias_items_v2` e `alias_items_v3` ficam preservadas como experimentais; a v3 corrigiu comportamentos de segurança (pilot-22, 35, 36; barrou 02 e 08), não teve ganho humano líquido e não foi promovida. A meta de 90% exige o holdout de 46 casos, que segue `pending_user_approval` e não foi executado. Primeira versão local de **API somente leitura e painel** implementada. [Painel e API](docs/painel-e-api.md) · [Decisão e métricas v1/v2/v3](docs/variante-alias-items-v3.md#decisão-e-revisão-humana--2026-10-03) · [Fluxo futuro do holdout](docs/holdout-execucao-futura.md) · [Gate](reports/quality-gate-v2.json) · [Segurança](reports/seguranca-v3-painel-2026-10-03.md).
 
 Estado anterior (2026-10-02): 50/50 casos gerados na Groq com citação íntegra; as 10 recusas do piloto saíram como recusa, exceto pilot-35 (respondeu; pendente de revisão). Nenhuma resposta revisada por uma pessoa naquela data. [Métricas atuais e limites](docs/metricas-atuais.md) · [Plano de revisão humana](docs/plano-revisao-humana.md) · [Amostra independente v2](docs/amostra-independente-v2.md) · [Proposta de API e painel](docs/proposta-api-painel.md).
@@ -189,3 +239,11 @@ Perfil opcional item_structure vincula itens/continuações, destaca quantidade 
 Integração PostgreSQL e360 buscas locais concluídas. Estrutura inicial regrediu; correções gerais preservam essa falha e elevaram cobertura híbrida nova5/10→9/10; antiga30/30→29/30 (fonte alternativa do caso12 conferida).123 testes passaram e auditoria atual sem avisos conhecidos auditáveis.
 
 Geração:39/50 casos concluídos, duas falhas429 no piloto30;11 casos pendentes (três factuais/oito recusas). Novos:9 respostas/1 abstenção, erros de unidades/completude ainda presentes. Acerto humano não pontuado; pergunta17 ambígua com proposta de esclarecimento. Gate bloqueado e nenhuma promoção. [Método, resultados, limitações e retomada](docs/avaliacao-da-estrutura.md). Próximo passo: concluir piloto30–40 quando a quota estiver disponível e conferir fichas privadas; outra reserva independente necessária após ajustes.
+
+
+
+
+
+
+
+2026-10-05 — alterações aprovadas por Renê para publicação. [Escopo, verificações e pendências](docs/publicacao-aprovada-2026-10-05.md). Versão pública usa gradiente CSS em lugar da imagem sem licença confirmada.
