@@ -1,0 +1,12 @@
+{
+  "snapshot_id": "1446c44aca18011a",
+  "real_database": true,
+  "retrieval_real": true,
+  "provider": "simulated",
+  "real_groq_calls": 0,
+  "holdout_used": false,
+  "api_answer_status": "answered",
+  "source_page_and_quote_verified": true,
+  "clarification_without_generation": true,
+  "factual_accuracy_measured": false
+}

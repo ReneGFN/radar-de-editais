@@ -1,6 +1,6 @@
 # Tela do chatbot — 2026-10-05
 
-Entrega após aprovação de Renê: interface local conectada ao serviço de perguntas, mantendo o painel de avaliação. [Captura da tela](../reports/ui/chat-2026-10-05.jpg).
+Entrega após aprovação de Renê: interface local conectada ao serviço de perguntas, mantendo o painel de avaliação. Captura da tela (captura histórica local, não distribuída).
 
 ## O que foi implementado
 

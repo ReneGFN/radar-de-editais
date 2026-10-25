@@ -6,7 +6,7 @@ Seletores Base/Candidata reunidos em um painel, placar com contagens factuais la
 
 Arquivos: frontend/src/pages/VersionsPage.tsx e frontend/src/styles.css. Mesma direção visual já aprovada; CSS responsivo e React existentes, nenhuma biblioteca nova. Escolha favorece leitura rápida sem alterar a interpretação dos dados.
 
-Build TypeScript/Vite passou; 17 testes frontend passaram. Navegador verificou troca v3→v2→v3, contagens e casos correspondentes; mobile 390 × 844 com largura de documento 375, sem overflow de página. Captura em [comparação](../reports/ui/comparison-refined-2026-10-05.jpg). Viewport restaurado. Sem Groq, holdout, backend ou publicação.
+Build TypeScript/Vite passou; 17 testes frontend passaram. Navegador verificou troca v3→v2→v3, contagens e casos correspondentes; mobile 390 × 844 com largura de documento 375, sem overflow de página. Captura em comparação (captura histórica local, não distribuída). Viewport restaurado. Sem Groq, holdout, backend ou publicação.
 
 ## Dez grupos de segurança
 

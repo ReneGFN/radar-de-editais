@@ -33,3 +33,24 @@ def test_rerank_keeps_identity_and_same_sources():
 
 def test_glued_units_do_not_bypass_number_verification():
     assert numeric_support(result('Memória 8GB','Memória 16GB'))['status']=='insufficient_evidence'
+
+
+@pytest.mark.parametrize('text,accepted',[
+    ('No edital 117/2026, garantia de 36 meses.',True),
+    ('No edital 118/2026, garantia de 36 meses.',False),
+    ('No edital 117/2027, garantia de 36 meses.',False),
+    ('No edital 117/2026, garantia de 117 meses.',False),
+    ('Garantia de 2026 meses.',False),
+])
+def test_bibliography_is_validated_separately_from_factual_values(text,accepted):
+    value=result(text,'Garantia de 36 meses.')
+    value['claims'][0]['evidence'][0]['chunk_id']='chosen'
+    value['citations']=[{'id':'chosen','pncp_id':'02291730000114-1-000117/2026'}]
+    assert (numeric_support(value)['status']=='answered')==accepted
+
+
+def test_uncited_metadata_does_not_validate_an_edital_number():
+    value=result('Edital 117/2026, garantia 36 meses.','Garantia 36 meses.')
+    value['claims'][0]['evidence'][0]['chunk_id']='other'
+    value['citations']=[{'id':'chosen','pncp_id':'02291730000114-1-000117/2026'}]
+    assert numeric_support(value)['status']=='insufficient_evidence'

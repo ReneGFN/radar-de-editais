@@ -10,8 +10,9 @@ def private_root() -> Path:
     if not base and not local:
         raise RuntimeError("Defina RADAR_PRIVATE_ROOT fora do Brain/OneDrive.")
     root = Path(base or str(Path(local) / "RadarDeEditais")).resolve()
-    brain = PROJECT.parents[1]
-    if root.is_relative_to(brain) or "onedrive" in str(root).lower():
+    protected = [PROJECT] + [p for p in PROJECT.parents
+                             if (p / 'MANUAL_DO_BRAIN.md').is_file() and (p / 'SEGURANCA.md').is_file()]
+    if any(root.is_relative_to(p) for p in protected) or "onedrive" in str(root).lower():
         raise ValueError("Dados e credenciais devem ficar fora do Brain/OneDrive")
     return root
 

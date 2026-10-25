@@ -1,3 +1,5 @@
+> Documento histórico de arquitetura/experimentos. Para executar a versão 1.0.0, use [execução local](execucao-local.md); para o estado atual, use o [README](../README.md). Datas e resultados abaixo pertencem às respectivas etapas.
+
 # Investigação da recuperação em 2D e 3D
 
 Direção aprovada em 2026-10-01; implementação futura, depois das perguntas de referência.

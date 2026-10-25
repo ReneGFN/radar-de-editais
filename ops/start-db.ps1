@@ -4,8 +4,16 @@ $radarProject = Split-Path -Parent $PSScriptRoot
 $radarPrivate = if ($env:RADAR_PRIVATE_ROOT) { $env:RADAR_PRIVATE_ROOT } else { Join-Path $env:LOCALAPPDATA 'RadarDeEditais' }
 $radarSecrets = Join-Path $radarPrivate 'secrets'
 $radarAbsolute = [IO.Path]::GetFullPath($radarPrivate)
-$radarBrain = Split-Path -Parent (Split-Path -Parent $radarProject)
-if ($radarAbsolute.StartsWith([IO.Path]::GetFullPath($radarBrain), [StringComparison]::OrdinalIgnoreCase) -or $radarAbsolute -match 'OneDrive') { throw 'Credenciais devem ficar fora do Brain e OneDrive.' }
+$radarProtected = @([IO.Path]::GetFullPath($radarProject))
+$radarAncestor = [IO.DirectoryInfo]::new($radarProject).Parent
+while ($null -ne $radarAncestor) {
+    if ((Test-Path -LiteralPath (Join-Path $radarAncestor.FullName 'MANUAL_DO_BRAIN.md')) -and (Test-Path -LiteralPath (Join-Path $radarAncestor.FullName 'SEGURANCA.md'))) { $radarProtected += $radarAncestor.FullName }
+    $radarAncestor = $radarAncestor.Parent
+}
+foreach ($radarProtectedPath in $radarProtected) {
+    if ($radarAbsolute.Equals($radarProtectedPath, [StringComparison]::OrdinalIgnoreCase) -or $radarAbsolute.StartsWith($radarProtectedPath.TrimEnd('\') + '\', [StringComparison]::OrdinalIgnoreCase)) { throw 'Credenciais devem ficar fora do projeto e do Brain.' }
+}
+if ($radarAbsolute -match 'OneDrive') { throw 'Credenciais devem ficar fora do OneDrive.' }
 New-Item -ItemType Directory -Force -Path $radarSecrets | Out-Null
 # Diretório privado: acesso apenas ao usuário atual e SYSTEM.
 $radarAcl = Get-Acl -LiteralPath $radarPrivate

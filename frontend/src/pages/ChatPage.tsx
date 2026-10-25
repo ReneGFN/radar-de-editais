@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { chatEnabled, chatRequest, type Edital, type Health, type Reply, type DocumentSelection } from '../chat'
 import { safePncpUrl } from '../data'
 
-type Turn = { id: number; question: string; scope: string; pncp?: string; result?: Reply; error?: string }
+type Turn = { id: number; question: string; scope: string; pncp?: string; documents?: DocumentSelection[]; result?: Reply; error?: string }
 const LABELS: Record<Reply['status'], string> = {
   answered: 'Resposta com fontes', refused: 'Pedido não atendido', insufficient_evidence: 'Evidência insuficiente',
   needs_clarification: 'Precisamos de mais detalhes', discovery_only: 'Editais candidatos', no_candidates: 'Nenhum candidato encontrado',
@@ -21,6 +21,8 @@ export function ChatPage({ onReply }: { onReply?: (reply: Reply) => void }) {
   const [turns, setTurns] = useState<Turn[]>([])
   const [busy, setBusy] = useState(false)
   const busyRef = useRef(false)
+  const conversation = useRef<HTMLDivElement>(null)
+  const followLatest = useRef(true)
   const counter = useRef(0)
   const input = useRef<HTMLTextAreaElement>(null)
   const scopePanel = useRef<HTMLDetailsElement>(null)
@@ -50,10 +52,15 @@ export function ChatPage({ onReply }: { onReply?: (reply: Reply) => void }) {
 
   useEffect(() => {
     if (input.current) {
-      input.current.style.height = '80px'
-      input.current.style.height = `${Math.min(200, Math.max(80, input.current.scrollHeight))}px`
+      input.current.style.height = '48px'
+      input.current.style.height = `${Math.min(120, Math.max(48, input.current.scrollHeight))}px`
     }
   }, [question])
+
+  useEffect(() => {
+    const node = conversation.current
+    if (node && followLatest.current) node.scrollTop = node.scrollHeight
+  }, [turns, busy])
 
   async function connect() {
     if (!chatEnabled()) { setLoading(false); return }
@@ -84,8 +91,8 @@ export function ChatPage({ onReply }: { onReply?: (reply: Reply) => void }) {
     if (!question.trim()) { setValidation('Escreva sua pergunta antes de enviar.'); input.current?.focus(); return }
     if (question.length > 2000) { setValidation('Use até 2.000 caracteres.'); input.current?.focus(); return }
     if (!health) { setValidation('Conecte o serviço de perguntas antes de enviar.'); return }
-    setValidation(''); busyRef.current = true; setBusy(true)
-    const turn: Turn = { id: ++counter.current, question: question.trim(), pncp: selected || undefined, scope: documents.length ? `Mesa · ${documents.length} PDFs selecionados` : selectedEdital ? `${selectedEdital.agency} · ${selectedEdital.uf ?? ''}` : 'Busca em toda a base' }
+    setValidation(''); followLatest.current = true; busyRef.current = true; setBusy(true)
+    const turn: Turn = { id: ++counter.current, question: question.trim(), pncp: selected || undefined, documents: documents.length ? [...documents] : undefined, scope: documents.length ? `Mesa · ${documents.length} PDFs selecionados` : selectedEdital ? `${selectedEdital.agency} · ${selectedEdital.uf ?? ''}` : 'Busca em toda a base' }
     setTurns(previous => [...previous.slice(-19), turn]); setQuestion('')
     try {
       const result = await chatRequest<Reply>('ask', { question: turn.question, ...(documents.length ? {documents} : selected ? { pncp_id: selected } : {}) })
@@ -113,25 +120,14 @@ export function ChatPage({ onReply }: { onReply?: (reply: Reply) => void }) {
     {!chatEnabled() ? <div className="callout">O chatbot funciona no ambiente local com o serviço de perguntas. Nesta publicação, você pode consultar o painel de avaliação.</div> : <>
       <div className="chat-layout">
         <div className="chat-workspace">
-          <form onSubmit={submit} className="chat-composer">
-            <label htmlFor="chat-question" className="sr-only">Sua pergunta</label>
-            <textarea ref={input} id="chat-question" name="question" autoComplete="off" rows={2} maxLength={2000}
-              value={question} disabled={busy} onChange={e => { setQuestion(e.target.value); setValidation('') }}
-              aria-invalid={!!validation} aria-describedby="question-help question-error"
-              placeholder="O que você quer saber sobre os editais?…" />
-            <div className="composer-bottom"><span id="question-help" className="muted">{question.length.toLocaleString('pt-BR')}/2.000 caracteres</span>
-              <button className="primary-button" type="submit" disabled={busy}><span aria-hidden="true">↑</span><span>{busy ? 'Buscando resposta…' : 'Enviar pergunta'}</span></button></div>
-            <p id="question-error" className="error" role="alert">{validation}</p>
-            <p className="muted chat-hint">Não sabe o edital? Inclua o órgão, município ou detalhes da compra. Cada pergunta é independente.</p>
-          </form>
           {turns.length === 0 && <div className="chat-empty"><h3 className="sr-only">Sugestões de perguntas</h3>
             {[['Encontrar monitores', 'Quais editais incluem monitores?'], ['Consultar garantia', 'Qual a garantia do computador em Uniflor?'], ['Conferir entrega', 'Qual prazo de entrega?']].map(([label, example]) =>
               <button className="example-button" key={label} onClick={() => { setQuestion(example); input.current?.focus() }}>{label}</button>)}
           </div>}
-          <div className="conversation" role="log" aria-label="Conversa" aria-live="polite" aria-busy={busy}>
+          <div ref={conversation} tabIndex={0} onScroll={event => { const node = event.currentTarget; followLatest.current = node.scrollHeight - node.scrollTop - node.clientHeight < 100 }} className="conversation" role="log" aria-label="Conversa" aria-live="polite" aria-busy={busy}>
             {turns.map(turn => <article className="chat-turn" key={turn.id}>
               <div className="user-question"><span className="eyebrow">VOCÊ · {turn.scope}</span><p>{turn.question}</p></div>
-              {turn.error ? <div className="callout bad" role="alert"><p>{turn.error}</p><button disabled={busy} onClick={() => { setSelected(turn.pncp ?? ''); setQuestion(turn.question); input.current?.focus() }}>Editar e tentar novamente</button></div> :
+              {turn.error ? <div className="callout bad" role="alert"><p>{turn.error}</p><button disabled={busy} onClick={() => { setDocuments(turn.documents ?? []); setSelected(turn.pncp ?? ''); setQuestion(turn.question); input.current?.focus() }}>Editar e tentar novamente</button></div> :
                 !turn.result ? <p className="muted" role="status">Consultando os documentos…</p> : <div className="assistant-reply">
                   <h3>{LABELS[turn.result.status]}</h3>
                   {turn.result.confidence && <details className="evidence-confidence"><summary>{turn.result.confidence.label}</summary><ul>{turn.result.confidence.reasons.map(reason => <li key={reason}>{reason}</li>)}</ul><p className="muted">Sem probabilidade de acerto calibrada.</p></details>}
@@ -152,6 +148,17 @@ export function ChatPage({ onReply }: { onReply?: (reply: Reply) => void }) {
                 </div>}
             </article>)}
           </div>
+          <form onSubmit={submit} className="chat-composer">
+            <label htmlFor="chat-question" className="sr-only">Sua pergunta</label>
+            <textarea ref={input} id="chat-question" name="question" autoComplete="off" rows={2} maxLength={2000}
+              value={question} disabled={busy} onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit() } }} onChange={e => { setQuestion(e.target.value); setValidation('') }}
+              aria-invalid={!!validation} aria-describedby="question-help question-error"
+              placeholder="O que você quer saber sobre os editais?…" />
+            <div className="composer-bottom"><span id="question-help" className="muted">{question.length.toLocaleString('pt-BR')}/2.000 caracteres</span>
+              <button className="primary-button" type="submit" disabled={busy}><span aria-hidden="true">↑</span><span>{busy ? 'Buscando resposta…' : 'Enviar pergunta'}</span></button></div>
+            <p id="question-error" className="error" role="alert">{validation}</p>
+            <p className="muted chat-hint">Não sabe o edital? Inclua o órgão, município ou detalhes da compra. Escreva os detalhes em cada pergunta; o histórico não é enviado ao modelo.</p>
+          </form>
         </div>
         {documents.length > 0 && <div className="chat-document-scope"><strong>Consulta limitada aos PDFs da mesa</strong>{documents.map(d => <span key={`${d.pncp_id}:${d.document_sequence}`}>{editais.find(e => e.pncp_id === d.pncp_id)?.agency} · PDF {d.document_sequence}<button type="button" disabled={busy} aria-label={`Remover PDF ${d.document_sequence} de ${d.pncp_id}`} onClick={() => setDocuments(previous => previous.filter(p => p !== d))}>×</button></span>)}<button type="button" disabled={busy} onClick={() => setDocuments([])}>Buscar em toda a base</button></div>}
         <details ref={scopePanel} className="chat-scope" aria-label="Escopo da consulta" onToggle={event => {

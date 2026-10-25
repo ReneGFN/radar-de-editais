@@ -259,6 +259,7 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
             entry['pncp_id'] = doc.metadata['pncp_id']
             entry['agency'] = catalog[doc.metadata['pncp_id']]['agency']
         system += '\nOs documentos pertencem à seleção do usuário. Diferencie contratações pelo pncp_id e não misture suas exigências. Só responda com apoio nos trechos; explicite comparações sem evidência suficiente.'
+        system += '\nEm claims.text, identifique o órgão pelo nome e escreva somente fatos apoiados no content das fontes citadas. Não repita números bibliográficos de edital, PNCP, arquivo ou página: o servidor apresenta esses identificadores nas referências. Se um número técnico identificar o objeto, cite também a passagem que mostra esse número. Não trate metadados bibliográficos como evidência de valores ou condições.'
     user=json.dumps({'question':query,'documents':context},ensure_ascii=False)
     if len(user)>16000: raise ValueError('Contexto excede o limite de consulta')
     # O SDK Groq acrescenta /openai/v1/chat/completions; base deve ser somente a origem.
@@ -307,7 +308,14 @@ def answer(query,snapshot,edital,*,free_plan_confirmed=False,query_profile='stru
                            'error':str(exc)})
         raise GenerationFailure(kind,getattr(exc,'status_code',None)) from None
     if guardrails:
-        from .guardrails import numeric_support
+        from .guardrails import numeric_support, numeric_mismatches
+        mismatches = numeric_mismatches(validated)
+        if mismatches and os.environ.get('RADAR_PRIVATE_DIAGNOSTICS') == '1':
+            from .config import emit_json
+            from uuid import uuid4
+            emit_json(private_root()/'generation'/f'numeric-rejection-{uuid4().hex}.json',
+                      {'diagnostic':'numeric_support','mismatches':mismatches,'validated_before_guard':validated,
+                       'snapshot_id':snapshot,'context_profile':context_profile})
         validated = numeric_support(validated)
     raw=result['raw']
     validated.update(source_alias_map=aliases,citation_mode=citation_mode,context_profile=context_profile,prompt_version=prompt_version,model=MODEL,generation_calls=1,retrieval=trace,

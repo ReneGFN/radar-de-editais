@@ -95,3 +95,7 @@ O dono do repositório decidiu revisar os 46 casos do holdout manualmente, um a 
 - v3: 38/40 factuais aceitas, 134.569 tokens de entrada (48 casos aceitos), geração mediana 930 ms, total mediano 1.064 ms; 51 chamadas para 50 casos (uma com 429). Taxa humana da v3 não calculada: só 5 casos têm critérios caso a caso, 2 barrados contam como erro.
 - Meta de 90%: não avaliável até o holdout ser aprovado, executado e revisado. Nenhuma taxa garante desempenho futuro.
 - Fonte única dessas contagens: `reports/quality-gate-v2.json`.
+
+## Conferência manual informada em 2026-10-25
+
+Renê informou cerca de 43 acertos entre 46 casos, anotados em papel, sem respostas/notas arquivadas. É um relato manual aproximado, sem data/configuração de execução verificáveis e sem identificação dos três erros. Não equivale a uma nova taxa de acerto independente validada. Os gates e arquivos de holdout publicados não foram alterados para simular aprovação/execução. A aplicação local pode ser usada com esse limite explicitado.

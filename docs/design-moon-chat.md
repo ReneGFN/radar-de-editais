@@ -13,7 +13,7 @@ React, TypeScript e CSS existentes foram suficientes; nenhuma dependência adici
 - Build TypeScript/Vite e 15 testes de interface passaram após as alterações finais.
 - npm audit: zero vulnerabilidades conhecidas; primeira tentativa bloqueada pela rede, repetição autorizada concluída.
 - Navegador: escopo abriu/fechou; pergunta geral sobre prazo retornou esclarecimento e cinco candidatos com banco real, sem Groq. Navegação ao painel e retorno preservaram a conversa.
-- Viewport móvel 390 × 844: largura do documento 375, sem rolagem horizontal. Captura desktop 1280 × 900 em [prévia](../reports/ui/chat-moon-2026-10-05.jpg); viewport restaurado.
+- Viewport móvel 390 × 844: largura do documento 375, sem rolagem horizontal. Captura desktop 1280 × 900 em prévia (captura histórica local, não distribuída); viewport restaurado.
 - Busca de padrões de chave em fontes e build frontend não encontrou correspondências. Isso é uma verificação limitada, não garantia de ausência de todo segredo.
 - Não houve nova avaliação de respostas, holdout, escrita no banco ou publicação. Os 270 testes backend da entrega anterior não foram repetidos porque o backend não mudou.
 - Seletor semântico do summary não encontrou o controle; inspeção de acessibilidade e interação pelo controle exposto funcionaram. Pesquisa ampla de arquivos encontrou pastas temporárias sem acesso; não usadas como evidência.

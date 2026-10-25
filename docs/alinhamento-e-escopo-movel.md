@@ -20,7 +20,7 @@ Qualidade e Corpus não receberam mudanças de estrutura ou dados. A direção v
 - npm audit com rede em 2026-10-05: zero vulnerabilidades conhecidas. Resultado offline anterior não foi usado como prova de atualização do banco de avisos.
 - Navegador: arraste real mudou o painel para posição fixa, esquerda 89,98/topo 111,67; seta direita moveu mais 20 px. Pergunta preenchida com painel ainda aberto. Rolagem observada na lista (scrollTop 2662) e scrollbar-width none. Botão restaurou a posição.
 - Aviso amarelo com altura própria 65,11 px e dentro do cartão; cinco estados visíveis em Casos com selo em linha separada. Versões/Casos em 390 × 844: documento 375 px, sem overflow de página. Arraste por toque implementado, não testado em dispositivo físico.
-- Capturas: [Versões](../reports/ui/versions-aligned-2026-10-05.jpg), [Casos](../reports/ui/cases-aligned-2026-10-05.jpg), [painel movido](../reports/ui/scope-movable-2026-10-05.jpg). Viewport restaurado.
+- Capturas: Versões (captura histórica local, não distribuída), Casos (captura histórica local, não distribuída), painel movido (captura histórica local, não distribuída). Viewport restaurado.
 - Uma escrita CSS inicialmente apontou caminho duplicado e falhou; corrigida com patch/caminho correto e build repetido. Nenhuma falha considerada entrega concluída.
 
 ## Dez grupos de segurança

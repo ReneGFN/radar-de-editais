@@ -1,0 +1,867 @@
+{
+  "snapshot_id": "1446c44aca18011a",
+  "dataset_role": "development",
+  "holdout_used": false,
+  "groq_calls": 0,
+  "reference_sha256": {
+    "pilot-candidate-v1.json": "9b9a5bb89a9a3511c5a5e334227495b56b4985c0e8fe8f23e64ae5e9f54f535a",
+    "independent-bound-v1.json": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f"
+  },
+  "cases": [
+    {
+      "case_id": "pilot-01",
+      "expected_pncp": "45374469000129-1-000030/2026",
+      "candidate_pncp": [
+        "45374469000129-1-000030/2026",
+        "46179941000135-1-000446/2026",
+        "45339363000194-1-000286/2026",
+        "98661366000106-1-000557/2026",
+        "46732442000123-1-000103/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 2594.9,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-02",
+      "expected_pncp": "45374469000129-1-000030/2026",
+      "candidate_pncp": [
+        "82575812000120-1-000428/2026",
+        "46179941000135-1-000446/2026",
+        "67360537000133-1-000020/2026",
+        "45374469000129-1-000030/2026",
+        "45339363000194-1-000286/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 332.14,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-03",
+      "expected_pncp": "13634977000102-1-000128/2026",
+      "candidate_pncp": [
+        "13634977000102-1-000128/2026",
+        "01613770000172-1-000166/2026",
+        "03507415002864-1-000159/2026",
+        "45339363000194-1-000286/2026",
+        "46732442000123-1-000103/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 338.15,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-04",
+      "expected_pncp": "13634977000102-1-000128/2026",
+      "candidate_pncp": [
+        "05054929000117-1-000378/2026",
+        "46732442000123-1-000103/2026",
+        "01613770000172-1-000166/2026",
+        "03507415002864-1-000159/2026",
+        "98661366000106-1-000557/2026"
+      ],
+      "hit_at_5": false,
+      "latency_ms": 295.07,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-05",
+      "expected_pncp": "13634977000102-1-000128/2026",
+      "candidate_pncp": [
+        "03507415002864-1-000159/2026",
+        "18094870000132-1-000077/2026",
+        "46732442000123-1-000103/2026",
+        "13634977000102-1-000128/2026",
+        "98661366000106-1-000557/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 357.65,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-06",
+      "expected_pncp": "02291730000114-1-000117/2026",
+      "candidate_pncp": [
+        "46732442000123-1-000103/2026",
+        "98661366000106-1-000557/2026",
+        "46179941000135-1-000446/2026",
+        "18094870000132-1-000077/2026",
+        "45339363000194-1-000286/2026"
+      ],
+      "hit_at_5": false,
+      "latency_ms": 320.49,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-07",
+      "expected_pncp": "02291730000114-1-000117/2026",
+      "candidate_pncp": [
+        "98661366000106-1-000557/2026",
+        "00368105000106-1-000157/2026",
+        "45339363000194-1-000286/2026",
+        "02291730000114-1-000117/2026",
+        "67360537000133-1-000020/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 352.71,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-08",
+      "expected_pncp": "00394452000103-1-020757/2026",
+      "candidate_pncp": [
+        "02291730000114-1-000117/2026",
+        "17955535000119-1-000275/2026",
+        "00368105000106-1-000157/2026",
+        "32512501000143-1-000385/2026",
+        "63084727000114-1-000009/2026"
+      ],
+      "hit_at_5": false,
+      "latency_ms": 487.76,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-11",
+      "expected_pncp": "45339363000194-1-000286/2026",
+      "candidate_pncp": [
+        "45339363000194-1-000286/2026",
+        "82575812000120-1-000428/2026",
+        "03507415002864-1-000159/2026",
+        "46732442000123-1-000103/2026",
+        "45374469000129-1-000030/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 371.28,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-12",
+      "expected_pncp": "46377800000127-1-004170/2026",
+      "candidate_pncp": [
+        "46377800000127-1-004170/2026",
+        "11348570000193-1-000065/2026",
+        "45339363000194-1-000286/2026",
+        "03507415002864-1-000159/2026",
+        "45374469000129-1-000030/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 625.62,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-13",
+      "expected_pncp": "46179941000135-1-000443/2026",
+      "candidate_pncp": [
+        "46179941000135-1-000443/2026",
+        "46179941000135-1-000446/2026",
+        "46377800000127-1-004170/2026",
+        "46732442000123-1-000103/2026",
+        "46377800000127-1-004178/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 475.7,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-14",
+      "expected_pncp": "46179941000135-1-000443/2026",
+      "candidate_pncp": [
+        "46179941000135-1-000443/2026",
+        "46179941000135-1-000446/2026",
+        "45339363000194-1-000286/2026",
+        "98661366000106-1-000557/2026",
+        "45374469000129-1-000030/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 370.02,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-15",
+      "expected_pncp": "46179941000135-1-000446/2026",
+      "candidate_pncp": [
+        "46179941000135-1-000446/2026",
+        "46179941000135-1-000443/2026",
+        "45339363000194-1-000286/2026",
+        "11348570000193-1-000065/2026",
+        "02291730000114-1-000117/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 414.63,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-16",
+      "expected_pncp": "01626427000162-1-000010/2026",
+      "candidate_pncp": [
+        "01626427000162-1-000010/2026",
+        "67360537000133-1-000020/2026",
+        "00368105000106-1-000157/2026",
+        "05054929000117-1-000378/2026",
+        "78121936000168-1-000072/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 315.99,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "01626427000162-1-000010/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-17",
+      "expected_pncp": "46732442000123-1-000103/2026",
+      "candidate_pncp": [
+        "46732442000123-1-000103/2026",
+        "45339363000194-1-000286/2026",
+        "18094870000132-1-000077/2026",
+        "98661366000106-1-000557/2026",
+        "45374469000129-1-000030/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 311.03,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "46732442000123-1-000103/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-18",
+      "expected_pncp": "67360537000133-1-000020/2026",
+      "candidate_pncp": [
+        "67360537000133-1-000020/2026",
+        "45339363000194-1-000286/2026",
+        "01613770000172-1-000166/2026",
+        "45374469000129-1-000030/2026",
+        "11348570000193-1-000065/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 370.74,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "67360537000133-1-000020/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-19",
+      "expected_pncp": "78121936000168-1-000072/2026",
+      "candidate_pncp": [
+        "78121936000168-1-000072/2026",
+        "17955535000119-1-000275/2026",
+        "63025530000104-1-003836/2026",
+        "46377800000127-1-004170/2026",
+        "00394502000144-1-012044/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 418.08,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-20",
+      "expected_pncp": "01609402000150-1-000045/2026",
+      "candidate_pncp": [
+        "01609402000150-1-000045/2026",
+        "45339363000194-1-000286/2026",
+        "45374469000129-1-000030/2026",
+        "17955535000119-1-000275/2026",
+        "46179941000135-1-000446/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 430.83,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "01609402000150-1-000045/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-21",
+      "expected_pncp": "18094870000132-1-000077/2026",
+      "candidate_pncp": [
+        "18094870000132-1-000077/2026",
+        "01613770000172-1-000166/2026",
+        "67360537000133-1-000020/2026",
+        "46377800000127-1-004170/2026",
+        "01626427000162-1-000010/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 259.18,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "18094870000132-1-000077/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-22",
+      "expected_pncp": "17955535000119-1-000275/2026",
+      "candidate_pncp": [
+        "17955535000119-1-000275/2026",
+        "03507415002864-1-000159/2026",
+        "63084727000114-1-000009/2026",
+        "11348570000193-1-000065/2026",
+        "00348003000110-1-001037/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 424.99,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "17955535000119-1-000275/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-23",
+      "expected_pncp": "00394502000144-1-012044/2026",
+      "candidate_pncp": [
+        "00394502000144-1-012044/2026",
+        "00394452000103-1-020757/2026",
+        "45339363000194-1-000286/2026",
+        "45374469000129-1-000030/2026",
+        "02291730000114-1-000117/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 568.74,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-24",
+      "expected_pncp": "63084727000114-1-000009/2026",
+      "candidate_pncp": [
+        "63084727000114-1-000009/2026",
+        "67360537000133-1-000020/2026",
+        "18094870000132-1-000077/2026",
+        "45374469000129-1-000030/2026",
+        "10106268000166-1-000069/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 395.16,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "63084727000114-1-000009/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-25",
+      "expected_pncp": "11348570000193-1-000065/2026",
+      "candidate_pncp": [
+        "11348570000193-1-000065/2026",
+        "45339363000194-1-000286/2026",
+        "03347135000116-1-000070/2026",
+        "98661366000106-1-000557/2026",
+        "46732442000123-1-000103/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 339.16,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "11348570000193-1-000065/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-26",
+      "expected_pncp": "10106268000166-1-000069/2026",
+      "candidate_pncp": [
+        "10106268000166-1-000069/2026",
+        "13634977000102-1-000128/2026",
+        "01613770000172-1-000166/2026",
+        "45339363000194-1-000286/2026",
+        "01609402000150-1-000045/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 460.28,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "10106268000166-1-000069/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-27",
+      "expected_pncp": "45701259000106-1-000008/2026",
+      "candidate_pncp": [
+        "45701259000106-1-000008/2026",
+        "67360537000133-1-000020/2026",
+        "01613770000172-1-000166/2026",
+        "45374469000129-1-000030/2026",
+        "45339363000194-1-000286/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 375.93,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "45701259000106-1-000008/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-28",
+      "expected_pncp": "03507415002864-1-000159/2026",
+      "candidate_pncp": [
+        "67360537000133-1-000020/2026",
+        "45339363000194-1-000286/2026",
+        "45374469000129-1-000030/2026",
+        "03507415002864-1-000159/2026",
+        "82575812000120-1-000428/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 347.53,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "pilot-29",
+      "expected_pncp": "03347135000116-1-000070/2026",
+      "candidate_pncp": [
+        "03347135000116-1-000070/2026",
+        "46732442000123-1-000103/2026",
+        "45339363000194-1-000286/2026",
+        "46377800000127-1-004170/2026",
+        "03507415002864-1-000159/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 331.76,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "03347135000116-1-000070/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-30",
+      "expected_pncp": "00368105000106-1-000157/2026",
+      "candidate_pncp": [
+        "00368105000106-1-000157/2026",
+        "78121936000168-1-000072/2026",
+        "67360537000133-1-000020/2026",
+        "33683111000107-1-000073/2026",
+        "03507415002864-1-000159/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 387.56,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "00368105000106-1-000157/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-31",
+      "expected_pncp": "02006782000100-1-000026/2026",
+      "candidate_pncp": [
+        "02006782000100-1-000026/2026",
+        "32512501000143-1-000385/2026",
+        "46179941000135-1-000446/2026",
+        "46732442000123-1-000103/2026",
+        "82575812000120-1-000428/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 534.99,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "02006782000100-1-000026/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "pilot-32",
+      "expected_pncp": "02006782000100-1-000026/2026",
+      "candidate_pncp": [
+        "02006782000100-1-000026/2026",
+        "98661366000106-1-000557/2026",
+        "01613770000172-1-000166/2026",
+        "45339363000194-1-000286/2026",
+        "03507415002864-1-000159/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 424.13,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "02006782000100-1-000026/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "independent-01",
+      "expected_pncp": "32512501000143-1-000385/2026",
+      "candidate_pncp": [
+        "32512501000143-1-000385/2026",
+        "45339363000194-1-000286/2026",
+        "03507415002864-1-000159/2026",
+        "01613770000172-1-000166/2026",
+        "45374469000129-1-000030/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 672.65,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "32512501000143-1-000385/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "independent-02",
+      "expected_pncp": "32512501000143-1-000385/2026",
+      "candidate_pncp": [
+        "32512501000143-1-000385/2026",
+        "02291730000114-1-000117/2026",
+        "45374469000129-1-000030/2026",
+        "01626427000162-1-000010/2026",
+        "45339363000194-1-000286/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 509.54,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "32512501000143-1-000385/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "independent-03",
+      "expected_pncp": "76279975000162-1-000083/2026",
+      "candidate_pncp": [
+        "76279975000162-1-000083/2026",
+        "10106268000166-1-000069/2026",
+        "98661366000106-1-000557/2026",
+        "13634977000102-1-000128/2026",
+        "18094870000132-1-000077/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 391.25,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "76279975000162-1-000083/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "independent-04",
+      "expected_pncp": "76279975000162-1-000083/2026",
+      "candidate_pncp": [
+        "76279975000162-1-000083/2026",
+        "45339363000194-1-000286/2026",
+        "45374469000129-1-000030/2026",
+        "98661366000106-1-000557/2026",
+        "46377800000127-1-004178/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 347.18,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "scoped",
+        "reason": "unique_agency_hint",
+        "pncp_id": "76279975000162-1-000083/2026",
+        "message": null
+      },
+      "scoped_to_expected": true
+    },
+    {
+      "case_id": "independent-05",
+      "expected_pncp": "82575812000120-1-000428/2026",
+      "candidate_pncp": [
+        "45339363000194-1-000286/2026",
+        "82575812000120-1-000428/2026",
+        "03347135000116-1-000070/2026",
+        "45374469000129-1-000030/2026",
+        "46732442000123-1-000103/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 560.71,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "independent-06",
+      "expected_pncp": "82575812000120-1-000428/2026",
+      "candidate_pncp": [
+        "45339363000194-1-000286/2026",
+        "82575812000120-1-000428/2026",
+        "45374469000129-1-000030/2026",
+        "67360537000133-1-000020/2026",
+        "01609402000150-1-000045/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 470.47,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "independent-07",
+      "expected_pncp": "82575812000120-1-000428/2026",
+      "candidate_pncp": [
+        "45339363000194-1-000286/2026",
+        "82575812000120-1-000428/2026",
+        "01609402000150-1-000045/2026",
+        "46732442000123-1-000103/2026",
+        "45374469000129-1-000030/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 732.47,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "multiple_agency_matches",
+        "pncp_id": null,
+        "message": "Há mais de uma contratação compatível com o órgão informado. Informe o edital ou acrescente detalhes da compra."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "independent-08",
+      "expected_pncp": "00348003000110-1-001037/2026",
+      "candidate_pncp": [
+        "46732442000123-1-000103/2026",
+        "39547500000183-1-000077/2026",
+        "00348003000110-1-001037/2026",
+        "76279975000162-1-000083/2026",
+        "46377800000127-1-004170/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 302.48,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "independent-09",
+      "expected_pncp": "10936853000193-1-000094/2026",
+      "candidate_pncp": [
+        "10936853000193-1-000094/2026",
+        "10106268000166-1-000069/2026",
+        "01609402000150-1-000045/2026",
+        "98661366000106-1-000557/2026",
+        "01613770000172-1-000166/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 448.36,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    },
+    {
+      "case_id": "independent-10",
+      "expected_pncp": "33683111000107-1-000073/2026",
+      "candidate_pncp": [
+        "45374469000129-1-000030/2026",
+        "45339363000194-1-000286/2026",
+        "33683111000107-1-000073/2026",
+        "18094870000132-1-000077/2026",
+        "46179941000135-1-000446/2026"
+      ],
+      "hit_at_5": true,
+      "latency_ms": 521.75,
+      "source_metadata_verified": true,
+      "routing": {
+        "status": "needs_clarification",
+        "reason": "missing_or_unavailable_agency",
+        "pncp_id": null,
+        "message": "Para qual órgão ou município? Você pode informar esses detalhes na pergunta ou escolher um dos editais candidatos."
+      },
+      "scoped_to_expected": false
+    }
+  ],
+  "hits_at_5": 37,
+  "total": 40,
+  "median_latency_ms": 393.20500000000004,
+  "source_metadata_verified": true,
+  "routing_counts": {
+    "needs_clarification": 22,
+    "scoped": 18
+  },
+  "scoped_correct": 18,
+  "scoped_incorrect": 0,
+  "limitations": [
+    "One execution; questions from development, sometimes with location clues.",
+    "Expected PNCP is one known answer, not exhaustive relevance labels.",
+    "Measures discovery of contracting record, not correctness of generated answers."
+  ]
+}

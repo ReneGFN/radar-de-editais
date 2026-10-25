@@ -112,17 +112,81 @@ def retrieve(query, snapshot, edital):
 
 def retrieve_document_scope(query, snapshot, scope):
     """Até cinco passagens exclusivamente dos arquivos escolhidos; uma por arquivo antes de completar."""
+    import re
+    from .query import fold, STOP
+    # Decompose explicit comparisons from the user's words, without expected answers.
+    parts = re.split(r'\s+(?:e|versus|vs\.?|comparado a)\s+', query, flags=re.I)
+    topic = query.split(':', 1)[0] if ':' in query else ''
+    probes = [query]
+    technical = re.findall(r'\b[A-Z]{2,8}\s+\d{3,5}\b', query)
+    if len(scope) > 1 and len(parts) > 1:
+        probes += [f'{topic} {part}'.strip()[:2000] for part in parts[:5]]
+        probes += technical[:2]
     pools = []
     for selection in scope:
-        docs, _ = retrieve_with_trace(query, snapshot, selection['pncp_id'],
-                                     context_profile='chunk', document_sequences=[selection['document_sequence']])
-        pools.append([d for d in docs if d.metadata['pncp_id'] == selection['pncp_id']
-                      and d.metadata['document_sequence'] == selection['document_sequence']])
+        candidates = {}
+        for probe in probes:
+            docs, _ = retrieve_with_trace(probe, snapshot, selection['pncp_id'],
+                                         context_profile='chunk', document_sequences=[selection['document_sequence']])
+            for doc in docs:
+                if doc.metadata['pncp_id'] == selection['pncp_id'] and doc.metadata['document_sequence'] == selection['document_sequence']:
+                    candidates.setdefault(doc.metadata['id'], doc)
+        anchors = {t.rstrip('s') for t in re.findall(r'\w+', fold(query)) if t not in STOP and len(t) > 2}
+        def relevance(doc):
+            tokens = {t.rstrip('s') for t in re.findall(r'\w+', fold(doc.page_content))}
+            return len(anchors & tokens) + 20 * sum(fold(term) in fold(doc.page_content) for term in technical)
+        ranked = sorted(candidates.values(), key=relevance, reverse=True) if len(probes) > 1 else list(candidates.values())
+        if len(probes) > 1:
+            # A specification may continue on the next page. Fetch bounded neighbours
+            # of the two strongest anchors, always in the same selected PDF.
+            neighbours = adjacent_scope_pages(ranked[:2], snapshot, relevance)
+            for doc in neighbours:
+                candidates.setdefault(doc.metadata['id'], doc)
+            ranked = sorted(candidates.values(), key=lambda d: d.metadata.get('continuation_score', relevance(d)), reverse=True)
+            distinct = []
+            for doc in ranked:
+                m = doc.metadata
+                def overlaps(old):
+                    n = old.metadata
+                    if not all(k in m and k in n for k in ('page','start','end')) or m['page'] != n['page']: return False
+                    intersection = max(0, min(m['end'],n['end']) - max(m['start'],n['start']))
+                    return intersection >= .8 * min(m['end']-m['start'],n['end']-n['start'])
+                if not any(overlaps(old) for old in distinct): distinct.append(doc)
+            ranked = distinct
+        pools.append(ranked)
     selected = [pool[0] for pool in pools if pool]
     seen = {d.metadata['id'] for d in selected}
-    for pool in pools:
-        for doc in pool[1:]:
+    for rank in range(1, 5):
+        for pool in pools:
             if len(selected) >= 5: break
+            if rank >= len(pool): continue
+            doc = pool[rank]
             if doc.metadata['id'] not in seen:
                 selected.append(doc); seen.add(doc.metadata['id'])
-    return selected[:5], {'context_profile':'document_scope','selected_document_count':len(scope)}
+    return selected[:5], {'context_profile':'document_scope','selected_document_count':len(scope),
+                         'query_count':len(probes), 'selection':'balanced_query_coverage_v2'}
+
+
+def adjacent_scope_pages(anchors, snapshot, relevance):
+    """Bounded next-page evidence; its own literal offsets and source identity."""
+    import hashlib
+    import re
+    from .query import fold
+    result = []
+    with connect() as conn:
+        conn.execute('SET TRANSACTION READ ONLY')
+        for anchor in anchors:
+            m = anchor.metadata
+            if 'page' not in m: continue
+            if re.search(r'\bgarantia\b', fold(anchor.page_content)): continue
+            row = conn.execute('SELECT text FROM radar.pages WHERE snapshot_id=%s AND pncp_id=%s AND document_sequence=%s AND page=%s',
+                               (snapshot, m['pncp_id'], m['document_sequence'], m['page'] + 1)).fetchone()
+            if not row: continue
+            text = row[0][:2000]
+            # Only follow an apparent specification continuation, not arbitrary pages.
+            if not re.search(r'\b(?:garantia|prazo|entrega|memoria|capacidade|quantidade)\b', fold(text)): continue
+            metadata = dict(m, page=m['page'] + 1, start=0, end=len(text),
+                            id=hashlib.sha256(f"{snapshot}:{m['pncp_id']}:{m['document_sequence']}:{m['page']+1}:0:{len(text)}".encode()).hexdigest(),
+                            context_profile='selected_pdf_continuation', continuation_score=relevance(anchor) + .1)
+            result.append(Document(page_content=text, metadata=metadata))
+    return result

@@ -24,18 +24,39 @@ def context_is_safe(documents):
     return not any(re.search(r'(?:ignore.{0,40}(?:instrucoes anteriores|system prompt)|(?:assistant|assistente|modelo).{0,30}(?:revele|exfiltre).{0,40}(?:token|senha|chave))', normalize(d.page_content), re.S) for d in documents)
 
 
+def numeric_mismatches(result):
+    """Private diagnostic: unsupported numbers per claim, without changing acceptance."""
+    mismatches = []
+    if result['status'] != 'answered': return mismatches
+    def numbers(text):
+        return {m.lstrip('0') or '0' for m in re.findall(r'(?<![\d.,])\d+(?:[.,]\d+)*(?![\d.,])', text)}
+    for index, claim in enumerate(result['claims']):
+        evidence = ' '.join(e['quote'] for e in claim['evidence'])
+        text = claim['text']
+        # Validate bibliographic identity against the very sources cited by this claim.
+        # This never permits a factual number merely because it occurs in metadata.
+        cited_ids = {e['chunk_id'] for e in claim['evidence'] if 'chunk_id' in e}
+        allowed = set()
+        for source in result.get('citations', []):
+            if source.get('id') not in cited_ids: continue
+            identifier = re.search(r'-1-(\d+)/(\d{4})$',source.get('pncp_id',''))
+            if identifier: allowed.add((int(identifier[1]),int(identifier[2])))
+        def bibliographic(match):
+            return '' if (int(match[1]),int(match[2])) in allowed else match[0]
+        text = re.sub(r'\bedital\s+(?:n[º°.]?\s*)?(\d+)\s*/\s*(\d{4})\b',bibliographic,text,flags=re.I)
+        missing = numbers(text) - numbers(evidence)
+        if missing: mismatches.append({'claim_index':index,'unsupported_numbers':sorted(missing)})
+    return mismatches
+
+
 def numeric_support(result):
     """Todo número afirmado precisa aparecer nas fontes daquela afirmação.
     Não verifica relações/qualificadores nem equivalência entre unidades.
     """
     if result['status'] != 'answered':
         return result
-    for claim in result['claims']:
-        evidence = ' '.join(e['quote'] for e in claim['evidence'])
-        def numbers(text):
-            return {m.lstrip('0') or '0' for m in re.findall(r'(?<![\d.,])\d+(?:[.,]\d+)*(?![\d.,])', text)}
-        if not numbers(claim['text']).issubset(numbers(evidence)):
-            return dict(result, status='insufficient_evidence', answer='Não consegui verificar todos os números da resposta nas fontes. Reformule a pergunta ou confira o PDF.', claims=[], citations=[])
+    if numeric_mismatches(result):
+        return dict(result, status='insufficient_evidence', answer='Não consegui verificar todos os números da resposta nas fontes. Reformule a pergunta ou confira o PDF.', claims=[], citations=[])
     return result
 
 
