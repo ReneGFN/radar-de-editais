@@ -1,0 +1,45 @@
+{
+ "id": "pilot-23",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "specification",
+ "pncp_id": "00394502000144-1-012044/2026",
+ "question": "Qual capacidade e interface de SSD são descritas no arquivo 1 da contratação do Comando da Marinha no RJ?",
+ "expected_answer": "512 GB, interface PCIe M.2 de quarta geração, formato 2280.",
+ "sources": [
+  {
+   "document_sha256": "dd7a2d29bb9a4107becd702135e31abe4c4b4da490d7809924a96dac22467abc",
+   "document_sequence": 1,
+   "page": 1,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00394502000144/compras/2026/12044/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

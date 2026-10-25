@@ -1,0 +1,131 @@
+{
+  "schema_version": "generation-execution-v1",
+  "variant": "alias_items_v3",
+  "protocol_report": "generation-protocol-alias-items-v3.json",
+  "protocol_report_sha256": "e80ef28f6000993b552f597abbb43c93c06d8a0048da39742f53787409cd2886",
+  "protocol_preserved_unchanged": true,
+  "authorizations": [
+    "2026-10-02: autorizacao explicita no chat para 50 chamadas Groq (uma tentativa por caso, sem repeticao automatica, 35 s entre chamadas)",
+    "2026-10-03: primeira execucao parou com HTTP 429 na tentativa do pilot-20 (20 chamadas feitas)",
+    "2026-10-03: autorizacao explicita no chat para retomar 31 chamadas (30 restantes + nova tentativa do pilot-20)"
+  ],
+  "totals": {
+    "cases_completed": 50,
+    "accepted_answers": 48,
+    "calls_attempted": 51,
+    "rate_limited_attempts": 1
+  },
+  "groups": {
+    "pilot-candidate-v1": {
+      "cases_completed": 40,
+      "accepted_answers": 40,
+      "calls_attempted": 41,
+      "rate_limited_attempts": 1,
+      "rate_limited_case_ids": [
+        "pilot-20"
+      ],
+      "rate_limited_then_accepted": [
+        "pilot-20"
+      ],
+      "rejected_by_validator_case_ids": [],
+      "rejection_causes": {},
+      "other_failures": [],
+      "accepted_case_repeated": false,
+      "states": {
+        "answered": 30,
+        "insufficient_evidence": 3,
+        "refused": 7
+      },
+      "citation_integrity_passed": 40,
+      "input_tokens_accepted": {
+        "n": 40,
+        "median": 3054.0,
+        "total": 115559
+      },
+      "output_tokens_accepted": {
+        "n": 40,
+        "median": 164.0,
+        "total": 6657
+      },
+      "generation_ms_accepted": {
+        "n": 40,
+        "median": 920.4,
+        "total": 41022.6
+      },
+      "total_ms_accepted": {
+        "n": 40,
+        "median": 1058.6,
+        "total": 52894.9
+      },
+      "usage_of_failed_attempts": "not_recorded_not_confirmed",
+      "billing": [
+        "free_plan_user_confirmed_not_independently_verified"
+      ],
+      "reference_sha256": "9b9a5bb89a9a3511c5a5e334227495b56b4985c0e8fe8f23e64ae5e9f54f535a",
+      "snapshot_id": "1446c44aca18011a",
+      "model": "openai/gpt-oss-120b"
+    },
+    "independent-bound-v1": {
+      "cases_completed": 10,
+      "accepted_answers": 8,
+      "calls_attempted": 10,
+      "rate_limited_attempts": 0,
+      "rate_limited_case_ids": [],
+      "rate_limited_then_accepted": [],
+      "rejected_by_validator_case_ids": [
+        "independent-02",
+        "independent-08"
+      ],
+      "rejection_causes": {
+        "independent-02": "ValueError: Quantidade sem apoio literal",
+        "independent-08": "ValueError: Qualificador do critério omitido"
+      },
+      "other_failures": [],
+      "accepted_case_repeated": false,
+      "states": {
+        "answered": 8,
+        "rejected_by_validator": 2
+      },
+      "citation_integrity_passed": 8,
+      "input_tokens_accepted": {
+        "n": 8,
+        "median": 2200.5,
+        "total": 19010
+      },
+      "output_tokens_accepted": {
+        "n": 8,
+        "median": 207.0,
+        "total": 1554
+      },
+      "generation_ms_accepted": {
+        "n": 8,
+        "median": 992.3,
+        "total": 7927.3
+      },
+      "total_ms_accepted": {
+        "n": 8,
+        "median": 1172.2,
+        "total": 11586.4
+      },
+      "usage_of_failed_attempts": "not_recorded_not_confirmed",
+      "billing": [
+        "free_plan_user_confirmed_not_independently_verified"
+      ],
+      "reference_sha256": "b01d754f80426b3bbf0b7519a239e5294eaf369761af299b70123b25729c685f",
+      "snapshot_id": "1446c44aca18011a",
+      "model": "openai/gpt-oss-120b"
+    }
+  },
+  "holdout_used": false,
+  "retrieval_changed_vs_protocol": false,
+  "citation_integrity_is_not_semantic_correctness": true,
+  "excluded_from_public": [
+    "answer",
+    "claims",
+    "citations",
+    "quote",
+    "expected_answer",
+    "notes_private",
+    "reviewer"
+  ]
+}

@@ -1,0 +1,741 @@
+{
+  "snapshot": "1446c44aca18011a",
+  "cases": 40,
+  "holdout_used": false,
+  "groq_calls": 0,
+  "summary": {
+    "baseline": {
+      "all_quotes": 38,
+      "some_quote": 39,
+      "mrr": 0.84375
+    },
+    "reranked": {
+      "all_quotes": 38,
+      "some_quote": 39,
+      "mrr": 0.8458333333333334
+    }
+  },
+  "rerank_ms_median": 0.8351999995284132,
+  "rows": [
+    {
+      "case_id": "pilot-01",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.6530999999085907
+    },
+    {
+      "case_id": "pilot-02",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.6510000002890592
+    },
+    {
+      "case_id": "pilot-03",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.083400000425172
+    },
+    {
+      "case_id": "pilot-04",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.0375000001658918
+    },
+    {
+      "case_id": "pilot-05",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.8778999999776715
+    },
+    {
+      "case_id": "pilot-06",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.16399999913119245
+    },
+    {
+      "case_id": "pilot-07",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.17579999985173345
+    },
+    {
+      "case_id": "pilot-08",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.1130000002594898
+    },
+    {
+      "case_id": "pilot-11",
+      "baseline": {
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.9122999999817694
+    },
+    {
+      "case_id": "pilot-12",
+      "baseline": {
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": false
+      },
+      "rerank_ms": 0.05140000030223746
+    },
+    {
+      "case_id": "pilot-13",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.9582999991835095
+    },
+    {
+      "case_id": "pilot-14",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.1073999994550832
+    },
+    {
+      "case_id": "pilot-15",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.8784999990893994
+    },
+    {
+      "case_id": "pilot-16",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.25099999947997276
+    },
+    {
+      "case_id": "pilot-17",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.6664000011369353
+    },
+    {
+      "case_id": "pilot-18",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.8828999998513609
+    },
+    {
+      "case_id": "pilot-19",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.6188999996084021
+    },
+    {
+      "case_id": "pilot-20",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.23409999994328246
+    },
+    {
+      "case_id": "pilot-21",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 4,
+        "reciprocal_rank_at_k": 0.25,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.0344000002078246
+    },
+    {
+      "case_id": "pilot-22",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.0409999995317776
+    },
+    {
+      "case_id": "pilot-23",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.881199999639648
+    },
+    {
+      "case_id": "pilot-24",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.1856000000989297
+    },
+    {
+      "case_id": "pilot-25",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.07860000005166512
+    },
+    {
+      "case_id": "pilot-26",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.9821000003285008
+    },
+    {
+      "case_id": "pilot-27",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.8259999995061662
+    },
+    {
+      "case_id": "pilot-28",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.9092999989661621
+    },
+    {
+      "case_id": "pilot-29",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.7480000003852183
+    },
+    {
+      "case_id": "pilot-30",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.2337000007391907
+    },
+    {
+      "case_id": "pilot-31",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.9573000006639631
+    },
+    {
+      "case_id": "pilot-32",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.8850000012898818
+    },
+    {
+      "case_id": "independent-01",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.6484999994427199
+    },
+    {
+      "case_id": "independent-02",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.8443999995506601
+    },
+    {
+      "case_id": "independent-03",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.21329999981389847
+    },
+    {
+      "case_id": "independent-04",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.20989999939047266
+    },
+    {
+      "case_id": "independent-05",
+      "baseline": {
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": false,
+        "first_known_rank": null,
+        "reciprocal_rank_at_k": 0.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.1038999998854706
+    },
+    {
+      "case_id": "independent-06",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 3,
+        "reciprocal_rank_at_k": 0.3333333333333333,
+        "all_known_quotes_supported_at_k": false,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.7535000004281756
+    },
+    {
+      "case_id": "independent-07",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.7334000001719687
+    },
+    {
+      "case_id": "independent-08",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 1.9274999995104736
+    },
+    {
+      "case_id": "independent-09",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 1,
+        "reciprocal_rank_at_k": 1.0,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.18939999972644728
+    },
+    {
+      "case_id": "independent-10",
+      "baseline": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "reranked": {
+        "known_chunk_hit_at_k": true,
+        "first_known_rank": 2,
+        "reciprocal_rank_at_k": 0.5,
+        "all_known_quotes_supported_at_k": true,
+        "some_known_quote_supported_at_k": true
+      },
+      "rerank_ms": 0.6695000010950025
+    }
+  ]
+}

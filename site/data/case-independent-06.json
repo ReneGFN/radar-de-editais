@@ -1,0 +1,62 @@
+{
+ "id": "independent-06",
+ "set": "desenvolvimento (lote novo usado em ajustes)",
+ "kind": "answerable",
+ "category": null,
+ "pncp_id": "82575812000120-1-000428/2026",
+ "question": "Qual capacidade, padrão, latência e taxa mínima de transferência são exigidos para a RAM do desktop do item 21 de Porto Belo?",
+ "expected_answer": "16 GB DDR5 CL40; mínimo de 5600 MT/s, compatível com 4800 MT/s JEDEC.",
+ "sources": [
+  {
+   "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+   "document_sequence": 1,
+   "page": 21,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1"
+  },
+  {
+   "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+   "document_sequence": 1,
+   "page": 22,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": false,
+   "criteria": {
+    "correct": false,
+    "complete": false,
+    "supported": true,
+    "no_mixing": false
+   },
+   "error_tags": [
+    "missing_required_fact",
+    "unit_mix",
+    "wrong_value"
+   ]
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": false,
+   "criteria": {
+    "correct": true,
+    "complete": false,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": [
+    "missing_required_fact"
+   ]
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-02",
+  "supersedes_for_current_state": "item-validation-state-v2.json (preserved; recorded before a later resume completed pilot-30..37)",
+  "variant": "alias_items",
+  "snapshot_id": "1446c44aca18011a",
+  "planned_cases": 50,
+  "generated_cases": 47,
+  "pending_case_ids": ["pilot-38", "pilot-39", "pilot-40"],
+  "pending_reason": "groq_http_429_rate_limit",
+  "rate_limit_attempts_in_checkpoint": 3,
+  "failed_attempt_usage": "not_confirmed",
+  "citation_integrity_passed": 47,
+  "citation_integrity_is_not_semantic_correctness": true,
+  "groups": {
+    "pilot_answerable": {"cases": 30, "generated": 30, "answered": 30, "abstained": 0},
+    "pilot_refusals": {"cases": 10, "generated": 7, "answered": 1, "abstained": 6, "answered_case_ids": ["pilot-35"]},
+    "new_answerable": {"cases": 10, "generated": 10, "answered": 9, "abstained": 1}
+  },
+  "human_review": {
+    "private_forms_created": 2,
+    "human_reviewed_cases": 0,
+    "public_summaries": ["human-review-pilot-alias-items-v1.json", "human-review-independent-alias-items-v1.json"]
+  },
+  "human_accuracy": null,
+  "new_cohort_role": "development_after_tuning",
+  "holdout": {
+    "candidates": 14,
+    "downloaded": 0,
+    "questions": 0,
+    "report": "holdout-corpus-candidates-v1.json"
+  },
+  "frozen_protocol_hashes_rechecked": "item-generation-protocol-v2.json code, references and private preview hashes match",
+  "promotion": false,
+  "target_90_percent": "not_evaluable_without_human_review_and_independent_holdout"
+}

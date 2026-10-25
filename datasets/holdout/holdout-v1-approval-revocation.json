@@ -1,0 +1,14 @@
+{
+  "schema_version": "holdout-approval-revocation-v1",
+  "revokes_reference_file": "datasets/holdout/holdout-v1.json",
+  "revokes_reference_sha256": "9744a41a954f7654924a26af47702e9560e0a063ade5c6455457e9081f86828d",
+  "revoked_on": "2026-10-02",
+  "revoked_by": "repository_owner",
+  "reviewer_kind": "human",
+  "superseded_approval_method": "bulk_approval_via_chat",
+  "reason": "O dono do repositório decidiu revisar manualmente os 46 casos, um a um. A aprovação em bloco pelo chat deixa de valer como aprovação do holdout.",
+  "effective_status": "pending_user_approval",
+  "source_of_truth_for_review": "datasets/holdout/holdout-v1-draft.json",
+  "executed_before_revocation": false,
+  "notes": "O arquivo revogado continua no repositório como histórico e não foi editado. Nenhuma execução, indexação, recuperação ou chamada de modelo usou o holdout. Uma nova aprovação precisa gerar outro arquivo congelado, com hash próprio."
+}

@@ -1,0 +1,45 @@
+{
+ "id": "pilot-16",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "specification",
+ "pncp_id": "01626427000162-1-000010/2026",
+ "question": "Qual armazenamento é especificado na cláusula 4.2.1.4.1 da Câmara de Nova Odessa?",
+ "expected_answer": "SSD de 512 GB, NVMe M.2.",
+ "sources": [
+  {
+   "document_sha256": "280e615a071dfbced2e660c9ff66773ab73824422d14bd3401b3aec215477faf",
+   "document_sequence": 1,
+   "page": 45,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01626427000162/compras/2026/10/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

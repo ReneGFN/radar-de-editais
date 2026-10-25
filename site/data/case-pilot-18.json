@@ -1,0 +1,45 @@
+{
+ "id": "pilot-18",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "specification",
+ "pncp_id": "67360537000133-1-000020/2026",
+ "question": "Qual resolução de impressão é especificada para a multifuncional laser colorida do item 15 da Câmara de Itapetininga?",
+ "expected_answer": "2400 × 600 dpi.",
+ "sources": [
+  {
+   "document_sha256": "6728de8668eb3915317cf54305e1ea6516e40664ff6797862a17678940509e75",
+   "document_sequence": 1,
+   "page": 48,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/67360537000133/compras/2026/20/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

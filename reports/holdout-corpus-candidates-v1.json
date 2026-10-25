@@ -1,0 +1,320 @@
+{
+  "state": "metadata_candidates_not_downloaded",
+  "purpose": "future_holdout_never_used_for_tuning",
+  "search_window": [
+    "20260801",
+    "20260920"
+  ],
+  "target": 14,
+  "captured_at_utc": "2026-10-02T01:48:17.115685+00:00",
+  "excluded_development": {
+    "pncp_ids": 41,
+    "document_sha256": 63,
+    "questions": 120
+  },
+  "candidates": [
+    {
+      "pncp_id": "37344355000108-1-000026/2026",
+      "uf": "TO",
+      "region": "Norte",
+      "agency": "MUNICIPIO DE SANDOLANDIA",
+      "object": "[Portal de Compras Públicas] - REGISTRO DE PREÇOS PARA FUTURA, EVENTUAL E PARCELADA AQUISIÇÕES DE MATERIAIS, EQUIPAMENTOS E SUPRIMENTOS DE INFORMÁTICA PARA A PREFEITURA E FUNDOS MUNICIPAIS DE SANDOLANDIA/TO, DE ACORDO COM AS ESPECIFICAÇÕES CONTIDAS NO TERMO DE REFERÊNCIA.",
+      "publication_date": "2026-08-03T10:27:26",
+      "official_url": "https://pncp.gov.br/app/editais/37344355000108/2026/26",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        },
+        {
+          "sequence": 2,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/2",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        },
+        {
+          "sequence": 3,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/37344355000108/compras/2026/26/arquivos/3",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "07100011000192-1-000002/2026",
+      "uf": "RO",
+      "region": "Norte",
+      "agency": "ASSOCIACAO ESCOLA FAMILIA AGRICOLA VALE DO GUAPORE",
+      "object": "[LICITANET] - A quisição de Computador Desktop Tipo Micro + Monitor LED 22” + Teclado e Mouse, Nobreak interativo bivolt.  ",
+      "publication_date": "2026-08-06T11:44:24",
+      "official_url": "https://pncp.gov.br/app/editais/07100011000192/2026/2",
+      "documents": [
+        {
+          "sequence": 2,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/07100011000192/compras/2026/2/arquivos/2",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "41479569000169-1-000055/2026",
+      "uf": "MA",
+      "region": "Nordeste",
+      "agency": "MUNICIPIO DE ROSARIO",
+      "object": "Registro de Preços para futura e eventual contratação de empresa especializada na prestação de serviços continuados de locação de computadores, compreendendo o fornecimento dos equipamentos em regime de locação, instalação, configuração, suporte técnico especializado, manutenção preventiva e correti",
+      "publication_date": "2026-08-03T11:57:49",
+      "official_url": "https://pncp.gov.br/app/editais/41479569000169/2026/55",
+      "documents": [
+        {
+          "sequence": 3,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/41479569000169/compras/2026/55/arquivos/3",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "10091619000102-1-000090/2026",
+      "uf": "PE",
+      "region": "Nordeste",
+      "agency": "MUNICIPIO DE CACHOEIRINHA",
+      "object": "Aquisição complementar de equipamentos e materiais permanentes de informática, destinados ao atendimento das demandas da Secretaria de Assistência Social, bem como à estruturação e funcionamento da futura Secretaria Municipal de Segurança e Defesa Cidadã do Poder Executivo do Município de Cachoeirin",
+      "publication_date": "2026-08-03T11:58:44",
+      "official_url": "https://pncp.gov.br/app/editais/10091619000102/2026/90",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/10091619000102/compras/2026/90/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "70157896000100-1-000010/2026",
+      "uf": "RN",
+      "region": "Nordeste",
+      "agency": "COMPANHIA POTIGUAR DE GAS POTIGAS",
+      "object": "O presente EDITAL tem por objeto contratação de empresa especializada no fornecimento de EQUIPAMENTOS DE INFORMÁTICA, conforme condições, quantidades e exigências estabelecidas neste EDITAL e em seus anexos, especialmente no Termo de Referência.",
+      "publication_date": "2026-08-03T10:44:59",
+      "official_url": "https://pncp.gov.br/app/editais/70157896000100/2026/10",
+      "documents": [
+        {
+          "sequence": 3,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/70157896000100/compras/2026/10/arquivos/3",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "08702573000179-1-000050/2026",
+      "uf": "PB",
+      "region": "Nordeste",
+      "agency": "MUNICIPIO DE BOQUEIRAO",
+      "object": "[LICITANET] - AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA",
+      "publication_date": "2026-08-03T21:31:57",
+      "official_url": "https://pncp.gov.br/app/editais/08702573000179/2026/50",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/08702573000179/compras/2026/50/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "03238755000117-1-000031/2026",
+      "uf": "MT",
+      "region": "Centro-Oeste",
+      "agency": "SORRISO CAMARA MUNICIPAL",
+      "object": "REGISTRO DE PREÇOS PARA FUTURA E EVENTUAL AQUISIÇÃO DE LICENÇAS DE SOFTWARE, EQUIPAMENTOS DE TECNOLOGIA DA INFORMAÇÃO, EQUIPAMENTOS E ACESSÓRIOS DE INFORMÁTICA E AUDIOVISUAL, BEM COMO CONTRATAÇÃO DE SERVIÇOS DE CONECTIVIDADE VIA INTERNET POR SATÉLITE, DESTINADOS AO ATENDIMENTO DAS NECESSIDADES DA CÂ",
+      "publication_date": "2026-08-03T08:44:43",
+      "official_url": "https://pncp.gov.br/app/editais/03238755000117/2026/31",
+      "documents": [
+        {
+          "sequence": 6,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/03238755000117/compras/2026/31/arquivos/6",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "03173317000118-1-000078/2026",
+      "uf": "MS",
+      "region": "Centro-Oeste",
+      "agency": "MUNICIPIO DE NOVA ANDRADINA",
+      "object": "AQUISIÇÃO DE MATERIAIS DE INFORMATICA",
+      "publication_date": "2026-08-03T13:51:30",
+      "official_url": "https://pncp.gov.br/app/editais/03173317000118/2026/78",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/03173317000118/compras/2026/78/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "01759101000103-1-000011/2026",
+      "uf": "MG",
+      "region": "Sudeste",
+      "agency": "CAMARA MUNICIPAL DE DOM SILVERIO",
+      "object": "Aquisição de equipamentos, periféricos e suplementos de informática,",
+      "publication_date": "2026-08-03T13:55:36",
+      "official_url": "https://pncp.gov.br/app/editais/01759101000103/2026/11",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01759101000103/compras/2026/11/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "14004319000108-1-000050/2026",
+      "uf": "ES",
+      "region": "Sudeste",
+      "agency": "FUNDO MUNICIPAL DE SAUDE DE RIO NOVO DO SUL",
+      "object": "AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA PARA AS UNIDADES ESTRATÉGIA SAÚDE DA FAMÍLIA E AGENTES DE ENDEMIAS DO MUNICÍPIO DE RIO NOVO DO SUL/ES.",
+      "publication_date": "2026-08-05T09:23:46",
+      "official_url": "https://pncp.gov.br/app/editais/14004319000108/2026/50",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/14004319000108/compras/2026/50/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "04312658000190-1-000026/2026",
+      "uf": "AM",
+      "region": "Norte",
+      "agency": "SECRETARIA MUNICIPAL DE FINANCAS E TECNOLOGIA DA INFORMACAO - SEMEF",
+      "object": "Aquisição de Estações de Trabalho (Workstations)",
+      "publication_date": "2026-08-06T10:19:46",
+      "official_url": "https://pncp.gov.br/app/editais/04312658000190/2026/26",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/04312658000190/compras/2026/26/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "05138730000177-1-000086/2026",
+      "uf": "PA",
+      "region": "Norte",
+      "agency": "MUNICIPIO DE ITAITUBA",
+      "object": "[Portal de Compras Públicas] - Aquisição de equipamentos, materiais de informática, ferramentas, acessórios e outros itens de apoio operacional, destinados a atender as necessidades das equipes de brigadistas vinculadas ao Plano Operativo de Prevenção e Combate a Incêndios Florestais (POPCIF) simpli",
+      "publication_date": "2026-08-05T08:05:23",
+      "official_url": "https://pncp.gov.br/app/editais/05138730000177/2026/86",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        },
+        {
+          "sequence": 2,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/2",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        },
+        {
+          "sequence": 3,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/05138730000177/compras/2026/86/arquivos/3",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "87691507000117-1-000046/2026",
+      "uf": "RS",
+      "region": "Sul",
+      "agency": "MUNICIPIO DE CAPAO DO LEAO",
+      "object": "[Portal de Compras Públicas] - AQUISIÇÕES DE NOTEBOOKS INTERMEDIÁRIOS DESTINADOS AO ATENDIMENTO DAS NECESSIDADES DAS SECRETARIAS DO MUNICÍPIO DE CAPÃO DO LEÃO.",
+      "publication_date": "2026-08-03T11:55:12",
+      "official_url": "https://pncp.gov.br/app/editais/87691507000117/2026/46",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/87691507000117/compras/2026/46/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        },
+        {
+          "sequence": 2,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/87691507000117/compras/2026/46/arquivos/2",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    },
+    {
+      "pncp_id": "79151312000156-1-000510/2026",
+      "uf": "PR",
+      "region": "Sul",
+      "agency": "UNIVERSIDADE ESTADUAL DE MARINGA",
+      "object": "Aquisição de equipamentos de medição e orientação, de áudio e vídeo, mobiliário, máquinas de escritório e informática.",
+      "publication_date": "2026-08-03T09:56:24",
+      "official_url": "https://pncp.gov.br/app/editais/79151312000156/2026/510",
+      "documents": [
+        {
+          "sequence": 1,
+          "url": "https://pncp.gov.br/pncp-api/v1/orgaos/79151312000156/compras/2026/510/arquivos/1",
+          "type_id": 2,
+          "sha256_status": "pending_download"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "uf": "PB",
+      "page": 1,
+      "stage": "publication_query",
+      "error_type": "HTTPStatusError",
+      "http_status": 429
+    },
+    {
+      "uf": "PR",
+      "page": 1,
+      "stage": "publication_query",
+      "error_type": "HTTPStatusError",
+      "http_status": 429
+    }
+  ],
+  "dropped_agency_overlap": [
+    {
+      "pncp_id": "00394452000103-1-015910/2026",
+      "uf": "AM"
+    },
+    {
+      "pncp_id": "05054929000117-1-000474/2025",
+      "uf": "PA"
+    },
+    {
+      "pncp_id": "00394452000103-1-015447/2026",
+      "uf": "RS"
+    }
+  ],
+  "rate_limited": false,
+  "pdf_hash_overlap_check": "pending_download",
+  "questions": "not_prepared",
+  "groq_calls": 0,
+  "representative": false
+}

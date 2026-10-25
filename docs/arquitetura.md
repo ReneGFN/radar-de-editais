@@ -1,3 +1,5 @@
+> Documento histórico de arquitetura/experimentos. Para executar a versão 1.0.0, use [execução local](execucao-local.md); para o estado atual, use o [README](../README.md). Datas e resultados abaixo pertencem às respectivas etapas.
+
 # Arquitetura — Radar de Editais
 
 Atualização: 2026-10-01. Laboratório de avaliação de RAG para pequenos fornecedores de computadores, monitores e acessórios. LangChain coordena o núcleo, PostgreSQL/pgvector armazena e busca, Groq será o provedor de geração. Dify permanece opção futura.

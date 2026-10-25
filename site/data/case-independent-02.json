@@ -1,0 +1,65 @@
+{
+ "id": "independent-02",
+ "set": "desenvolvimento (lote novo usado em ajustes)",
+ "kind": "answerable",
+ "category": null,
+ "pncp_id": "32512501000143-1-000385/2026",
+ "question": "Quantos notebooks estão previstos em ampla concorrência e quantos na cota para MEI/ME/EPP na contratação de Volta Redonda?",
+ "expected_answer": "28 notebooks no item 3, de ampla concorrência, e 7 no item 4, da cota de 25% para MEI/ME/EPP.",
+ "sources": [
+  {
+   "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+   "document_sequence": 1,
+   "page": 45,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1"
+  },
+  {
+   "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+   "document_sequence": 1,
+   "page": 45,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1"
+  },
+  {
+   "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+   "document_sequence": 1,
+   "page": 46,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1"
+  },
+  {
+   "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+   "document_sequence": 1,
+   "page": 46,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "insufficient_evidence",
+   "human_status": "human_reviewed",
+   "human_pass": false,
+   "criteria": {
+    "correct": false,
+    "complete": false,
+    "supported": false,
+    "no_mixing": true
+   },
+   "error_tags": [
+    "unjustified_abstention"
+   ]
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "rejected",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

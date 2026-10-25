@@ -1,0 +1,45 @@
+{
+ "id": "pilot-21",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "specification",
+ "pncp_id": "18094870000132-1-000077/2026",
+ "question": "Qual é a resolução nativa do projetor em Senhora dos Remédios, diferenciando-a das resoluções redimensionadas?",
+ "expected_answer": "1024 × 768, padrão XGA. As resoluções redimensionadas não são a resolução nativa.",
+ "sources": [
+  {
+   "document_sha256": "0d0c7195f90bd58078f41da8e11b82a45ffdc4c8f640d0cd96943fc3134a0a43",
+   "document_sequence": 1,
+   "page": 41,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/18094870000132/compras/2026/77/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

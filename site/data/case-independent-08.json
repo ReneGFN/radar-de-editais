@@ -1,0 +1,53 @@
+{
+ "id": "independent-08",
+ "set": "desenvolvimento (lote novo usado em ajustes)",
+ "kind": "answerable",
+ "category": null,
+ "pncp_id": "00348003000110-1-001037/2026",
+ "question": "Qual é o critério de julgamento e o modo de disputa do pregão 90012/2026 da Embrapa Caprinos e Ovinos?",
+ "expected_answer": "Menor preço por item, com modo de disputa aberto.",
+ "sources": [
+  {
+   "document_sha256": "159e6ecf7908b2932ce805c85ad4ddec01f598c83c25fb7122902528b371ac0b",
+   "document_sequence": 2,
+   "page": 1,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2"
+  },
+  {
+   "document_sha256": "159e6ecf7908b2932ce805c85ad4ddec01f598c83c25fb7122902528b371ac0b",
+   "document_sequence": 2,
+   "page": 2,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/00348003000110/compras/2026/1037/arquivos/2"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": false,
+   "criteria": {
+    "correct": true,
+    "complete": false,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": [
+    "missing_qualifier"
+   ]
+  },
+  "alias_items_v2": {
+   "technical_state": "rejected",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "rejected",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

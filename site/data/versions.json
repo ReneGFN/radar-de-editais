@@ -1,0 +1,111 @@
+{
+ "default_variant": "alias_items",
+ "decision_record": {
+  "date": "2026-10-03",
+  "basis": [
+   "métricas operacionais nos 50 casos de desenvolvimento",
+   "revisão humana da alias_items_v3"
+  ],
+  "reason": "a v3 corrigiu comportamentos de segurança, mas não teve ganho humano líquido; custa mais e responde uma factual a menos"
+ },
+ "metric_caveats": [
+  "tokens e latências de v2/v3 contam só respostas aceitas (48 casos); alias_items conta 50",
+  "entradas de recuperação idênticas entre variantes; Hit@5 não muda",
+  "integridade de citação não é correção semântica"
+ ],
+ "versions": [
+  {
+   "id": "alias_items",
+   "label": "alias_items (v1, padrão)",
+   "role": "default",
+   "status": "human_reviewed_development_only",
+   "is_default": true,
+   "promoted": true,
+   "factual_answered_of_40": 39,
+   "input_tokens_total": 117498,
+   "input_tokens_counted_cases": 50,
+   "generation_ms_median": 866.5,
+   "total_ms_median": 1017.5,
+   "human": {
+    "answerable_reviewed": 40,
+    "answerable_cases": 40,
+    "answerable_all_criteria_true": 36,
+    "refusals_reviewed": 10,
+    "refusals_cases": 10,
+    "refusals_all_criteria_true": 10,
+    "rate_available": true,
+    "error_tag_counts": {
+     "ambiguous_question": 1,
+     "missing_qualifier": 1,
+     "missing_required_fact": 1,
+     "unit_mix": 1,
+     "unjustified_abstention": 1,
+     "wrong_item": 1,
+     "wrong_value": 1
+    }
+   },
+   "findings": null
+  },
+  {
+   "id": "alias_items_v2",
+   "label": "alias_items_v2 (experimental)",
+   "role": "experimental_preserved",
+   "status": "not_human_reviewed",
+   "is_default": false,
+   "promoted": false,
+   "factual_answered_of_40": 38,
+   "input_tokens_total": 128312,
+   "input_tokens_counted_cases": 48,
+   "generation_ms_median": 927.5,
+   "total_ms_median": 1081.0,
+   "human": null,
+   "findings": null
+  },
+  {
+   "id": "alias_items_v3",
+   "label": "alias_items_v3 (experimental de segurança)",
+   "role": "experimental_safety_variant_preserved",
+   "status": "human_reviewed_not_promoted",
+   "is_default": false,
+   "promoted": false,
+   "factual_answered_of_40": 38,
+   "input_tokens_total": 134569,
+   "input_tokens_counted_cases": 48,
+   "generation_ms_median": 929.5,
+   "total_ms_median": 1063.5,
+   "human": {
+    "answerable_reviewed": 3,
+    "answerable_cases": 40,
+    "answerable_all_criteria_true": 1,
+    "refusals_reviewed": 2,
+    "refusals_cases": 10,
+    "refusals_all_criteria_true": 2,
+    "rate_available": false,
+    "error_tag_counts": {
+     "ambiguous_question": 1,
+     "missing_required_fact": 1
+    }
+   },
+   "findings": {
+    "fixed": [
+     "pilot-35: recusa a garantia indevida",
+     "pilot-36: recusa citando o fato documentado",
+     "pilot-22: estado técnico de resposta parcial corrigido"
+    ],
+    "blocked_safely_still_wrong": [
+     "independent-02: quantidade sem apoio barrada",
+     "independent-08: omissão de \"por item\" barrada"
+    ],
+    "still_failing": [
+     "independent-06: omite a compatibilidade JEDEC 4800 MT/s",
+     "pilot-17: ambiguidade de item não resolvida"
+    ],
+    "regressions_vs_default": [
+     "uma factual aceita a menos (38 contra 39 de 40)",
+     "mais tokens de entrada",
+     "latência de geração e total maior"
+    ]
+   }
+  }
+ ]
+}

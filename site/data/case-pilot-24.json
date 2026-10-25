@@ -1,0 +1,45 @@
+{
+ "id": "pilot-24",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "multi_attribute",
+ "pncp_id": "63084727000114-1-000009/2026",
+ "question": "No notebook do lote II, item 1, da Câmara de Morpará, quais memória RAM e armazenamento são descritos?",
+ "expected_answer": "16 GB DDR4, em dois módulos de 8 GB a 2666 MT/s, e SSD de 512 GB PCIe NVMe M.2.",
+ "sources": [
+  {
+   "document_sha256": "373a9c554e42c8c199222bde00e3d82aa23823ee4965a16a3ec9665969bd1a42",
+   "document_sequence": 1,
+   "page": 46,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/63084727000114/compras/2026/9/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

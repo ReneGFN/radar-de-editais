@@ -1,0 +1,51 @@
+{
+ "id": "independent-07",
+ "set": "desenvolvimento (lote novo usado em ajustes)",
+ "kind": "answerable",
+ "category": null,
+ "pncp_id": "82575812000120-1-000428/2026",
+ "question": "Para o desktop do item 21 de Porto Belo, qual é a garantia de atendimento no local, quando deve ocorrer o atendimento e qual o prazo máximo de solução?",
+ "expected_answer": "Garantia on-site de 12 meses; atendimento no local no próximo dia útil após abertura do chamado; solução em, no máximo, 48 horas.",
+ "sources": [
+  {
+   "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+   "document_sequence": 1,
+   "page": 21,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1"
+  },
+  {
+   "document_sha256": "aa9bcae9e5ae7afc551ea0f86e3a93ab43edfc6b69aa12b3658b2a9ca24dcb30",
+   "document_sequence": 1,
+   "page": 23,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/82575812000120/compras/2026/428/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

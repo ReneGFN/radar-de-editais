@@ -1,0 +1,45 @@
+{
+ "id": "pilot-11",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "specification",
+ "pncp_id": "45339363000194-1-000286/2026",
+ "question": "No item 17 de Porto Ferreira, qual capacidade mínima é descrita para o SSD NVMe?",
+ "expected_answer": "500 GB. O título do item menciona 512 GB, mas a especificação registra capacidade mínima de 500 GB.",
+ "sources": [
+  {
+   "document_sha256": "6a87f1a76606244447812920c3e18878bbcdb9fe472179f187fd65736ff3d796",
+   "document_sequence": 2,
+   "page": 26,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/45339363000194/compras/2026/286/arquivos/2"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

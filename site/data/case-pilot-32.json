@@ -1,0 +1,45 @@
+{
+ "id": "pilot-32",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "procedure",
+ "pncp_id": "02006782000100-1-000026/2026",
+ "question": "Qual critério de julgamento e classificação das propostas é estabelecido no item 11.1 da Fundação Alfredo da Matta?",
+ "expected_answer": "Menor preço global, observadas as condições de prazo, especificações, desempenho e qualidade do edital e seus anexos.",
+ "sources": [
+  {
+   "document_sha256": "5de117725f05a9daf31455175c03ece96bade354286a1aff2f0d735fa95cf1a8",
+   "document_sequence": 2,
+   "page": 16,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/02006782000100/compras/2026/26/arquivos/2"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

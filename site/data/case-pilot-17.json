@@ -1,0 +1,55 @@
+{
+ "id": "pilot-17",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "multi_attribute",
+ "pncp_id": "46732442000123-1-000103/2026",
+ "question": "Na especificação da página 54 de Descalvado, quais são a capacidade do SSD e a memória RAM?",
+ "expected_answer": "SSD de 512 GB e memória de 16 GB DDR4 a 3.200 MHz, em um pente.",
+ "sources": [
+  {
+   "document_sha256": "11abee0fb40629b83f736a6484524e7fb8dd38415f276073274ad21b3f2fe1ad",
+   "document_sequence": 1,
+   "page": 54,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46732442000123/compras/2026/103/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": false,
+   "criteria": {
+    "correct": false,
+    "complete": true,
+    "supported": true,
+    "no_mixing": false
+   },
+   "error_tags": [
+    "ambiguous_question",
+    "wrong_item"
+   ]
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": false,
+   "criteria": {
+    "correct": true,
+    "complete": false,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": [
+    "ambiguous_question"
+   ]
+  }
+ }
+}

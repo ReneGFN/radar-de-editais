@@ -1,0 +1,45 @@
+{
+ "id": "independent-01",
+ "set": "desenvolvimento (lote novo usado em ajustes)",
+ "kind": "answerable",
+ "category": null,
+ "pncp_id": "32512501000143-1-000385/2026",
+ "question": "Qual é o tipo e o tamanho mínimo do monitor do computador desktop do item 1 da contratação de material eletrônico de Volta Redonda?",
+ "expected_answer": "Monitor de LED com, no mínimo, 23 polegadas.",
+ "sources": [
+  {
+   "document_sha256": "48fc94919e0b4163cf25e7a063e218e53e0c72d35170fdf9685cb393ffad6764",
+   "document_sequence": 1,
+   "page": 44,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/32512501000143/compras/2026/385/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

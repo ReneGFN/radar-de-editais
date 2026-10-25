@@ -1,0 +1,45 @@
+{
+ "id": "pilot-20",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "multi_attribute",
+ "pncp_id": "01609402000150-1-000045/2026",
+ "question": "Para o desktop do item 2 em Jari, qual memória RAM mínima, padrão e capacidade mínima de expansão são exigidos?",
+ "expected_answer": "16 GB de RAM, padrão DDR4 ou superior, com possibilidade de expansão para no mínimo 32 GB.",
+ "sources": [
+  {
+   "document_sha256": "bfe9687cdc42151d7b3369996bdf5b94602e5f1234889c151a8a6cc9962b8bc6",
+   "document_sequence": 2,
+   "page": 41,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/01609402000150/compras/2026/45/arquivos/2"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

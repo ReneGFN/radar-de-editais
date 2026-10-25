@@ -1,0 +1,45 @@
+{
+ "id": "pilot-13",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "delivery",
+ "pncp_id": "46179941000135-1-000443/2026",
+ "question": "No edital de Assis de sequência 443, qual prazo máximo de entrega e a partir de qual evento ele é contado?",
+ "expected_answer": "30 dias corridos, contados da retirada ou recebimento da nota de empenho.",
+ "sources": [
+  {
+   "document_sha256": "33ef16104ac3f44b2939f06de7c65ff082970e06c2baca4a5c1f15966dc43644",
+   "document_sequence": 1,
+   "page": 13,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/46179941000135/compras/2026/443/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}

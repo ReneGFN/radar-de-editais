@@ -1,0 +1,45 @@
+{
+ "id": "pilot-07",
+ "set": "desenvolvimento (piloto histórico)",
+ "kind": "answerable",
+ "category": "warranty",
+ "pncp_id": "02291730000114-1-000117/2026",
+ "question": "Na lista da página 69 que descreve RTX 5090, qual garantia de fábrica é indicada?",
+ "expected_answer": "36 meses.",
+ "sources": [
+  {
+   "document_sha256": "bb21373e232b2a2e261a362b494c8408b1ae5ba1ca4bc0bdda0f6629da7de3db",
+   "document_sequence": 1,
+   "page": 69,
+   "url": "https://pncp.gov.br/pncp-api/v1/orgaos/02291730000114/compras/2026/117/arquivos/1"
+  }
+ ],
+ "variants": {
+  "alias_items": {
+   "technical_state": "answered",
+   "human_status": "human_reviewed",
+   "human_pass": true,
+   "criteria": {
+    "correct": true,
+    "complete": true,
+    "supported": true,
+    "no_mixing": true
+   },
+   "error_tags": []
+  },
+  "alias_items_v2": {
+   "technical_state": "answered",
+   "human_status": "not_evaluated",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  },
+  "alias_items_v3": {
+   "technical_state": "answered",
+   "human_status": "pending",
+   "human_pass": null,
+   "criteria": null,
+   "error_tags": []
+  }
+ }
+}
